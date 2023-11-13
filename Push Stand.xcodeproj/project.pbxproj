@@ -7,9 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		223EA0832AEED76F0055F94B /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0822AEED76F0055F94B /* CircularProgressView.swift */; };
+		223EA0862AEEDB290055F94B /* IconWithTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0852AEEDB290055F94B /* IconWithTextView.swift */; };
+		223EA0882AEEDCA60055F94B /* SegmentedProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0872AEEDCA60055F94B /* SegmentedProgressBar.swift */; };
+		223EA08A2AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */; };
+		2263D2102AF8A11200D2E136 /* LandingRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */; };
+		2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */; };
+		2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */; };
+		2263D2162AF91D8400D2E136 /* SignupBirthdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2152AF91D8400D2E136 /* SignupBirthdateViewController.swift */; };
+		2263D2182AF91E6900D2E136 /* SignUpReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2172AF91E6900D2E136 /* SignUpReminderViewController.swift */; };
+		2263D21A2AF91FEB00D2E136 /* SignUpVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */; };
+		2263D21C2AF926CB00D2E136 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */; };
 		22AD2D2E2ADF583000B3B1A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D2D2ADF583000B3B1A8 /* AppDelegate.swift */; };
 		22AD2D302ADF583000B3B1A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D2F2ADF583000B3B1A8 /* SceneDelegate.swift */; };
-		22AD2D322ADF583000B3B1A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D312ADF583000B3B1A8 /* ViewController.swift */; };
+		22AD2D322ADF583000B3B1A8 /* PushStandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D312ADF583000B3B1A8 /* PushStandViewController.swift */; };
 		22AD2D352ADF583000B3B1A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AD2D332ADF583000B3B1A8 /* Main.storyboard */; };
 		22AD2D382ADF583000B3B1A8 /* Push_Stand.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D362ADF583000B3B1A8 /* Push_Stand.xcdatamodeld */; };
 		22AD2D3A2ADF583300B3B1A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22AD2D392ADF583300B3B1A8 /* Assets.xcassets */; };
@@ -37,10 +48,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		223EA0822AEED76F0055F94B /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		223EA0852AEEDB290055F94B /* IconWithTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconWithTextView.swift; sourceTree = "<group>"; };
+		223EA0872AEEDCA60055F94B /* SegmentedProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedProgressBar.swift; sourceTree = "<group>"; };
+		223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInitialPhoneViewController.swift; sourceTree = "<group>"; };
+		2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingRootViewController.swift; sourceTree = "<group>"; };
+		2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneViewController.swift; sourceTree = "<group>"; };
+		2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUsernamePasswordViewController.swift; sourceTree = "<group>"; };
+		2263D2152AF91D8400D2E136 /* SignupBirthdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupBirthdateViewController.swift; sourceTree = "<group>"; };
+		2263D2172AF91E6900D2E136 /* SignUpReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReminderViewController.swift; sourceTree = "<group>"; };
+		2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVerificationViewController.swift; sourceTree = "<group>"; };
+		2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		22AD2D2A2ADF583000B3B1A8 /* Push Stand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Push Stand.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AD2D2D2ADF583000B3B1A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22AD2D2F2ADF583000B3B1A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		22AD2D312ADF583000B3B1A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		22AD2D312ADF583000B3B1A8 /* PushStandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushStandViewController.swift; sourceTree = "<group>"; };
 		22AD2D342ADF583000B3B1A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22AD2D372ADF583000B3B1A8 /* Push_Stand.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Push_Stand.xcdatamodel; sourceTree = "<group>"; };
 		22AD2D392ADF583300B3B1A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,6 +100,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		223EA0812AEED7540055F94B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				223EA0822AEED76F0055F94B /* CircularProgressView.swift */,
+				223EA0852AEEDB290055F94B /* IconWithTextView.swift */,
+				223EA0872AEEDCA60055F94B /* SegmentedProgressBar.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		223EA0842AEED7D00055F94B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				22AD2D312ADF583000B3B1A8 /* PushStandViewController.swift */,
+				223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */,
+				2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */,
+				2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */,
+				2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */,
+				2263D2152AF91D8400D2E136 /* SignupBirthdateViewController.swift */,
+				2263D2172AF91E6900D2E136 /* SignUpReminderViewController.swift */,
+				2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */,
+				2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		22AD2D212ADF583000B3B1A8 = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +149,10 @@
 		22AD2D2C2ADF583000B3B1A8 /* Push Stand */ = {
 			isa = PBXGroup;
 			children = (
+				223EA0842AEED7D00055F94B /* ViewControllers */,
+				223EA0812AEED7540055F94B /* Views */,
 				22AD2D2D2ADF583000B3B1A8 /* AppDelegate.swift */,
 				22AD2D2F2ADF583000B3B1A8 /* SceneDelegate.swift */,
-				22AD2D312ADF583000B3B1A8 /* ViewController.swift */,
 				22AD2D332ADF583000B3B1A8 /* Main.storyboard */,
 				22AD2D392ADF583300B3B1A8 /* Assets.xcassets */,
 				22AD2D3B2ADF583300B3B1A8 /* LaunchScreen.storyboard */,
@@ -261,10 +310,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223EA0862AEEDB290055F94B /* IconWithTextView.swift in Sources */,
+				2263D21C2AF926CB00D2E136 /* RootTabBarController.swift in Sources */,
+				2263D2182AF91E6900D2E136 /* SignUpReminderViewController.swift in Sources */,
+				2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */,
+				2263D21A2AF91FEB00D2E136 /* SignUpVerificationViewController.swift in Sources */,
 				22AD2D382ADF583000B3B1A8 /* Push_Stand.xcdatamodeld in Sources */,
-				22AD2D322ADF583000B3B1A8 /* ViewController.swift in Sources */,
+				223EA08A2AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift in Sources */,
+				2263D2102AF8A11200D2E136 /* LandingRootViewController.swift in Sources */,
+				22AD2D322ADF583000B3B1A8 /* PushStandViewController.swift in Sources */,
+				2263D2162AF91D8400D2E136 /* SignupBirthdateViewController.swift in Sources */,
 				22AD2D2E2ADF583000B3B1A8 /* AppDelegate.swift in Sources */,
+				223EA0832AEED76F0055F94B /* CircularProgressView.swift in Sources */,
+				2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */,
 				22AD2D302ADF583000B3B1A8 /* SceneDelegate.swift in Sources */,
+				223EA0882AEEDCA60055F94B /* SegmentedProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +432,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -429,7 +489,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -444,10 +504,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UBP694KCJY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Push Stand/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Push Stand";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -457,9 +521,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pushstandllc.Push-Stand";
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -471,10 +536,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UBP694KCJY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Push Stand/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Push Stand";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -484,9 +553,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pushstandllc.Push-Stand";
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -500,10 +570,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UBP694KCJY;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pushstandllc.Push-StandTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstandtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -519,10 +590,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UBP694KCJY;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pushstandllc.Push-StandTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstandtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -537,9 +609,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UBP694KCJY;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pushstandllc.Push-StandUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstandUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -554,9 +627,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UBP694KCJY;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pushstandllc.Push-StandUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstandUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

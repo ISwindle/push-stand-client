@@ -1,0 +1,57 @@
+# Xcode #
+#########
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+DerivedData/
+*.moved-aside
+IDEWorkspaceChecks.plist
+xcshareddata/
+*.hmap
+*.ipa
+*.xcscmblueprint
+
+# Build generated #
+###################
+build/
+*.o
+*.LinkFileList
+*.dSYM.zip
+*.dSYM
+*.app
+*.ipa
+*.xcarchive
+
+# Various settings #
+####################
+*.swp
+*.orig
+*~.nib
+*.xcuserdatad
+
+# CocoaPods #
+#############
+Pods/
+
+# Carthage #
+############
+Carthage/Build
+
+# fastlane #
+############
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Other #
+########
+.DS_Store
+*.bak
+*.tmp
+*.swp
+*~
