@@ -28,6 +28,8 @@
 		22AD2D482ADF583400B3B1A8 /* Push_StandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D472ADF583400B3B1A8 /* Push_StandTests.swift */; };
 		22AD2D522ADF583400B3B1A8 /* Push_StandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D512ADF583400B3B1A8 /* Push_StandUITests.swift */; };
 		22AD2D542ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D532ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift */; };
+		8E6DFD942B0E973B007B9901 /* RoundProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6DFD932B0E973B007B9901 /* RoundProgressBar.swift */; };
+		8ED1E8392B0E9D98006243A5 /* StreakBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED1E8382B0E9D98006243A5 /* StreakBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		22AD2D4D2ADF583400B3B1A8 /* Push StandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Push StandUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AD2D512ADF583400B3B1A8 /* Push_StandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push_StandUITests.swift; sourceTree = "<group>"; };
 		22AD2D532ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push_StandUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8E6DFD932B0E973B007B9901 /* RoundProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundProgressBar.swift; sourceTree = "<group>"; };
+		8ED1E8382B0E9D98006243A5 /* StreakBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 		22AD2D2C2ADF583000B3B1A8 /* Push Stand */ = {
 			isa = PBXGroup;
 			children = (
+				8E6DFD902B0E962E007B9901 /* ProgressBars */,
 				223EA0842AEED7D00055F94B /* ViewControllers */,
 				223EA0812AEED7540055F94B /* Views */,
 				22AD2D2D2ADF583000B3B1A8 /* AppDelegate.swift */,
@@ -177,6 +182,15 @@
 				22AD2D532ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift */,
 			);
 			path = "Push StandUITests";
+			sourceTree = "<group>";
+		};
+		8E6DFD902B0E962E007B9901 /* ProgressBars */ = {
+			isa = PBXGroup;
+			children = (
+				8E6DFD932B0E973B007B9901 /* RoundProgressBar.swift */,
+				8ED1E8382B0E9D98006243A5 /* StreakBar.swift */,
+			);
+			path = ProgressBars;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,11 +327,13 @@
 				223EA0862AEEDB290055F94B /* IconWithTextView.swift in Sources */,
 				2263D21C2AF926CB00D2E136 /* RootTabBarController.swift in Sources */,
 				2263D2182AF91E6900D2E136 /* SignUpReminderViewController.swift in Sources */,
+				8E6DFD942B0E973B007B9901 /* RoundProgressBar.swift in Sources */,
 				2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */,
 				2263D21A2AF91FEB00D2E136 /* SignUpVerificationViewController.swift in Sources */,
 				22AD2D382ADF583000B3B1A8 /* Push_Stand.xcdatamodeld in Sources */,
 				223EA08A2AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift in Sources */,
 				2263D2102AF8A11200D2E136 /* LandingRootViewController.swift in Sources */,
+				8ED1E8392B0E9D98006243A5 /* StreakBar.swift in Sources */,
 				22AD2D322ADF583000B3B1A8 /* PushStandViewController.swift in Sources */,
 				2263D2162AF91D8400D2E136 /* SignupBirthdateViewController.swift in Sources */,
 				22AD2D2E2ADF583000B3B1A8 /* AppDelegate.swift in Sources */,
