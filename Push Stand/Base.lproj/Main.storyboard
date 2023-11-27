@@ -666,7 +666,7 @@ Debates, discussions and asking the tough questions is healthy.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRp-AU-nEc">
-                                <rect key="frame" x="149" y="719" width="95" height="35"/>
+                                <rect key="frame" x="149" y="685" width="95" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.11719390016153571" blue="0.96611279249191284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
@@ -689,6 +689,17 @@ Debates, discussions and asking the tough questions is healthy.</string>
                                 <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5B-Os-x3W">
+                                <rect key="frame" x="166" y="748" width="62" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.11719390020000001" blue="0.96611279250000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Skip "/>
+                                <connections>
+                                    <action selector="joinNow:" destination="YXV-jZ-k7a" eventType="touchUpInside" id="pEv-Fu-uPy"/>
+                                    <action selector="skipOnboarding:" destination="YXV-jZ-k7a" eventType="touchUpInside" id="WiE-iR-4PO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D5k-F9-RwW"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -703,7 +714,7 @@ Debates, discussions and asking the tough questions is healthy.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aot-FR-ecS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4979" y="-494"/>
+            <point key="canvasLocation" x="-4979.3893129770986" y="-494.36619718309862"/>
         </scene>
         <!--Item-->
         <scene sceneID="AVA-ab-go2">
