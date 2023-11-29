@@ -9,7 +9,7 @@ class SegmentedBar: UIView {
     }
     var maximum: Int = 10
     var segmentWidth: CGFloat = 25
-    var segmentHeight: CGFloat = 18
+    var segmentHeight: CGFloat = 0
     var spacing: CGFloat = 2
     var selectedColor: UIColor = .red
     var unselectedColor: UIColor = UIColor.secondarySystemBackground.withAlphaComponent(0.1)
