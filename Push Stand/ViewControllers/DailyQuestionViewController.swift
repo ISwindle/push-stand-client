@@ -11,7 +11,7 @@ class DailyQuestionViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
+
     
 }

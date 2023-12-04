@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhd-gU-6Yv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhd-gU-6Yv">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -170,15 +170,35 @@
             <point key="canvasLocation" x="-442.02898550724643" y="660.9375"/>
         </scene>
         <!--Daily ?-->
+        <scene sceneID="Tj1-sb-led">
+            <objects>
+                <viewController id="iQ4-W3-2FR" customClass="DailyQuestionContainerViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gom-r8-Nia">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="xrB-bm-GYb"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.app" catalog="system" selectedImage="questionmark.app.fill" id="ezl-Qw-44R"/>
+                    <connections>
+                        <segue destination="T6S-eC-0uj" kind="presentation" identifier="dailyContainerToQuestion" id="bw5-0C-Xqp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yd6-BC-0XF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="fB5-Ka-3uR" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="373" y="662"/>
+        </scene>
+        <!--Daily ?-->
         <scene sceneID="5Z1-eu-XKJ">
             <objects>
-                <viewController id="T6S-eC-0uj" customClass="DailyQuestionViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DailyQuestionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T6S-eC-0uj" customClass="DailyQuestionViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PIY-nt-eya">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ged-Bd-nPf">
-                                <rect key="frame" x="0.0" y="69" width="393" height="46"/>
+                                <rect key="frame" x="0.0" y="10" width="393" height="46"/>
                                 <color key="backgroundColor" red="0.0" green="0.87071237657978129" blue="0.88150376081466675" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="foB-cZ-JTQ"/>
@@ -188,7 +208,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZxR-j3-uiw">
-                                <rect key="frame" x="347" y="81" width="25" height="21.333333333333343"/>
+                                <rect key="frame" x="347" y="22.000000000000007" width="25" height="21.333333333333336"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="6Uc-rf-HVj"/>
@@ -197,14 +217,14 @@
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="question-streak-fire" translatesAutoresizingMaskIntoConstraints="NO" id="wX5-cT-NA4">
-                                <rect key="frame" x="336.66666666666669" y="148.66666666666666" width="22" height="22"/>
+                                <rect key="frame" x="336.66666666666669" y="89.666666666666671" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="e5K-bT-H64"/>
                                     <constraint firstAttribute="width" constant="22" id="gbL-WR-L5f"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUd-Wy-Mru" customClass="SegmentedBar" customModule="Push_Stand" customModuleProvider="target">
-                                <rect key="frame" x="66.666666666666686" y="155" width="260" height="15"/>
+                                <rect key="frame" x="66.666666666666686" y="96" width="260" height="15"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="Sb7-9F-PU3"/>
@@ -212,19 +232,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fA4-Bd-SMn">
-                                <rect key="frame" x="0.0" y="170.00000000000003" width="393" height="341.66666666666674"/>
+                                <rect key="frame" x="0.0" y="111.00000000000003" width="393" height="395.66666666666674"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DO YOU BELIEVE CONGRESS SHOULD HAVE TERM LIMITS?" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="lzE-75-Bbs">
-                                <rect key="frame" x="45" y="315.66666666666669" width="303" height="50.333333333333314"/>
+                                <rect key="frame" x="45" y="283.66666666666669" width="303" height="50.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="thumb-down" translatesAutoresizingMaskIntoConstraints="NO" id="pHf-ZU-d5t">
-                                <rect key="frame" x="63" y="512.66666666666663" width="107" height="107"/>
+                                <rect key="frame" x="63" y="507.66666666666674" width="107" height="107"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="thumb-up" translatesAutoresizingMaskIntoConstraints="NO" id="rpG-qm-uQa">
-                                <rect key="frame" x="223" y="512.66666666666663" width="107" height="107"/>
+                                <rect key="frame" x="223" y="507.66666666666674" width="107" height="107"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sy1-da-Psm"/>
@@ -256,10 +276,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.bubble" catalog="system" selectedImage="questionmark.bubble.fill" id="asJ-Ax-25m"/>
+                    <connections>
+                        <segue destination="fB5-Ka-3uR" kind="unwind" unwindAction="unwindToThisViewControllerWithSegue:" id="8hG-eM-9J4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MhN-AH-P61" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="413.04347826086962" y="660.26785714285711"/>
+            <point key="canvasLocation" x="411" y="1371"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZGX-oC-B7z">
@@ -391,7 +414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBC-S3-R4h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="413.04347826086962" y="1408.9285714285713"/>
+            <point key="canvasLocation" x="372" y="2011"/>
         </scene>
         <!--Shop-->
         <scene sceneID="fb4-n2-YBz">
@@ -772,7 +795,7 @@
                     <connections>
                         <segue destination="1cg-J8-SKH" kind="relationship" relationship="viewControllers" id="biE-jJ-34r"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="F0Q-cr-PGp"/>
-                        <segue destination="T6S-eC-0uj" kind="relationship" relationship="viewControllers" id="kdl-E0-XGX"/>
+                        <segue destination="iQ4-W3-2FR" kind="relationship" relationship="viewControllers" id="TQQ-vz-6T8"/>
                         <segue destination="8d7-pk-SHA" kind="relationship" relationship="viewControllers" id="UUl-Qa-C0q"/>
                         <segue destination="KAI-wO-NJp" kind="relationship" relationship="viewControllers" id="YgS-Np-ASc"/>
                     </connections>
@@ -1210,6 +1233,8 @@
         <image name="points-icon" width="50" height="50"/>
         <image name="question-streak-fire" width="28" height="28"/>
         <image name="question-streak-icon" width="50" height="50"/>
+        <image name="questionmark.app" catalog="system" width="128" height="114"/>
+        <image name="questionmark.app.fill" catalog="system" width="128" height="114"/>
         <image name="questionmark.bubble" catalog="system" width="128" height="110"/>
         <image name="questionmark.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="search-icon" width="50" height="50"/>
@@ -1227,10 +1252,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
