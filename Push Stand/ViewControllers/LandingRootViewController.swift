@@ -8,30 +8,28 @@ import UIKit
 
 class LandingRootViewController: UIViewController {
     
-    @IBOutlet weak var pushLabel: UILabel!
-    @IBOutlet weak var standLabel: UILabel!
+    //@IBOutlet weak var pushLabel: UILabel!
+   // @IBOutlet weak var standLabel: UILabel!
     @IBOutlet weak var joinNowButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .black
+        self.view.backgroundColor = .white
         
-        pushLabel.alpha = 0
-        pushLabel.textColor = .red
-        standLabel.alpha = 0
-        standLabel.textColor = .white
+        //standLabel.alpha = 0
+        //standLabel.textColor = .white
         joinNowButton.alpha = 0
         joinNowButton.setTitle("Join Now", for: .normal)
         
         UIView.animate(withDuration: 1.0, animations: {
             // First animation
-            self.pushLabel.alpha = 1
+            //self.pushLabel.alpha = 1
         }) { _ in
             UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
                 // Second animation
-                self.standLabel.alpha = 1
+                //self.standLabel.alpha = 1
             }) { _ in
-                UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
+                UIView.animate(withDuration: 0.0, delay: 0.0, options: [], animations: {
                     // Second animation
                     self.joinNowButton.alpha = 1
                 }, completion: nil)
