@@ -3,7 +3,7 @@ import UIKit
 class PushStandViewController: UIViewController {
 
     @IBOutlet weak var pushStandButton: UIImageView!
-        @IBOutlet var pushStandGesture: UITapGestureRecognizer!
+    @IBOutlet var pushStandGesture: UITapGestureRecognizer!
 
         override func viewDidLoad() {
             super.viewDidLoad()

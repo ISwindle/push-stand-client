@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhd-gU-6Yv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhd-gU-6Yv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -611,7 +611,7 @@
         <!--Home-->
         <scene sceneID="PEo-2c-Ah2">
             <objects>
-                <viewController storyboardIdentifier="HomeStatsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HDi-mI-K2g" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeStatsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HDi-mI-K2g" customClass="HomeStatsViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PCU-AQ-k3b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -799,6 +799,37 @@ Stands</string>
                                     <constraint firstItem="ov3-1B-ftm" firstAttribute="centerX" secondItem="Wlz-PA-Rkk" secondAttribute="centerX" id="jnL-z8-xmD"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9l-Tj-CeX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH STAND" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgA-By-H2m">
+                                        <rect key="frame" x="114" y="56" width="187.5" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="pKa-28-hBt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="sMR-kY-hS2">
+                                        <rect key="frame" x="122" y="689" width="170.5" height="170.5"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="sMR-kY-hS2" secondAttribute="bottom" constant="36.5" id="3TA-TZ-LyS"/>
+                                    <constraint firstAttribute="trailing" secondItem="sMR-kY-hS2" secondAttribute="trailing" constant="121.5" id="5iP-J5-zHN"/>
+                                    <constraint firstAttribute="trailing" secondItem="RgA-By-H2m" secondAttribute="trailing" constant="112.5" id="9lb-dP-QR8"/>
+                                    <constraint firstItem="RgA-By-H2m" firstAttribute="top" secondItem="R9l-Tj-CeX" secondAttribute="top" constant="56" id="H9q-HO-W1w"/>
+                                    <constraint firstItem="sMR-kY-hS2" firstAttribute="leading" secondItem="R9l-Tj-CeX" secondAttribute="leading" constant="122" id="Pn2-xa-d1E"/>
+                                    <constraint firstItem="RgA-By-H2m" firstAttribute="leading" secondItem="R9l-Tj-CeX" secondAttribute="leading" constant="114" id="kZW-nJ-QwY"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="BBj-fo-GNU" appends="YES" id="8Tq-3a-JWC"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FPa-gG-5KV"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -807,12 +838,15 @@ Stands</string>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="trailing" secondItem="Wlz-PA-Rkk" secondAttribute="trailing" constant="15" id="2Dy-XH-1uu"/>
                             <constraint firstItem="kIv-3Y-csH" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="31I-NY-PWm"/>
                             <constraint firstItem="UBD-tg-X7g" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="31s-pp-FS7"/>
+                            <constraint firstItem="R9l-Tj-CeX" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="3Ud-sj-9Q9"/>
                             <constraint firstItem="N5a-E1-3cg" firstAttribute="top" secondItem="2z3-0T-A7t" secondAttribute="bottom" constant="20" id="5pH-CV-id9"/>
                             <constraint firstItem="UBD-tg-X7g" firstAttribute="top" secondItem="3bp-ZZ-nZs" secondAttribute="bottom" constant="27.5" id="BLN-m1-5Bh"/>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="trailing" secondItem="3bp-ZZ-nZs" secondAttribute="trailing" constant="20" id="CAs-Sz-1uQ"/>
                             <constraint firstItem="3bp-ZZ-nZs" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" constant="20" id="GlD-5s-W5Z"/>
+                            <constraint firstItem="R9l-Tj-CeX" firstAttribute="trailing" secondItem="FPa-gG-5KV" secondAttribute="trailing" id="HcX-nv-Omz"/>
                             <constraint firstItem="3iR-fP-Osy" firstAttribute="centerY" secondItem="2z3-0T-A7t" secondAttribute="centerY" id="HeT-pN-ZYu"/>
                             <constraint firstItem="UBD-tg-X7g" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" constant="60" id="Hnb-Bf-7PC"/>
+                            <constraint firstAttribute="bottom" secondItem="R9l-Tj-CeX" secondAttribute="bottom" id="I5J-bK-3Gt"/>
                             <constraint firstItem="Q7G-p0-aSC" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="N4X-gU-m7q"/>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="trailing" secondItem="kIv-3Y-csH" secondAttribute="trailing" id="Nbi-v4-DgV"/>
                             <constraint firstItem="kIv-3Y-csH" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="NjH-mc-Vqq"/>
@@ -821,6 +855,7 @@ Stands</string>
                             <constraint firstItem="Wlz-PA-Rkk" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" constant="15" id="PGG-Fc-TLA"/>
                             <constraint firstItem="3Ll-VV-Gpv" firstAttribute="top" secondItem="kIv-3Y-csH" secondAttribute="bottom" constant="20" id="RUx-sn-i46"/>
                             <constraint firstItem="3Ll-VV-Gpv" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="SpS-e1-1B6"/>
+                            <constraint firstItem="R9l-Tj-CeX" firstAttribute="top" secondItem="PCU-AQ-k3b" secondAttribute="top" id="UgJ-jv-U7l"/>
                             <constraint firstItem="2z3-0T-A7t" firstAttribute="leading" secondItem="PCU-AQ-k3b" secondAttribute="leading" id="X4K-4a-tiX"/>
                             <constraint firstItem="Wlz-PA-Rkk" firstAttribute="top" secondItem="poi-qy-dAp" secondAttribute="bottom" constant="15" id="Xgt-Vc-Muj"/>
                             <constraint firstItem="N5a-E1-3cg" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" constant="20" id="cwr-eo-msV"/>
@@ -845,10 +880,16 @@ Stands</string>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="aMG-tB-PMa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="landingViewWithButton" destination="R9l-Tj-CeX" id="4Ry-0h-Iar"/>
+                        <outlet property="pushStandButton" destination="sMR-kY-hS2" id="UXP-ef-o2a"/>
+                        <outlet property="pushStandGesture" destination="BBj-fo-GNU" id="zmM-PM-0Iw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7U-Tz-u7S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BBj-fo-GNU"/>
             </objects>
-            <point key="canvasLocation" x="-2061.2195121951218" y="659.49152542372883"/>
+            <point key="canvasLocation" x="-2062.3188405797105" y="658.92857142857144"/>
         </scene>
         <!--Root Tab Bar Controller-->
         <scene sceneID="USp-eR-TdX">
@@ -863,7 +904,7 @@ Stands</string>
                         <color key="selectedImageTintColor" red="0.0" green="0.11719390020000001" blue="0.96611279250000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
-                        <segue destination="1cg-J8-SKH" kind="relationship" relationship="viewControllers" id="biE-jJ-34r"/>
+                        <segue destination="HDi-mI-K2g" kind="relationship" relationship="viewControllers" id="Jmg-ss-09h"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="F0Q-cr-PGp"/>
                         <segue destination="iQ4-W3-2FR" kind="relationship" relationship="viewControllers" id="TQQ-vz-6T8"/>
                         <segue destination="8d7-pk-SHA" kind="relationship" relationship="viewControllers" id="UUl-Qa-C0q"/>
