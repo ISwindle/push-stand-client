@@ -6,6 +6,7 @@ class HomeStatsViewController: UIViewController {
     
     @IBOutlet weak var pushStandButton: UIImageView!
     @IBOutlet weak var landingViewWithButton: UIView!
+    @IBOutlet weak var pushStandTitle: UIView!
     @IBOutlet var pushStandGesture: UITapGestureRecognizer!
     
     override func viewDidLoad() {
@@ -28,12 +29,14 @@ class HomeStatsViewController: UIViewController {
         UIView.animate(withDuration: 1.5, animations: {
             // This will start the animation to fade out the view
             self.landingViewWithButton.alpha = 0
+            self.pushStandTitle.alpha = 0
             self.tabBarController?.tabBar.alpha = 1
       
         }) { (finished) in
             // Once the animation is finished, hide the view
             if finished {
                 self.landingViewWithButton.isHidden = true
+                self.pushStandTitle.isHidden = true
             }
             
         }

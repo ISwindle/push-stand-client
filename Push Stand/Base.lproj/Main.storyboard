@@ -327,14 +327,9 @@
                                     <constraint firstAttribute="height" constant="150" id="rdH-Li-QE4"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwL-86-JUO" userLabel="Today Question View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwL-86-JUO" userLabel="Today Question">
                                 <rect key="frame" x="0.0" y="111" width="414" height="775"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuq-KK-y27">
-                                        <rect key="frame" x="87" y="323" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rt9-h0-mY5" userLabel="Today Question View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="525"/>
                                         <subviews>
@@ -1029,6 +1024,9 @@ Stands</string>
                                     <constraint firstItem="SA6-Vp-XW0" firstAttribute="centerX" secondItem="KpS-l5-xEw" secondAttribute="centerX" id="DBo-Lf-1Zd"/>
                                     <constraint firstItem="SA6-Vp-XW0" firstAttribute="centerY" secondItem="KpS-l5-xEw" secondAttribute="centerY" id="QtH-zH-aIk"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="BBj-fo-GNU" appends="YES" id="Hw1-Z8-LWq"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FPa-gG-5KV"/>
@@ -1088,6 +1086,7 @@ Stands</string>
                         <outlet property="landingViewWithButton" destination="R9l-Tj-CeX" id="4Ry-0h-Iar"/>
                         <outlet property="pushStandButton" destination="sMR-kY-hS2" id="UXP-ef-o2a"/>
                         <outlet property="pushStandGesture" destination="BBj-fo-GNU" id="zmM-PM-0Iw"/>
+                        <outlet property="pushStandTitle" destination="KpS-l5-xEw" id="wlG-iQ-rQP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7U-Tz-u7S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
