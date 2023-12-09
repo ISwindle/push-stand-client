@@ -29,7 +29,7 @@ class HomeStatsViewController: UIViewController {
             // This will start the animation to fade out the view
             self.landingViewWithButton.alpha = 0
             self.tabBarController?.tabBar.alpha = 1
-            
+      
         }) { (finished) in
             // Once the animation is finished, hide the view
             if finished {
