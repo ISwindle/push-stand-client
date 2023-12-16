@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
@@ -14,17 +14,28 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LogoButton" translatesAutoresizingMaskIntoConstraints="NO" id="Fph-D9-rfg">
-                                <rect key="frame" x="156" y="346" width="81" height="80"/>
+                                <rect key="frame" x="452" y="543" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Ts3-CE-nxE">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="80" id="eNG-FH-IL1">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                                    </constraint>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH STAND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXb-r2-3z5">
-                                <rect key="frame" x="87.666666666666686" y="446" width="218" height="42"/>
+                                <rect key="frame" x="297.5" y="683" width="429" height="84"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
+                                </variation>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -32,7 +43,9 @@
                         <constraints>
                             <constraint firstItem="NXb-r2-3z5" firstAttribute="top" secondItem="Fph-D9-rfg" secondAttribute="bottom" constant="20" id="1kf-QO-QQK"/>
                             <constraint firstItem="NXb-r2-3z5" firstAttribute="centerX" secondItem="Fph-D9-rfg" secondAttribute="centerX" id="A18-86-Dzy"/>
-                            <constraint firstItem="Fph-D9-rfg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-40" id="bf0-VY-jjs"/>
+                            <constraint firstItem="Fph-D9-rfg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-40" id="bf0-VY-jjs">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-80"/>
+                            </constraint>
                             <constraint firstItem="Fph-D9-rfg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uDM-Gw-30w"/>
                         </constraints>
                     </view>
