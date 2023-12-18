@@ -5,7 +5,7 @@ class CircularProgressBar: UIView {
     private var progressLayer = CAShapeLayer()
     private var trackLayer = CAShapeLayer()
 
-    var progress: CGFloat = 0.2 {
+    var progress: CGFloat = 0.25 {
         didSet {
             progressLayer.strokeEnd = progress
         }
