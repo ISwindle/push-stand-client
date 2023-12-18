@@ -1151,10 +1151,15 @@ Stands</string>
                         <outlet property="dailyGoalCount" destination="FRt-ke-DPV" id="W3Z-I0-6Hc"/>
                         <outlet property="globalStandCount" destination="WKY-V7-7fx" id="R3s-RN-faB"/>
                         <outlet property="landingViewWithButton" destination="R9l-Tj-CeX" id="4Ry-0h-Iar"/>
+                        <outlet property="pointsIcon" destination="9tL-5f-BSN" id="If8-HE-9RP"/>
                         <outlet property="pushStandButton" destination="sMR-kY-hS2" id="UXP-ef-o2a"/>
                         <outlet property="pushStandGesture" destination="BBj-fo-GNU" id="zmM-PM-0Iw"/>
                         <outlet property="pushStandTitle" destination="KpS-l5-xEw" id="wlG-iQ-rQP"/>
+                        <outlet property="questionStreakIcon" destination="O3e-xe-AEd" id="87x-Dt-bR7"/>
+                        <outlet property="segmentedStreakBar" destination="UBD-tg-X7g" id="lpk-Ew-ySq"/>
                         <outlet property="standProgressBar" destination="ov3-1B-ftm" id="bxI-1M-WHu"/>
+                        <outlet property="standStreakIcon" destination="ySx-gl-PtM" id="wkw-i5-8o8"/>
+                        <outlet property="streakImage" destination="poi-qy-dAp" id="T5s-TQ-SVl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7U-Tz-u7S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -12,6 +12,16 @@ class HomeStatsViewController: UIViewController {
     @IBOutlet weak var dailyGoalCount: UILabel!
     @IBOutlet weak var globalStandCount: UILabel!
     
+    @IBOutlet weak var standStreakIcon: UIImageView!
+    @IBOutlet weak var questionStreakIcon: UIImageView!
+    @IBOutlet weak var pointsIcon: UIImageView!
+    
+    @IBOutlet weak var segmentedStreakBar: SegmentedBar!
+    @IBOutlet weak var streakImage: UIImageView!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Ensure the image view can receive touch events
@@ -48,8 +58,46 @@ class HomeStatsViewController: UIViewController {
                 }
             }
         }
+        
+        // Ensure the image view can interact with the user
+        standStreakIcon.isUserInteractionEnabled = true
+        questionStreakIcon.isUserInteractionEnabled = true
+        pointsIcon.isUserInteractionEnabled = true
+
+        // Create a UITapGestureRecognizer
+        let standStreakGesture = UITapGestureRecognizer(target: self, action: #selector(standStreakTapped))
+        standStreakIcon.addGestureRecognizer(standStreakGesture)
+        let questionStreakGesture = UITapGestureRecognizer(target: self, action: #selector(questionStreakTapped))
+        questionStreakIcon.addGestureRecognizer(questionStreakGesture)
+        let pointsGesture = UITapGestureRecognizer(target: self, action: #selector(pointsTapped))
+        pointsIcon.addGestureRecognizer(pointsGesture)
 
     }
+    
+    // Action for tap gesture
+        @objc func standStreakTapped() {
+            segmentedStreakBar.selectedColor = .red
+            segmentedStreakBar.value = 4
+            streakImage.image = UIImage(named: "stand-streak-fire")
+        }
+    // Action for tap gesture
+        @objc func questionStreakTapped() {
+            segmentedStreakBar.selectedColor = .blue //change to corret color
+            segmentedStreakBar.value = 4
+            streakImage.image = UIImage(named: "question-streak-fire")
+        }
+    // Action for tap gesture
+        @objc func pointsTapped() {
+            // Create an alert
+                    let alert = UIAlertController(title: "Hi", message: "From Points Tapped", preferredStyle: .alert)
+
+                    // Add an action to the alert
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+                    // Present the alert
+                    self.present(alert, animated: true, completion: nil)
+        }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -72,7 +120,6 @@ class HomeStatsViewController: UIViewController {
             
         }
     }
-
 
     func callAPIGateway(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
         // Construct the URL with query parameters
