@@ -12,6 +12,7 @@ class HomeStatsViewController: UIViewController {
     @IBOutlet weak var dailyGoalCount: UILabel!
     @IBOutlet weak var globalStandCount: UILabel!
     
+    @IBOutlet weak var myPointsLabel: UILabel!
     @IBOutlet weak var standStreakIcon: UIImageView!
     @IBOutlet weak var questionStreakIcon: UIImageView!
     @IBOutlet weak var pointsIcon: UIImageView!
@@ -80,26 +81,27 @@ class HomeStatsViewController: UIViewController {
     
     // Action for tap gesture
         @objc func standStreakTapped() {
+            myPointsLabel.alpha = 0
+            segmentedStreakBar.alpha = 1
+            streakImage.alpha = 1
             segmentedStreakBar.selectedColor = .red
             segmentedStreakBar.value = 4
             streakImage.image = UIImage(named: "stand-streak-fire")
         }
     // Action for tap gesture
         @objc func questionStreakTapped() {
+            myPointsLabel.alpha = 0
+            segmentedStreakBar.alpha = 1
+            streakImage.alpha = 1
             segmentedStreakBar.selectedColor = .cyan
             segmentedStreakBar.value = 4
             streakImage.image = UIImage(named: "question-streak-fire")
         }
     // Action for tap gesture
         @objc func pointsTapped() {
-            // Create an alert
-                    let alert = UIAlertController(title: "Hi", message: "From Points Tapped", preferredStyle: .alert)
-
-                    // Add an action to the alert
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-
-                    // Present the alert
-                    self.present(alert, animated: true, completion: nil)
+            segmentedStreakBar.alpha = 0
+            streakImage.alpha = 0
+            myPointsLabel.alpha = 1
         }
     
     

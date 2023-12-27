@@ -20,6 +20,7 @@ class LandingRootViewController: UIViewController {
         //standLabel.textColor = .white
         joinNowButton.alpha = 0
         joinNowButton.setTitle("Join Now", for: .normal)
+        joinNowButton.titleLabel?.adjustsFontForContentSizeCategory = true
         
         UIView.animate(withDuration: 1.0, animations: {
             // First animation

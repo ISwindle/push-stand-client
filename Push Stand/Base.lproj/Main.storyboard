@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhd-gU-6Yv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhd-gU-6Yv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1189,6 +1189,7 @@ Stands</string>
                         <outlet property="dailyGoalCount" destination="FRt-ke-DPV" id="W3Z-I0-6Hc"/>
                         <outlet property="globalStandCount" destination="WKY-V7-7fx" id="R3s-RN-faB"/>
                         <outlet property="landingViewWithButton" destination="R9l-Tj-CeX" id="4Ry-0h-Iar"/>
+                        <outlet property="myPointsLabel" destination="rhB-y6-c0a" id="KBt-sg-P8X"/>
                         <outlet property="pointsIcon" destination="9tL-5f-BSN" id="If8-HE-9RP"/>
                         <outlet property="pushStandButton" destination="sMR-kY-hS2" id="UXP-ef-o2a"/>
                         <outlet property="pushStandGesture" destination="BBj-fo-GNU" id="zmM-PM-0Iw"/>
@@ -1243,7 +1244,8 @@ Stands</string>
                                     <constraint firstAttribute="width" secondItem="HRp-AU-nEc" secondAttribute="height" multiplier="157:17" id="R6f-ex-651"/>
                                 </constraints>
                                 <color key="tintColor" red="0.0" green="0.11719390016153571" blue="0.96611279249191284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Button"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Join Now"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Join Now"/>
                                 <connections>
                                     <action selector="joinNow:" destination="YXV-jZ-k7a" eventType="touchUpInside" id="y1B-ZD-X6W"/>
