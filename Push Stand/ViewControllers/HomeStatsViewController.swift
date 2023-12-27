@@ -86,7 +86,7 @@ class HomeStatsViewController: UIViewController {
         }
     // Action for tap gesture
         @objc func questionStreakTapped() {
-            segmentedStreakBar.selectedColor = .blue //change to corret color
+            segmentedStreakBar.selectedColor = .cyan
             segmentedStreakBar.value = 4
             streakImage.image = UIImage(named: "question-streak-fire")
         }
