@@ -8,9 +8,10 @@
 import UIKit
 import CoreData
 import FirebaseCore
+import FirebaseMessaging
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
     
     
     
@@ -18,7 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions:
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Configure Firebase
         FirebaseApp.configure()
+                
+        // Request notification authorization
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            print("Permission granted: \(granted)")
+        }
+                
+        application.registerForRemoteNotifications()  // Register for remote notifications
+        
+        // Set UNUserNotificationCenter delegate
+        UNUserNotificationCenter.current().delegate = self
+                
+        // Set up Firebase messaging delegate
+        Messaging.messaging().delegate = self
         
         return true
     }
@@ -82,6 +97,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    // Receive FCM token
+        func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+            print("Firebase registration token: \(String(describing: fcmToken))")
+        }
+
+        // Handle foreground notifications
+        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            completionHandler([.alert, .sound, .badge])
+        }
     
 }
 

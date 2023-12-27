@@ -27,6 +27,10 @@ class PushStandViewController: UIViewController {
     }
 
         @IBAction func pushStand(_ sender: UITapGestureRecognizer) {
+            let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+            feedbackGenerator.prepare()
+            feedbackGenerator.impactOccurred()
+            print("Tapped")
             self.tabBarController?.tabBar.isHidden = false
             // Perform the action when the image view is tapped
             tabBarController?.replaceViewController(atIndex: 0, withViewControllerIdentifier: "HomeStatsViewController")

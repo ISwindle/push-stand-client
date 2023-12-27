@@ -43,6 +43,7 @@
 		22AD2D482ADF583400B3B1A8 /* Push_StandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D472ADF583400B3B1A8 /* Push_StandTests.swift */; };
 		22AD2D522ADF583400B3B1A8 /* Push_StandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D512ADF583400B3B1A8 /* Push_StandUITests.swift */; };
 		22AD2D542ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D532ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift */; };
+		22D12AA42B3C762F004880B6 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 22D12AA32B3C762F004880B6 /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D12AA42B3C762F004880B6 /* FirebaseMessaging in Frameworks */,
 				220976F12B2764450027E6C6 /* FirebaseAnalyticsSwift in Frameworks */,
 				220976ED2B2764450027E6C6 /* FirebaseAnalytics in Frameworks */,
 				220976EF2B2764450027E6C6 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
@@ -249,6 +251,7 @@
 				220976F42B2764450027E6C6 /* FirebaseFirestore */,
 				220976F62B2764450027E6C6 /* FirebaseStorage */,
 				220976F82B2764730027E6C6 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				22D12AA32B3C762F004880B6 /* FirebaseMessaging */,
 			);
 			productName = "Push Stand";
 			productReference = 22AD2D2A2ADF583000B3B1A8 /* Push Stand.app */;
@@ -792,6 +795,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 220976EB2B2764450027E6C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		22D12AA32B3C762F004880B6 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 220976EB2B2764450027E6C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 

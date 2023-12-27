@@ -31,11 +31,13 @@ class HomeStatsViewController: UIViewController {
         // Connect the tap gesture recognizer action
         pushStandGesture.addTarget(self, action: #selector(pushStand(_:)))
         pushStandButton.addGestureRecognizer(pushStandGesture)
+        
+        
         // Example usage
-        let endpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/dailygoals"
-        let queryParams = ["date": "2023-12-18"]
+        let dailyGoalsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/dailygoals"
+        let dailyGoalsQueryParams = ["date": "2023-12-18"]
 
-        callAPIGateway(endpoint: endpoint, queryParams: queryParams) { result in
+        getDailyGoals(endpoint: dailyGoalsEndpoint, queryParams: dailyGoalsQueryParams) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
@@ -58,6 +60,8 @@ class HomeStatsViewController: UIViewController {
                 }
             }
         }
+        
+        
         
         // Ensure the image view can interact with the user
         standStreakIcon.isUserInteractionEnabled = true
@@ -104,7 +108,22 @@ class HomeStatsViewController: UIViewController {
         self.tabBarController?.tabBar.alpha = 0
     }
     @IBAction func pushStand(_ sender: UITapGestureRecognizer) {
+        let uuid = UUID()
+        let uuidString = uuid.uuidString
+        let dateFormatter = DateFormatter()
+        let dateString = dateFormatter.string(from: Date())
+        dateFormatter.dateFormat = "dd-MM-yyyy"
         self.tabBarController?.tabBar.isHidden = false
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+        feedbackGenerator.prepare()
+        feedbackGenerator.impactOccurred()
+        let pushStandEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/stand"
+        let pushStandQueryParams = ["UserId": uuidString, "Date": dateString]
+        postStand(endpoint: pushStandEndpoint, queryParams: pushStandQueryParams) { result in
+            DispatchQueue.main.async {
+                print("worked")
+            }
+        }
         UIView.animate(withDuration: 1.5, animations: {
             // This will start the animation to fade out the view
             self.landingViewWithButton.alpha = 0
@@ -121,7 +140,7 @@ class HomeStatsViewController: UIViewController {
         }
     }
 
-    func callAPIGateway(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
+    func getDailyGoals(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
         // Construct the URL with query parameters
         var urlComponents = URLComponents(string: endpoint)
         urlComponents?.queryItems = queryParams.map { URLQueryItem(name: $0.key, value: $0.value) }
@@ -134,6 +153,45 @@ class HomeStatsViewController: UIViewController {
         // Create a URLRequest
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+
+        // URLSession task to call the API
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            // Check for errors
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            // Check for valid data
+            guard let data = data else {
+                completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
+                return
+            }
+
+            // Attempt to parse JSON
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    completion(.success(json))
+                } else {
+                    completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid JSON"])))
+                }
+            } catch let error {
+                completion(.failure(error))
+            }
+        }
+
+        // Start the task
+        task.resume()
+    }
+    
+    func postStand(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
+        let parameters = "{\n    \"UserId\": \"Test\",\n    \"Date\": \"12-27-2023\"\n}"
+        let postData = parameters.data(using: .utf8)
+
+        var request = URLRequest(url: URL(string: endpoint)!,timeoutInterval: Double.infinity)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        print(request)
 
         // URLSession task to call the API
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
