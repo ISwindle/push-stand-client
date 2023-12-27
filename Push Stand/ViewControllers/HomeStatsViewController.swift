@@ -111,8 +111,9 @@ class HomeStatsViewController: UIViewController {
         let uuid = UUID()
         let uuidString = uuid.uuidString
         let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: Date())
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        print(dateString)
         self.tabBarController?.tabBar.isHidden = false
         let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         feedbackGenerator.prepare()
@@ -185,41 +186,26 @@ class HomeStatsViewController: UIViewController {
     }
     
     func postStand(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
-        let parameters = "{\n    \"UserId\": \"Test\",\n    \"Date\": \"12-27-2023\"\n}"
-        let postData = parameters.data(using: .utf8)
-
-        var request = URLRequest(url: URL(string: endpoint)!,timeoutInterval: Double.infinity)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let urlString = endpoint
+        let url = NSURL(string: urlString)!
+        let paramString = queryParams
+        let request = NSMutableURLRequest(url: url as URL)
         request.httpMethod = "POST"
-        print(request)
-
-        // URLSession task to call the API
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            // Check for errors
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-
-            // Check for valid data
-            guard let data = data else {
-                completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
-                return
-            }
-
-            // Attempt to parse JSON
+        request.httpBody = try? JSONSerialization.data(withJSONObject: paramString, options: [.prettyPrinted])
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, _, _ in
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    completion(.success(json))
-                } else {
-                    completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid JSON"])))
+                if let jsonData = data {
+                    if let jsonDataDict = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: AnyObject] {
+                        NSLog("Received data:\n\(jsonDataDict))")
+//                        self.log.mpUpdate("CLIENT_PUSH_NOTIFICATION", "status", "success")
+                    }
                 }
-            } catch let error {
-                completion(.failure(error))
+            } catch let err as NSError {
+                // print(err.debugDescription)
+//                self.log.mpUpdate("CLIENT_PUSH_NOTIFICATION_FAILED", "status", "failed", "error", err.localizedDescription)
             }
         }
-
-        // Start the task
         task.resume()
     }
    
