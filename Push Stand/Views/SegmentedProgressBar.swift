@@ -46,7 +46,7 @@ class SegmentedBar: UIView {
         for _ in 0..<maximum {
             let segment = UIView()
             segment.backgroundColor = unselectedColor
-            segment.layer.cornerRadius = segmentHeight / 2
+            segment.layer.cornerRadius = (segmentHeight / 2)
             stackView.addArrangedSubview(segment)
             segment.widthAnchor.constraint(equalToConstant: segmentWidth).isActive = true
         }

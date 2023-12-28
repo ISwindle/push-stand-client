@@ -12,6 +12,9 @@ class HomeStatsViewController: UIViewController {
     @IBOutlet weak var dailyGoalCount: UILabel!
     @IBOutlet weak var globalStandCount: UILabel!
     
+    @IBOutlet weak var standStreakTitle: UILabel!
+    @IBOutlet weak var questionStreakTitle: UILabel!
+    @IBOutlet weak var pointsTitle: UILabel!
     @IBOutlet weak var myPointsLabel: UILabel!
     @IBOutlet weak var standStreakIcon: UIImageView!
     @IBOutlet weak var questionStreakIcon: UIImageView!
@@ -19,6 +22,8 @@ class HomeStatsViewController: UIViewController {
     
     @IBOutlet weak var segmentedStreakBar: SegmentedBar!
     @IBOutlet weak var streakImage: UIImageView!
+    @IBOutlet weak var leftStarImage: UIImageView!
+    @IBOutlet weak var rightStarImage: UIImageView!
     
     
     
@@ -81,7 +86,15 @@ class HomeStatsViewController: UIViewController {
     
     // Action for tap gesture
         @objc func standStreakTapped() {
+            standStreakIcon.image = UIImage(named: "stand-streak-icon-active")
+            questionStreakIcon.image = UIImage(named: "question-streak-icon")
+            pointsIcon.image = UIImage(named: "points-icon")
+            standStreakTitle.textColor = .red
+            questionStreakTitle.textColor = .white
+            pointsTitle.textColor = .white
             myPointsLabel.alpha = 0
+            leftStarImage.alpha = 0
+            rightStarImage.alpha = 0
             segmentedStreakBar.alpha = 1
             streakImage.alpha = 1
             segmentedStreakBar.selectedColor = .red
@@ -90,7 +103,15 @@ class HomeStatsViewController: UIViewController {
         }
     // Action for tap gesture
         @objc func questionStreakTapped() {
+            standStreakIcon.image = UIImage(named: "stand-streak-icon")
+            questionStreakIcon.image = UIImage(named: "question-streak-icon-active")
+            pointsIcon.image = UIImage(named: "points-icon")
+            standStreakTitle.textColor = .white
+            questionStreakTitle.textColor = .cyan
+            pointsTitle.textColor = .white
             myPointsLabel.alpha = 0
+            leftStarImage.alpha = 0
+            rightStarImage.alpha = 0
             segmentedStreakBar.alpha = 1
             streakImage.alpha = 1
             segmentedStreakBar.selectedColor = .cyan
@@ -99,9 +120,17 @@ class HomeStatsViewController: UIViewController {
         }
     // Action for tap gesture
         @objc func pointsTapped() {
+            standStreakIcon.image = UIImage(named: "stand-streak-icon")
+            questionStreakIcon.image = UIImage(named: "question-streak-icon")
+            pointsIcon.image = UIImage(named: "points-icon-active")
+            standStreakTitle.textColor = .white
+            questionStreakTitle.textColor = .white
+            pointsTitle.textColor = .yellow
             segmentedStreakBar.alpha = 0
             streakImage.alpha = 0
             myPointsLabel.alpha = 1
+            leftStarImage.alpha = 1
+            rightStarImage.alpha = 1
         }
     
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhd-gU-6Yv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhd-gU-6Yv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1010,6 +1010,28 @@ Stands</string>
                                     </constraint>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9l-Tj-CeX">
+                                <rect key="frame" x="0.0" y="658" width="414" height="238"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="sMR-kY-hS2">
+                                        <rect key="frame" x="113" y="25" width="188" height="188"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="sMR-kY-hS2" secondAttribute="height" multiplier="1:1" id="QED-7K-MXh"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="sMR-kY-hS2" firstAttribute="top" secondItem="R9l-Tj-CeX" secondAttribute="top" constant="25" id="fBP-gP-Jgv"/>
+                                    <constraint firstAttribute="bottom" secondItem="sMR-kY-hS2" secondAttribute="bottom" constant="25" id="uUf-0o-lIj"/>
+                                    <constraint firstItem="sMR-kY-hS2" firstAttribute="centerX" secondItem="R9l-Tj-CeX" secondAttribute="centerX" id="xy3-zS-lw4"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="BBj-fo-GNU" appends="YES" id="8Tq-3a-JWC"/>
+                                </connections>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KpS-l5-xEw" userLabel="Push Stand Title">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="194"/>
                                 <subviews>
@@ -1036,28 +1058,6 @@ Stands</string>
                                     <outletCollection property="gestureRecognizers" destination="BBj-fo-GNU" appends="YES" id="Hw1-Z8-LWq"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9l-Tj-CeX">
-                                <rect key="frame" x="0.0" y="658" width="414" height="238"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="sMR-kY-hS2">
-                                        <rect key="frame" x="113" y="25" width="188" height="188"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="sMR-kY-hS2" secondAttribute="height" multiplier="1:1" id="QED-7K-MXh"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstItem="sMR-kY-hS2" firstAttribute="top" secondItem="R9l-Tj-CeX" secondAttribute="top" constant="25" id="fBP-gP-Jgv"/>
-                                    <constraint firstAttribute="bottom" secondItem="sMR-kY-hS2" secondAttribute="bottom" constant="25" id="uUf-0o-lIj"/>
-                                    <constraint firstItem="sMR-kY-hS2" firstAttribute="centerX" secondItem="R9l-Tj-CeX" secondAttribute="centerX" id="xy3-zS-lw4"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="BBj-fo-GNU" appends="YES" id="8Tq-3a-JWC"/>
-                                </connections>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YvP-FP-E9c" userLabel="Icon Change View">
                                 <rect key="frame" x="0.0" y="194" width="414" height="29"/>
                                 <subviews>
@@ -1071,13 +1071,24 @@ Stands</string>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
                                         </variation>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" image="star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="vCk-Nt-ItY" userLabel="Star Image">
-                                        <rect key="frame" x="113.5" y="2.5" width="22" height="22"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" image="star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="vCk-Nt-ItY" userLabel="Star Image Left">
+                                        <rect key="frame" x="125.5" y="9.5" width="10" height="10"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="48b-7T-TAv">
+                                            <constraint firstAttribute="height" constant="10" id="48b-7T-TAv">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                             </constraint>
-                                            <constraint firstAttribute="width" constant="22" id="fiU-eB-M11">
+                                            <constraint firstAttribute="width" constant="10" id="fiU-eB-M11">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="44"/>
+                                            </constraint>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" image="star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="lnf-KY-866" userLabel="Star Image Right">
+                                        <rect key="frame" x="279" y="9.5" width="10" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="jKq-K1-pkO">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="44"/>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="10" id="xA1-DN-BVh">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                             </constraint>
                                         </constraints>
@@ -1103,6 +1114,7 @@ Stands</string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="lnf-KY-866" firstAttribute="leading" secondItem="rhB-y6-c0a" secondAttribute="trailing" constant="10" id="2fa-Zw-7GI"/>
                                     <constraint firstItem="rhB-y6-c0a" firstAttribute="leading" secondItem="vCk-Nt-ItY" secondAttribute="trailing" constant="10" id="CmG-3l-cPL"/>
                                     <constraint firstAttribute="bottom" secondItem="rhB-y6-c0a" secondAttribute="bottom" id="FPi-Ph-Oc4"/>
                                     <constraint firstItem="rhB-y6-c0a" firstAttribute="centerY" secondItem="YvP-FP-E9c" secondAttribute="centerY" id="Nqv-dy-g9O"/>
@@ -1110,6 +1122,7 @@ Stands</string>
                                         <variation key="heightClass=regular-widthClass=regular" constant="120"/>
                                     </constraint>
                                     <constraint firstItem="rhB-y6-c0a" firstAttribute="centerX" secondItem="YvP-FP-E9c" secondAttribute="centerX" id="Spe-Dy-lJz"/>
+                                    <constraint firstItem="lnf-KY-866" firstAttribute="centerY" secondItem="YvP-FP-E9c" secondAttribute="centerY" id="bMp-Tr-FFk"/>
                                     <constraint firstItem="rhB-y6-c0a" firstAttribute="top" secondItem="YvP-FP-E9c" secondAttribute="top" id="fPI-Fe-A8y"/>
                                     <constraint firstItem="UBD-tg-X7g" firstAttribute="leading" secondItem="YvP-FP-E9c" secondAttribute="leading" constant="60" id="jkw-gb-FKG">
                                         <variation key="heightClass=regular-widthClass=regular" constant="120"/>
@@ -1120,7 +1133,7 @@ Stands</string>
                                     </constraint>
                                     <constraint firstItem="UBD-tg-X7g" firstAttribute="top" secondItem="YvP-FP-E9c" secondAttribute="top" constant="7" id="qOc-pH-htF"/>
                                     <constraint firstAttribute="bottom" secondItem="UBD-tg-X7g" secondAttribute="bottom" constant="7" id="t8f-lt-z1f"/>
-                                    <constraint firstItem="vCk-Nt-ItY" firstAttribute="centerY" secondItem="rhB-y6-c0a" secondAttribute="centerY" constant="-1" id="xY5-0w-Vq5"/>
+                                    <constraint firstItem="vCk-Nt-ItY" firstAttribute="centerY" secondItem="rhB-y6-c0a" secondAttribute="centerY" id="xY5-0w-Vq5"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1189,15 +1202,20 @@ Stands</string>
                         <outlet property="dailyGoalCount" destination="FRt-ke-DPV" id="W3Z-I0-6Hc"/>
                         <outlet property="globalStandCount" destination="WKY-V7-7fx" id="R3s-RN-faB"/>
                         <outlet property="landingViewWithButton" destination="R9l-Tj-CeX" id="4Ry-0h-Iar"/>
+                        <outlet property="leftStarImage" destination="vCk-Nt-ItY" id="9T8-is-7Lt"/>
                         <outlet property="myPointsLabel" destination="rhB-y6-c0a" id="KBt-sg-P8X"/>
                         <outlet property="pointsIcon" destination="9tL-5f-BSN" id="If8-HE-9RP"/>
+                        <outlet property="pointsTitle" destination="sle-yn-ue8" id="I9V-2r-BSK"/>
                         <outlet property="pushStandButton" destination="sMR-kY-hS2" id="UXP-ef-o2a"/>
                         <outlet property="pushStandGesture" destination="BBj-fo-GNU" id="zmM-PM-0Iw"/>
                         <outlet property="pushStandTitle" destination="KpS-l5-xEw" id="wlG-iQ-rQP"/>
                         <outlet property="questionStreakIcon" destination="O3e-xe-AEd" id="87x-Dt-bR7"/>
+                        <outlet property="questionStreakTitle" destination="FgB-z7-uba" id="PDk-0k-ief"/>
+                        <outlet property="rightStarImage" destination="lnf-KY-866" id="oyL-UE-3Gh"/>
                         <outlet property="segmentedStreakBar" destination="UBD-tg-X7g" id="lpk-Ew-ySq"/>
                         <outlet property="standProgressBar" destination="ov3-1B-ftm" id="bxI-1M-WHu"/>
                         <outlet property="standStreakIcon" destination="ySx-gl-PtM" id="wkw-i5-8o8"/>
+                        <outlet property="standStreakTitle" destination="HrV-CV-p34" id="fdd-vS-mhF"/>
                         <outlet property="streakImage" destination="poi-qy-dAp" id="T5s-TQ-SVl"/>
                     </connections>
                 </viewController>
