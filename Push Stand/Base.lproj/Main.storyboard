@@ -1047,12 +1047,23 @@ Stands</string>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
                                         </variation>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwt-gq-ghg">
+                                        <rect key="frame" x="180.5" y="172.5" width="53.5" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" red="0.89720926140000001" green="0.96841150519999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="SA6-Vp-XW0" secondAttribute="trailing" constant="75" id="BpF-fo-PqG"/>
+                                    <constraint firstAttribute="bottom" secondItem="Iwt-gq-ghg" secondAttribute="bottom" id="Qlp-8u-NKw"/>
                                     <constraint firstItem="SA6-Vp-XW0" firstAttribute="centerY" secondItem="KpS-l5-xEw" secondAttribute="centerY" constant="30" id="QtH-zH-aIk"/>
                                     <constraint firstItem="SA6-Vp-XW0" firstAttribute="leading" secondItem="KpS-l5-xEw" secondAttribute="leading" constant="75" id="dLg-d8-w2A"/>
+                                    <constraint firstItem="Iwt-gq-ghg" firstAttribute="centerX" secondItem="KpS-l5-xEw" secondAttribute="centerX" id="ge0-kh-Nxj"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="BBj-fo-GNU" appends="YES" id="Hw1-Z8-LWq"/>
@@ -1204,6 +1215,7 @@ Stands</string>
                         <outlet property="landingViewWithButton" destination="R9l-Tj-CeX" id="4Ry-0h-Iar"/>
                         <outlet property="leftStarImage" destination="vCk-Nt-ItY" id="9T8-is-7Lt"/>
                         <outlet property="myPointsLabel" destination="rhB-y6-c0a" id="KBt-sg-P8X"/>
+                        <outlet property="onePoint" destination="Iwt-gq-ghg" id="hqJ-Xo-xMw"/>
                         <outlet property="pointsIcon" destination="9tL-5f-BSN" id="If8-HE-9RP"/>
                         <outlet property="pointsTitle" destination="sle-yn-ue8" id="I9V-2r-BSK"/>
                         <outlet property="pushStandButton" destination="sMR-kY-hS2" id="UXP-ef-o2a"/>
@@ -1440,7 +1452,7 @@ Stands</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your phone number below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1D-ox-pvY">
-                                <rect key="frame" x="73.5" y="161" width="267.5" height="18"/>
+                                <rect key="frame" x="73.5" y="161" width="267" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1543,7 +1555,7 @@ Stands</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEP 2 of 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="6GF-aZ-4ur">
-                                <rect key="frame" x="134" y="161" width="146.5" height="35"/>
+                                <rect key="frame" x="133.5" y="161" width="147" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1636,7 +1648,7 @@ Stands</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEP 3 of 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="10r-WC-log">
-                                <rect key="frame" x="133.5" y="161" width="147.5" height="35"/>
+                                <rect key="frame" x="133.5" y="161" width="147" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

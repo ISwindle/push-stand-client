@@ -11,6 +11,7 @@ class HomeStatsViewController: UIViewController {
     @IBOutlet weak var standProgressBar: CircularProgressBar!
     @IBOutlet weak var dailyGoalCount: UILabel!
     @IBOutlet weak var globalStandCount: UILabel!
+    @IBOutlet weak var onePoint: UILabel!
     
     @IBOutlet weak var standStreakTitle: UILabel!
     @IBOutlet weak var questionStreakTitle: UILabel!
@@ -24,6 +25,7 @@ class HomeStatsViewController: UIViewController {
     @IBOutlet weak var streakImage: UIImageView!
     @IBOutlet weak var leftStarImage: UIImageView!
     @IBOutlet weak var rightStarImage: UIImageView!
+    
     
     
     
@@ -161,6 +163,7 @@ class HomeStatsViewController: UIViewController {
             self.landingViewWithButton.alpha = 0
             self.pushStandTitle.alpha = 0
             self.tabBarController?.tabBar.alpha = 1
+            self.onePoint.alpha = 1    //just threw this here so we have an idea of where it goes, will eventually follow wireframe timing
       
         }) { (finished) in
             // Once the animation is finished, hide the view
