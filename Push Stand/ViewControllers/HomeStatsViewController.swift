@@ -158,12 +158,14 @@ class HomeStatsViewController: UIViewController {
                 print("worked")
             }
         }
-        UIView.animate(withDuration: 1.5, animations: {
+        UIView.animate(withDuration: 0.25, animations: {
             // This will start the animation to fade out the view
+            self.pushStandButton.alpha = 0
             self.landingViewWithButton.alpha = 0
             self.pushStandTitle.alpha = 0
             self.tabBarController?.tabBar.alpha = 1
             self.onePoint.alpha = 1    //just threw this here so we have an idea of where it goes, will eventually follow wireframe timing
+            
       
         }) { (finished) in
             // Once the animation is finished, hide the view
