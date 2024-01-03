@@ -158,25 +158,25 @@ class HomeStatsViewController: UIViewController {
                 print("worked")
             }
         }
-        UIView.animate(withDuration: 0.25, animations: {
-            // This will start the animation to fade out the view
-            self.pushStandButton.alpha = 0
-            self.landingViewWithButton.alpha = 0
-            self.pushStandTitle.alpha = 0
-            self.tabBarController?.tabBar.alpha = 1
-            self.onePoint.alpha = 1    //just threw this here so we have an idea of where it goes, will eventually follow wireframe timing
-            
-      
-        }) { (finished) in
-            // Once the animation is finished, hide the view
-            if finished {
-                self.landingViewWithButton.isHidden = true
-                self.pushStandTitle.isHidden = true
+        UIView.animate(withDuration: 0.15, animations: {
+            self.pushStandButton.alpha = 0.0 //this is where daily count will increase by your 1 stand - should be immediate
+        })  { (true) in
+            UIView.animate(withDuration: 1.0, animations: {
+                self.onePoint.alpha = 1.0
+            })  { (true) in
+                UIView.animate(withDuration: 1.0, delay: 1.0, animations: {
+                    self.onePoint.alpha = 0.0 //this is where stand streak will increase by 1 as well
+                })  { (true) in
+                    UIView.animate(withDuration: 0.0, animations: {
+                        self.landingViewWithButton.isHidden = true
+                        self.pushStandTitle.isHidden = true
+                        self.tabBarController?.tabBar.alpha = 1.0 //why can't I say isHidden = false like the other two?
+                    }, completion: { (true) in
+                    })
+                }
             }
-            
         }
     }
-
     func getDailyGoals(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
         // Construct the URL with query parameters
         var urlComponents = URLComponents(string: endpoint)
