@@ -159,20 +159,26 @@ class HomeStatsViewController: UIViewController {
             }
         }
         UIView.animate(withDuration: 0.15, animations: {
-            self.pushStandButton.alpha = 0.0 //this is where daily count will increase by your 1 stand - should be immediate
+            self.pushStandButton.alpha = 0.0 //this is where daily count will immediately increase by 1
         })  { (true) in
-            UIView.animate(withDuration: 1.0, animations: {
-                self.onePoint.alpha = 1.0
-            })  { (true) in
-                UIView.animate(withDuration: 1.0, delay: 1.0, animations: {
-                    self.onePoint.alpha = 0.0 //this is where stand streak will increase by 1 as well
+            UIView.animate(withDuration: 0.75, delay: 0.5, animations: {
+                //stand streak goes up by 1
+            }) { (true) in
+                UIView.animate(withDuration: 0.75, delay: 1.25, animations: {
+                    self.onePoint.alpha = 1.0
+                    //this is where stand streak either does nothing after adding 1 or empties if the stand filled the bar
+                    //this is where if bar is filled, point will be "5 Points"
                 })  { (true) in
-                    UIView.animate(withDuration: 0.0, animations: {
-                        self.landingViewWithButton.isHidden = true
-                        self.pushStandTitle.isHidden = true
-                        self.tabBarController?.tabBar.alpha = 1.0 //why can't I say isHidden = false like the other two?
-                    }, completion: { (true) in
-                    })
+                    UIView.animate(withDuration: 0.75, delay: 2.0, animations: {
+                        self.onePoint.alpha = 0.0 //this is where stand streak will increase by 1 as well
+                    })  { (true) in
+                        UIView.animate(withDuration: 0.0, animations: {
+                            self.landingViewWithButton.isHidden = true
+                            self.pushStandTitle.isHidden = true
+                            self.tabBarController?.tabBar.alpha = 1.0 //why can't I say isHidden = false like the other two?
+                        }, completion: { (true) in
+                        })
+                    }
                 }
             }
         }
