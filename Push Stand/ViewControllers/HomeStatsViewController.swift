@@ -14,8 +14,12 @@ class HomeStatsViewController: UIViewController {
     @IBOutlet weak var standProgressBar: CircularProgressBar!
     @IBOutlet weak var dailyGoalCount: UILabel!
     @IBOutlet weak var globalStandCount: UILabel!
+    @IBOutlet weak var onePoint: UILabel!
     
     @IBOutlet weak var yesterdayLabel: UILabel!
+    @IBOutlet weak var standStreakTitle: UILabel!
+    @IBOutlet weak var questionStreakTitle: UILabel!
+    @IBOutlet weak var pointsTitle: UILabel!
     @IBOutlet weak var myPointsLabel: UILabel!
     @IBOutlet weak var standStreakIcon: UIImageView!
     @IBOutlet weak var questionStreakIcon: UIImageView!
@@ -23,6 +27,9 @@ class HomeStatsViewController: UIViewController {
     
     @IBOutlet weak var segmentedStreakBar: SegmentedBar!
     @IBOutlet weak var streakImage: UIImageView!
+    @IBOutlet weak var leftStarImage: UIImageView!
+    @IBOutlet weak var rightStarImage: UIImageView!
+    
     
     @IBOutlet weak var myCurrentStreakLabel: UILabel!
     @IBOutlet weak var myTotalStandsLabel: UILabel!
@@ -162,32 +169,54 @@ class HomeStatsViewController: UIViewController {
         print("Tapped")
         self.performSegue(withIdentifier: "account", sender: self)
     }
-    
+
+        @objc func standStreakTapped() {
+            standStreakIcon.image = UIImage(named: "stand-streak-icon-active")
+            questionStreakIcon.image = UIImage(named: "question-streak-icon")
+            pointsIcon.image = UIImage(named: "points-icon")
+            standStreakTitle.textColor = .red
+            questionStreakTitle.textColor = .white
+            pointsTitle.textColor = .white
+            myPointsLabel.alpha = 0
+            leftStarImage.alpha = 0
+            rightStarImage.alpha = 0
+            segmentedStreakBar.alpha = 1
+            streakImage.alpha = 1
+            segmentedStreakBar.selectedColor = .red
+            segmentedStreakBar.value = 4
+            streakImage.image = UIImage(named: "stand-streak-fire")
+        }
     // Action for tap gesture
-    @objc func standStreakTapped() {
-        myPointsLabel.alpha = 0
-        segmentedStreakBar.alpha = 1
-        streakImage.alpha = 1
-        segmentedStreakBar.selectedColor = .red
-        segmentedStreakBar.value = 1
-        streakImage.image = UIImage(named: "stand-streak-fire")
-    }
+        @objc func questionStreakTapped() {
+            standStreakIcon.image = UIImage(named: "stand-streak-icon")
+            questionStreakIcon.image = UIImage(named: "question-streak-icon-active")
+            pointsIcon.image = UIImage(named: "points-icon")
+            standStreakTitle.textColor = .white
+            questionStreakTitle.textColor = .cyan
+            pointsTitle.textColor = .white
+            myPointsLabel.alpha = 0
+            leftStarImage.alpha = 0
+            rightStarImage.alpha = 0
+            segmentedStreakBar.alpha = 1
+            streakImage.alpha = 1
+            segmentedStreakBar.selectedColor = .cyan
+            segmentedStreakBar.value = 4
+            streakImage.image = UIImage(named: "question-streak-fire")
+        }
     // Action for tap gesture
-    @objc func questionStreakTapped() {
-        myPointsLabel.alpha = 0
-        segmentedStreakBar.alpha = 1
-        streakImage.alpha = 1
-        segmentedStreakBar.selectedColor = .cyan
-        segmentedStreakBar.value = 0
-        streakImage.image = UIImage(named: "question-streak-fire")
-    }
-    // Action for tap gesture
-    @objc func pointsTapped() {
-        segmentedStreakBar.alpha = 0
-        streakImage.alpha = 0
-        myPointsLabel.alpha = 1
-    }
-    
+        @objc func pointsTapped() {
+            standStreakIcon.image = UIImage(named: "stand-streak-icon")
+            questionStreakIcon.image = UIImage(named: "question-streak-icon")
+            pointsIcon.image = UIImage(named: "points-icon-active")
+            standStreakTitle.textColor = .white
+            questionStreakTitle.textColor = .white
+            pointsTitle.textColor = .yellow
+            segmentedStreakBar.alpha = 0
+            streakImage.alpha = 0
+            myPointsLabel.alpha = 1
+            leftStarImage.alpha = 1
+            rightStarImage.alpha = 1
+        }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -241,6 +270,32 @@ class HomeStatsViewController: UIViewController {
     }
     
     func callAPIGateway(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
+        UIView.animate(withDuration: 0.15, animations: {
+            self.pushStandButton.alpha = 0.0 //this is where daily count will immediately increase by 1
+        })  { (true) in
+            UIView.animate(withDuration: 0.75, delay: 0.5, animations: {
+                //stand streak goes up by 1
+            }) { (true) in
+                UIView.animate(withDuration: 0.75, delay: 1.25, animations: {
+                    self.onePoint.alpha = 1.0
+                    //this is where stand streak either does nothing after adding 1 or empties if the stand filled the bar
+                    //this is where if bar is filled, point will be "5 Points"
+                })  { (true) in
+                    UIView.animate(withDuration: 0.75, delay: 2.0, animations: {
+                        self.onePoint.alpha = 0.0 //this is where stand streak will increase by 1 as well
+                    })  { (true) in
+                        UIView.animate(withDuration: 0.0, animations: {
+                            self.landingViewWithButton.isHidden = true
+                            self.pushStandTitle.isHidden = true
+                            self.tabBarController?.tabBar.alpha = 1.0 //why can't I say isHidden = false like the other two?
+                        }, completion: { (true) in
+                        })
+                    }
+                }
+            }
+        }
+    }
+    func getDailyGoals(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
         // Construct the URL with query parameters
         var urlComponents = URLComponents(string: endpoint)
         urlComponents?.queryItems = queryParams.map { URLQueryItem(name: $0.key, value: $0.value) }

@@ -12,7 +12,7 @@ class SegmentedBar: UIView {
     var segmentHeight: CGFloat = 0
     var spacing: CGFloat = 2
     var selectedColor: UIColor = .red
-    var unselectedColor: UIColor = UIColor.secondarySystemBackground.withAlphaComponent(0.1)
+    var unselectedColor: UIColor = .darkGray
 
     private let stackView = UIStackView()
 
@@ -46,7 +46,7 @@ class SegmentedBar: UIView {
         for _ in 0..<maximum {
             let segment = UIView()
             segment.backgroundColor = unselectedColor
-            segment.layer.cornerRadius = segmentHeight / 2
+            segment.layer.cornerRadius = (segmentHeight / 2)
             stackView.addArrangedSubview(segment)
             segment.widthAnchor.constraint(equalToConstant: segmentWidth).isActive = true
         }
