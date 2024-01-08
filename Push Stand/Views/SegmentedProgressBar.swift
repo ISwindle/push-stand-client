@@ -2,7 +2,7 @@ import UIKit
 
 class SegmentedBar: UIView {
 
-    var value: Int = 4 {
+    var value: Int = 0 {
         didSet {
             updateBar()
         }

@@ -43,7 +43,10 @@
 		22AD2D482ADF583400B3B1A8 /* Push_StandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D472ADF583400B3B1A8 /* Push_StandTests.swift */; };
 		22AD2D522ADF583400B3B1A8 /* Push_StandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D512ADF583400B3B1A8 /* Push_StandUITests.swift */; };
 		22AD2D542ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D532ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift */; };
+		22B8EA1A2B3CD8C100FC9257 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8EA192B3CD8C100FC9257 /* AccountViewController.swift */; };
+		22B8EA1D2B3DD53300FC9257 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8EA1C2B3DD53300FC9257 /* CurrentUser.swift */; };
 		22D12AA42B3C762F004880B6 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 22D12AA32B3C762F004880B6 /* FirebaseMessaging */; };
+		22D12AA62B3C93D2004880B6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D12AA52B3C93D2004880B6 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +100,10 @@
 		22AD2D4D2ADF583400B3B1A8 /* Push StandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Push StandUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AD2D512ADF583400B3B1A8 /* Push_StandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push_StandUITests.swift; sourceTree = "<group>"; };
 		22AD2D532ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push_StandUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		22B8EA192B3CD8C100FC9257 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		22B8EA1C2B3DD53300FC9257 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		22B8EA1E2B3DF30000FC9257 /* Push Stand.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Push Stand.entitlements"; sourceTree = "<group>"; };
+		22D12AA52B3C93D2004880B6 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +167,8 @@
 				222C4C432B14E3B5006FC90B /* SweepstakesViewController.swift */,
 				222C4C452B14E41F006FC90B /* ShopViewController.swift */,
 				227D0F9E2B1E17890001E568 /* DailyQuestionContainerViewController.swift */,
+				22D12AA52B3C93D2004880B6 /* SignInViewController.swift */,
+				22B8EA192B3CD8C100FC9257 /* AccountViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -195,6 +204,8 @@
 		22AD2D2C2ADF583000B3B1A8 /* Push Stand */ = {
 			isa = PBXGroup;
 			children = (
+				22B8EA1E2B3DF30000FC9257 /* Push Stand.entitlements */,
+				22B8EA1B2B3DD51600FC9257 /* Models */,
 				229C49FB2B14E0DA00C8E065 /* Extensions */,
 				223EA0842AEED7D00055F94B /* ViewControllers */,
 				223EA0812AEED7540055F94B /* Views */,
@@ -225,6 +236,14 @@
 				22AD2D532ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift */,
 			);
 			path = "Push StandUITests";
+			sourceTree = "<group>";
+		};
+		22B8EA1B2B3DD51600FC9257 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				22B8EA1C2B3DD53300FC9257 /* CurrentUser.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,8 +393,10 @@
 			files = (
 				222C4C422B14E391006FC90B /* DailyQuestionViewController.swift in Sources */,
 				223EA0862AEEDB290055F94B /* IconWithTextView.swift in Sources */,
+				22B8EA1A2B3CD8C100FC9257 /* AccountViewController.swift in Sources */,
 				2263D21C2AF926CB00D2E136 /* RootTabBarController.swift in Sources */,
 				2263D2182AF91E6900D2E136 /* SignUpReminderViewController.swift in Sources */,
+				22B8EA1D2B3DD53300FC9257 /* CurrentUser.swift in Sources */,
 				227D0F9F2B1E17890001E568 /* DailyQuestionContainerViewController.swift in Sources */,
 				222C4C402B14E342006FC90B /* GroupsViewController.swift in Sources */,
 				2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */,
@@ -393,6 +414,7 @@
 				2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */,
 				22AD2D302ADF583000B3B1A8 /* SceneDelegate.swift in Sources */,
 				222C4C462B14E41F006FC90B /* ShopViewController.swift in Sources */,
+				22D12AA62B3C93D2004880B6 /* SignInViewController.swift in Sources */,
 				223EA0882AEEDCA60055F94B /* SegmentedProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -573,6 +595,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Push Stand/Push Stand.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -590,7 +613,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -605,6 +628,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Push Stand/Push Stand.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -622,7 +646,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

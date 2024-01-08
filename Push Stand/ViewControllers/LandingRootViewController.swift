@@ -8,13 +8,13 @@ import UIKit
 
 class LandingRootViewController: UIViewController {
     
-    //@IBOutlet weak var pushLabel: UILabel!
-   // @IBOutlet weak var standLabel: UILabel!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBOutlet weak var joinNowButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .black
         
         //standLabel.alpha = 0
         //standLabel.textColor = .white
@@ -42,6 +42,9 @@ class LandingRootViewController: UIViewController {
                 self.performSegue(withIdentifier: "joinToPhone", sender: self)
     }
     
+    @IBAction func login(_ sender: Any) {
+        self.performSegue(withIdentifier: "signIn", sender: self)
+    }
     // This method gets called just before the segue starts
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "joinToPhone" {
@@ -52,34 +55,5 @@ class LandingRootViewController: UIViewController {
                 }
             }
         }
-    
-    // Remove eventually
-    @IBAction func skipOnboarding(_ sender: Any) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController") as? UITabBarController else { return }
-        
-        if #available(iOS 15, *) {
-            // iOS 15 and later: Use UIWindowScene.windows
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let window = windowScene.windows.first {
-                setRootViewController(window: window, with: tabBarController)
-            }
-        } else {
-            // Earlier iOS versions: Use UIApplication.shared.windows
-            if let window = UIApplication.shared.windows.first {
-                setRootViewController(window: window, with: tabBarController)
-            }
-        }
-
-        func setRootViewController(window: UIWindow, with viewController: UIViewController) {
-            window.rootViewController = viewController
-            window.makeKeyAndVisible()
-            
-            // Optional: Add a transition animation
-            UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
-        }
-    }
-    
     
 }
