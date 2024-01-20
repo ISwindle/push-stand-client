@@ -78,7 +78,7 @@ class HomeStatsViewController: UIViewController {
         let userTotalStandsQueryParams = ["userId": CurrentUser.shared.uid!]
         
         //Today
-        callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: yesterdayQueryParams ) { result in
+        callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: yesterdayQueryParams, httpMethod: .get ) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
@@ -96,7 +96,7 @@ class HomeStatsViewController: UIViewController {
         }
         
         //Yesterday
-        callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: dailyGoalsQueryParams) { result in
+        callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: dailyGoalsQueryParams, httpMethod: .get) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
@@ -125,7 +125,7 @@ class HomeStatsViewController: UIViewController {
         }
         
        //Yesterday
-        callAPIGateway(endpoint: currentStandStreakEndpoint, queryParams: currentStandStreakQueryParams) { result in
+        callAPIGateway(endpoint: currentStandStreakEndpoint, queryParams: currentStandStreakQueryParams, httpMethod: .get) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
@@ -146,7 +146,7 @@ class HomeStatsViewController: UIViewController {
         }
         
         //Yesterday
-        callAPIGateway(endpoint: userTotalStandsEndpoint, queryParams: userTotalStandsQueryParams) { result in
+        callAPIGateway(endpoint: userTotalStandsEndpoint, queryParams: userTotalStandsQueryParams, httpMethod: .get) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
@@ -166,7 +166,7 @@ class HomeStatsViewController: UIViewController {
         }
         
         //Us Total
-        callAPIGateway(endpoint: usTotalStandsEndpoint, queryParams: [:]) { result in
+        callAPIGateway(endpoint: usTotalStandsEndpoint, queryParams: [:], httpMethod: .get) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
@@ -278,9 +278,7 @@ class HomeStatsViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: Date())
         self.tabBarController?.tabBar.isHidden = false
-        let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
-        feedbackGenerator.prepare()
-        feedbackGenerator.impactOccurred()
+        tapHaptic()
         let pushStandEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/stand"
         let pushStandQueryParams = ["UserId": CurrentUser.shared.uid!, "Date": dateString]
         postStand(endpoint: pushStandEndpoint, queryParams: pushStandQueryParams) { result in
@@ -307,49 +305,6 @@ class HomeStatsViewController: UIViewController {
         }
     }
     
-    func callAPIGateway(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
-        // Construct the URL with query parameters
-        var urlComponents = URLComponents(string: endpoint)
-        urlComponents?.queryItems = queryParams.map { URLQueryItem(name: $0.key, value: $0.value) }
-        
-        guard let url = urlComponents?.url else {
-            completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
-            return
-        }
-        
-        // Create a URLRequest
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        // URLSession task to call the API
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            // Check for errors
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            // Check for valid data
-            guard let data = data else {
-                completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
-                return
-            }
-            
-            // Attempt to parse JSON
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    completion(.success(json))
-                } else {
-                    completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid JSON"])))
-                }
-            } catch let error {
-                completion(.failure(error))
-            }
-        }
-        
-        // Start the task
-        task.resume()
-    }
     func getDailyGoals(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
         // Construct the URL with query parameters
         var urlComponents = URLComponents(string: endpoint)

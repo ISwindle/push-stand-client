@@ -43,10 +43,12 @@
 		22AD2D482ADF583400B3B1A8 /* Push_StandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D472ADF583400B3B1A8 /* Push_StandTests.swift */; };
 		22AD2D522ADF583400B3B1A8 /* Push_StandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D512ADF583400B3B1A8 /* Push_StandUITests.swift */; };
 		22AD2D542ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D532ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift */; };
+		22B8D2222B5C117000448D01 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8D2212B5C117000448D01 /* ExtUIViewController.swift */; };
 		22B8EA1A2B3CD8C100FC9257 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8EA192B3CD8C100FC9257 /* AccountViewController.swift */; };
 		22B8EA1D2B3DD53300FC9257 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8EA1C2B3DD53300FC9257 /* CurrentUser.swift */; };
 		22D12AA42B3C762F004880B6 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 22D12AA32B3C762F004880B6 /* FirebaseMessaging */; };
 		22D12AA62B3C93D2004880B6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D12AA52B3C93D2004880B6 /* SignInViewController.swift */; };
+		22F1BD012B5C20DF00F1570F /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,10 +102,12 @@
 		22AD2D4D2ADF583400B3B1A8 /* Push StandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Push StandUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AD2D512ADF583400B3B1A8 /* Push_StandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push_StandUITests.swift; sourceTree = "<group>"; };
 		22AD2D532ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push_StandUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		22B8D2212B5C117000448D01 /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		22B8EA192B3CD8C100FC9257 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		22B8EA1C2B3DD53300FC9257 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		22B8EA1E2B3DF30000FC9257 /* Push Stand.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Push Stand.entitlements"; sourceTree = "<group>"; };
 		22D12AA52B3C93D2004880B6 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				229C49FC2B14E11800C8E065 /* ExtUITabBarController.swift */,
+				22B8D2212B5C117000448D01 /* ExtUIViewController.swift */,
+				22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -392,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				222C4C422B14E391006FC90B /* DailyQuestionViewController.swift in Sources */,
+				22F1BD012B5C20DF00F1570F /* ExtUIImageView.swift in Sources */,
 				223EA0862AEEDB290055F94B /* IconWithTextView.swift in Sources */,
 				22B8EA1A2B3CD8C100FC9257 /* AccountViewController.swift in Sources */,
 				2263D21C2AF926CB00D2E136 /* RootTabBarController.swift in Sources */,
@@ -409,6 +416,7 @@
 				2263D2162AF91D8400D2E136 /* SignupBirthdateViewController.swift in Sources */,
 				22AD2D2E2ADF583000B3B1A8 /* AppDelegate.swift in Sources */,
 				222C4C442B14E3B5006FC90B /* SweepstakesViewController.swift in Sources */,
+				22B8D2222B5C117000448D01 /* ExtUIViewController.swift in Sources */,
 				229C49FD2B14E11800C8E065 /* ExtUITabBarController.swift in Sources */,
 				223EA0832AEED76F0055F94B /* CircularProgressBar.swift in Sources */,
 				2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */,
@@ -613,7 +621,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -646,7 +654,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     let userDefault = UserDefaults.standard
     let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
     
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions:
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -36,9 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             completionHandler: {_, _ in })
         application.registerForRemoteNotifications()
                 
-        
+        currentUser.uid = UserDefaults.standard.string(forKey: "userId")
+        currentUser.email = UserDefaults.standard.string(forKey: "userEmail")
 
-        
         return true
     }
     

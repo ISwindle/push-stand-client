@@ -35,6 +35,8 @@ class SignInViewController: UIViewController {
                 self.appDelegate.currentUser.uid = Auth.auth().currentUser?.uid
                 
                 UserDefaults.standard.set(true, forKey: "usersignedin")
+                UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: "userId")
+                UserDefaults.standard.set(Auth.auth().currentUser?.email, forKey: "userEmail")
                 UserDefaults.standard.synchronize()
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

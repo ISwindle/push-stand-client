@@ -117,41 +117,21 @@
             <point key="canvasLocation" x="-442.02898550724643" y="660.9375"/>
         </scene>
         <!--Daily ?-->
-        <scene sceneID="Tj1-sb-led">
-            <objects>
-                <viewController id="iQ4-W3-2FR" customClass="DailyQuestionContainerViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Gom-r8-Nia">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="xrB-bm-GYb"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.app" catalog="system" selectedImage="questionmark.app.fill" id="ezl-Qw-44R"/>
-                    <connections>
-                        <segue destination="T6S-eC-0uj" kind="presentation" identifier="dailyContainerToQuestion" id="bw5-0C-Xqp"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yd6-BC-0XF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="fB5-Ka-3uR" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="373" y="662"/>
-        </scene>
-        <!--Daily ?-->
         <scene sceneID="5Z1-eu-XKJ">
             <objects>
                 <viewController storyboardIdentifier="DailyQuestionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T6S-eC-0uj" customClass="DailyQuestionViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PIY-nt-eya">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oop-dg-hza" userLabel="Yesterday Results View">
-                                <rect key="frame" x="0.0" y="92.5" width="414" height="793.5"/>
+                                <rect key="frame" x="0.0" y="140.5" width="414" height="672.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsU-lL-TDH" userLabel="Yesterday Question View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="548.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="427.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday's Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftz-xY-vB4">
-                                                <rect key="frame" x="97" y="195" width="220.5" height="29"/>
+                                                <rect key="frame" x="97" y="134.5" width="220.5" height="29"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                 <color key="textColor" red="0.89720926140000001" green="0.96841150519999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -160,7 +140,7 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DO YOU BELIEVE GLOBAL WARMING IS POLITICALLY DRIVEN?" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="nEm-sQ-Z7x" userLabel="Yesterday Question">
-                                                <rect key="frame" x="10" y="249" width="394" height="50.5"/>
+                                                <rect key="frame" x="10" y="188.5" width="394" height="50.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -180,7 +160,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="1sS-nB-69v" userLabel="Selected Thumbs">
-                                        <rect key="frame" x="10" y="548.5" width="394" height="95"/>
+                                        <rect key="frame" x="10" y="427.5" width="394" height="95"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleAspectFit" image="thumb-down" translatesAutoresizingMaskIntoConstraints="NO" id="Yhh-Gl-C39">
                                                 <rect key="frame" x="0.0" y="0.0" width="197" height="95"/>
@@ -197,10 +177,10 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Question Bot Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Dal-z9-6mu">
-                                        <rect key="frame" x="339" y="688.5" width="50" height="70"/>
+                                        <rect key="frame" x="339" y="567.5" width="50" height="70"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iru-Bw-zal" userLabel="Down Percentage">
-                                        <rect key="frame" x="92.5" y="651.5" width="32.5" height="26.5"/>
+                                        <rect key="frame" x="92.5" y="530.5" width="32.5" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -209,7 +189,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcs-yk-UA3" userLabel="Up Percentage">
-                                        <rect key="frame" x="289.5" y="651.5" width="32.5" height="26.5"/>
+                                        <rect key="frame" x="289.5" y="530.5" width="32.5" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -242,7 +222,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7JX-Mg-abi" userLabel="2 Points Popup Transition">
-                                <rect key="frame" x="0.0" y="37.5" width="414" height="848.5"/>
+                                <rect key="frame" x="0.0" y="85.5" width="414" height="727.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ws-7v-mrs">
                                         <rect key="frame" x="173" y="15" width="68" height="21.5"/>
@@ -263,7 +243,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xP8-dz-DLW" userLabel="Submit After Selection">
-                                <rect key="frame" x="0.0" y="736" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="663" width="414" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHW-YD-pNP">
                                         <rect key="frame" x="50" y="58" width="314" height="34"/>
@@ -290,13 +270,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwL-86-JUO" userLabel="Today Question">
-                                <rect key="frame" x="0.0" y="92.5" width="414" height="793.5"/>
+                                <rect key="frame" x="0.0" y="140.5" width="414" height="672.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rt9-h0-mY5" userLabel="Today Question View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="548.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="427.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DO YOU BELIEVE CONGRESS SHOULD HAVE TERM LIMITS?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="kEI-GT-CvW">
-                                                <rect key="frame" x="10" y="249" width="394" height="50.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="kEI-GT-CvW">
+                                                <rect key="frame" x="10" y="201" width="394" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -318,16 +298,18 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RvJ-ly-A4h" userLabel="bothunselectedThumbs">
-                                        <rect key="frame" x="10" y="548.5" width="394" height="95"/>
+                                        <rect key="frame" x="10" y="427.5" width="394" height="95"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="thumbDownEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="PDF-nt-EAr">
                                                 <rect key="frame" x="0.0" y="0.0" width="197" height="95"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="PDF-nt-EAr" secondAttribute="height" multiplier="197:95" id="MWG-yp-RxV"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="thumbUpEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="beI-hR-R3d">
                                                 <rect key="frame" x="197" y="0.0" width="197" height="95"/>
+                                                <gestureRecognizers/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -352,7 +334,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ged-Bd-nPf" userLabel="Daily Question Title">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="37.5"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="37.5"/>
                                 <color key="backgroundColor" red="0.0" green="0.87071237657978129" blue="0.88150376081466675" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ged-Bd-nPf" secondAttribute="height" multiplier="11:1" id="yOR-iX-v9U"/>
@@ -365,7 +347,7 @@
                                 </variation>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="question-streak-fire" translatesAutoresizingMaskIntoConstraints="NO" id="wX5-cT-NA4">
-                                <rect key="frame" x="364" y="71" width="22" height="22"/>
+                                <rect key="frame" x="364" y="119" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="e5K-bT-H64">
                                         <variation key="heightClass=regular-widthClass=regular" constant="33"/>
@@ -376,24 +358,11 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUd-Wy-Mru" userLabel="segmentedBar" customClass="SegmentedBar" customModule="Push_Stand" customModuleProvider="target">
-                                <rect key="frame" x="60" y="77.5" width="294" height="15"/>
+                                <rect key="frame" x="60" y="125.5" width="294" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GUd-Wy-Mru" secondAttribute="height" multiplier="98:5" id="jes-Mq-iqp"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZxR-j3-uiw" userLabel="close">
-                                <rect key="frame" x="367" y="9.5" width="22" height="19"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="XbR-6u-je8">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="33"/>
-                                    </constraint>
-                                    <constraint firstAttribute="width" constant="22" id="aeE-AW-3kI">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="33"/>
-                                    </constraint>
-                                </constraints>
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sy1-da-Psm"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -402,9 +371,6 @@
                             <constraint firstItem="Sy1-da-Psm" firstAttribute="trailing" secondItem="Oop-dg-hza" secondAttribute="trailing" id="4lD-G5-HP1"/>
                             <constraint firstItem="xP8-dz-DLW" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="4y4-cI-6Hk"/>
                             <constraint firstItem="ged-Bd-nPf" firstAttribute="leading" secondItem="PIY-nt-eya" secondAttribute="leading" id="AKv-cG-5Ub"/>
-                            <constraint firstItem="Sy1-da-Psm" firstAttribute="trailing" secondItem="ZxR-j3-uiw" secondAttribute="trailing" constant="25" id="B0v-gg-GXa">
-                                <variation key="heightClass=regular-widthClass=regular" constant="35"/>
-                            </constraint>
                             <constraint firstItem="7JX-Mg-abi" firstAttribute="top" secondItem="ged-Bd-nPf" secondAttribute="bottom" id="GSq-DO-aVw"/>
                             <constraint firstItem="ged-Bd-nPf" firstAttribute="centerX" secondItem="PIY-nt-eya" secondAttribute="centerX" id="NDW-kJ-iNz"/>
                             <constraint firstItem="BwL-86-JUO" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="O3m-ov-WCk"/>
@@ -427,7 +393,6 @@
                             <constraint firstItem="GUd-Wy-Mru" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" constant="60" id="q26-TZ-sfy">
                                 <variation key="heightClass=regular-widthClass=regular" constant="90"/>
                             </constraint>
-                            <constraint firstItem="ZxR-j3-uiw" firstAttribute="centerY" secondItem="ged-Bd-nPf" secondAttribute="centerY" id="qYg-Zr-iGJ"/>
                             <constraint firstItem="wX5-cT-NA4" firstAttribute="leading" secondItem="GUd-Wy-Mru" secondAttribute="trailing" constant="10" id="se9-Tt-MdD">
                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                             </constraint>
@@ -436,12 +401,17 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.bubble" catalog="system" selectedImage="questionmark.bubble.fill" id="asJ-Ax-25m"/>
                     <connections>
-                        <segue destination="fB5-Ka-3uR" kind="unwind" unwindAction="unwindToThisViewControllerWithSegue:" id="8hG-eM-9J4"/>
+                        <outlet property="flameSteakImage" destination="wX5-cT-NA4" id="0lE-dO-alG"/>
+                        <outlet property="questionLabel" destination="kEI-GT-CvW" id="Edo-Jk-xom"/>
+                        <outlet property="streakPointLabel" destination="6Ws-7v-mrs" id="y1k-vT-BMB"/>
+                        <outlet property="streakSegmentedBar" destination="GUd-Wy-Mru" id="KyC-Oe-qWN"/>
+                        <outlet property="thumbsDownAnswer" destination="PDF-nt-EAr" id="gTw-nU-4XI"/>
+                        <outlet property="thumbsUpAnswer" destination="beI-hR-R3d" id="tNX-TF-qNj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MhN-AH-P61" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="408.69565217391306" y="1369.4196428571429"/>
+            <point key="canvasLocation" x="403" y="661"/>
         </scene>
         <!--Shop-->
         <scene sceneID="fb4-n2-YBz">
@@ -1088,7 +1058,7 @@ Stands</string>
                     <connections>
                         <segue destination="HDi-mI-K2g" kind="relationship" relationship="viewControllers" id="Jmg-ss-09h"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="F0Q-cr-PGp"/>
-                        <segue destination="iQ4-W3-2FR" kind="relationship" relationship="viewControllers" id="TQQ-vz-6T8"/>
+                        <segue destination="T6S-eC-0uj" kind="relationship" relationship="viewControllers" id="0t1-4l-Xou"/>
                         <segue destination="8d7-pk-SHA" kind="relationship" relationship="viewControllers" id="UUl-Qa-C0q"/>
                         <segue destination="KAI-wO-NJp" kind="relationship" relationship="viewControllers" id="YgS-Np-ASc"/>
                     </connections>
@@ -1810,8 +1780,6 @@ Stands</string>
         <image name="points-icon" width="50" height="50"/>
         <image name="question-streak-fire" width="28" height="28"/>
         <image name="question-streak-icon" width="50" height="50"/>
-        <image name="questionmark.app" catalog="system" width="128" height="114"/>
-        <image name="questionmark.app.fill" catalog="system" width="128" height="114"/>
         <image name="questionmark.bubble" catalog="system" width="128" height="110"/>
         <image name="questionmark.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="search-icon" width="50" height="50"/>
@@ -1827,7 +1795,6 @@ Stands</string>
         <image name="thumbUpEmpty" width="115" height="115"/>
         <image name="ticket" catalog="system" width="128" height="86"/>
         <image name="ticket.fill" catalog="system" width="128" height="86"/>
-        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
