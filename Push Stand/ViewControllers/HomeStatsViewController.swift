@@ -124,28 +124,66 @@ class HomeStatsViewController: UIViewController {
             }
         }
         
-        //Yesterday
+       //Yesterday
         callAPIGateway(endpoint: currentStandStreakEndpoint, queryParams: currentStandStreakQueryParams) { result in
             DispatchQueue.main.async {
-                print(result)
+                switch result {
+                case .success(let json):
+                    print(json)
+                    // Handle successful response with JSON
+                    if let streaks = json["streak_count"] as? Int {
+                        self.myCurrentStreakLabel.text = "\(streaks)"
+                        self.segmentedStreakBar.value = streaks
+                    } else {
+                        self.myCurrentStreakLabel.text = "0"
+                    }
+                case .failure(let error):
+                    // Handle error
+                    self.myCurrentStreakLabel.text = "0"
+                    print("Error: \(error.localizedDescription)")
+                }
             }
         }
         
         //Yesterday
         callAPIGateway(endpoint: userTotalStandsEndpoint, queryParams: userTotalStandsQueryParams) { result in
             DispatchQueue.main.async {
-                print(result)
+                switch result {
+                case .success(let json):
+                    print(json)
+                    // Handle successful response with JSON
+                    if let myStands = json["count"] as? Int {
+                        self.myTotalStandsLabel.text = "\(myStands)"
+                    } else {
+                        self.myTotalStandsLabel.text = "0"
+                    }
+                case .failure(let error):
+                    // Handle error
+                    self.myTotalStandsLabel.text = "0"
+                    print("Error: \(error.localizedDescription)")
+                }
             }
         }
         
-        //Yesterday
+        //Us Total
         callAPIGateway(endpoint: usTotalStandsEndpoint, queryParams: [:]) { result in
             DispatchQueue.main.async {
-                print(result)
+                switch result {
+                case .success(let json):
+                    print(json)
+                    // Handle successful response with JSON
+                    if let usStands = json["count"] as? Int {
+                        self.usaTotalStandsLabel.text = "\(usStands)"
+                    } else {
+                        self.usaTotalStandsLabel.text = "0"
+                    }
+                case .failure(let error):
+                    // Handle error
+                    self.usaTotalStandsLabel.text = "0"
+                    print("Error: \(error.localizedDescription)")
+                }
             }
         }
-        
-        
         
         // Ensure the image view can interact with the user
         standStreakIcon.isUserInteractionEnabled = true
@@ -270,30 +308,47 @@ class HomeStatsViewController: UIViewController {
     }
     
     func callAPIGateway(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
-        UIView.animate(withDuration: 0.15, animations: {
-            self.pushStandButton.alpha = 0.0 //this is where daily count will immediately increase by 1
-        })  { (true) in
-            UIView.animate(withDuration: 0.75, delay: 0.5, animations: {
-                //stand streak goes up by 1
-            }) { (true) in
-                UIView.animate(withDuration: 0.75, delay: 1.25, animations: {
-                    self.onePoint.alpha = 1.0
-                    //this is where stand streak either does nothing after adding 1 or empties if the stand filled the bar
-                    //this is where if bar is filled, point will be "5 Points"
-                })  { (true) in
-                    UIView.animate(withDuration: 0.75, delay: 2.0, animations: {
-                        self.onePoint.alpha = 0.0 //this is where stand streak will increase by 1 as well
-                    })  { (true) in
-                        UIView.animate(withDuration: 0.0, animations: {
-                            self.landingViewWithButton.isHidden = true
-                            self.pushStandTitle.isHidden = true
-                            self.tabBarController?.tabBar.alpha = 1.0 //why can't I say isHidden = false like the other two?
-                        }, completion: { (true) in
-                        })
-                    }
+        // Construct the URL with query parameters
+        var urlComponents = URLComponents(string: endpoint)
+        urlComponents?.queryItems = queryParams.map { URLQueryItem(name: $0.key, value: $0.value) }
+        
+        guard let url = urlComponents?.url else {
+            completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
+            return
+        }
+        
+        // Create a URLRequest
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        // URLSession task to call the API
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            // Check for errors
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            // Check for valid data
+            guard let data = data else {
+                completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
+                return
+            }
+            
+            // Attempt to parse JSON
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    completion(.success(json))
+                } else {
+                    completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid JSON"])))
                 }
+            } catch let error {
+                completion(.failure(error))
             }
         }
+        
+        // Start the task
+        task.resume()
     }
     func getDailyGoals(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
         // Construct the URL with query parameters

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhd-gU-6Yv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhd-gU-6Yv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -792,40 +792,6 @@ Stands</string>
                                     <constraint firstItem="ov3-1B-ftm" firstAttribute="centerX" secondItem="Wlz-PA-Rkk" secondAttribute="centerX" id="jnL-z8-xmD"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3iR-fP-Osy" userLabel="Account">
-                                <rect key="frame" x="360" y="53.5" width="30" height="29"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="5bY-W3-2b4">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
-                                    </constraint>
-                                    <constraint firstAttribute="height" constant="30" id="HMZ-og-zju">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
-                                    </constraint>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9l-Tj-CeX">
-                                <rect key="frame" x="0.0" y="658" width="414" height="238"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="sMR-kY-hS2">
-                                        <rect key="frame" x="113" y="25" width="188" height="188"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="sMR-kY-hS2" secondAttribute="height" multiplier="1:1" id="QED-7K-MXh"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstItem="sMR-kY-hS2" firstAttribute="top" secondItem="R9l-Tj-CeX" secondAttribute="top" constant="25" id="fBP-gP-Jgv"/>
-                                    <constraint firstAttribute="bottom" secondItem="sMR-kY-hS2" secondAttribute="bottom" constant="25" id="uUf-0o-lIj"/>
-                                    <constraint firstItem="sMR-kY-hS2" firstAttribute="centerX" secondItem="R9l-Tj-CeX" secondAttribute="centerX" id="xy3-zS-lw4"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="BBj-fo-GNU" appends="YES" id="8Tq-3a-JWC"/>
-                                </connections>
-                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-E1-3cg" userLabel="Top Icons">
                                 <rect key="frame" x="20" y="103" width="374" height="56"/>
                                 <subviews>
@@ -897,7 +863,7 @@ Stands</string>
                                         </variation>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" image="star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="vCk-Nt-ItY" userLabel="Star Image Left">
-                                        <rect key="frame" x="125.5" y="9.5" width="10" height="10"/>
+                                        <rect key="frame" x="141.5" y="9.5" width="10" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="48b-7T-TAv">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
@@ -908,7 +874,7 @@ Stands</string>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" image="star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="lnf-KY-866" userLabel="Star Image Right">
-                                        <rect key="frame" x="279" y="9.5" width="10" height="10"/>
+                                        <rect key="frame" x="263" y="9.5" width="10" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="jKq-K1-pkO">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
@@ -975,6 +941,28 @@ Stands</string>
                                     </constraint>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9l-Tj-CeX">
+                                <rect key="frame" x="0.0" y="658" width="414" height="238"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="sMR-kY-hS2">
+                                        <rect key="frame" x="113" y="25" width="188" height="188"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="sMR-kY-hS2" secondAttribute="height" multiplier="1:1" id="QED-7K-MXh"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="sMR-kY-hS2" firstAttribute="top" secondItem="R9l-Tj-CeX" secondAttribute="top" constant="25" id="fBP-gP-Jgv"/>
+                                    <constraint firstAttribute="bottom" secondItem="sMR-kY-hS2" secondAttribute="bottom" constant="25" id="uUf-0o-lIj"/>
+                                    <constraint firstItem="sMR-kY-hS2" firstAttribute="centerX" secondItem="R9l-Tj-CeX" secondAttribute="centerX" id="xy3-zS-lw4"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="BBj-fo-GNU" appends="YES" id="8Tq-3a-JWC"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FPa-gG-5KV"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1042,11 +1030,10 @@ Stands</string>
                         <outlet property="dailyGoalCount" destination="FRt-ke-DPV" id="W3Z-I0-6Hc"/>
                         <outlet property="globalStandCount" destination="WKY-V7-7fx" id="R3s-RN-faB"/>
                         <outlet property="landingViewWithButton" destination="R9l-Tj-CeX" id="4Ry-0h-Iar"/>
+                        <outlet property="leftStarImage" destination="vCk-Nt-ItY" id="9T8-is-7Lt"/>
                         <outlet property="myCurrentStreakLabel" destination="mIy-hv-gIg" id="Ec6-JY-d1X"/>
                         <outlet property="myPointsLabel" destination="rhB-y6-c0a" id="KBt-sg-P8X"/>
                         <outlet property="myTotalStandsLabel" destination="z9d-tv-roT" id="rtN-qo-Dki"/>
-                        <outlet property="leftStarImage" destination="vCk-Nt-ItY" id="9T8-is-7Lt"/>
-                        <outlet property="myPointsLabel" destination="rhB-y6-c0a" id="KBt-sg-P8X"/>
                         <outlet property="onePoint" destination="Iwt-gq-ghg" id="hqJ-Xo-xMw"/>
                         <outlet property="pointsIcon" destination="9tL-5f-BSN" id="If8-HE-9RP"/>
                         <outlet property="pointsTitle" destination="sle-yn-ue8" id="I9V-2r-BSK"/>
