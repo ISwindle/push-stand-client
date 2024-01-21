@@ -37,10 +37,19 @@ class HomeStatsViewController: UIViewController {
     
     var goal:Float = 0.0
     var current:Float = 0.0
-    let myCurrentStreak = 0
+    var answerStreak:Int = 0
+    var myCurrentStreak = 0
     let totalStands = 0
     let usaTotalStands = 0
     let pointsCount = 0
+    
+    let dailyGoalsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/dailygoals"
+    let currentStandStreakEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/streaks"
+    let currentAnswerStreakEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/streaks/answers"
+    let userTotalStandsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/stands/user"
+    let usTotalStandsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/stands"
+    let userPointsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/points"
+    let pushStandEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/stand"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +63,7 @@ class HomeStatsViewController: UIViewController {
         
         
         // Example usage
-        let dailyGoalsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/dailygoals"
-        let currentStandStreakEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/streaks"
-        let userTotalStandsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/stands/user"
-        let usTotalStandsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/stands"
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: Date())
@@ -74,8 +80,8 @@ class HomeStatsViewController: UIViewController {
             }
         }
         let yesterdayQueryParams = ["date": newDateString]
-        let currentStandStreakQueryParams = ["userId": CurrentUser.shared.uid!]
         let userTotalStandsQueryParams = ["userId": CurrentUser.shared.uid!]
+        let userPointsQueryParams = ["userId": CurrentUser.shared.uid!]
         
         //Today
         callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: yesterdayQueryParams, httpMethod: .get ) { result in
@@ -124,27 +130,6 @@ class HomeStatsViewController: UIViewController {
             }
         }
         
-       //Yesterday
-        callAPIGateway(endpoint: currentStandStreakEndpoint, queryParams: currentStandStreakQueryParams, httpMethod: .get) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let json):
-                    print(json)
-                    // Handle successful response with JSON
-                    if let streaks = json["streak_count"] as? Int {
-                        self.myCurrentStreakLabel.text = "\(streaks)"
-                        self.segmentedStreakBar.value = streaks
-                    } else {
-                        self.myCurrentStreakLabel.text = "0"
-                    }
-                case .failure(let error):
-                    // Handle error
-                    self.myCurrentStreakLabel.text = "0"
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-        
         //Yesterday
         callAPIGateway(endpoint: userTotalStandsEndpoint, queryParams: userTotalStandsQueryParams, httpMethod: .get) { result in
             DispatchQueue.main.async {
@@ -180,6 +165,26 @@ class HomeStatsViewController: UIViewController {
                 case .failure(let error):
                     // Handle error
                     self.usaTotalStandsLabel.text = "0"
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        //Points
+        callAPIGateway(endpoint: userPointsEndpoint, queryParams: userPointsQueryParams, httpMethod: .get) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let json):
+                    print(json)
+                    // Handle successful response with JSON
+                    if let points = json["TotalPoints"] as? Int {
+                        self.myPointsLabel.text = "\(points) Points"
+                    } else {
+                        self.myPointsLabel.text = "0 Points"
+                    }
+                case .failure(let error):
+                    // Handle error
+                    self.myPointsLabel.text = "0 Points"
                     print("Error: \(error.localizedDescription)")
                 }
             }
@@ -221,7 +226,7 @@ class HomeStatsViewController: UIViewController {
             segmentedStreakBar.alpha = 1
             streakImage.alpha = 1
             segmentedStreakBar.selectedColor = .red
-            segmentedStreakBar.value = 4
+            segmentedStreakBar.value = myCurrentStreak
             streakImage.image = UIImage(named: "stand-streak-fire")
         }
     // Action for tap gesture
@@ -238,7 +243,7 @@ class HomeStatsViewController: UIViewController {
             segmentedStreakBar.alpha = 1
             streakImage.alpha = 1
             segmentedStreakBar.selectedColor = .cyan
-            segmentedStreakBar.value = 4
+            segmentedStreakBar.value = answerStreak
             streakImage.image = UIImage(named: "question-streak-fire")
         }
     // Action for tap gesture
@@ -270,18 +275,63 @@ class HomeStatsViewController: UIViewController {
         } else {
             self.tabBarController?.tabBar.alpha = 0
         }
+        let currentStandStreakQueryParams = ["userId": CurrentUser.shared.uid!]
+        let answerStreakQueryParams = ["userId": CurrentUser.shared.uid!]
+        //Stand Streak
+        callAPIGateway(endpoint: currentStandStreakEndpoint, queryParams: currentStandStreakQueryParams, httpMethod: .get) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let json):
+                    print(json)
+                    // Handle successful response with JSON
+                    if let streaks = json["streak_count"] as? Int {
+                        self.myCurrentStreakLabel.text = "\(streaks)"
+                        self.segmentedStreakBar.value = streaks
+                        self.myCurrentStreak = streaks
+                    } else {
+                        self.myCurrentStreakLabel.text = "0"
+                    }
+                case .failure(let error):
+                    // Handle error
+                    self.myCurrentStreakLabel.text = "0"
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        //Question Streak
+         callAPIGateway(endpoint: currentAnswerStreakEndpoint, queryParams: answerStreakQueryParams, httpMethod: .get) { result in
+             DispatchQueue.main.async {
+                 switch result {
+                 case .success(let json):
+                     print(json)
+                     // Handle successful response with JSON
+                     if let streaks = json["streak_count"] as? Int {
+                         self.answerStreak = streaks
+                     }
+                 case .failure(let error):
+                     // Handle error
+                     print("Error: \(error.localizedDescription)")
+                 }
+             }
+         }
+        
     }
     @IBAction func pushStand(_ sender: UITapGestureRecognizer) {
         let uuid = UUID()
         let uuidString = uuid.uuidString
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateString = dateFormatter.string(from: Date())
+        let dateString = getDateFormatted()
         self.tabBarController?.tabBar.isHidden = false
         tapHaptic()
-        let pushStandEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/stand"
         let pushStandQueryParams = ["UserId": CurrentUser.shared.uid!, "Date": dateString]
         postStand(endpoint: pushStandEndpoint, queryParams: pushStandQueryParams) { result in
+            DispatchQueue.main.async {
+                
+            }
+        }
+        let unixTimestamp = Date().timeIntervalSince1970
+        let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": "1"]
+        postPoints(endpoint: userPointsEndpoint, queryParams: postPointQueryParams) { result in
             DispatchQueue.main.async {
                 
             }
@@ -369,7 +419,7 @@ class HomeStatsViewController: UIViewController {
         self.current = self.current + 1
         let progressAmount = self.current / self.goal
         self.standProgressBar.progress = CGFloat(progressAmount)
-        segmentedStreakBar.value = 1
+        segmentedStreakBar.value = myCurrentStreak + 1
         let newCount = pointsCount + 1
         self.myPointsLabel.text = "\(newCount) Points"
         

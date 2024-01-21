@@ -8,6 +8,8 @@
 import UIKit
 
 extension UIViewController {
+    
+    
     func callAPIGateway(endpoint: String, queryParams: [String: String], httpMethod: HTTPMethod, completion: @escaping (Result<[String: Any], Error>) -> Void) {
         // Construct the URL with query parameters
         var urlComponents = URLComponents(string: endpoint)
@@ -52,10 +54,42 @@ extension UIViewController {
         task.resume()
     }
     
+    func postPoints(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {        
+        let urlString = endpoint
+        let url = NSURL(string: urlString)!
+        let paramString = queryParams
+        let request = NSMutableURLRequest(url: url as URL)
+        request.httpMethod = "POST"
+        request.httpBody = try? JSONSerialization.data(withJSONObject: paramString, options: [.prettyPrinted])
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, _, _ in
+            do {
+                if let jsonData = data {
+                    if let jsonDataDict = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: AnyObject] {
+                        NSLog("Received data:\n\(jsonDataDict))")
+                        //                        self.log.mpUpdate("CLIENT_PUSH_NOTIFICATION", "status", "success")
+                    }
+                }
+            } catch let err as NSError {
+                // print(err.debugDescription)
+                //                self.log.mpUpdate("CLIENT_PUSH_NOTIFICATION_FAILED", "status", "failed", "error", err.localizedDescription)
+            }
+        }
+        task.resume()
+        
+    }
+    
     func tapHaptic() {
         let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         feedbackGenerator.prepare()
         feedbackGenerator.impactOccurred()
+    }
+    
+    func getDateFormatted() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: Date())
+        return dateString
     }
     
     enum HTTPMethod: String {

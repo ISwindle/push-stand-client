@@ -401,6 +401,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.bubble" catalog="system" selectedImage="questionmark.bubble.fill" id="asJ-Ax-25m"/>
                     <connections>
+                        <outlet property="answerStackview" destination="RvJ-ly-A4h" id="uB5-SQ-DKQ"/>
                         <outlet property="flameSteakImage" destination="wX5-cT-NA4" id="0lE-dO-alG"/>
                         <outlet property="questionLabel" destination="kEI-GT-CvW" id="Edo-Jk-xom"/>
                         <outlet property="streakPointLabel" destination="6Ws-7v-mrs" id="y1k-vT-BMB"/>
