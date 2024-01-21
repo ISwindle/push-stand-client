@@ -81,7 +81,7 @@ class HomeStatsViewController: UIViewController {
         }
         let yesterdayQueryParams = ["date": newDateString]
         let userTotalStandsQueryParams = ["userId": CurrentUser.shared.uid!]
-        let userPointsQueryParams = ["userId": CurrentUser.shared.uid!]
+        
         
         //Today
         callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: yesterdayQueryParams, httpMethod: .get ) { result in
@@ -170,25 +170,7 @@ class HomeStatsViewController: UIViewController {
             }
         }
         
-        //Points
-        callAPIGateway(endpoint: userPointsEndpoint, queryParams: userPointsQueryParams, httpMethod: .get) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let json):
-                    print(json)
-                    // Handle successful response with JSON
-                    if let points = json["TotalPoints"] as? Int {
-                        self.myPointsLabel.text = "\(points) Points"
-                    } else {
-                        self.myPointsLabel.text = "0 Points"
-                    }
-                case .failure(let error):
-                    // Handle error
-                    self.myPointsLabel.text = "0 Points"
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
+        
         
         // Ensure the image view can interact with the user
         standStreakIcon.isUserInteractionEnabled = true
@@ -277,6 +259,7 @@ class HomeStatsViewController: UIViewController {
         }
         let currentStandStreakQueryParams = ["userId": CurrentUser.shared.uid!]
         let answerStreakQueryParams = ["userId": CurrentUser.shared.uid!]
+        let userPointsQueryParams = ["userId": CurrentUser.shared.uid!]
         //Stand Streak
         callAPIGateway(endpoint: currentStandStreakEndpoint, queryParams: currentStandStreakQueryParams, httpMethod: .get) { result in
             DispatchQueue.main.async {
@@ -315,6 +298,26 @@ class HomeStatsViewController: UIViewController {
                  }
              }
          }
+        
+        //Points
+        callAPIGateway(endpoint: userPointsEndpoint, queryParams: userPointsQueryParams, httpMethod: .get) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let json):
+                    print(json)
+                    // Handle successful response with JSON
+                    if let points = json["TotalPoints"] as? Int {
+                        self.myPointsLabel.text = "\(points) Points"
+                    } else {
+                        self.myPointsLabel.text = "0 Points"
+                    }
+                case .failure(let error):
+                    // Handle error
+                    self.myPointsLabel.text = "0 Points"
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
         
     }
     @IBAction func pushStand(_ sender: UITapGestureRecognizer) {
@@ -419,9 +422,11 @@ class HomeStatsViewController: UIViewController {
         self.current = self.current + 1
         let progressAmount = self.current / self.goal
         self.standProgressBar.progress = CGFloat(progressAmount)
-        segmentedStreakBar.value = myCurrentStreak + 1
+        self.myCurrentStreak = self.myCurrentStreak + 1
+        segmentedStreakBar.value = myCurrentStreak
         let newCount = pointsCount + 1
         self.myPointsLabel.text = "\(newCount) Points"
+        
         
         let urlString = endpoint
         let url = NSURL(string: urlString)!
