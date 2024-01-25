@@ -14,7 +14,7 @@ class LandingRootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .black
+        self.view.backgroundColor = .white
         
         //standLabel.alpha = 0
         //standLabel.textColor = .white

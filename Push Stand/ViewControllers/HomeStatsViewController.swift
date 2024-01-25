@@ -343,17 +343,31 @@ class HomeStatsViewController: UIViewController {
         UserDefaults.standard.set(true, forKey: dateString)
         self.appDelegate.userDefault.set(true, forKey: dateString)
         self.appDelegate.userDefault.synchronize()
-        UIView.animate(withDuration: 1.5, animations: {
+        UIView.animate(withDuration: 0.0, animations: {
             // This will start the animation to fade out the view
-            self.landingViewWithButton.alpha = 0
-            self.pushStandTitle.alpha = 0
-            self.tabBarController?.tabBar.alpha = 1
-            
-        }) { (finished) in
-            // Once the animation is finished, hide the view
-            if finished {
-                self.landingViewWithButton.isHidden = true
-                self.pushStandTitle.isHidden = true
+            //self.landingViewWithButton.alpha = 0
+            self.pushStandButton.alpha = 0
+            //self.pushStandTitle.alpha = 0
+            //self.tabBarController?.tabBar.alpha = 1
+        }) { (true) in
+            UIView.animate(withDuration: 1.0, delay: 1.0, animations: {
+                self.onePoint.alpha = 1
+            }) { (true) in
+                UIView.animate(withDuration: 1.0, delay: 1.0, animations: {
+                    self.onePoint.alpha = 0
+                }) { (true) in
+                    UIView.animate(withDuration: 0.5, delay: 1.0, animations: {
+                        self.tabBarController?.tabBar.alpha = 1
+                        self.pushStandTitle.alpha = 0
+                        self.landingViewWithButton.alpha = 0
+                    }) { (finished) in
+                        // Once the animation is finished, hide the view
+                        if finished {
+                            self.landingViewWithButton.isHidden = true
+                            self.pushStandTitle.isHidden = true
+                        }
+                    }
+                }
             }
         }
     }
