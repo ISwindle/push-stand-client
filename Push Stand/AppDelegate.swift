@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     let userDefault = UserDefaults.standard
     let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
     
-    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions:
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -125,10 +124,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([[.alert, .sound]]) // Change as needed
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Handle notification when app is in foreground
+        // ...
+        completionHandler([.alert, .badge, .sound])
     }
 }
 

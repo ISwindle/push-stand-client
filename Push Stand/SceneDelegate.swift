@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if launchedBefore {
                 window.rootViewController = storyboard.instantiateViewController(identifier: "RootTabBarController")
             } else {
-                window.rootViewController = storyboard.instantiateViewController(identifier: "LandingRootViewController")
+                window.rootViewController = storyboard.instantiateViewController(identifier: "InitialViewController")
             }
             self.window = window
             window.makeKeyAndVisible()

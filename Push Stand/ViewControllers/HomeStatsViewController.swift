@@ -194,54 +194,54 @@ class HomeStatsViewController: UIViewController {
         print("Tapped")
         self.performSegue(withIdentifier: "account", sender: self)
     }
-
-        @objc func standStreakTapped() {
-            standStreakIcon.image = UIImage(named: "stand-streak-icon-active")
-            questionStreakIcon.image = UIImage(named: "question-streak-icon")
-            pointsIcon.image = UIImage(named: "points-icon")
-            standStreakTitle.textColor = .red
-            questionStreakTitle.textColor = .white
-            pointsTitle.textColor = .white
-            myPointsLabel.alpha = 0
-            leftStarImage.alpha = 0
-            rightStarImage.alpha = 0
-            segmentedStreakBar.alpha = 1
-            streakImage.alpha = 1
-            segmentedStreakBar.selectedColor = .red
-            segmentedStreakBar.value = myCurrentStreak
-            streakImage.image = UIImage(named: "stand-streak-fire")
-        }
+    
+    @objc func standStreakTapped() {
+        standStreakIcon.image = UIImage(named: "stand-streak-icon-active")
+        questionStreakIcon.image = UIImage(named: "question-streak-icon")
+        pointsIcon.image = UIImage(named: "points-icon")
+        standStreakTitle.textColor = .red
+        questionStreakTitle.textColor = .white
+        pointsTitle.textColor = .white
+        myPointsLabel.alpha = 0
+        leftStarImage.alpha = 0
+        rightStarImage.alpha = 0
+        segmentedStreakBar.alpha = 1
+        streakImage.alpha = 1
+        segmentedStreakBar.selectedColor = .red
+        segmentedStreakBar.value = myCurrentStreak
+        streakImage.image = UIImage(named: "stand-streak-fire")
+    }
     // Action for tap gesture
-        @objc func questionStreakTapped() {
-            standStreakIcon.image = UIImage(named: "stand-streak-icon")
-            questionStreakIcon.image = UIImage(named: "question-streak-icon-active")
-            pointsIcon.image = UIImage(named: "points-icon")
-            standStreakTitle.textColor = .white
-            questionStreakTitle.textColor = .cyan
-            pointsTitle.textColor = .white
-            myPointsLabel.alpha = 0
-            leftStarImage.alpha = 0
-            rightStarImage.alpha = 0
-            segmentedStreakBar.alpha = 1
-            streakImage.alpha = 1
-            segmentedStreakBar.selectedColor = .cyan
-            segmentedStreakBar.value = answerStreak
-            streakImage.image = UIImage(named: "question-streak-fire")
-        }
+    @objc func questionStreakTapped() {
+        standStreakIcon.image = UIImage(named: "stand-streak-icon")
+        questionStreakIcon.image = UIImage(named: "question-streak-icon-active")
+        pointsIcon.image = UIImage(named: "points-icon")
+        standStreakTitle.textColor = .white
+        questionStreakTitle.textColor = .cyan
+        pointsTitle.textColor = .white
+        myPointsLabel.alpha = 0
+        leftStarImage.alpha = 0
+        rightStarImage.alpha = 0
+        segmentedStreakBar.alpha = 1
+        streakImage.alpha = 1
+        segmentedStreakBar.selectedColor = .cyan
+        segmentedStreakBar.value = answerStreak
+        streakImage.image = UIImage(named: "question-streak-fire")
+    }
     // Action for tap gesture
-        @objc func pointsTapped() {
-            standStreakIcon.image = UIImage(named: "stand-streak-icon")
-            questionStreakIcon.image = UIImage(named: "question-streak-icon")
-            pointsIcon.image = UIImage(named: "points-icon-active")
-            standStreakTitle.textColor = .white
-            questionStreakTitle.textColor = .white
-            pointsTitle.textColor = .yellow
-            segmentedStreakBar.alpha = 0
-            streakImage.alpha = 0
-            myPointsLabel.alpha = 1
-            leftStarImage.alpha = 1
-            rightStarImage.alpha = 1
-        }
+    @objc func pointsTapped() {
+        standStreakIcon.image = UIImage(named: "stand-streak-icon")
+        questionStreakIcon.image = UIImage(named: "question-streak-icon")
+        pointsIcon.image = UIImage(named: "points-icon-active")
+        standStreakTitle.textColor = .white
+        questionStreakTitle.textColor = .white
+        pointsTitle.textColor = .yellow
+        segmentedStreakBar.alpha = 0
+        streakImage.alpha = 0
+        myPointsLabel.alpha = 1
+        leftStarImage.alpha = 1
+        rightStarImage.alpha = 1
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -254,6 +254,7 @@ class HomeStatsViewController: UIViewController {
         if UserDefaults.standard.bool(forKey: dateString) {
             self.landingViewWithButton.isHidden = true
             self.pushStandTitle.isHidden = true
+            self.accountButton.isHidden = false
         } else {
             self.tabBarController?.tabBar.alpha = 0
         }
@@ -283,21 +284,21 @@ class HomeStatsViewController: UIViewController {
         }
         
         //Question Streak
-         callAPIGateway(endpoint: currentAnswerStreakEndpoint, queryParams: answerStreakQueryParams, httpMethod: .get) { result in
-             DispatchQueue.main.async {
-                 switch result {
-                 case .success(let json):
-                     print(json)
-                     // Handle successful response with JSON
-                     if let streaks = json["streak_count"] as? Int {
-                         self.answerStreak = streaks
-                     }
-                 case .failure(let error):
-                     // Handle error
-                     print("Error: \(error.localizedDescription)")
-                 }
-             }
-         }
+        callAPIGateway(endpoint: currentAnswerStreakEndpoint, queryParams: answerStreakQueryParams, httpMethod: .get) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let json):
+                    print(json)
+                    // Handle successful response with JSON
+                    if let streaks = json["streak_count"] as? Int {
+                        self.answerStreak = streaks
+                    }
+                case .failure(let error):
+                    // Handle error
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
         
         //Points
         callAPIGateway(endpoint: userPointsEndpoint, queryParams: userPointsQueryParams, httpMethod: .get) { result in
@@ -365,6 +366,7 @@ class HomeStatsViewController: UIViewController {
                         if finished {
                             self.landingViewWithButton.isHidden = true
                             self.pushStandTitle.isHidden = true
+                            self.accountButton.isHidden = false
                         }
                     }
                 }

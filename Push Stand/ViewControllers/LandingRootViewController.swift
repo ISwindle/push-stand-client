@@ -14,7 +14,7 @@ class LandingRootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .black
         
         //standLabel.alpha = 0
         //standLabel.textColor = .white
@@ -38,22 +38,16 @@ class LandingRootViewController: UIViewController {
         }}
     
     @IBAction func joinNow(_ sender: Any) {
-        // Perform the segue with the identifier you set in the storyboard
-                self.performSegue(withIdentifier: "joinToPhone", sender: self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "SignUpInitialPhoneViewController") as! SignUpInitialPhoneViewController
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
-    
+    @IBAction func learnMore(_ sender: Any) {
+        performSegue(withIdentifier: "learnMoreSegue", sender: self)
+    }
     @IBAction func login(_ sender: Any) {
-        self.performSegue(withIdentifier: "signIn", sender: self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
-    // This method gets called just before the segue starts
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "joinToPhone" {
-                // You can pass data to the destination VC if needed
-                if let destinationVC = segue.destination as? SignUpInitialPhoneViewController {
-                    // Set properties on destinationVC here
-                    //destinationVC.someProperty = "Some Value"
-                }
-            }
-        }
-    
 }

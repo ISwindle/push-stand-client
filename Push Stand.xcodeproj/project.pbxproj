@@ -19,6 +19,15 @@
 		222C4C422B14E391006FC90B /* DailyQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C4C412B14E391006FC90B /* DailyQuestionViewController.swift */; };
 		222C4C442B14E3B5006FC90B /* SweepstakesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C4C432B14E3B5006FC90B /* SweepstakesViewController.swift */; };
 		222C4C462B14E41F006FC90B /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C4C452B14E41F006FC90B /* ShopViewController.swift */; };
+		22359DD62B6C7B71003D3520 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22359DD52B6C7B71003D3520 /* User.swift */; };
+		22359DDB2B6C9BE3003D3520 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22359DDA2B6C9BE3003D3520 /* OnboardingManager.swift */; };
+		22359DDD2B6CB431003D3520 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22359DDC2B6CB431003D3520 /* OnboardingData.swift */; };
+		22359DE02B6E995C003D3520 /* GroupRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22359DDE2B6E995C003D3520 /* GroupRequestTableViewCell.swift */; };
+		22359DE12B6E995C003D3520 /* GroupRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22359DDF2B6E995C003D3520 /* GroupRequestTableViewCell.xib */; };
+		22359DE32B6E9C8D003D3520 /* GroupRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22359DE22B6E9C8D003D3520 /* GroupRequestsViewController.swift */; };
+		22359DE62B6E9F09003D3520 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22359DE42B6E9F09003D3520 /* ContactsTableViewCell.swift */; };
+		22359DE72B6E9F09003D3520 /* ContactsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22359DE52B6E9F09003D3520 /* ContactsTableViewCell.xib */; };
+		22359DE92B6EA132003D3520 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22359DE82B6EA132003D3520 /* ContactsViewController.swift */; };
 		223EA0832AEED76F0055F94B /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0822AEED76F0055F94B /* CircularProgressBar.swift */; };
 		223EA0862AEEDB290055F94B /* IconWithTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0852AEEDB290055F94B /* IconWithTextView.swift */; };
 		223EA0882AEEDCA60055F94B /* SegmentedProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0872AEEDCA60055F94B /* SegmentedProgressBar.swift */; };
@@ -74,6 +83,15 @@
 		222C4C412B14E391006FC90B /* DailyQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuestionViewController.swift; sourceTree = "<group>"; };
 		222C4C432B14E3B5006FC90B /* SweepstakesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweepstakesViewController.swift; sourceTree = "<group>"; };
 		222C4C452B14E41F006FC90B /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		22359DD52B6C7B71003D3520 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		22359DDA2B6C9BE3003D3520 /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
+		22359DDC2B6CB431003D3520 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
+		22359DDE2B6E995C003D3520 /* GroupRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRequestTableViewCell.swift; sourceTree = "<group>"; };
+		22359DDF2B6E995C003D3520 /* GroupRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupRequestTableViewCell.xib; sourceTree = "<group>"; };
+		22359DE22B6E9C8D003D3520 /* GroupRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRequestsViewController.swift; sourceTree = "<group>"; };
+		22359DE42B6E9F09003D3520 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		22359DE52B6E9F09003D3520 /* ContactsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsTableViewCell.xib; sourceTree = "<group>"; };
+		22359DE82B6EA132003D3520 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		223EA0822AEED76F0055F94B /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		223EA0852AEEDB290055F94B /* IconWithTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconWithTextView.swift; sourceTree = "<group>"; };
 		223EA0872AEEDCA60055F94B /* SegmentedProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedProgressBar.swift; sourceTree = "<group>"; };
@@ -143,12 +161,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22359DD92B6C9BD0003D3520 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				22359DDA2B6C9BE3003D3520 /* OnboardingManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		223EA0812AEED7540055F94B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				223EA0822AEED76F0055F94B /* CircularProgressBar.swift */,
 				223EA0852AEEDB290055F94B /* IconWithTextView.swift */,
 				223EA0872AEEDCA60055F94B /* SegmentedProgressBar.swift */,
+				22359DDE2B6E995C003D3520 /* GroupRequestTableViewCell.swift */,
+				22359DDF2B6E995C003D3520 /* GroupRequestTableViewCell.xib */,
+				22359DE42B6E9F09003D3520 /* ContactsTableViewCell.swift */,
+				22359DE52B6E9F09003D3520 /* ContactsTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +203,8 @@
 				227D0F9E2B1E17890001E568 /* DailyQuestionContainerViewController.swift */,
 				22D12AA52B3C93D2004880B6 /* SignInViewController.swift */,
 				22B8EA192B3CD8C100FC9257 /* AccountViewController.swift */,
+				22359DE22B6E9C8D003D3520 /* GroupRequestsViewController.swift */,
+				22359DE82B6EA132003D3520 /* ContactsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -210,6 +242,7 @@
 		22AD2D2C2ADF583000B3B1A8 /* Push Stand */ = {
 			isa = PBXGroup;
 			children = (
+				22359DD92B6C9BD0003D3520 /* Managers */,
 				22B8EA1E2B3DF30000FC9257 /* Push Stand.entitlements */,
 				22B8EA1B2B3DD51600FC9257 /* Models */,
 				229C49FB2B14E0DA00C8E065 /* Extensions */,
@@ -248,6 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				22B8EA1C2B3DD53300FC9257 /* CurrentUser.swift */,
+				22359DD52B6C7B71003D3520 /* User.swift */,
+				22359DDC2B6CB431003D3520 /* OnboardingData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -371,7 +406,9 @@
 			files = (
 				22AD2D3D2ADF583300B3B1A8 /* LaunchScreen.storyboard in Resources */,
 				22AD2D3A2ADF583300B3B1A8 /* Assets.xcassets in Resources */,
+				22359DE12B6E995C003D3520 /* GroupRequestTableViewCell.xib in Resources */,
 				22AD2D352ADF583000B3B1A8 /* Main.storyboard in Resources */,
+				22359DE72B6E9F09003D3520 /* ContactsTableViewCell.xib in Resources */,
 				220976EA2B27630D0027E6C6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,24 +436,31 @@
 			files = (
 				222C4C422B14E391006FC90B /* DailyQuestionViewController.swift in Sources */,
 				22F1BD012B5C20DF00F1570F /* ExtUIImageView.swift in Sources */,
+				22359DE02B6E995C003D3520 /* GroupRequestTableViewCell.swift in Sources */,
 				223EA0862AEEDB290055F94B /* IconWithTextView.swift in Sources */,
 				22B8EA1A2B3CD8C100FC9257 /* AccountViewController.swift in Sources */,
 				2263D21C2AF926CB00D2E136 /* RootTabBarController.swift in Sources */,
 				2263D2182AF91E6900D2E136 /* SignUpReminderViewController.swift in Sources */,
+				22359DDD2B6CB431003D3520 /* OnboardingData.swift in Sources */,
 				22B8EA1D2B3DD53300FC9257 /* CurrentUser.swift in Sources */,
 				227D0F9F2B1E17890001E568 /* DailyQuestionContainerViewController.swift in Sources */,
 				222C4C402B14E342006FC90B /* GroupsViewController.swift in Sources */,
+				22359DE62B6E9F09003D3520 /* ContactsTableViewCell.swift in Sources */,
 				2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */,
+				22359DE32B6E9C8D003D3520 /* GroupRequestsViewController.swift in Sources */,
 				2263D21A2AF91FEB00D2E136 /* SignUpVerificationViewController.swift in Sources */,
+				22359DDB2B6C9BE3003D3520 /* OnboardingManager.swift in Sources */,
 				22AD2D382ADF583000B3B1A8 /* Push_Stand.xcdatamodeld in Sources */,
 				223EA08A2AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift in Sources */,
 				2263D2102AF8A11200D2E136 /* LandingRootViewController.swift in Sources */,
 				229C49FA2B14E0D100C8E065 /* HomeStatsViewController.swift in Sources */,
 				22AD2D322ADF583000B3B1A8 /* PushStandViewController.swift in Sources */,
+				22359DE92B6EA132003D3520 /* ContactsViewController.swift in Sources */,
 				2263D2162AF91D8400D2E136 /* SignupBirthdateViewController.swift in Sources */,
 				22AD2D2E2ADF583000B3B1A8 /* AppDelegate.swift in Sources */,
 				222C4C442B14E3B5006FC90B /* SweepstakesViewController.swift in Sources */,
 				22B8D2222B5C117000448D01 /* ExtUIViewController.swift in Sources */,
+				22359DD62B6C7B71003D3520 /* User.swift in Sources */,
 				229C49FD2B14E11800C8E065 /* ExtUITabBarController.swift in Sources */,
 				223EA0832AEED76F0055F94B /* CircularProgressBar.swift in Sources */,
 				2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */,

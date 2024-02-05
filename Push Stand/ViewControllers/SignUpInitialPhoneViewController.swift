@@ -14,23 +14,13 @@ class SignUpInitialPhoneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     @IBAction func signInWithPhone(_ sender: Any) {
-        // Perform the segue with the identifier you set in the storyboard
-                self.performSegue(withIdentifier: "phoneToPhone", sender: self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "SignUpPhoneViewController") as! SignUpPhoneViewController
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
-    
-    // This method gets called just before the segue starts
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "phoneToPhone" {
-                // You can pass data to the destination VC if needed
-                if let destinationVC = segue.destination as? SignUpPhoneViewController {
-                    // Set properties on destinationVC here
-                    //destinationVC.someProperty = "Some Value"
-                }
-            }
-        }
-    
+
 }

@@ -1,15 +1,17 @@
 import UIKit
 
 class SignUpPhoneViewController: UIViewController {
-
+    
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
+    
+    var dataManager = OnboardingManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPhoneNumberTextField()
     }
-
+    
     private func setupPhoneNumberTextField() {
         // Set up the text field properties
         phoneNumberTextField.keyboardType = .numberPad
@@ -22,22 +24,12 @@ class SignUpPhoneViewController: UIViewController {
         // Handle the text change
         print("Phone number entered: \(textField.text ?? "")")
     }
-
+    
     @IBAction func next(_ sender: Any) {
-        // Perform the segue with the identifier you set in the storyboard
-                self.performSegue(withIdentifier: "phoneToVerification", sender: self)
+        
+        dataManager.onboardingData.phoneNumber = phoneNumberTextField.text
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "SignUpUsernamePasswordViewController") as! SignUpUsernamePasswordViewController
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
-    
-    // This method gets called just before the segue starts
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "phoneToVerification" {
-                // You can pass data to the destination VC if needed
-                if let destinationVC = segue.destination as? SignUpVerificationViewController {
-                    // Set properties on destinationVC here
-                    //destinationVC.someProperty = "Some Value"
-                }
-            }
-        }
-    
-    
 }

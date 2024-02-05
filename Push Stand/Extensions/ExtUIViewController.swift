@@ -79,6 +79,53 @@ extension UIViewController {
         
     }
     
+    func postAPIGateway(endpoint: String, postData: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
+        guard let url = URL(string: endpoint) else {
+                print("Invalid URL")
+                return
+            }
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: postData, options: [])
+                request.httpBody = jsonData
+            } catch {
+                print("Error serializing JSON: \(error)")
+                return
+            }
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                // Ensure there is no error for this HTTP response
+                guard error == nil else {
+                    print("Error: \(error!.localizedDescription)")
+                    return
+                }
+                
+                // Ensure there is data returned from this HTTP response
+                guard let content = data else {
+                    print("No data")
+                    return
+                }
+                
+                // Serialize the data / NSData object into Dictionary [String : Any]
+                do {
+                    if let jsonResponse = try JSONSerialization.jsonObject(with: content, options: []) as? [String: Any] {
+                        print("Response: \(jsonResponse)")
+                    } else {
+                        print("Invalid JSON structure.")
+                    }
+                } catch {
+                    print("Serialization error: \(error.localizedDescription)")
+                }
+            }
+            
+            // Resume the URLSessionDataTask to start the request
+            task.resume()
+    }
+    
     func tapHaptic() {
         let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         feedbackGenerator.prepare()
