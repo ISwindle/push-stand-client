@@ -58,6 +58,8 @@
 		22D12AA42B3C762F004880B6 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 22D12AA32B3C762F004880B6 /* FirebaseMessaging */; };
 		22D12AA62B3C93D2004880B6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D12AA52B3C93D2004880B6 /* SignInViewController.swift */; };
 		22F1BD012B5C20DF00F1570F /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */; };
+		8E52D97D2B732DE100C84468 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E52D97B2B732DE100C84468 /* GroupsTableViewCell.swift */; };
+		8E52D97E2B732DE100C84468 /* GroupsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E52D97C2B732DE100C84468 /* GroupsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +128,8 @@
 		22B8EA1E2B3DF30000FC9257 /* Push Stand.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Push Stand.entitlements"; sourceTree = "<group>"; };
 		22D12AA52B3C93D2004880B6 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
+		8E52D97B2B732DE100C84468 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
+		8E52D97C2B732DE100C84468 /* GroupsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,8 @@
 				22359DDF2B6E995C003D3520 /* GroupRequestTableViewCell.xib */,
 				22359DE42B6E9F09003D3520 /* ContactsTableViewCell.swift */,
 				22359DE52B6E9F09003D3520 /* ContactsTableViewCell.xib */,
+				8E52D97B2B732DE100C84468 /* GroupsTableViewCell.swift */,
+				8E52D97C2B732DE100C84468 /* GroupsTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E52D97E2B732DE100C84468 /* GroupsTableViewCell.xib in Resources */,
 				22AD2D3D2ADF583300B3B1A8 /* LaunchScreen.storyboard in Resources */,
 				22AD2D3A2ADF583300B3B1A8 /* Assets.xcassets in Resources */,
 				22359DE12B6E995C003D3520 /* GroupRequestTableViewCell.xib in Resources */,
@@ -444,6 +451,7 @@
 				22359DDD2B6CB431003D3520 /* OnboardingData.swift in Sources */,
 				22B8EA1D2B3DD53300FC9257 /* CurrentUser.swift in Sources */,
 				227D0F9F2B1E17890001E568 /* DailyQuestionContainerViewController.swift in Sources */,
+				8E52D97D2B732DE100C84468 /* GroupsTableViewCell.swift in Sources */,
 				222C4C402B14E342006FC90B /* GroupsViewController.swift in Sources */,
 				22359DE62B6E9F09003D3520 /* ContactsTableViewCell.swift in Sources */,
 				2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */,

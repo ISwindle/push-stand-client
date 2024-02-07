@@ -23,7 +23,8 @@ class GroupsViewController: UIViewController, UITableViewDataSource, UITableView
         setupGestures()
         
         // Register the UITableViewCell class with the table view
-        tableview.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        let nib = UINib(nibName: "GroupsTableViewCell", bundle: nil)
+        tableview.register(nib, forCellReuseIdentifier: "GroupsTableViewCell")
         
         // Set the delegate and data source
         tableview.delegate = self
@@ -62,11 +63,13 @@ class GroupsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsTableViewCell", for: indexPath) as? GroupsTableViewCell else {
+            return UITableViewCell()
+        }
         
         // Configure the cell...
         let user = users[indexPath.row]
-        cell.textLabel?.text = "\(indexPath.row + 1). \(user.username) - \(user.points) points"
+        //cell.textLabel?.text = "\(indexPath.row + 1). \(user.username) - \(user.points) points"
         
         return cell
     }

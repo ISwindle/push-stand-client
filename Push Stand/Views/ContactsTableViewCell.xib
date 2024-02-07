@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,46 +18,40 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3v-Hb-5ey">
-                        <rect key="frame" x="16" y="12" width="146" height="22"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="22" id="nQp-zx-Fvh"/>
-                            <constraint firstAttribute="width" constant="146" id="sek-Ap-G50"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="15" y="12" width="185" height="20.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYa-fp-pSj">
-                        <rect key="frame" x="181" y="0.0" width="139" height="44"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bU4-6o-HsW">
-                                <rect key="frame" x="59" y="10" width="72" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="Dfd-lj-Mph"/>
-                                    <constraint firstAttribute="width" constant="72" id="fVN-io-gPk"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Invite">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="11"/>
-                                </buttonConfiguration>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bU4-6o-HsW">
+                        <rect key="frame" x="220" y="7" width="85" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="bU4-6o-HsW" secondAttribute="trailing" constant="8" id="2lP-mW-fpF"/>
-                            <constraint firstItem="bU4-6o-HsW" firstAttribute="top" secondItem="tYa-fp-pSj" secondAttribute="top" constant="10" id="zro-JR-cFB"/>
+                            <constraint firstAttribute="width" constant="85" id="fVN-io-gPk"/>
+                            <constraint firstAttribute="height" constant="30" id="j0y-9V-l0P"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="filled" title="Invite">
+                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                        </buttonConfiguration>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1U-4x-KRN" userLabel="separator view">
+                        <rect key="frame" x="15" y="43" width="290" height="1"/>
+                        <color key="backgroundColor" red="0.16321417299999999" green="0.16321417299999999" blue="0.16321417299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="drU-Ip-BeR"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="c3v-Hb-5ey" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="EJ5-hC-H4m"/>
-                    <constraint firstItem="c3v-Hb-5ey" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="F2l-NM-9mQ"/>
-                    <constraint firstAttribute="trailing" secondItem="tYa-fp-pSj" secondAttribute="trailing" id="JC3-dP-ayH"/>
-                    <constraint firstAttribute="bottom" secondItem="c3v-Hb-5ey" secondAttribute="bottom" constant="10" id="Mg3-2r-g8z"/>
-                    <constraint firstAttribute="bottom" secondItem="tYa-fp-pSj" secondAttribute="bottom" id="Or0-Rk-GXv"/>
-                    <constraint firstItem="tYa-fp-pSj" firstAttribute="leading" secondItem="c3v-Hb-5ey" secondAttribute="trailing" constant="19" id="rBy-jI-zv8"/>
-                    <constraint firstItem="tYa-fp-pSj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uL5-52-6FK"/>
+                    <constraint firstItem="c3v-Hb-5ey" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="F2l-NM-9mQ"/>
+                    <constraint firstAttribute="trailing" secondItem="bU4-6o-HsW" secondAttribute="trailing" constant="15" id="IJH-nc-Wpr"/>
+                    <constraint firstItem="v1U-4x-KRN" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="JP3-Wu-aoH"/>
+                    <constraint firstAttribute="trailing" secondItem="v1U-4x-KRN" secondAttribute="trailing" constant="15" id="Nlt-tW-LTl"/>
+                    <constraint firstItem="bU4-6o-HsW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Zse-P0-7zA"/>
+                    <constraint firstAttribute="bottom" secondItem="v1U-4x-KRN" secondAttribute="bottom" id="dZ6-3r-a1d"/>
+                    <constraint firstItem="c3v-Hb-5ey" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hcL-cN-7gk"/>
+                    <constraint firstItem="bU4-6o-HsW" firstAttribute="leading" secondItem="c3v-Hb-5ey" secondAttribute="trailing" constant="20" id="xgo-wB-Xh0"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
