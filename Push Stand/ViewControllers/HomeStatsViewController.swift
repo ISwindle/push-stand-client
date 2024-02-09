@@ -9,6 +9,7 @@ class HomeStatsViewController: UIViewController {
     @IBOutlet weak var accountButton: UIImageView!
     @IBOutlet weak var pushStandButton: UIImageView!
     @IBOutlet weak var landingViewWithButton: UIView!
+    @IBOutlet weak var landingViewWithPicture: UIView!
     @IBOutlet weak var pushStandTitle: UIView!
     @IBOutlet var pushStandGesture: UITapGestureRecognizer!
     @IBOutlet weak var standProgressBar: CircularProgressBar!
@@ -254,6 +255,7 @@ class HomeStatsViewController: UIViewController {
         if UserDefaults.standard.bool(forKey: dateString) {
             self.landingViewWithButton.isHidden = true
             self.pushStandTitle.isHidden = true
+            self.landingViewWithPicture.isHidden = true
             self.accountButton.isHidden = false
         } else {
             self.tabBarController?.tabBar.alpha = 0
@@ -346,29 +348,20 @@ class HomeStatsViewController: UIViewController {
         self.appDelegate.userDefault.synchronize()
         UIView.animate(withDuration: 0.0, animations: {
             // This will start the animation to fade out the view
-            //self.landingViewWithButton.alpha = 0
             self.pushStandButton.alpha = 0
-            //self.pushStandTitle.alpha = 0
-            //self.tabBarController?.tabBar.alpha = 1
         }) { (true) in
-            UIView.animate(withDuration: 1.0, delay: 1.0, animations: {
-                self.onePoint.alpha = 1
-            }) { (true) in
-                UIView.animate(withDuration: 1.0, delay: 1.0, animations: {
-                    self.onePoint.alpha = 0
-                }) { (true) in
-                    UIView.animate(withDuration: 0.5, delay: 1.0, animations: {
-                        self.tabBarController?.tabBar.alpha = 1
-                        self.pushStandTitle.alpha = 0
-                        self.landingViewWithButton.alpha = 0
-                    }) { (finished) in
-                        // Once the animation is finished, hide the view
-                        if finished {
-                            self.landingViewWithButton.isHidden = true
-                            self.pushStandTitle.isHidden = true
-                            self.accountButton.isHidden = false
-                        }
-                    }
+            UIView.animate(withDuration: 1.0, delay: 1.5, animations: {
+                self.landingViewWithPicture.alpha = 0
+                self.pushStandTitle.alpha = 0
+                self.landingViewWithButton.alpha = 0
+                self.tabBarController?.tabBar.alpha = 1
+            }) { (finished) in
+                // Once the animation is finished, hide the view
+                if finished {
+                    self.landingViewWithButton.isHidden = true
+                    self.pushStandTitle.isHidden = true
+                    self.landingViewWithPicture.isHidden = true
+                    self.accountButton.isHidden = false
                 }
             }
         }
