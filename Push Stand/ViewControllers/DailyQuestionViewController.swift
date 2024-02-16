@@ -103,6 +103,16 @@ class DailyQuestionViewController: UIViewController {
     @objc func thumbsDownTapped() {
         tapHaptic()
         thumbsUpAnswer.isHidden = true
+        tapHaptic()
+        // Fade in the label
+        UIView.animate(withDuration: 1.0, animations: {
+            self.streakPointLabel.alpha = 1.0 // Make the label fully visible
+        }) { (finished) in
+            // After the fade-in completes, start the fade-out
+            UIView.animate(withDuration: 1.0, delay: 2.0, options: [], animations: {
+                self.streakPointLabel.alpha = 0.0 // Make the label fully transparent
+            }, completion: nil)
+        }
         let dateString = getDateFormatted()
         let queryParams = [
             "UserId": CurrentUser.shared.uid!,
@@ -126,6 +136,16 @@ class DailyQuestionViewController: UIViewController {
     @objc func thumbsUpTapped() {
         tapHaptic()
         thumbsDownAnswer.isHidden = true
+        tapHaptic()
+        // Fade in the label
+        UIView.animate(withDuration: 1.0, animations: {
+            self.streakPointLabel.alpha = 1.0 // Make the label fully visible
+        }) { (finished) in
+            // After the fade-in completes, start the fade-out
+            UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
+                self.streakPointLabel.alpha = 0.0 // Make the label fully transparent
+            }, completion: nil)
+        }
         let queryParams = [
             "UserId": CurrentUser.shared.uid!,
             "Date": getDateFormatted(),
