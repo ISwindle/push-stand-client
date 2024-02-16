@@ -22,13 +22,65 @@ class DailyQuestionViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var thumbsDownAnswer: UIImageView!
     @IBOutlet weak var thumbsUpAnswer: UIImageView!
-   
+    @IBOutlet weak var submitButton: UIButton!
+    
+    @IBOutlet weak var todaysQuestionView: UIView!
+    @IBOutlet weak var yesterdaysResultsView: UIView!
+    @IBOutlet weak var yesterdaysQuestion: UIView!
     @IBOutlet weak var answerStackview: UIStackView!
+    @IBOutlet weak var downPercentage: UILabel!
+    @IBOutlet weak var upPercentage: UILabel!
+    @IBOutlet weak var yesterdayThumbsDown: UIImageView!
+    @IBOutlet weak var yesterdayThumbsUp: UIImageView!
+    @IBOutlet weak var questionBot: UIImageView!
+    
+    @IBOutlet weak var submitAfterSelection: UIView!
+    
     var answerStreak = 0
+    var activeAnswer: Bool = false
+    
+    
+    
+    @IBAction func submitAnswer(_ sender: Any) {
+        if activeAnswer {
+            self.thumbsDownAnswer.image =  UIImage(named: "thumbUpEmpty")
+            self.thumbsUpAnswer.image =  UIImage(named: "thumb-up")
+        } else {
+            self.thumbsDownAnswer.image =  UIImage(named: "thumb-down")
+            self.thumbsUpAnswer.image =  UIImage(named: "thumbUpEmpty")
+        }
+        // Fade in the label
+        UIView.animate(withDuration: 1.0, animations: {
+            self.streakPointLabel.alpha = 1.0 // Make the label fully visible
+        }) { (finished) in
+            // After the fade-in completes, start the fade-out
+            UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
+                self.streakPointLabel.alpha = 0.0 // Make the label fully transparent
+            }, completion: nil)
+        }
+        self.submitButton.isUserInteractionEnabled = false
+        self.submitButton.isHidden = true
+        let queryParams = [
+            "UserId": CurrentUser.shared.uid!,
+            "Date": getDateFormatted(),
+            "QuestionId": "DEFAULT",
+            "Answer": activeAnswer ? "true" : "false"
+        ]
+        postAnswer(endpoint: dailyQuestionAnswerEndpoint, queryParams: queryParams) {result in
+            
+        }
+        let unixTimestamp = Date().timeIntervalSince1970
+        let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": "2"]
+        postPoints(endpoint: userPointsEndpoint, queryParams: postPointQueryParams) { result in
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        submitButton.isUserInteractionEnabled = false
+        self.submitButton.isHidden = true
         thumbsDownAnswer.alpha = 0.0
         thumbsDownAnswer.isUserInteractionEnabled = false
         thumbsUpAnswer.alpha = 0.0
@@ -81,14 +133,15 @@ class DailyQuestionViewController: UIViewController {
                     }
                     if let answer = json["UserAnswer"] as? String {
                         if answer == "" {
+                            self.submitButton.isHidden = false
                             self.thumbsDownAnswer.isUserInteractionEnabled = true
                             self.thumbsUpAnswer.isUserInteractionEnabled = true
                             return
                         }
                         if let isTrue = Bool(answer.lowercased()), isTrue {
-                            self.thumbsDownAnswer.isHidden = true
+                            self.thumbsUpAnswer.image =  UIImage(named: "thumb-up")
                         } else {
-                            self.thumbsUpAnswer.isHidden = true
+                            self.thumbsDownAnswer.image =  UIImage(named: "thumb-down")
                         }
                     }
                 case .failure(let error):
@@ -102,71 +155,18 @@ class DailyQuestionViewController: UIViewController {
     
     @objc func thumbsDownTapped() {
         tapHaptic()
-        thumbsUpAnswer.isHidden = true
-        tapHaptic()
-        // Fade in the label
-        UIView.animate(withDuration: 1.0, animations: {
-            self.streakPointLabel.alpha = 1.0 // Make the label fully visible
-        }) { (finished) in
-            // After the fade-in completes, start the fade-out
-            UIView.animate(withDuration: 1.0, delay: 2.0, options: [], animations: {
-                self.streakPointLabel.alpha = 0.0 // Make the label fully transparent
-            }, completion: nil)
-        }
-        let dateString = getDateFormatted()
-        let queryParams = [
-            "UserId": CurrentUser.shared.uid!,
-            "Date": getDateFormatted(),
-            "QuestionId": "DEFAULT",
-            "Answer": "false"
-        ]
-        postAnswer(endpoint: dailyQuestionAnswerEndpoint, queryParams: queryParams) {result in
-            print(result)
-        }
-        
-        let unixTimestamp = Date().timeIntervalSince1970
-        let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": "2"]
-        postPoints(endpoint: userPointsEndpoint, queryParams: postPointQueryParams) { result in
-            DispatchQueue.main.async {
-                
-            }
-        }
+        self.thumbsDownAnswer.image =  UIImage(named: "thumb-down-active")
+        self.thumbsUpAnswer.image =  UIImage(named: "thumbUpEmpty")
+        self.submitButton.isUserInteractionEnabled = true
+        activeAnswer = false
     }
 
     @objc func thumbsUpTapped() {
         tapHaptic()
-        thumbsDownAnswer.isHidden = true
-        tapHaptic()
-        // Fade in the label
-        UIView.animate(withDuration: 1.0, animations: {
-            self.streakPointLabel.alpha = 1.0 // Make the label fully visible
-        }) { (finished) in
-            // After the fade-in completes, start the fade-out
-            UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
-                self.streakPointLabel.alpha = 0.0 // Make the label fully transparent
-            }, completion: nil)
-        }
-        let queryParams = [
-            "UserId": CurrentUser.shared.uid!,
-            "Date": getDateFormatted(),
-            "QuestionId": "DEFAULT",
-            "Answer": "true"
-        ]
-        let pointQueryParams = [
-            "UserId": CurrentUser.shared.uid!,
-            "Date": getDateFormatted(),
-            "QuestionId": "DEFAULT",
-            "Answer": "false"
-        ]
-        postAnswer(endpoint: dailyQuestionAnswerEndpoint, queryParams: queryParams) {result in
-            
-        }
-        let unixTimestamp = Date().timeIntervalSince1970
-        let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": "2"]
-        postPoints(endpoint: userPointsEndpoint, queryParams: postPointQueryParams) { result in
-            
-        }
-        
+        self.thumbsDownAnswer.image =  UIImage(named: "thumbDownEmpty")
+        self.thumbsUpAnswer.image =  UIImage(named: "thumb-up-active")
+        self.submitButton.isUserInteractionEnabled = true
+        activeAnswer = true
     }
     
     func postAnswer(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {

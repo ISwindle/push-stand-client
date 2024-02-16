@@ -96,7 +96,7 @@ class HomeStatsViewController: UIViewController {
                     }
                 case .failure(let error):
                     // Handle error
-                    self.dailyGoalCount.text = "Error: \(error.localizedDescription)"
+                    self.dailyGoalCount.text = "0"
                     print("Error: \(error.localizedDescription)")
                 }
             }
@@ -125,7 +125,7 @@ class HomeStatsViewController: UIViewController {
                     print("JSON: \(json)")
                 case .failure(let error):
                     // Handle error
-                    self.dailyGoalCount.text = "Error: \(error.localizedDescription)"
+                    self.dailyGoalCount.text = "0"
                     print("Error: \(error.localizedDescription)")
                 }
             }

@@ -254,6 +254,7 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstItem="1sS-nB-69v" firstAttribute="leading" secondItem="Oop-dg-hza" secondAttribute="leading" constant="10" id="4UY-rB-rnr">
                                         <variation key="heightClass=regular-widthClass=regular" constant="40"/>
@@ -325,16 +326,23 @@
                                 <rect key="frame" x="0.0" y="140.5" width="414" height="672.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rt9-h0-mY5" userLabel="Today Question View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="452.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="396"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="kEI-GT-CvW">
-                                                <rect key="frame" x="10" y="213.5" width="394" height="25.5"/>
+                                                <rect key="frame" x="10" y="185.5" width="394" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yesterday's Results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvP-7w-v6R">
+                                                <rect key="frame" x="186" y="46" width="149" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -347,7 +355,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RvJ-ly-A4h" userLabel="bothunselectedThumbs">
-                                        <rect key="frame" x="10" y="452.5" width="394" height="95"/>
+                                        <rect key="frame" x="10" y="401.5" width="394" height="95"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="thumbDownEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="PDF-nt-EAr">
                                                 <rect key="frame" x="0.0" y="0.0" width="197" height="95"/>
@@ -366,15 +374,26 @@
                                             <constraint firstAttribute="width" secondItem="beI-hR-R3d" secondAttribute="height" multiplier="394:95" id="482-6v-vZk"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hp-Xe-5f3">
+                                        <rect key="frame" x="79" y="567" width="257" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Submit"/>
+                                        <connections>
+                                            <action selector="submitAnswer:" destination="T6S-eC-0uj" eventType="touchUpInside" id="IWg-s9-Fr5"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="RvJ-ly-A4h" firstAttribute="top" secondItem="rt9-h0-mY5" secondAttribute="bottom" id="6qR-FM-knr"/>
+                                    <constraint firstItem="RvJ-ly-A4h" firstAttribute="top" secondItem="rt9-h0-mY5" secondAttribute="bottom" constant="5.5" id="6qR-FM-knr"/>
                                     <constraint firstItem="rt9-h0-mY5" firstAttribute="leading" secondItem="BwL-86-JUO" secondAttribute="leading" id="Bnl-UF-s9t"/>
+                                    <constraint firstItem="0Hp-Xe-5f3" firstAttribute="leading" secondItem="BwL-86-JUO" secondAttribute="leading" constant="79" id="P5z-fK-uLQ"/>
                                     <constraint firstAttribute="trailing" secondItem="rt9-h0-mY5" secondAttribute="trailing" id="V2u-ZY-XTx"/>
                                     <constraint firstAttribute="trailing" secondItem="RvJ-ly-A4h" secondAttribute="trailing" constant="10" id="aeO-VI-mLk">
                                         <variation key="heightClass=regular-widthClass=regular" constant="40"/>
                                     </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="0Hp-Xe-5f3" secondAttribute="trailing" constant="78" id="bZu-Hg-KvV"/>
+                                    <constraint firstItem="0Hp-Xe-5f3" firstAttribute="top" secondItem="RvJ-ly-A4h" secondAttribute="bottom" constant="70.5" id="o2m-C3-Te1"/>
                                     <constraint firstItem="RvJ-ly-A4h" firstAttribute="leading" secondItem="BwL-86-JUO" secondAttribute="leading" constant="10" id="oJX-Sa-4gK">
                                         <variation key="heightClass=regular-widthClass=regular" constant="40"/>
                                     </constraint>
@@ -440,7 +459,7 @@
                             <constraint firstItem="GUd-Wy-Mru" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" constant="60" id="q26-TZ-sfy">
                                 <variation key="heightClass=regular-widthClass=regular" constant="90"/>
                             </constraint>
-                            <constraint firstItem="xP8-dz-DLW" firstAttribute="top" secondItem="RvJ-ly-A4h" secondAttribute="bottom" id="q6b-j1-mLd"/>
+                            <constraint firstItem="xP8-dz-DLW" firstAttribute="top" secondItem="RvJ-ly-A4h" secondAttribute="bottom" constant="51" id="q6b-j1-mLd"/>
                             <constraint firstItem="wX5-cT-NA4" firstAttribute="leading" secondItem="GUd-Wy-Mru" secondAttribute="trailing" constant="10" id="se9-Tt-MdD">
                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                             </constraint>
@@ -450,12 +469,22 @@
                     <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.bubble" catalog="system" selectedImage="questionmark.bubble.fill" id="asJ-Ax-25m"/>
                     <connections>
                         <outlet property="answerStackview" destination="RvJ-ly-A4h" id="uB5-SQ-DKQ"/>
+                        <outlet property="downPercentage" destination="iru-Bw-zal" id="rR3-wC-BEs"/>
                         <outlet property="flameSteakImage" destination="wX5-cT-NA4" id="0lE-dO-alG"/>
+                        <outlet property="questionBot" destination="Dal-z9-6mu" id="ydP-Go-WF1"/>
                         <outlet property="questionLabel" destination="kEI-GT-CvW" id="Edo-Jk-xom"/>
                         <outlet property="streakPointLabel" destination="6Ws-7v-mrs" id="y1k-vT-BMB"/>
                         <outlet property="streakSegmentedBar" destination="GUd-Wy-Mru" id="KyC-Oe-qWN"/>
+                        <outlet property="submitAfterSelection" destination="xP8-dz-DLW" id="wea-tg-7QJ"/>
+                        <outlet property="submitButton" destination="0Hp-Xe-5f3" id="aSV-LV-164"/>
                         <outlet property="thumbsDownAnswer" destination="PDF-nt-EAr" id="gTw-nU-4XI"/>
                         <outlet property="thumbsUpAnswer" destination="beI-hR-R3d" id="tNX-TF-qNj"/>
+                        <outlet property="todaysQuestionView" destination="BwL-86-JUO" id="rXv-P2-Nz7"/>
+                        <outlet property="upPercentage" destination="Lcs-yk-UA3" id="2zR-0V-jMT"/>
+                        <outlet property="yesterdayThumbsDown" destination="Yhh-Gl-C39" id="MR4-RE-78z"/>
+                        <outlet property="yesterdayThumbsUp" destination="k3z-5l-LUk" id="mBG-pN-koo"/>
+                        <outlet property="yesterdaysQuestion" destination="nsU-lL-TDH" id="bir-Ay-lQh"/>
+                        <outlet property="yesterdaysResultsView" destination="Oop-dg-hza" id="jSW-H6-c1C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MhN-AH-P61" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -657,7 +686,7 @@ Stands</string>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7Dy-dL-GMi" userLabel="Home Stats">
                                 <rect key="frame" x="0.0" y="723" width="414" height="35"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="mIy-hv-gIg">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="mIy-hv-gIg">
                                         <rect key="frame" x="0.0" y="0.0" width="138" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="mIy-hv-gIg" secondAttribute="height" multiplier="138:35" id="kpK-ye-K76"/>
@@ -669,7 +698,7 @@ Stands</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="z9d-tv-roT">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="z9d-tv-roT">
                                         <rect key="frame" x="138" y="0.0" width="138" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="z9d-tv-roT" secondAttribute="height" multiplier="138:35" id="YpL-uj-MMp"/>
@@ -681,7 +710,7 @@ Stands</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="BmD-Tr-TJg">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="BmD-Tr-TJg">
                                         <rect key="frame" x="276" y="0.0" width="138" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="BmD-Tr-TJg" secondAttribute="height" multiplier="138:35" id="VS8-hB-Lba"/>
