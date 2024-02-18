@@ -806,23 +806,6 @@ Stands</string>
                                     <constraint firstAttribute="height" constant="20" id="jEa-vN-uLe"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRz-Qw-Pnj" userLabel="Home Pic View">
-                                <rect key="frame" x="0.0" y="200" width="414" height="458"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="eagle-pic" translatesAutoresizingMaskIntoConstraints="NO" id="qy0-r9-aID">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="qy0-r9-aID" secondAttribute="height" multiplier="1:1" id="agx-MG-fqF"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="qy0-r9-aID" firstAttribute="top" secondItem="lRz-Qw-Pnj" secondAttribute="top" id="JJY-1T-zQE"/>
-                                    <constraint firstItem="qy0-r9-aID" firstAttribute="centerX" secondItem="lRz-Qw-Pnj" secondAttribute="centerX" id="dbL-gh-ibj"/>
-                                    <constraint firstItem="qy0-r9-aID" firstAttribute="leading" secondItem="lRz-Qw-Pnj" secondAttribute="leading" id="uYF-Gd-212"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wlz-PA-Rkk" userLabel="Circular View">
                                 <rect key="frame" x="0.0" y="229" width="414" height="341"/>
                                 <subviews>
@@ -849,6 +832,23 @@ Stands</string>
                                     <constraint firstItem="ov3-1B-ftm" firstAttribute="centerY" secondItem="Wlz-PA-Rkk" secondAttribute="centerY" id="GjL-eO-GAG"/>
                                     <constraint firstItem="ov3-1B-ftm" firstAttribute="height" secondItem="Wlz-PA-Rkk" secondAttribute="height" multiplier="0.65" id="jeR-bP-fRT"/>
                                     <constraint firstItem="ov3-1B-ftm" firstAttribute="centerX" secondItem="Wlz-PA-Rkk" secondAttribute="centerX" id="khp-dU-W1s"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRz-Qw-Pnj" userLabel="Home Pic View">
+                                <rect key="frame" x="0.0" y="200" width="414" height="458"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="eagle-pic" translatesAutoresizingMaskIntoConstraints="NO" id="qy0-r9-aID">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="qy0-r9-aID" secondAttribute="height" multiplier="1:1" id="agx-MG-fqF"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="qy0-r9-aID" firstAttribute="top" secondItem="lRz-Qw-Pnj" secondAttribute="top" id="JJY-1T-zQE"/>
+                                    <constraint firstItem="qy0-r9-aID" firstAttribute="centerX" secondItem="lRz-Qw-Pnj" secondAttribute="centerX" id="dbL-gh-ibj"/>
+                                    <constraint firstItem="qy0-r9-aID" firstAttribute="leading" secondItem="lRz-Qw-Pnj" secondAttribute="leading" id="uYF-Gd-212"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-E1-3cg" userLabel="Top Icons">
