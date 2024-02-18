@@ -40,6 +40,7 @@
 		2263D21A2AF91FEB00D2E136 /* SignUpVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */; };
 		2263D21C2AF926CB00D2E136 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */; };
 		227D0F9F2B1E17890001E568 /* DailyQuestionContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227D0F9E2B1E17890001E568 /* DailyQuestionContainerViewController.swift */; };
+		229BB4962B8177FF00959B3F /* SubmitQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229BB4952B8177FF00959B3F /* SubmitQuestionViewController.swift */; };
 		229C49FA2B14E0D100C8E065 /* HomeStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C49F92B14E0D100C8E065 /* HomeStatsViewController.swift */; };
 		229C49FD2B14E11800C8E065 /* ExtUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C49FC2B14E11800C8E065 /* ExtUITabBarController.swift */; };
 		22AD2D2E2ADF583000B3B1A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D2D2ADF583000B3B1A8 /* AppDelegate.swift */; };
@@ -106,6 +107,7 @@
 		2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVerificationViewController.swift; sourceTree = "<group>"; };
 		2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		227D0F9E2B1E17890001E568 /* DailyQuestionContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuestionContainerViewController.swift; sourceTree = "<group>"; };
+		229BB4952B8177FF00959B3F /* SubmitQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitQuestionViewController.swift; sourceTree = "<group>"; };
 		229C49F92B14E0D100C8E065 /* HomeStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsViewController.swift; sourceTree = "<group>"; };
 		229C49FC2B14E11800C8E065 /* ExtUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUITabBarController.swift; sourceTree = "<group>"; };
 		22AD2D2A2ADF583000B3B1A8 /* Push Stand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Push Stand.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +213,7 @@
 				22B8EA192B3CD8C100FC9257 /* AccountViewController.swift */,
 				22359DE22B6E9C8D003D3520 /* GroupRequestsViewController.swift */,
 				22359DE82B6EA132003D3520 /* ContactsViewController.swift */,
+				229BB4952B8177FF00959B3F /* SubmitQuestionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				22AD2D322ADF583000B3B1A8 /* PushStandViewController.swift in Sources */,
 				22359DE92B6EA132003D3520 /* ContactsViewController.swift in Sources */,
 				2263D2162AF91D8400D2E136 /* SignupBirthdateViewController.swift in Sources */,
+				229BB4962B8177FF00959B3F /* SubmitQuestionViewController.swift in Sources */,
 				22AD2D2E2ADF583000B3B1A8 /* AppDelegate.swift in Sources */,
 				222C4C442B14E3B5006FC90B /* SweepstakesViewController.swift in Sources */,
 				22B8D2222B5C117000448D01 /* ExtUIViewController.swift in Sources */,
@@ -664,6 +668,7 @@
 				INFOPLIST_FILE = "Push Stand/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Push Stand";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSContactsUsageDescription = "This app includes features that allow you to invite friends";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -673,7 +678,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -697,6 +702,7 @@
 				INFOPLIST_FILE = "Push Stand/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Push Stand";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSContactsUsageDescription = "This app includes features that allow you to invite friends";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -706,7 +712,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -81,49 +81,49 @@ extension UIViewController {
     
     func postAPIGateway(endpoint: String, postData: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
         guard let url = URL(string: endpoint) else {
-                print("Invalid URL")
+            print("Invalid URL")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: postData, options: [])
+            request.httpBody = jsonData
+        } catch {
+            print("Error serializing JSON: \(error)")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            // Ensure there is no error for this HTTP response
+            guard error == nil else {
+                print("Error: \(error!.localizedDescription)")
                 return
             }
             
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            // Ensure there is data returned from this HTTP response
+            guard let content = data else {
+                print("No data")
+                return
+            }
             
+            // Serialize the data / NSData object into Dictionary [String : Any]
             do {
-                let jsonData = try JSONSerialization.data(withJSONObject: postData, options: [])
-                request.httpBody = jsonData
+                if let jsonResponse = try JSONSerialization.jsonObject(with: content, options: []) as? [String: Any] {
+                    print("Response: \(jsonResponse)")
+                } else {
+                    print("Invalid JSON structure.")
+                }
             } catch {
-                print("Error serializing JSON: \(error)")
-                return
+                print("Serialization error: \(error.localizedDescription)")
             }
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                // Ensure there is no error for this HTTP response
-                guard error == nil else {
-                    print("Error: \(error!.localizedDescription)")
-                    return
-                }
-                
-                // Ensure there is data returned from this HTTP response
-                guard let content = data else {
-                    print("No data")
-                    return
-                }
-                
-                // Serialize the data / NSData object into Dictionary [String : Any]
-                do {
-                    if let jsonResponse = try JSONSerialization.jsonObject(with: content, options: []) as? [String: Any] {
-                        print("Response: \(jsonResponse)")
-                    } else {
-                        print("Invalid JSON structure.")
-                    }
-                } catch {
-                    print("Serialization error: \(error.localizedDescription)")
-                }
-            }
-            
-            // Resume the URLSessionDataTask to start the request
-            task.resume()
+        }
+        
+        // Resume the URLSessionDataTask to start the request
+        task.resume()
     }
     
     func tapHaptic() {
@@ -137,6 +137,23 @@ extension UIViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: Date())
         return dateString
+    }
+    
+    func getPreviousDateFormatted() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        // Create a Calendar instance
+        let calendar = Calendar.current
+        
+        // Get the date for one day before today
+        if let dayBeforeToday = calendar.date(byAdding: .day, value: -1, to: Date()) {
+            let dateString = dateFormatter.string(from: dayBeforeToday)
+            return dateString
+        } else {
+            // Handle the case where the date calculation fails
+            return "Error calculating the previous day"
+        }
     }
     
     enum HTTPMethod: String {

@@ -8,7 +8,7 @@
 import UIKit
 
 class DailyQuestionViewController: UIViewController {
-        
+    
     
     let dailyQuestionEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/questions"
     let dailyQuestionAnswerEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/questions/answers"
@@ -27,6 +27,7 @@ class DailyQuestionViewController: UIViewController {
     @IBOutlet weak var todaysQuestionView: UIView!
     @IBOutlet weak var yesterdaysResultsView: UIView!
     @IBOutlet weak var yesterdaysQuestion: UIView!
+    @IBOutlet weak var yesterdayQuestionLabel: UILabel!
     @IBOutlet weak var answerStackview: UIStackView!
     @IBOutlet weak var downPercentage: UILabel!
     @IBOutlet weak var upPercentage: UILabel!
@@ -74,48 +75,96 @@ class DailyQuestionViewController: UIViewController {
         postPoints(endpoint: userPointsEndpoint, queryParams: postPointQueryParams) { result in
             
         }
+        UIView.animate(withDuration: 1.0, animations: {
+            self.todaysQuestionView.alpha = 0.0
+            self.submitButton.alpha = 0.0
+        }) { (true) in
+            UIView.animate(withDuration: 1.0, animations: {
+                self.yesterdaysResultsView.alpha = 1.0
+            }) { (true) in
+
+            }
+        }
+        let previousDailyQuestionsQueryParams = ["Date": getPreviousDateFormatted()]
+        // Assuming callAPIGateway is correctly implemented and working
+        callAPIGateway(endpoint: dailyQuestionAnswerEndpoint, queryParams: previousDailyQuestionsQueryParams, httpMethod: .get) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let json):
+                    print(json)
+                    UIView.animate(withDuration: 0.5, animations: {
+                        // Handle successful response with JSON
+                        if let question = json["Question"] as? String,
+                           let truePercentage = json["TruePercentage"] as? Int,
+                           let falsePercentage = json["FalsePercentage"] as? Int {
+                            // Format the true and false percentages as strings
+                            let truePercentageString = String(truePercentage)
+                            let falsePercentageString = String(falsePercentage)
+                            // Update the label to display the question and percentages
+                            self.yesterdayQuestionLabel.text = "\(question)"
+                            self.downPercentage.text = "\(falsePercentageString)%"
+                            self.upPercentage.text = "\(truePercentageString)%"
+                        } else {
+                            self.yesterdayQuestionLabel.text = "No Question Available"
+                        }
+                    }) { (true) in
+
+                    }
+                case .failure(let error):
+                    // Handle error
+                    self.yesterdayQuestionLabel.text = "No Question Results Available"
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         submitButton.isUserInteractionEnabled = false
-        self.submitButton.isHidden = true
+        submitButton.isHidden = true
         thumbsDownAnswer.alpha = 0.0
         thumbsDownAnswer.isUserInteractionEnabled = false
         thumbsUpAnswer.alpha = 0.0
+        upPercentage.text = ""
+        downPercentage.text = ""
+        yesterdayQuestionLabel.text = ""
         thumbsUpAnswer.isUserInteractionEnabled = false
         let thumbsDownGesture = UITapGestureRecognizer(target: self, action: #selector(thumbsDownTapped))
         thumbsDownAnswer.addGestureRecognizer(thumbsDownGesture)
         let thumbsUpGesture = UITapGestureRecognizer(target: self, action: #selector(thumbsUpTapped))
         thumbsUpAnswer.addGestureRecognizer(thumbsUpGesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        yesterdaysResultsView.addGestureRecognizer(tapGesture)
         
         streakSegmentedBar.selectedColor = .cyan
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-    
+        
         let answerStreakQueryParams = ["userId": CurrentUser.shared.uid!]
+        let previousDailyQuestionsQueryParams = ["Date": getPreviousDateFormatted()]
         let dailyQuestionsQueryParams = ["userId": CurrentUser.shared.uid!, "Date": getDateFormatted()]
         
         //Question Streak
-         callAPIGateway(endpoint: currentAnswerStreakEndpoint, queryParams: answerStreakQueryParams, httpMethod: .get) { result in
-             DispatchQueue.main.async {
-                 switch result {
-                 case .success(let json):
-                     print(json)
-                     // Handle successful response with JSON
-                     if let streaks = json["streak_count"] as? Int {
-                         self.answerStreak = streaks
-                         self.streakSegmentedBar.value = self.answerStreak
-                     }
-                 case .failure(let error):
-                     // Handle error
-                     print("Error: \(error.localizedDescription)")
-                 }
-             }
-         }
+        callAPIGateway(endpoint: currentAnswerStreakEndpoint, queryParams: answerStreakQueryParams, httpMethod: .get) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let json):
+                    print(json)
+                    // Handle successful response with JSON
+                    if let streaks = json["streak_count"] as? Int {
+                        self.answerStreak = streaks
+                        self.streakSegmentedBar.value = self.answerStreak
+                    }
+                case .failure(let error):
+                    // Handle error
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
         
         //Question
         callAPIGateway(endpoint: dailyQuestionEndpoint, queryParams: dailyQuestionsQueryParams, httpMethod: .get) { result in
@@ -125,9 +174,15 @@ class DailyQuestionViewController: UIViewController {
                     print(json)
                     // Handle successful response with JSON
                     if let question = json["Question"] as? String {
-                        self.questionLabel.text = "\(question)"
-                        self.thumbsUpAnswer.alpha = 1.0
-                        self.thumbsDownAnswer.alpha = 1.0
+                        UIView.animate(withDuration: 0.5, animations: {
+                            self.questionLabel.text = "\(question)"
+                            self.todaysQuestionView.alpha = 1.0
+                            self.submitButton.alpha = 1.0
+                            self.thumbsUpAnswer.alpha = 1.0
+                            self.thumbsDownAnswer.alpha = 1.0
+                        }) { (true) in
+
+                        }
                     } else {
                         self.questionLabel.text = "New Question Coming Soon"
                     }
@@ -138,10 +193,37 @@ class DailyQuestionViewController: UIViewController {
                             self.thumbsUpAnswer.isUserInteractionEnabled = true
                             return
                         }
-                        if let isTrue = Bool(answer.lowercased()), isTrue {
-                            self.thumbsUpAnswer.image =  UIImage(named: "thumb-up")
-                        } else {
-                            self.thumbsDownAnswer.image =  UIImage(named: "thumb-down")
+                        self.yesterdaysResultsView.alpha = 1.0
+                        // Assuming callAPIGateway is correctly implemented and working
+                        self.callAPIGateway(endpoint: self.dailyQuestionAnswerEndpoint, queryParams: previousDailyQuestionsQueryParams, httpMethod: .get) { result in
+                            DispatchQueue.main.async {
+                                switch result {
+                                case .success(let json):
+                                    print(json)
+                                    UIView.animate(withDuration: 0.5, animations: {
+                                        // Handle successful response with JSON
+                                        if let question = json["Question"] as? String,
+                                           let truePercentage = json["TruePercentage"] as? Int,
+                                           let falsePercentage = json["FalsePercentage"] as? Int {
+                                            // Format the true and false percentages as strings
+                                            let truePercentageString = String(truePercentage)
+                                            let falsePercentageString = String(falsePercentage)
+                                            // Update the label to display the question and percentages
+                                            self.yesterdayQuestionLabel.text = "\(question)"
+                                            self.downPercentage.text = "\(falsePercentageString)%"
+                                            self.upPercentage.text = "\(truePercentageString)%"
+                                        } else {
+                                            self.yesterdayQuestionLabel.text = "No Question Available"
+                                        }
+                                    }) { (true) in
+
+                                    }
+                                case .failure(let error):
+                                    // Handle error
+                                    self.yesterdayQuestionLabel.text = "No Question Results Available"
+                                    print("Error: \(error.localizedDescription)")
+                                }
+                            }
                         }
                     }
                 case .failure(let error):
@@ -155,18 +237,23 @@ class DailyQuestionViewController: UIViewController {
     
     @objc func thumbsDownTapped() {
         tapHaptic()
-        self.thumbsDownAnswer.image =  UIImage(named: "thumb-down-active")
+        self.thumbsDownAnswer.image =  UIImage(named: "thumb-down")
         self.thumbsUpAnswer.image =  UIImage(named: "thumbUpEmpty")
         self.submitButton.isUserInteractionEnabled = true
         activeAnswer = false
     }
-
+    
     @objc func thumbsUpTapped() {
         tapHaptic()
         self.thumbsDownAnswer.image =  UIImage(named: "thumbDownEmpty")
-        self.thumbsUpAnswer.image =  UIImage(named: "thumb-up-active")
+        self.thumbsUpAnswer.image =  UIImage(named: "thumb-up")
         self.submitButton.isUserInteractionEnabled = true
         activeAnswer = true
+    }
+    
+    @objc func handleTap() {
+        print("tapped")
+        performSegue(withIdentifier: "submitQuestionSegue", sender: self)
     }
     
     func postAnswer(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
@@ -195,6 +282,15 @@ class DailyQuestionViewController: UIViewController {
             print("Answer")
             self.answerStreak = self.answerStreak + 1
             self.streakSegmentedBar.value = self.answerStreak
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "submitQuestionSegue" {
+            if let destinationVC = segue.destination as? SubmitQuestionViewController {
+                // Pass data to destinationVC
+                // destinationVC.someProperty = someValue
+            }
         }
     }
 }

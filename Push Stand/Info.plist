@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string></string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -21,13 +25,11 @@
 			</array>
 		</dict>
 	</dict>
-	<key>CFBundleIconFiles</key>
+	<key>UIBackgroundModes</key>
 	<array>
-		<string></string>
+		<string>remote-notification</string>
 	</array>
 	<key>aps-environment</key>
 	<string>development</string>
-	<key>NSContactsUsageDescription</key>
-	<string>This app includes features that allow you to invite friends</string>
 </dict>
 </plist>
