@@ -44,7 +44,7 @@ class DailyQuestionViewController: UIViewController {
     
     @IBAction func submitAnswer(_ sender: Any) {
         if activeAnswer {
-            self.thumbsDownAnswer.image =  UIImage(named: "thumbUpEmpty")
+            self.thumbsDownAnswer.image =  UIImage(named: "thumbDownEmpty")
             self.thumbsUpAnswer.image =  UIImage(named: "thumb-up")
         } else {
             self.thumbsDownAnswer.image =  UIImage(named: "thumb-down")
