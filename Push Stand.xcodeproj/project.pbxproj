@@ -41,7 +41,6 @@
 		2263D21C2AF926CB00D2E136 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */; };
 		227D0F9F2B1E17890001E568 /* DailyQuestionContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227D0F9E2B1E17890001E568 /* DailyQuestionContainerViewController.swift */; };
 		229BB4962B8177FF00959B3F /* SubmitQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229BB4952B8177FF00959B3F /* SubmitQuestionViewController.swift */; };
-		229BB4992B8443AA00959B3F /* ARAnchorTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229BB4982B8443AA00959B3F /* ARAnchorTranslator.swift */; };
 		229C49FA2B14E0D100C8E065 /* HomeStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C49F92B14E0D100C8E065 /* HomeStatsViewController.swift */; };
 		229C49FD2B14E11800C8E065 /* ExtUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C49FC2B14E11800C8E065 /* ExtUITabBarController.swift */; };
 		22AD2D2E2ADF583000B3B1A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D2D2ADF583000B3B1A8 /* AppDelegate.swift */; };
@@ -109,7 +108,6 @@
 		2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		227D0F9E2B1E17890001E568 /* DailyQuestionContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuestionContainerViewController.swift; sourceTree = "<group>"; };
 		229BB4952B8177FF00959B3F /* SubmitQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitQuestionViewController.swift; sourceTree = "<group>"; };
-		229BB4982B8443AA00959B3F /* ARAnchorTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAnchorTranslator.swift; sourceTree = "<group>"; };
 		229C49F92B14E0D100C8E065 /* HomeStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsViewController.swift; sourceTree = "<group>"; };
 		229C49FC2B14E11800C8E065 /* ExtUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUITabBarController.swift; sourceTree = "<group>"; };
 		22AD2D2A2ADF583000B3B1A8 /* Push Stand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Push Stand.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,7 +221,6 @@
 		229BB4972B84437900959B3F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				229BB4982B8443AA00959B3F /* ARAnchorTranslator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -465,7 +462,6 @@
 				22359DDD2B6CB431003D3520 /* OnboardingData.swift in Sources */,
 				22B8EA1D2B3DD53300FC9257 /* CurrentUser.swift in Sources */,
 				227D0F9F2B1E17890001E568 /* DailyQuestionContainerViewController.swift in Sources */,
-				229BB4992B8443AA00959B3F /* ARAnchorTranslator.swift in Sources */,
 				8E52D97D2B732DE100C84468 /* GroupsTableViewCell.swift in Sources */,
 				222C4C402B14E342006FC90B /* GroupsViewController.swift in Sources */,
 				22359DE62B6E9F09003D3520 /* ContactsTableViewCell.swift in Sources */,
