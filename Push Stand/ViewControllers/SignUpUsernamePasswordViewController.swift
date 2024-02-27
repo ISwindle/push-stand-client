@@ -14,7 +14,30 @@ class SignUpUsernamePasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        nextButton.isEnabled = false
+        passwordTextField.addTarget(self, action: #selector(passwordFieldDidChange(_:)), for: .editingChanged)
+
+    }
+    
+    @objc func passwordFieldDidChange(_ textField: UITextField) {
+        if let username = usernameTextField.text, isValidEmail(username), let password = passwordTextField.text, isValidPassword(password) {
+                // Handle valid username, e.g., enable a button or change a label color
+                nextButton.isEnabled = true
+            } else {
+                // Handle invalid username
+                nextButton.isEnabled = false
+            }
+    }
+    
+    func isValidPassword(_ password: String) -> Bool {
+        return password.count > 7
+    }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let regex = try? NSRegularExpression(pattern: pattern, options: [])
+        let range = NSRange(location: 0, length: email.utf16.count)
+        return regex?.firstMatch(in: email, options: [], range: range) != nil
     }
     
     @IBAction func next(_ sender: Any) {

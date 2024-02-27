@@ -10,6 +10,9 @@ class SignUpPhoneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPhoneNumberTextField()
+        // Assuming you have a UITextField instance named myTextField
+        phoneNumberTextField.addTarget(self, action: #selector(phoneNumberChanged(_:)), for: .editingChanged)
+        nextButton.isEnabled = false
     }
     
     private func setupPhoneNumberTextField() {
@@ -18,11 +21,27 @@ class SignUpPhoneViewController: UIViewController {
         // Add any additional properties or listeners you need
     }
     
+    
+    
     // If you need to do something when the number is entered,
     // you can add a target to the text field for the editingChanged event
     @objc func phoneNumberChanged(_ textField: UITextField) {
-        // Handle the text change
-        print("Phone number entered: \(textField.text ?? "")")
+        
+        // Assuming nextButton is accessible here, and phoneNumberTextField is your UITextField
+            if let text = textField.text, isValidPhoneNumber(text) {
+                nextButton.isEnabled = true
+            } else {
+                nextButton.isEnabled = false
+            }
+        
+    }
+    
+    func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
+        // This pattern matches exactly 10 digits
+            let pattern = "^\\d{10,11}$"
+            let regex = try? NSRegularExpression(pattern: pattern, options: [])
+            let range = NSRange(location: 0, length: phoneNumber.utf16.count)
+            return regex?.firstMatch(in: phoneNumber, options: [], range: range) != nil
     }
     
     @IBAction func next(_ sender: Any) {
