@@ -35,25 +35,15 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RoP-RH-rms" userLabel="separator view">
-                        <rect key="frame" x="15" y="43" width="325" height="1"/>
-                        <color key="backgroundColor" red="0.16321417297979801" green="0.16321417297979801" blue="0.16321417297979801" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="alO-0l-heS"/>
-                        </constraints>
-                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="cQD-1n-Et2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Fa8-NB-Moa"/>
                     <constraint firstItem="cQD-1n-Et2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="50" id="I0N-BJ-pjy"/>
                     <constraint firstItem="AUe-rf-pUE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Ovo-wm-nFp"/>
-                    <constraint firstItem="RoP-RH-rms" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Rto-eZ-5DI"/>
                     <constraint firstItem="AUe-rf-pUE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="T5s-Tl-XJB"/>
                     <constraint firstAttribute="trailing" secondItem="P3w-NP-gVP" secondAttribute="trailing" constant="25" id="W3f-iA-qEs"/>
-                    <constraint firstAttribute="bottom" secondItem="RoP-RH-rms" secondAttribute="bottom" id="dBw-jk-u6V"/>
                     <constraint firstItem="P3w-NP-gVP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pfE-ti-thm"/>
-                    <constraint firstItem="RoP-RH-rms" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="qpO-f5-zg4"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

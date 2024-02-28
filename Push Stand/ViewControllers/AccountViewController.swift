@@ -9,8 +9,6 @@ import UIKit
 
 class AccountViewController: UIViewController {
     
-    
-    
     @IBOutlet weak var logoutButton: UIButton!
     
     @IBAction func logoutAction(_ sender: Any) {

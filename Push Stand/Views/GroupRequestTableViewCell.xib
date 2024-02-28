@@ -70,26 +70,16 @@
                             <constraint firstItem="v4K-JH-712" firstAttribute="leading" secondItem="XHd-wn-P5D" secondAttribute="trailing" constant="10" id="hJe-2p-j7Q"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KqZ-KK-FH9" userLabel="separator view">
-                        <rect key="frame" x="15" y="96" width="345" height="1"/>
-                        <color key="backgroundColor" red="0.16321417299999999" green="0.16321417299999999" blue="0.16321417299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="OTP-tp-JDh"/>
-                        </constraints>
-                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="KqZ-KK-FH9" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="K1j-zB-J95"/>
                     <constraint firstItem="bfZ-i0-XRd" firstAttribute="top" secondItem="FWi-fb-clA" secondAttribute="bottom" id="N0T-um-MOX"/>
-                    <constraint firstAttribute="bottom" secondItem="KqZ-KK-FH9" secondAttribute="bottom" id="O8D-UC-6wo"/>
                     <constraint firstItem="bfZ-i0-XRd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="OAb-hy-y5R"/>
                     <constraint firstItem="FWi-fb-clA" firstAttribute="top" secondItem="nuE-A0-gqR" secondAttribute="bottom" constant="5" id="b9l-Sm-vyG"/>
                     <constraint firstItem="nuE-A0-gqR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="bRg-PD-bdf"/>
                     <constraint firstItem="nuE-A0-gqR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="c18-oK-bDW"/>
                     <constraint firstItem="FWi-fb-clA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="dZ6-7z-1tI"/>
                     <constraint firstItem="bfZ-i0-XRd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="f1n-Sw-Z9F"/>
-                    <constraint firstItem="KqZ-KK-FH9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="fCg-KH-Nzy"/>
                     <constraint firstAttribute="bottom" secondItem="bfZ-i0-XRd" secondAttribute="bottom" id="tnl-uq-U5g"/>
                 </constraints>
             </tableViewCellContentView>
@@ -103,7 +93,7 @@
     </objects>
     <resources>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
