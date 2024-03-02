@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1108,7 +1108,7 @@ Stands</string>
                                     <action selector="logoutAction:" destination="0jQ-WK-pNK" eventType="touchUpInside" id="3Ka-YH-Auu"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ewm-hU-R96">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewm-hU-R96">
                                 <rect key="frame" x="0.0" y="81" width="414" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -1118,7 +1118,7 @@ Stands</string>
                                 <color key="sectionIndexColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="uBu-Rw-84s" userLabel="Settings View Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settings" rowHeight="55" id="uBu-Rw-84s" userLabel="Settings View Cell">
                                         <rect key="frame" x="0.0" y="50" width="414" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uBu-Rw-84s" id="PY3-Gd-vBl" userLabel="Settings View">
@@ -1151,7 +1151,7 @@ Stands</string>
                                             <segue destination="1GW-8L-r8b" kind="show" id="F9N-Q7-g4k"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="rEh-OD-LJj" userLabel="Terms View Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="terms" rowHeight="55" id="rEh-OD-LJj" userLabel="Terms View Cell">
                                         <rect key="frame" x="0.0" y="105" width="414" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rEh-OD-LJj" id="Npq-KN-tfc" userLabel="Terms View">
@@ -1181,7 +1181,7 @@ Stands</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="Y0M-5W-aKp" userLabel="Privacy View Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="privacy" rowHeight="55" id="Y0M-5W-aKp" userLabel="Privacy View Cell">
                                         <rect key="frame" x="0.0" y="160" width="414" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y0M-5W-aKp" id="YMY-V6-6jN" userLabel="Privacy View">
@@ -1211,7 +1211,7 @@ Stands</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="FId-ez-YNS" userLabel="Help Center View Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="help" rowHeight="55" id="FId-ez-YNS" userLabel="Help Center View Cell">
                                         <rect key="frame" x="0.0" y="215" width="414" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FId-ez-YNS" id="TF4-7h-3ga" userLabel="Help View">
@@ -1261,6 +1261,7 @@ Stands</string>
                     <navigationItem key="navigationItem" title="Account" id="bnA-I0-Xqd"/>
                     <connections>
                         <outlet property="logoutButton" destination="Xgu-N3-yAC" id="BFU-ba-Fcj"/>
+                        <outlet property="settingsTableView" destination="ewm-hU-R96" id="LAD-W6-lTk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMP-xy-ocG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1618,7 +1619,7 @@ Stands</string>
         <!--Settings-->
         <scene sceneID="rXf-SS-xrJ">
             <objects>
-                <viewController title="Settings" id="1GW-8L-r8b" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountSettingsViewController" title="Settings" id="1GW-8L-r8b" customClass="AccountSettingsViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q0C-aW-Fgm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1825,7 +1826,7 @@ Stands</string>
         <!--Help Center-->
         <scene sceneID="wIU-CY-HnT">
             <objects>
-                <viewController title="Help Center" id="maM-AB-keT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HelpCenterViewController" title="Help Center" id="maM-AB-keT" customClass="HelpCenterViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8d1-sY-982">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1857,6 +1858,7 @@ Stands</string>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Begin Deletion Process"/>
                                 <connections>
+                                    <action selector="beginAccountDeletion:" destination="maM-AB-keT" eventType="touchUpInside" id="Rt0-Tc-dux"/>
                                     <segue destination="X5p-Ox-8EO" kind="show" id="TNx-aU-A65"/>
                                 </connections>
                             </button>
@@ -1878,6 +1880,9 @@ Stands</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Help Center" id="riF-Dz-02M"/>
+                    <connections>
+                        <outlet property="accountDeletionButton" destination="rth-5r-YoZ" id="sXV-5S-tL8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6k4-mL-Lsl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1886,7 +1891,7 @@ Stands</string>
         <!--Account Deletion-->
         <scene sceneID="MJs-z5-hAo">
             <objects>
-                <viewController id="X5p-Ox-8EO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountDeletionViewController" id="X5p-Ox-8EO" customClass="AccountDeletionViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZBg-5L-4ZE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
