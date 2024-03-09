@@ -1,8 +1,9 @@
 
 //
 import UIKit
+import MessageUI
 
-class HomeStatsViewController: UIViewController {
+class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -25,6 +26,8 @@ class HomeStatsViewController: UIViewController {
     @IBOutlet weak var standStreakIcon: UIImageView!
     @IBOutlet weak var questionStreakIcon: UIImageView!
     @IBOutlet weak var pointsIcon: UIImageView!
+    @IBOutlet weak var shareIcon: UIImageView!
+    
     
     @IBOutlet weak var segmentedStreakBar: SegmentedBar!
     @IBOutlet weak var streakImage: UIImageView!
@@ -61,6 +64,9 @@ class HomeStatsViewController: UIViewController {
         // Connect the tap gesture recognizer action
         pushStandGesture.addTarget(self, action: #selector(pushStand(_:)))
         pushStandButton.addGestureRecognizer(pushStandGesture)
+        
+        
+        // Connect the tap gesture recognizer action
         
         
         // Example usage
@@ -187,6 +193,8 @@ class HomeStatsViewController: UIViewController {
         pointsIcon.addGestureRecognizer(pointsGesture)
         let accountsGesture = UITapGestureRecognizer(target: self, action: #selector(accountsTapped))
         accountButton.addGestureRecognizer(accountsGesture)
+        let shareGesture = UITapGestureRecognizer(target: self, action: #selector(sendMessage))
+        shareIcon.addGestureRecognizer(shareGesture)
         
     }
     
@@ -362,6 +370,7 @@ class HomeStatsViewController: UIViewController {
                     self.pushStandTitle.isHidden = true
                     self.landingViewWithPicture.isHidden = true
                     self.accountButton.isHidden = false
+                    self.shareIcon.isHidden = false
                 }
             }
         }
@@ -459,6 +468,23 @@ class HomeStatsViewController: UIViewController {
         }
         task.resume()
         
+    }
+    
+    // Function to compose and present the message interface
+    @objc func sendMessage() {
+        if MFMessageComposeViewController.canSendText() {
+            let messageVC = MFMessageComposeViewController()
+            messageVC.body = "Your fellow American wants YOU to take a stand! Join now! \n\n https://pushstand.com/"
+            messageVC.recipients = [] // Enter the phone number here
+            messageVC.messageComposeDelegate = self
+            self.present(messageVC, animated: true, completion: nil)
+        }
+    }
+    
+    // Delegate method to handle the message interface result
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        // Handle the result (sent, cancelled, failed)
+        controller.dismiss(animated: true, completion: nil)
     }
     
     
