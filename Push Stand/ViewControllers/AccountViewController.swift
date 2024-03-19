@@ -20,15 +20,15 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         case 1:
             let cell = settingsTableView.dequeueReusableCell(withIdentifier: "terms", for: indexPath)
-            cell.textLabel?.text = "Terms"
+            cell.textLabel?.text = "Terms of Service"
             return cell
         case 2:
             let cell = settingsTableView.dequeueReusableCell(withIdentifier: "privacy", for: indexPath)
-            cell.textLabel?.text = "Privacy"
+            cell.textLabel?.text = "Privacy Policy"
             return cell
         case 3:
             let cell = settingsTableView.dequeueReusableCell(withIdentifier: "help", for: indexPath)
-            cell.textLabel?.text = "Help"
+            cell.textLabel?.text = "Help Center"
             return cell
         default:
             fatalError("Unexpected indexPath")

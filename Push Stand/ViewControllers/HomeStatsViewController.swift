@@ -474,7 +474,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @objc func sendMessage() {
         if MFMessageComposeViewController.canSendText() {
             let messageVC = MFMessageComposeViewController()
-            messageVC.body = "Your fellow American wants YOU to take a stand! Join now! \n\n https://pushstand.com/"
+            messageVC.body = "Join me on the app that is uniting Americans one STAND at a time! \n\n https://pushstand.com/"
             messageVC.recipients = [] // Enter the phone number here
             messageVC.messageComposeDelegate = self
             self.present(messageVC, animated: true, completion: nil)
