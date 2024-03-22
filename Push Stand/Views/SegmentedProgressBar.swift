@@ -39,6 +39,10 @@ class SegmentedBar: UIView {
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
+        
+        layer.cornerRadius = frame.height / 2
+        layer.masksToBounds = true
+        
         createSegments()
     }
 

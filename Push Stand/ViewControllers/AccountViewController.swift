@@ -35,6 +35,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+                // Return the desired height for each cell
+                return 55 // You can adjust this value according to your preference
+            }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true) // Optional: Deselect the cell after tap
         
@@ -68,7 +73,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBOutlet weak var settingsTableView: UITableView!
-    @IBOutlet weak var logoutButton: UIButton!
+   // @IBOutlet weak var logoutButton: UIButton!
     
     @IBAction func logoutAction(_ sender: Any) {
         UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
