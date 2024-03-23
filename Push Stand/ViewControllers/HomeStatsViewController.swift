@@ -39,6 +39,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBOutlet weak var myTotalStandsLabel: UILabel!
     @IBOutlet weak var usaTotalStandsLabel: UILabel!
     
+    @IBOutlet weak var bonusStandView: UIVisualEffectView!
+    @IBOutlet weak var streakFillView: UIView!
+    @IBOutlet weak var streakFillButton: UIButton!
+    
+    
     var goal:Float = 0.0
     var current:Float = 0.0
     var answerStreak:Int = 0
@@ -46,6 +51,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     let totalStands = 0
     let usaTotalStands = 0
     let pointsCount = 0
+    let stoodToday = false
     
     let dailyGoalsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/dailygoals"
     let currentStandStreakEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/streaks"
@@ -331,6 +337,13 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         }
         
     }
+    
+    
+    @IBAction func acknowledgeStreakFilled(_ sender: Any) {
+        bonusStandView.isHidden = true
+        streakFillView.isHidden = true
+    }
+    
     @IBAction func pushStand(_ sender: UITapGestureRecognizer) {
         let uuid = UUID()
         let uuidString = uuid.uuidString

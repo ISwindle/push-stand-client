@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -251,7 +251,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FX4-IS-pyK" userLabel="Submit Button View">
                                         <rect key="frame" x="0.0" y="500" width="414" height="176"/>
                                         <subviews>
-                                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hp-Xe-5f3">
+                                            <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hp-Xe-5f3">
                                                 <rect key="frame" x="60" y="71" width="294" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="1gu-LT-bZa"/>
@@ -388,10 +388,10 @@
                                     <constraint firstItem="iru-Bw-zal" firstAttribute="centerX" secondItem="Yhh-Gl-C39" secondAttribute="centerX" id="wuc-ha-sbS"/>
                                 </constraints>
                             </view>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
+                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcM-2d-4wl">
@@ -403,6 +403,9 @@
                                             <buttonConfiguration key="configuration" style="filled" title="Got It!">
                                                 <color key="baseBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="acknowledgeStreakFill:" destination="T6S-eC-0uj" eventType="touchUpInside" id="4EV-bh-C7H"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
                                             <rect key="frame" x="72.5" y="30" width="269.5" height="38.5"/>
@@ -474,10 +477,13 @@ Let's see if you can do it again!  1 Answer  =  2 Points</string>
                     <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.bubble" catalog="system" selectedImage="questionmark.bubble.fill" id="asJ-Ax-25m"/>
                     <connections>
                         <outlet property="answerStackview" destination="RvJ-ly-A4h" id="uB5-SQ-DKQ"/>
+                        <outlet property="bonusAnswerView" destination="wKn-5I-JNK" id="8Si-PJ-QgR"/>
                         <outlet property="downPercentage" destination="iru-Bw-zal" id="rR3-wC-BEs"/>
                         <outlet property="flameSteakImage" destination="wX5-cT-NA4" id="0lE-dO-alG"/>
                         <outlet property="questionBot" destination="Dal-z9-6mu" id="ydP-Go-WF1"/>
                         <outlet property="questionLabel" destination="kEI-GT-CvW" id="Edo-Jk-xom"/>
+                        <outlet property="streakFillButton" destination="YcM-2d-4wl" id="iGl-8I-DJH"/>
+                        <outlet property="streakFillView" destination="wKn-5I-JNK" id="xnw-iy-DwD"/>
                         <outlet property="streakPointLabel" destination="6Ws-7v-mrs" id="y1k-vT-BMB"/>
                         <outlet property="streakSegmentedBar" destination="GUd-Wy-Mru" id="KyC-Oe-qWN"/>
                         <outlet property="submitAfterSelection" destination="xP8-dz-DLW" id="wea-tg-7QJ"/>
@@ -531,6 +537,9 @@ Let's see if you can do it again!  1 Answer  =  2 Points</string>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit">
                                     <color key="baseBackgroundColor" red="0.0" green="0.11719390020000001" blue="0.96611279250000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="submitSuggestion:" destination="Ha6-ge-6e1" eventType="touchUpInside" id="AAk-ZI-Agj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g53-uz-MM1"/>
@@ -547,6 +556,10 @@ Let's see if you can do it again!  1 Answer  =  2 Points</string>
                             <constraint firstItem="1Gv-fj-SVr" firstAttribute="top" secondItem="XgK-So-uNv" secondAttribute="bottom" constant="55" id="vYh-0I-343"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="questionSuggestionView" destination="XgK-So-uNv" id="DM6-SF-MPD"/>
+                        <outlet property="submitButton" destination="1Gv-fj-SVr" id="fOt-hG-fi6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDh-23-BpB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1033,10 +1046,10 @@ Stands</string>
                                     <constraint firstItem="6cQ-TE-pqg" firstAttribute="top" secondItem="WKY-V7-7fx" secondAttribute="bottom" id="xea-Gp-pv2"/>
                                 </constraints>
                             </stackView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-ty-kPb" userLabel="Bonus Stand View">
+                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-ty-kPb" userLabel="Bonus Stand View">
                                 <rect key="frame" x="0.0" y="220.5" width="414" height="592.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hbI-xq-uiL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="592.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="593"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Bonus Points!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-0Y-yxE">
@@ -1063,6 +1076,9 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                             <buttonConfiguration key="configuration" style="filled" title="Got It!">
                                                 <color key="baseBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="acknowledgeStreakFilled:" destination="HDi-mI-K2g" eventType="touchUpInside" id="hb7-7H-BOf"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -1149,6 +1165,7 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="accountButton" destination="3iR-fP-Osy" id="LXN-NC-wqN"/>
+                        <outlet property="bonusStandView" destination="37R-ty-kPb" id="jSS-et-Ppp"/>
                         <outlet property="dailyGoalCount" destination="FRt-ke-DPV" id="W3Z-I0-6Hc"/>
                         <outlet property="globalStandCount" destination="WKY-V7-7fx" id="R3s-RN-faB"/>
                         <outlet property="landingViewWithButton" destination="R9l-Tj-CeX" id="4Ry-0h-Iar"/>
@@ -1171,6 +1188,8 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                         <outlet property="standProgressBar" destination="ov3-1B-ftm" id="bxI-1M-WHu"/>
                         <outlet property="standStreakIcon" destination="6wI-ah-BgZ" id="Qif-cp-pNF"/>
                         <outlet property="standStreakTitle" destination="HrV-CV-p34" id="fdd-vS-mhF"/>
+                        <outlet property="streakFillButton" destination="4ta-wd-r3J" id="wQ1-6L-EAT"/>
+                        <outlet property="streakFillView" destination="hbI-xq-uiL" id="yFp-xt-uU9"/>
                         <outlet property="streakImage" destination="poi-qy-dAp" id="T5s-TQ-SVl"/>
                         <outlet property="usaTotalStandsLabel" destination="BmD-Tr-TJg" id="Acs-n2-KYS"/>
                         <outlet property="yesterdayLabel" destination="3Ll-VV-Gpv" id="czE-xL-FiV"/>

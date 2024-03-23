@@ -37,6 +37,11 @@ class DailyQuestionViewController: UIViewController {
     
     @IBOutlet weak var submitAfterSelection: UIView!
     
+    @IBOutlet weak var bonusAnswerView: UIVisualEffectView!
+    @IBOutlet weak var streakFillView: UIVisualEffectView!
+    @IBOutlet weak var streakFillButton: UIButton!
+    
+    
     var answerStreak = 0
     var activeAnswer: Bool = false
     
@@ -82,7 +87,7 @@ class DailyQuestionViewController: UIViewController {
             UIView.animate(withDuration: 1.0, animations: {
                 self.yesterdaysResultsView.alpha = 1.0
             }) { (true) in
-
+                
             }
         }
         let previousDailyQuestionsQueryParams = ["Date": getPreviousDateFormatted()]
@@ -108,7 +113,7 @@ class DailyQuestionViewController: UIViewController {
                             self.yesterdayQuestionLabel.text = "No Question Available"
                         }
                     }) { (true) in
-
+                        
                     }
                 case .failure(let error):
                     // Handle error
@@ -121,7 +126,17 @@ class DailyQuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let thumbsDownGesture = UITapGestureRecognizer(target: self, action: #selector(thumbsDownTapped))
+        thumbsDownAnswer.addGestureRecognizer(thumbsDownGesture)
+        let thumbsUpGesture = UITapGestureRecognizer(target: self, action: #selector(thumbsUpTapped))
+        thumbsUpAnswer.addGestureRecognizer(thumbsUpGesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        yesterdaysResultsView.addGestureRecognizer(tapGesture)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
+        questionLabel.alpha = 0.0
         submitButton.isUserInteractionEnabled = false
         submitButton.isHidden = true
         thumbsDownAnswer.alpha = 0.0
@@ -131,18 +146,7 @@ class DailyQuestionViewController: UIViewController {
         downPercentage.text = ""
         yesterdayQuestionLabel.text = ""
         thumbsUpAnswer.isUserInteractionEnabled = false
-        let thumbsDownGesture = UITapGestureRecognizer(target: self, action: #selector(thumbsDownTapped))
-        thumbsDownAnswer.addGestureRecognizer(thumbsDownGesture)
-        let thumbsUpGesture = UITapGestureRecognizer(target: self, action: #selector(thumbsUpTapped))
-        thumbsUpAnswer.addGestureRecognizer(thumbsUpGesture)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        yesterdaysResultsView.addGestureRecognizer(tapGesture)
-        
         streakSegmentedBar.selectedColor = .cyan
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         
         let answerStreakQueryParams = ["userId": CurrentUser.shared.uid!]
         let previousDailyQuestionsQueryParams = ["Date": getPreviousDateFormatted()]
@@ -169,28 +173,17 @@ class DailyQuestionViewController: UIViewController {
         //Question
         callAPIGateway(endpoint: dailyQuestionEndpoint, queryParams: dailyQuestionsQueryParams, httpMethod: .get) { result in
             DispatchQueue.main.async {
+                // Save the final position
                 switch result {
                 case .success(let json):
                     print(json)
-                    // Handle successful response with JSON
-                    if let question = json["Question"] as? String {
-                        UIView.animate(withDuration: 0.5, animations: {
-                            self.questionLabel.text = "\(question)"
-                            self.todaysQuestionView.alpha = 1.0
-                            self.submitButton.alpha = 1.0
-                            self.thumbsUpAnswer.alpha = 1.0
-                            self.thumbsDownAnswer.alpha = 1.0
-                        }) { (true) in
-
-                        }
-                    } else {
-                        self.questionLabel.text = "New Question Coming Soon"
-                    }
                     if let answer = json["UserAnswer"] as? String {
                         if answer == "" {
-                            self.submitButton.isHidden = false
-                            self.thumbsDownAnswer.isUserInteractionEnabled = true
-                            self.thumbsUpAnswer.isUserInteractionEnabled = true
+                            if let question = json["Question"] as? String {
+                                self.setupQuestion(question: question)
+                            } else {
+                                self.questionLabel.text = "New Question Coming Soon"
+                            }
                             return
                         }
                         self.yesterdaysResultsView.alpha = 1.0
@@ -216,7 +209,7 @@ class DailyQuestionViewController: UIViewController {
                                             self.yesterdayQuestionLabel.text = "No Question Available"
                                         }
                                     }) { (true) in
-
+                                        
                                     }
                                 case .failure(let error):
                                     // Handle error
@@ -235,8 +228,50 @@ class DailyQuestionViewController: UIViewController {
         }
     }
     
+    func setupQuestion(question:String) {
+        
+        DispatchQueue.main.async {
+            let thumbsDownPosition = self.thumbsDownAnswer.frame.origin
+            let thumbsUpPosition = self.thumbsUpAnswer.frame.origin
+            let finalPosition = self.questionLabel.frame.origin
+            self.questionLabel.frame.origin.y += 30
+            //self.thumbsUpAnswer.frame.origin.y += 10
+            //self.thumbsDownAnswer.frame.origin.y += 10
+            self.thumbsDownAnswer.image =  UIImage(named: "thumbDownEmpty")
+            self.thumbsUpAnswer.image =  UIImage(named: "thumbUpEmpty")
+            self.todaysQuestionView.alpha = 1.0
+            self.questionLabel.text = "\(question)"
+            self.submitButton.isHidden = true
+            self.submitButton.alpha = 1.0
+            self.thumbsDownAnswer.isUserInteractionEnabled = true
+            self.thumbsUpAnswer.isUserInteractionEnabled = true
+            UIView.animate(withDuration: 2.0, // Animation duration in seconds
+                           delay: 0, // Start the animation immediately
+                           options: [.curveEaseOut], // Use ease-out animation curve for a smooth effect
+                           animations: {
+                // Move the label back to its final position
+                self.questionLabel.frame.origin = finalPosition
+                // Fade in the label by changing alpha to 1
+                self.questionLabel.alpha = 1
+                // Fade in the label by changing alpha to 1
+                self.thumbsDownAnswer.alpha = 1
+                // Fade in the label by changing alpha to 1
+                self.thumbsUpAnswer.alpha = 1
+                
+            }) { (isCompleted) in
+                // Animation completion block
+                if isCompleted {
+                    // Animation has completed
+                    // Perform any actions you want to take after the animation completes
+                }
+            }
+            
+        }
+    }
+    
     @objc func thumbsDownTapped() {
         tapHaptic()
+        self.submitButton.isHidden = false
         self.thumbsDownAnswer.image =  UIImage(named: "thumb-down")
         self.thumbsUpAnswer.image =  UIImage(named: "thumbUpEmpty")
         self.submitButton.isUserInteractionEnabled = true
@@ -245,6 +280,7 @@ class DailyQuestionViewController: UIViewController {
     
     @objc func thumbsUpTapped() {
         tapHaptic()
+        self.submitButton.isHidden = false
         self.thumbsDownAnswer.image =  UIImage(named: "thumbDownEmpty")
         self.thumbsUpAnswer.image =  UIImage(named: "thumb-up")
         self.submitButton.isUserInteractionEnabled = true
@@ -283,6 +319,12 @@ class DailyQuestionViewController: UIViewController {
             self.answerStreak = self.answerStreak + 1
             self.streakSegmentedBar.value = self.answerStreak
         }
+    }
+    
+    
+    @IBAction func acknowledgeStreakFill(_ sender: Any) {
+        bonusAnswerView.isHidden = true
+        streakFillView.isHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
