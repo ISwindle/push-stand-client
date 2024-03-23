@@ -11,7 +11,7 @@ class LandingRootViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var joinNowButton: UIButton!
-    
+    @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .black

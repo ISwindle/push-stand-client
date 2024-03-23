@@ -94,7 +94,32 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         }
         let yesterdayQueryParams = ["date": newDateString]
         let userTotalStandsQueryParams = ["userId": CurrentUser.shared.uid!]
+        let pushStandCheckQueryParams = ["user_id": CurrentUser.shared.uid!]
         
+        let semaphore = DispatchSemaphore(value: 0) // Create a semaphore
+        
+        fetchData(fromEndpoint: pushStandEndpoint, withUserId: CurrentUser.shared.uid!) {result in
+            switch result {
+                    case .success(let data):
+                        // Attempt to convert the data to a String
+                        if let responseString = String(data: data, encoding: .utf8) {
+                            if Bool(responseString)! {
+                                let dateString = self.getDateFormatted()
+                                UserDefaults.standard.set(true, forKey: dateString)
+                            }
+                        } else {
+                            // Handle the case where data could not be converted to a String
+                            print("Could not convert data to string.")
+                        }
+                    case .failure(let error):
+                        // Handle the error
+                        print("Error: \(error.localizedDescription)")
+                    }
+            semaphore.signal() // Signal the semaphore once the task is completed
+
+        }
+        
+        semaphore.wait() // Wait for the signal
         
         //Today
         callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: yesterdayQueryParams, httpMethod: .get ) { result in
@@ -203,6 +228,51 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         shareIcon.addGestureRecognizer(shareGesture)
         
     }
+    
+    /// Makes a network call to a specified endpoint and includes a `user_id` query parameter.
+    /// - Parameters:
+    ///   - endpoint: The base URL of the endpoint (e.g., "https://api.example.com/data").
+    ///   - userId: The user ID to include as a query parameter.
+    ///   - completion: A completion handler that is called with the result of the request.
+    func fetchData(fromEndpoint endpoint: String, withUserId userId: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        // Construct the URL with query parameter
+        var components = URLComponents(string: endpoint)
+        components?.queryItems = [
+            URLQueryItem(name: "user_id", value: userId)
+        ]
+        
+        guard let url = components?.url else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+        
+        // Create a URLSession data task
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            // Ensure there is no error for this HTTP response
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                completion(.failure(URLError(.badServerResponse)))
+                return
+            }
+            
+            // Ensure data is not nil
+            guard let data = data else {
+                completion(.failure(URLError(.cannotParseResponse)))
+                return
+            }
+            
+            // Return the received data
+            completion(.success(data))
+        }
+        
+        // Start the task
+        task.resume()
+    }
+
     
     // Action for tap gesture
     @objc func accountsTapped() {
