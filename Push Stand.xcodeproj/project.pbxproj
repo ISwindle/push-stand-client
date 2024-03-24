@@ -56,6 +56,8 @@
 		22B8D2222B5C117000448D01 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8D2212B5C117000448D01 /* ExtUIViewController.swift */; };
 		22B8EA1A2B3CD8C100FC9257 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8EA192B3CD8C100FC9257 /* AccountViewController.swift */; };
 		22B8EA1D2B3DD53300FC9257 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8EA1C2B3DD53300FC9257 /* CurrentUser.swift */; };
+		22C7F3D22BAFC2B400F5BE9A /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C7F3D12BAFC2B400F5BE9A /* TermsOfServiceViewController.swift */; };
+		22C7F3D42BAFC34800F5BE9A /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C7F3D32BAFC34800F5BE9A /* PrivacyPolicyViewController.swift */; };
 		22D12AA42B3C762F004880B6 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 22D12AA32B3C762F004880B6 /* FirebaseMessaging */; };
 		22D12AA62B3C93D2004880B6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D12AA52B3C93D2004880B6 /* SignInViewController.swift */; };
 		22DB7CE72B93864A00581C10 /* HelpCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB7CE62B93864A00581C10 /* HelpCenterViewController.swift */; };
@@ -131,6 +133,8 @@
 		22B8EA192B3CD8C100FC9257 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		22B8EA1C2B3DD53300FC9257 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		22B8EA1E2B3DF30000FC9257 /* Push Stand.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Push Stand.entitlements"; sourceTree = "<group>"; };
+		22C7F3D12BAFC2B400F5BE9A /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		22C7F3D32BAFC34800F5BE9A /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		22D12AA52B3C93D2004880B6 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		22DB7CE62B93864A00581C10 /* HelpCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCenterViewController.swift; sourceTree = "<group>"; };
 		22DB7CE82B93886300581C10 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				22DB7CE62B93864A00581C10 /* HelpCenterViewController.swift */,
 				22DB7CE82B93886300581C10 /* AccountSettingsViewController.swift */,
 				22DB7CEA2B93895B00581C10 /* AccountDeletionViewController.swift */,
+				22C7F3D12BAFC2B400F5BE9A /* TermsOfServiceViewController.swift */,
+				22C7F3D32BAFC34800F5BE9A /* PrivacyPolicyViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 				2263D2182AF91E6900D2E136 /* SignUpReminderViewController.swift in Sources */,
 				22359DDD2B6CB431003D3520 /* OnboardingData.swift in Sources */,
 				22B8EA1D2B3DD53300FC9257 /* CurrentUser.swift in Sources */,
+				22C7F3D22BAFC2B400F5BE9A /* TermsOfServiceViewController.swift in Sources */,
 				22DB7CE92B93886300581C10 /* AccountSettingsViewController.swift in Sources */,
 				227D0F9F2B1E17890001E568 /* DailyQuestionContainerViewController.swift in Sources */,
 				22DB7CE72B93864A00581C10 /* HelpCenterViewController.swift in Sources */,
@@ -494,6 +501,7 @@
 				22359DD62B6C7B71003D3520 /* User.swift in Sources */,
 				229C49FD2B14E11800C8E065 /* ExtUITabBarController.swift in Sources */,
 				22DB7CEB2B93895B00581C10 /* AccountDeletionViewController.swift in Sources */,
+				22C7F3D42BAFC34800F5BE9A /* PrivacyPolicyViewController.swift in Sources */,
 				223EA0832AEED76F0055F94B /* CircularProgressBar.swift in Sources */,
 				2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */,
 				22AD2D302ADF583000B3B1A8 /* SceneDelegate.swift in Sources */,

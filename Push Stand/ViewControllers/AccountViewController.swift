@@ -36,9 +36,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-                // Return the desired height for each cell
-                return 55 // You can adjust this value according to your preference
-            }
+        // Return the desired height for each cell
+        return 55 // You can adjust this value according to your preference
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true) // Optional: Deselect the cell after tap
@@ -51,11 +51,13 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         case 1:
             let cell = settingsTableView.dequeueReusableCell(withIdentifier: "terms", for: indexPath)
-            cell.textLabel?.text = "Terms"
+            let webVC = TermsOfServiceViewController()
+            present(webVC, animated: true)
             return
         case 2:
             let cell = settingsTableView.dequeueReusableCell(withIdentifier: "privacy", for: indexPath)
-            cell.textLabel?.text = "Privacy"
+            let webVC = PrivacyPolicyViewController()
+            present(webVC, animated: true)
             return
         case 3:
             // Example of pushing a view controller that is identified in a storyboard
@@ -73,7 +75,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBOutlet weak var settingsTableView: UITableView!
-   // @IBOutlet weak var logoutButton: UIButton!
+    // @IBOutlet weak var logoutButton: UIButton!
     
     @IBAction func logoutAction(_ sender: Any) {
         UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)

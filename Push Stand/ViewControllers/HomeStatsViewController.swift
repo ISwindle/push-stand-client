@@ -293,7 +293,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         segmentedStreakBar.alpha = 1
         streakImage.alpha = 1
         segmentedStreakBar.selectedColor = .red
-        segmentedStreakBar.value = myCurrentStreak
+        segmentedStreakBar.value = myCurrentStreak % 10
         streakImage.image = UIImage(named: "stand-streak-fire")
     }
     // Action for tap gesture
@@ -310,7 +310,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         segmentedStreakBar.alpha = 1
         streakImage.alpha = 1
         segmentedStreakBar.selectedColor = .cyan
-        segmentedStreakBar.value = answerStreak
+        segmentedStreakBar.value = answerStreak % 10
         streakImage.image = UIImage(named: "question-streak-fire")
     }
     // Action for tap gesture
@@ -356,7 +356,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                     // Handle successful response with JSON
                     if let streaks = json["streak_count"] as? Int {
                         self.myCurrentStreakLabel.text = "\(streaks)"
-                        self.segmentedStreakBar.value = streaks
+                        self.segmentedStreakBar.value = streaks % 10
                         self.myCurrentStreak = streaks
                     } else {
                         self.myCurrentStreakLabel.text = "0"
@@ -524,7 +524,12 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let progressAmount = self.current / self.goal
         self.standProgressBar.progress = CGFloat(progressAmount)
         self.myCurrentStreak = self.myCurrentStreak + 1
-        segmentedStreakBar.value = myCurrentStreak
+        if self.myCurrentStreak > 0 && self.myCurrentStreak % 10 == 0 {
+            segmentedStreakBar.value = 10
+            self.bonusStandView.isHidden = false
+            self.streakFillView.isHidden = false
+        }
+        segmentedStreakBar.value = myCurrentStreak % 10
         let newCount = pointsCount + 1
         self.myPointsLabel.text = "\(newCount) Points"
         

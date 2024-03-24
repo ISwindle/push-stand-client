@@ -161,7 +161,7 @@ class DailyQuestionViewController: UIViewController {
                     // Handle successful response with JSON
                     if let streaks = json["streak_count"] as? Int {
                         self.answerStreak = streaks
-                        self.streakSegmentedBar.value = self.answerStreak
+                        self.streakSegmentedBar.value = self.answerStreak % 10
                     }
                 case .failure(let error):
                     // Handle error
@@ -317,7 +317,12 @@ class DailyQuestionViewController: UIViewController {
         DispatchQueue.main.async {
             print("Answer")
             self.answerStreak = self.answerStreak + 1
-            self.streakSegmentedBar.value = self.answerStreak
+            if self.answerStreak > 0 && self.answerStreak % 10 == 0 {
+                self.streakSegmentedBar.value = 10
+                self.bonusAnswerView.isHidden = false
+                self.streakFillView.isHidden = false
+            }
+            self.streakSegmentedBar.value = self.answerStreak % 10
         }
     }
     
