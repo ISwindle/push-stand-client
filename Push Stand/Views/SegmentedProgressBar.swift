@@ -11,7 +11,7 @@ class SegmentedBar: UIView {
     var segmentWidth: CGFloat = 25
     var segmentHeight: CGFloat = 0
     var spacing: CGFloat = 2
-    var selectedColor: UIColor = .red
+    var selectedColor: UIColor = .systemRed
     var unselectedColor: UIColor = .darkGray
 
     private let stackView = UIStackView()

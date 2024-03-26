@@ -146,7 +146,7 @@ class DailyQuestionViewController: UIViewController {
         downPercentage.text = ""
         yesterdayQuestionLabel.text = ""
         thumbsUpAnswer.isUserInteractionEnabled = false
-        streakSegmentedBar.selectedColor = .cyan
+        streakSegmentedBar.selectedColor = .systemCyan
         
         let answerStreakQueryParams = ["userId": CurrentUser.shared.uid!]
         let previousDailyQuestionsQueryParams = ["Date": getPreviousDateFormatted()]

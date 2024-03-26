@@ -31,8 +31,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     @IBOutlet weak var segmentedStreakBar: SegmentedBar!
     @IBOutlet weak var streakImage: UIImageView!
-    @IBOutlet weak var leftStarImage: UIImageView!
-    @IBOutlet weak var rightStarImage: UIImageView!
     
     
     @IBOutlet weak var myCurrentStreakLabel: UILabel!
@@ -281,51 +279,45 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     @objc func standStreakTapped() {
-        standStreakIcon.image = UIImage(named: "stand-streak-icon-active")
-        questionStreakIcon.image = UIImage(named: "question-streak-icon")
-        pointsIcon.image = UIImage(named: "points-icon")
-        standStreakTitle.textColor = .red
+        standStreakIcon.image = UIImage(named: "red-star")
+        questionStreakIcon.image = UIImage(named: "cyan-star")
+        pointsIcon.image = UIImage(named: "gold-star")
+        standStreakTitle.textColor = UIColor.systemRed
         questionStreakTitle.textColor = .white
         pointsTitle.textColor = .white
         myPointsLabel.alpha = 0
-        leftStarImage.alpha = 0
-        rightStarImage.alpha = 0
         segmentedStreakBar.alpha = 1
         streakImage.alpha = 1
-        segmentedStreakBar.selectedColor = .red
+        segmentedStreakBar.selectedColor = .systemRed
         segmentedStreakBar.value = myCurrentStreak % 10
-        streakImage.image = UIImage(named: "stand-streak-fire")
+        streakImage.image = UIImage(named: "red-star")
     }
     // Action for tap gesture
     @objc func questionStreakTapped() {
-        standStreakIcon.image = UIImage(named: "stand-streak-icon")
-        questionStreakIcon.image = UIImage(named: "question-streak-icon-active")
-        pointsIcon.image = UIImage(named: "points-icon")
+        standStreakIcon.image = UIImage(named: "red-star")
+        questionStreakIcon.image = UIImage(named: "cyan-star")
+        pointsIcon.image = UIImage(named: "gold-star")
         standStreakTitle.textColor = .white
-        questionStreakTitle.textColor = .cyan
+        questionStreakTitle.textColor = .systemCyan
         pointsTitle.textColor = .white
         myPointsLabel.alpha = 0
-        leftStarImage.alpha = 0
-        rightStarImage.alpha = 0
         segmentedStreakBar.alpha = 1
         streakImage.alpha = 1
-        segmentedStreakBar.selectedColor = .cyan
+        segmentedStreakBar.selectedColor = .systemCyan
         segmentedStreakBar.value = answerStreak % 10
-        streakImage.image = UIImage(named: "question-streak-fire")
+        streakImage.image = UIImage(named: "cyan-star")
     }
     // Action for tap gesture
     @objc func pointsTapped() {
-        standStreakIcon.image = UIImage(named: "stand-streak-icon")
-        questionStreakIcon.image = UIImage(named: "question-streak-icon")
-        pointsIcon.image = UIImage(named: "points-icon-active")
+        standStreakIcon.image = UIImage(named: "red-star")
+        questionStreakIcon.image = UIImage(named: "cyan-star")
+        pointsIcon.image = UIImage(named: "gold-star")
         standStreakTitle.textColor = .white
         questionStreakTitle.textColor = .white
-        pointsTitle.textColor = .yellow
+        pointsTitle.textColor = UIColor.systemBrown
         segmentedStreakBar.alpha = 0
         streakImage.alpha = 0
         myPointsLabel.alpha = 1
-        leftStarImage.alpha = 1
-        rightStarImage.alpha = 1
     }
     
     override func viewWillAppear(_ animated: Bool) {
