@@ -144,7 +144,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                 case .success(let json):
                     // Handle successful response with JSON
                     if let goalValue = json["Goal"] as? String {
-                        self.dailyGoalCount.text = "\(goalValue)\nDaily Goal"
+                        let attributedString = NSMutableAttributedString(string: "\(goalValue)\nDaily Goal")
+                        attributedString.addAttributes([.font: UIFont.boldSystemFont(ofSize: 22)], range: NSRange(location: 0, length: goalValue.count))
+                        self.dailyGoalCount.attributedText = attributedString
                     } else {
                         self.dailyGoalCount.text = "0\nDaily Goal"
                     }
