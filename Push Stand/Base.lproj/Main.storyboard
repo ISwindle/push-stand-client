@@ -340,11 +340,12 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="plus.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Dal-z9-6mu">
-                                        <rect key="frame" x="349" y="610.5" width="40" height="39"/>
-                                        <color key="backgroundColor" red="0.50196081400000003" green="0.8156862855" blue="0.98039215800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <rect key="frame" x="344" y="605.5" width="45" height="44"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.50196081400000003" green="0.8156862855" blue="0.98039215800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="5bM-9K-jGj"/>
-                                            <constraint firstAttribute="width" constant="40" id="V22-Oe-d9N"/>
+                                            <constraint firstAttribute="height" constant="45" id="5bM-9K-jGj"/>
+                                            <constraint firstAttribute="width" constant="45" id="V22-Oe-d9N"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iru-Bw-zal" userLabel="Down Percentage">
@@ -658,7 +659,7 @@ Let's see if you can do it again!  1 Answer  =  2 Points</string>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday : 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Ll-VV-Gpv">
                                 <rect key="frame" x="0.0" y="678" width="414" height="30"/>
-                                <color key="backgroundColor" red="0.27862610479797978" green="0.27862610479797978" blue="0.27862610479797978" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.23745265151515149" green="0.23745265151515149" blue="0.23745265151515149" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3Ll-VV-Gpv" secondAttribute="height" multiplier="69:5" id="8qh-rr-ASG"/>
                                 </constraints>
@@ -761,27 +762,18 @@ Stands</string>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer Streak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgB-z7-uba">
                                         <rect key="frame" x="124.5" y="0.0" width="125" height="20"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sle-yn-ue8">
                                         <rect key="frame" x="249.5" y="0.0" width="124.5" height="20"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                        </variation>
                                     </label>
                                 </subviews>
                                 <constraints>
@@ -854,16 +846,16 @@ Stands</string>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="FRt-ke-DPV" firstAttribute="centerX" secondItem="ov3-1B-ftm" secondAttribute="centerX" id="Fdx-Iy-mN5"/>
-                                            <constraint firstAttribute="width" constant="200" id="LDt-wi-G19"/>
+                                            <constraint firstAttribute="width" constant="200" id="K7e-yB-Ig0"/>
                                             <constraint firstItem="FRt-ke-DPV" firstAttribute="centerY" secondItem="ov3-1B-ftm" secondAttribute="centerY" id="M8P-NO-cz2"/>
-                                            <constraint firstAttribute="height" constant="200" id="MBy-Q5-8WY"/>
+                                            <constraint firstAttribute="height" constant="200" id="Px6-0T-dLQ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="ov3-1B-ftm" firstAttribute="centerY" secondItem="Wlz-PA-Rkk" secondAttribute="centerY" id="GjL-eO-GAG"/>
-                                    <constraint firstItem="ov3-1B-ftm" firstAttribute="centerX" secondItem="Wlz-PA-Rkk" secondAttribute="centerX" id="khp-dU-W1s"/>
+                                    <constraint firstItem="ov3-1B-ftm" firstAttribute="centerY" secondItem="Wlz-PA-Rkk" secondAttribute="centerY" id="Dae-P4-lhb"/>
+                                    <constraint firstItem="ov3-1B-ftm" firstAttribute="centerX" secondItem="Wlz-PA-Rkk" secondAttribute="centerX" id="ber-SH-rgK"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRz-Qw-Pnj" userLabel="Home Pic View">
@@ -1430,7 +1422,7 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="O4U-Dd-E5t" firstAttribute="centerY" secondItem="dJa-Y2-nU4" secondAttribute="centerY" id="33t-oq-xvR"/>
                                     <constraint firstItem="O4U-Dd-E5t" firstAttribute="leading" secondItem="dJa-Y2-nU4" secondAttribute="leading" constant="40" id="cBN-ak-3Ls"/>
@@ -1461,7 +1453,7 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="Y0P-dA-JW1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CYV-WQ-Ilv" secondAttribute="trailing" constant="8" symbolic="YES" id="4ao-KD-Eba"/>
                                     <constraint firstAttribute="height" constant="55" id="JEi-aR-vO3"/>
@@ -1492,7 +1484,7 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="maZ-qb-rgK" firstAttribute="centerY" secondItem="zXC-aK-Hwx" secondAttribute="centerY" id="4uh-HA-LzP"/>
                                     <constraint firstItem="maZ-qb-rgK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fqe-Uc-a3S" secondAttribute="trailing" constant="8" symbolic="YES" id="Bus-Cz-MS3"/>
@@ -1518,7 +1510,7 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                         </constraints>
                                     </datePicker>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="dRe-f1-NOI" secondAttribute="trailing" constant="40" id="9x8-TX-238"/>
                                     <constraint firstItem="dRe-f1-NOI" firstAttribute="centerY" secondItem="uGg-yl-nPk" secondAttribute="centerY" id="BoP-yh-6w2"/>
@@ -1544,7 +1536,7 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                         </constraints>
                                     </datePicker>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="F19-4O-Dfk" firstAttribute="leading" secondItem="Ban-MT-yE6" secondAttribute="leading" constant="40" id="66n-q5-epE"/>
                                     <constraint firstAttribute="height" constant="55" id="6CP-yX-OpX"/>
@@ -1618,7 +1610,7 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="support@pushstand.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYg-5B-XAS">
                                 <rect key="frame" x="111" y="204.5" width="192" height="20.5"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.11719390020000001" blue="0.96611279250000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.36473633837561459" green="0.62227856874657406" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Should you want to delete your account, tap the button below to begin that process." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0R-b5-T14">
@@ -2641,19 +2633,19 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3b-VX-4DF">
                                                 <rect key="frame" x="40" y="112" width="78" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                <color key="textColor" red="0.47296518397033721" green="0.62891089737964079" blue="0.88285195707070707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" red="0.36473633840000003" green="0.62227856869999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push Stand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTH-wa-IjM">
                                                 <rect key="frame" x="40" y="321.5" width="96" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                <color key="textColor" red="0.47296518399999998" green="0.62891089739999995" blue="0.88285195709999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" red="0.36473633840000003" green="0.62227856869999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8f-nn-cPo">
                                                 <rect key="frame" x="40" y="638" width="128" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                <color key="textColor" red="0.47296518399999998" green="0.62891089739999995" blue="0.88285195709999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" red="0.36473633840000003" green="0.62227856869999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2G-s0-MSt">

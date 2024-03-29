@@ -13,7 +13,7 @@ class CircularProgressBar: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //createCircularPath()
+        createCircularPath()
     }
 
     required init?(coder aDecoder: NSCoder) {
