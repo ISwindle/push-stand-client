@@ -285,8 +285,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         questionStreakIcon.image = UIImage(named: "cyan-star")
         pointsIcon.image = UIImage(named: "gold-star")
         standStreakTitle.textColor = UIColor.systemRed
+        standStreakTitle.font = UIFont.boldSystemFont(ofSize: standStreakTitle.font.pointSize)
         questionStreakTitle.textColor = .white
+        questionStreakTitle.font = UIFont.systemFont(ofSize: questionStreakTitle.font.pointSize, weight: .light)
         pointsTitle.textColor = .white
+        pointsTitle.font = UIFont.systemFont(ofSize: pointsTitle.font.pointSize, weight: .light)
         myPointsLabel.alpha = 0
         segmentedStreakBar.alpha = 1
         streakImage.alpha = 1
@@ -300,8 +303,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         questionStreakIcon.image = UIImage(named: "cyan-star")
         pointsIcon.image = UIImage(named: "gold-star")
         standStreakTitle.textColor = .white
+        standStreakTitle.font = UIFont.systemFont(ofSize: standStreakTitle.font.pointSize, weight: .light)
         questionStreakTitle.textColor = .systemCyan
+        questionStreakTitle.font = UIFont.boldSystemFont(ofSize: questionStreakTitle.font.pointSize)
         pointsTitle.textColor = .white
+        pointsTitle.font = UIFont.systemFont(ofSize: pointsTitle.font.pointSize, weight: .light)
         myPointsLabel.alpha = 0
         segmentedStreakBar.alpha = 1
         streakImage.alpha = 1
@@ -315,8 +321,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         questionStreakIcon.image = UIImage(named: "cyan-star")
         pointsIcon.image = UIImage(named: "gold-star")
         standStreakTitle.textColor = .white
+        standStreakTitle.font = UIFont.systemFont(ofSize: standStreakTitle.font.pointSize, weight: .light)
         questionStreakTitle.textColor = .white
+        questionStreakTitle.font = UIFont.systemFont(ofSize: questionStreakTitle.font.pointSize, weight: .light)
         pointsTitle.textColor = UIColor.systemBrown
+        pointsTitle.font = UIFont.boldSystemFont(ofSize: pointsTitle.font.pointSize)
         segmentedStreakBar.alpha = 0
         streakImage.alpha = 0
         myPointsLabel.alpha = 1

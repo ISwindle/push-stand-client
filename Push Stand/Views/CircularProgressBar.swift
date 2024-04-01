@@ -20,10 +20,17 @@ class CircularProgressBar: UIView {
         super.init(coder: aDecoder)
         createCircularPath()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        // Call createCircularPath again to update the path based on the updated frame
+        // THIS FIXED THE ISSUE WE'VE BEEN HAVING!
+        createCircularPath()
+    }
 
     private func createCircularPath() {
         self.backgroundColor = .clear
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.width - 1.5) / 2, startAngle: -CGFloat.pi / 2, endAngle: 1.5 * CGFloat.pi, clockwise: true)
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.height / 2.0), startAngle: -CGFloat.pi / 2, endAngle: 1.5 * CGFloat.pi, clockwise: true)
         
         // Track layer
         trackLayer.path = circlePath.cgPath
