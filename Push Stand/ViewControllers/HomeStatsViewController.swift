@@ -415,6 +415,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBAction func acknowledgeStreakFilled(_ sender: Any) {
         bonusStandView.isHidden = true
         streakFillView.isHidden = true
+        segmentedStreakBar.value = myCurrentStreak % 10
     }
     
     @IBAction func pushStand(_ sender: UITapGestureRecognizer) {
@@ -457,6 +458,14 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                     self.landingViewWithPicture.isHidden = true
                     self.accountButton.isHidden = false
                     self.shareIcon.isHidden = false
+                    UIView.animate(withDuration: 1.0, animations: {
+                        self.onePoint.alpha = 1.0 // Make the label fully visible
+                    }) { (finished) in
+                        // After the fade-in completes, start the fade-out
+                        UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
+                            self.onePoint.alpha = 0.0 // Make the label fully transparent
+                        }, completion: nil)
+                    }
                 }
             }
         }
@@ -531,8 +540,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             segmentedStreakBar.value = 10
             self.bonusStandView.isHidden = false
             self.streakFillView.isHidden = false
+        } else {
+            self.segmentedStreakBar.value = self.answerStreak % 10
         }
-        segmentedStreakBar.value = myCurrentStreak % 10
+        
         let newCount = pointsCount + 1
         self.myPointsLabel.text = "\(newCount) Points"
         

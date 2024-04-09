@@ -186,7 +186,7 @@ class DailyQuestionViewController: UIViewController {
                             }
                             return
                         }
-                        self.yesterdaysResultsView.alpha = 1.0
+                            self.yesterdaysResultsView.alpha = 1.0
                         // Assuming callAPIGateway is correctly implemented and working
                         self.callAPIGateway(endpoint: self.dailyQuestionAnswerEndpoint, queryParams: previousDailyQuestionsQueryParams, httpMethod: .get) { result in
                             DispatchQueue.main.async {
@@ -202,6 +202,9 @@ class DailyQuestionViewController: UIViewController {
                                             let truePercentageString = String(truePercentage)
                                             let falsePercentageString = String(falsePercentage)
                                             // Update the label to display the question and percentages
+                                            self.yesterdayQuestionLabel.alpha = 0.0
+                                            self.downPercentage.alpha = 0.0
+                                            self.upPercentage.alpha = 0.0
                                             self.yesterdayQuestionLabel.text = "\(question)"
                                             self.downPercentage.text = "\(falsePercentageString)%"
                                             self.upPercentage.text = "\(truePercentageString)%"
@@ -215,6 +218,13 @@ class DailyQuestionViewController: UIViewController {
                                     // Handle error
                                     self.yesterdayQuestionLabel.text = "No Question Results Available"
                                     print("Error: \(error.localizedDescription)")
+                                }
+                                UIView.animate(withDuration: 1.0, animations: {
+                                    self.yesterdayQuestionLabel.alpha = 1.0
+                                    self.downPercentage.alpha = 1.0
+                                    self.upPercentage.alpha = 1.0
+                                }) { (true) in
+                                    
                                 }
                             }
                         }
@@ -321,8 +331,10 @@ class DailyQuestionViewController: UIViewController {
                 self.streakSegmentedBar.value = 10
                 self.bonusAnswerView.isHidden = false
                 self.streakFillView.isHidden = false
+            } else {
+                self.streakSegmentedBar.value = self.answerStreak % 10
             }
-            self.streakSegmentedBar.value = self.answerStreak % 10
+            
         }
     }
     
@@ -330,6 +342,7 @@ class DailyQuestionViewController: UIViewController {
     @IBAction func acknowledgeStreakFill(_ sender: Any) {
         bonusAnswerView.isHidden = true
         streakFillView.isHidden = true
+        self.streakSegmentedBar.value = self.answerStreak % 10
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
