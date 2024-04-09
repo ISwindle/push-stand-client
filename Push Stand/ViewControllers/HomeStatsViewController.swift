@@ -125,9 +125,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                 switch result {
                 case .success(let json):
                     if let currentValue = json["Current"] as? String {
-                        self.yesterdayLabel.text = "Yesterday: \(currentValue)"
+                        self.yesterdayLabel.text = "      Yesterday: \(currentValue)      "
                     } else {
-                        self.yesterdayLabel.text = "N/A"
+                        self.yesterdayLabel.text = "      N/A      "
                     }
                 case .failure(let error):
                     // Handle error
@@ -281,9 +281,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     @objc func standStreakTapped() {
-        standStreakIcon.image = UIImage(named: "red-star")
-        questionStreakIcon.image = UIImage(named: "cyan-star")
-        pointsIcon.image = UIImage(named: "gold-star")
+        standStreakIcon.image = UIImage(named: "red-star-icon")
+        questionStreakIcon.image = UIImage(named: "cyan-star-icon")
+        pointsIcon.image = UIImage(named: "gold-star-icon")
         standStreakTitle.textColor = UIColor.systemRed
         standStreakTitle.font = UIFont.boldSystemFont(ofSize: standStreakTitle.font.pointSize)
         questionStreakTitle.textColor = .white
@@ -295,13 +295,13 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         streakImage.alpha = 1
         segmentedStreakBar.selectedColor = .systemRed
         segmentedStreakBar.value = myCurrentStreak % 10
-        streakImage.image = UIImage(named: "red-star")
+        streakImage.image = UIImage(named: "red-star-icon")
     }
     // Action for tap gesture
     @objc func questionStreakTapped() {
-        standStreakIcon.image = UIImage(named: "red-star")
-        questionStreakIcon.image = UIImage(named: "cyan-star")
-        pointsIcon.image = UIImage(named: "gold-star")
+        standStreakIcon.image = UIImage(named: "red-star-icon")
+        questionStreakIcon.image = UIImage(named: "cyan-star-icon")
+        pointsIcon.image = UIImage(named: "gold-star-icon")
         standStreakTitle.textColor = .white
         standStreakTitle.font = UIFont.systemFont(ofSize: standStreakTitle.font.pointSize, weight: .light)
         questionStreakTitle.textColor = .systemCyan
@@ -313,13 +313,13 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         streakImage.alpha = 1
         segmentedStreakBar.selectedColor = .systemCyan
         segmentedStreakBar.value = answerStreak % 10
-        streakImage.image = UIImage(named: "cyan-star")
+        streakImage.image = UIImage(named: "cyan-star-icon")
     }
     // Action for tap gesture
     @objc func pointsTapped() {
-        standStreakIcon.image = UIImage(named: "red-star")
-        questionStreakIcon.image = UIImage(named: "cyan-star")
-        pointsIcon.image = UIImage(named: "gold-star")
+        standStreakIcon.image = UIImage(named: "red-star-icon")
+        questionStreakIcon.image = UIImage(named: "cyan-star-icon")
+        pointsIcon.image = UIImage(named: "gold-star-icon")
         standStreakTitle.textColor = .white
         standStreakTitle.font = UIFont.systemFont(ofSize: standStreakTitle.font.pointSize, weight: .light)
         questionStreakTitle.textColor = .white
@@ -565,7 +565,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @objc func sendMessage() {
         if MFMessageComposeViewController.canSendText() {
             let messageVC = MFMessageComposeViewController()
-            messageVC.body = "Join me on the app that is uniting Americans one STAND at a time! \n\n https://pushstand.com/"
+            messageVC.body = "Join me on the app that is uniting Americans one STAND at a time! \n\n Follow us! \n Insta: pushstand_now \n X: @pushstand_now \n\n https://pushstand.com/"
             messageVC.recipients = [] // Enter the phone number here
             messageVC.messageComposeDelegate = self
             self.present(messageVC, animated: true, completion: nil)
