@@ -58,6 +58,9 @@
 		22B8EA1D2B3DD53300FC9257 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8EA1C2B3DD53300FC9257 /* CurrentUser.swift */; };
 		22C7F3D22BAFC2B400F5BE9A /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C7F3D12BAFC2B400F5BE9A /* TermsOfServiceViewController.swift */; };
 		22C7F3D42BAFC34800F5BE9A /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C7F3D32BAFC34800F5BE9A /* PrivacyPolicyViewController.swift */; };
+		22C7F3D62BC58F0500F5BE9A /* AccountEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C7F3D52BC58F0500F5BE9A /* AccountEmailViewController.swift */; };
+		22C7F3D82BC58F3000F5BE9A /* AccountPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C7F3D72BC58F3000F5BE9A /* AccountPasswordViewController.swift */; };
+		22C7F3DA2BC58F5000F5BE9A /* AccountPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C7F3D92BC58F5000F5BE9A /* AccountPhoneNumberViewController.swift */; };
 		22D12AA42B3C762F004880B6 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 22D12AA32B3C762F004880B6 /* FirebaseMessaging */; };
 		22D12AA62B3C93D2004880B6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D12AA52B3C93D2004880B6 /* SignInViewController.swift */; };
 		22DB7CE72B93864A00581C10 /* HelpCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB7CE62B93864A00581C10 /* HelpCenterViewController.swift */; };
@@ -135,6 +138,9 @@
 		22B8EA1E2B3DF30000FC9257 /* Push Stand.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Push Stand.entitlements"; sourceTree = "<group>"; };
 		22C7F3D12BAFC2B400F5BE9A /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
 		22C7F3D32BAFC34800F5BE9A /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		22C7F3D52BC58F0500F5BE9A /* AccountEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEmailViewController.swift; sourceTree = "<group>"; };
+		22C7F3D72BC58F3000F5BE9A /* AccountPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPasswordViewController.swift; sourceTree = "<group>"; };
+		22C7F3D92BC58F5000F5BE9A /* AccountPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPhoneNumberViewController.swift; sourceTree = "<group>"; };
 		22D12AA52B3C93D2004880B6 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		22DB7CE62B93864A00581C10 /* HelpCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCenterViewController.swift; sourceTree = "<group>"; };
 		22DB7CE82B93886300581C10 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +235,9 @@
 				22DB7CEA2B93895B00581C10 /* AccountDeletionViewController.swift */,
 				22C7F3D12BAFC2B400F5BE9A /* TermsOfServiceViewController.swift */,
 				22C7F3D32BAFC34800F5BE9A /* PrivacyPolicyViewController.swift */,
+				22C7F3D52BC58F0500F5BE9A /* AccountEmailViewController.swift */,
+				22C7F3D72BC58F3000F5BE9A /* AccountPasswordViewController.swift */,
+				22C7F3D92BC58F5000F5BE9A /* AccountPhoneNumberViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -491,8 +500,11 @@
 				223EA08A2AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift in Sources */,
 				2263D2102AF8A11200D2E136 /* LandingRootViewController.swift in Sources */,
 				229C49FA2B14E0D100C8E065 /* HomeStatsViewController.swift in Sources */,
+				22C7F3D82BC58F3000F5BE9A /* AccountPasswordViewController.swift in Sources */,
 				22AD2D322ADF583000B3B1A8 /* PushStandViewController.swift in Sources */,
 				22359DE92B6EA132003D3520 /* ContactsViewController.swift in Sources */,
+				22C7F3D62BC58F0500F5BE9A /* AccountEmailViewController.swift in Sources */,
+				22C7F3DA2BC58F5000F5BE9A /* AccountPhoneNumberViewController.swift in Sources */,
 				2263D2162AF91D8400D2E136 /* SignupBirthdateViewController.swift in Sources */,
 				229BB4962B8177FF00959B3F /* SubmitQuestionViewController.swift in Sources */,
 				22AD2D2E2ADF583000B3B1A8 /* AppDelegate.swift in Sources */,

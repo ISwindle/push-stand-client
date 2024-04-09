@@ -33,13 +33,6 @@ class SignUpUsernamePasswordViewController: UIViewController {
         return password.count > 7
     }
     
-    func isValidEmail(_ email: String) -> Bool {
-        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let regex = try? NSRegularExpression(pattern: pattern, options: [])
-        let range = NSRange(location: 0, length: email.utf16.count)
-        return regex?.firstMatch(in: email, options: [], range: range) != nil
-    }
-    
     @IBAction func next(_ sender: Any) {
         
         guard let username = usernameTextField.text, username.count > 3 else {

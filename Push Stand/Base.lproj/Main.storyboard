@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1185,7 +1185,7 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
         <!--Password-->
         <scene sceneID="8RW-oz-kjK">
             <objects>
-                <viewController id="WYf-Vs-Zqd" sceneMemberID="viewController">
+                <viewController id="WYf-Vs-Zqd" customClass="AccountPasswordViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gws-56-G0O">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1249,6 +1249,9 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                 <color key="tintColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit"/>
+                                <connections>
+                                    <action selector="changePassword:" destination="WYf-Vs-Zqd" eventType="touchUpInside" id="2FD-sX-F8o"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cEa-7g-RcQ"/>
@@ -1281,6 +1284,12 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Password" style="editor" id="I3K-VH-vHq"/>
+                    <connections>
+                        <outlet property="confirmNewPassword" destination="tFs-bR-GsJ" id="IrE-3K-oWD"/>
+                        <outlet property="currentPassword" destination="Bnr-td-rVZ" id="IaU-Kz-Fac"/>
+                        <outlet property="newPassword" destination="7bk-XS-j1L" id="kgC-7w-lV7"/>
+                        <outlet property="submitButton" destination="DBl-hR-no9" id="ULf-ca-Hsz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ok-EA-F1F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1289,7 +1298,7 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
         <!--Phone #-->
         <scene sceneID="HuJ-76-4NN">
             <objects>
-                <viewController id="4Pp-SF-Dyh" sceneMemberID="viewController">
+                <viewController id="4Pp-SF-Dyh" customClass="AccountPhoneNumberViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pYs-jE-Sd5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1317,6 +1326,9 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                 <color key="tintColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Send Confirmation Text"/>
+                                <connections>
+                                    <action selector="changePhoneNumber:" destination="4Pp-SF-Dyh" eventType="touchUpInside" id="pbb-iV-0Qj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="m73-3X-IRO"/>
@@ -1334,6 +1346,10 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Phone #" style="editor" id="cgf-Cp-h9o"/>
+                    <connections>
+                        <outlet property="confirmationButton" destination="dyJ-1c-ih1" id="bFB-ht-jbz"/>
+                        <outlet property="phoneText" destination="aph-xT-Tx0" id="5xb-Hy-om9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4A-7t-lFp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1342,7 +1358,7 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
         <!--Email-->
         <scene sceneID="5fU-Gd-5nX">
             <objects>
-                <viewController id="3Uk-oz-HBZ" sceneMemberID="viewController">
+                <viewController id="3Uk-oz-HBZ" customClass="AccountEmailViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OKY-l6-Eix">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1371,6 +1387,9 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                 <color key="tintColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Send Confirmation Email"/>
+                                <connections>
+                                    <action selector="updateEmail:" destination="3Uk-oz-HBZ" eventType="touchUpInside" id="qDH-5a-n9C"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b7j-rl-LQ4"/>
@@ -1388,6 +1407,10 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Email" style="editor" id="kIg-oZ-xOv"/>
+                    <connections>
+                        <outlet property="confirmationEmailButton" destination="5hY-aX-YZ2" id="qqx-cv-yqA"/>
+                        <outlet property="emailText" destination="NSS-l4-lS1" id="xFL-tl-7Xs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hjs-3g-eta" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1401,20 +1424,20 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJa-Y2-nU4">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJa-Y2-nU4">
                                 <rect key="frame" x="0.0" y="48" width="414" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4U-Dd-E5t">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4U-Dd-E5t">
                                         <rect key="frame" x="25" y="17" width="41" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToY-gD-ffS">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToY-gD-ffS">
                                         <rect key="frame" x="320" y="12.5" width="54" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="AxA-5p-1M1"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Edit"/>
                                         <connections>
@@ -1423,29 +1446,21 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstItem="O4U-Dd-E5t" firstAttribute="centerY" secondItem="dJa-Y2-nU4" secondAttribute="centerY" id="33t-oq-xvR"/>
-                                    <constraint firstItem="O4U-Dd-E5t" firstAttribute="leading" secondItem="dJa-Y2-nU4" secondAttribute="leading" constant="25" id="cBN-ak-3Ls"/>
-                                    <constraint firstAttribute="height" constant="55" id="cTS-97-elM"/>
-                                    <constraint firstItem="ToY-gD-ffS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="O4U-Dd-E5t" secondAttribute="trailing" constant="8" symbolic="YES" id="dez-XG-98d"/>
-                                    <constraint firstItem="ToY-gD-ffS" firstAttribute="centerY" secondItem="dJa-Y2-nU4" secondAttribute="centerY" id="fKq-pe-i9n"/>
-                                    <constraint firstAttribute="trailing" secondItem="ToY-gD-ffS" secondAttribute="trailing" constant="40" id="z4C-r5-TWg"/>
-                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zwb-mZ-jwY">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zwb-mZ-jwY">
                                 <rect key="frame" x="0.0" y="104" width="414" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYV-WQ-Ilv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYV-WQ-Ilv">
                                         <rect key="frame" x="25" y="17" width="73.5" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0P-dA-JW1">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0P-dA-JW1">
                                         <rect key="frame" x="320" y="12.5" width="54" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="yTg-5F-Dcg"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Edit"/>
                                         <connections>
@@ -1454,29 +1469,21 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstItem="Y0P-dA-JW1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CYV-WQ-Ilv" secondAttribute="trailing" constant="8" symbolic="YES" id="4ao-KD-Eba"/>
-                                    <constraint firstAttribute="height" constant="55" id="JEi-aR-vO3"/>
-                                    <constraint firstAttribute="trailing" secondItem="Y0P-dA-JW1" secondAttribute="trailing" constant="40" id="Ryr-34-PHZ"/>
-                                    <constraint firstItem="CYV-WQ-Ilv" firstAttribute="centerY" secondItem="Zwb-mZ-jwY" secondAttribute="centerY" id="bWy-It-AT0"/>
-                                    <constraint firstItem="CYV-WQ-Ilv" firstAttribute="leading" secondItem="Zwb-mZ-jwY" secondAttribute="leading" constant="25" id="dM0-cE-Kxj"/>
-                                    <constraint firstItem="Y0P-dA-JW1" firstAttribute="centerY" secondItem="Zwb-mZ-jwY" secondAttribute="centerY" id="lVo-G2-neQ"/>
-                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXC-aK-Hwx">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zXC-aK-Hwx">
                                 <rect key="frame" x="0.0" y="160" width="414" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqe-Uc-a3S">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqe-Uc-a3S">
                                         <rect key="frame" x="25" y="17" width="48.5" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maZ-qb-rgK">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maZ-qb-rgK">
                                         <rect key="frame" x="320" y="12.5" width="54" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="mDt-sc-cUQ"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Edit"/>
                                         <connections>
@@ -1485,71 +1492,48 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstItem="maZ-qb-rgK" firstAttribute="centerY" secondItem="zXC-aK-Hwx" secondAttribute="centerY" id="4uh-HA-LzP"/>
-                                    <constraint firstItem="maZ-qb-rgK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fqe-Uc-a3S" secondAttribute="trailing" constant="8" symbolic="YES" id="Bus-Cz-MS3"/>
-                                    <constraint firstItem="fqe-Uc-a3S" firstAttribute="leading" secondItem="zXC-aK-Hwx" secondAttribute="leading" constant="25" id="MdI-1v-OgW"/>
-                                    <constraint firstAttribute="height" constant="55" id="QPH-SQ-rdx"/>
-                                    <constraint firstAttribute="trailing" secondItem="maZ-qb-rgK" secondAttribute="trailing" constant="40" id="WTn-Zi-Kaj"/>
-                                    <constraint firstItem="fqe-Uc-a3S" firstAttribute="centerY" secondItem="zXC-aK-Hwx" secondAttribute="centerY" id="mz6-dj-txS"/>
-                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGg-yl-nPk">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGg-yl-nPk">
                                 <rect key="frame" x="0.0" y="216" width="414" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCv-Py-RrC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Birth Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCv-Py-RrC">
                                         <rect key="frame" x="25" y="17" width="76.5" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="dRe-f1-NOI">
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="dRe-f1-NOI">
                                         <rect key="frame" x="249" y="10.5" width="125" height="34.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="125" id="Cox-wJ-nGv"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="dRe-f1-NOI" secondAttribute="trailing" constant="40" id="9x8-TX-238"/>
-                                    <constraint firstItem="dRe-f1-NOI" firstAttribute="centerY" secondItem="uGg-yl-nPk" secondAttribute="centerY" id="BoP-yh-6w2"/>
-                                    <constraint firstAttribute="height" constant="55" id="WXx-C7-wev"/>
-                                    <constraint firstItem="pCv-Py-RrC" firstAttribute="centerY" secondItem="uGg-yl-nPk" secondAttribute="centerY" id="Waq-HQ-2hL"/>
-                                    <constraint firstItem="pCv-Py-RrC" firstAttribute="leading" secondItem="uGg-yl-nPk" secondAttribute="leading" constant="25" id="jna-fg-N4j"/>
-                                    <constraint firstItem="dRe-f1-NOI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pCv-Py-RrC" secondAttribute="trailing" constant="8" symbolic="YES" id="xiS-33-XAt"/>
-                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ban-MT-yE6">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ban-MT-yE6">
                                 <rect key="frame" x="0.0" y="272" width="414" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F19-4O-Dfk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F19-4O-Dfk">
                                         <rect key="frame" x="25" y="17" width="115" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="K5O-ZN-4dA">
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="K5O-ZN-4dA">
                                         <rect key="frame" x="254" y="9.5" width="120" height="36"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="rx4-ky-ffd"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstItem="F19-4O-Dfk" firstAttribute="leading" secondItem="Ban-MT-yE6" secondAttribute="leading" constant="25" id="66n-q5-epE"/>
-                                    <constraint firstAttribute="height" constant="55" id="6CP-yX-OpX"/>
-                                    <constraint firstItem="F19-4O-Dfk" firstAttribute="centerY" secondItem="Ban-MT-yE6" secondAttribute="centerY" id="9Y1-pE-2lT"/>
-                                    <constraint firstItem="K5O-ZN-4dA" firstAttribute="centerY" secondItem="Ban-MT-yE6" secondAttribute="centerY" id="S03-gK-vaY"/>
-                                    <constraint firstItem="K5O-ZN-4dA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F19-4O-Dfk" secondAttribute="trailing" constant="8" symbolic="YES" id="gkn-Lh-mfM"/>
-                                    <constraint firstAttribute="trailing" secondItem="K5O-ZN-4dA" secondAttribute="trailing" constant="40" id="n6Z-nu-mg6"/>
-                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWQ-Iu-213">
-                                <rect key="frame" x="75" y="377" width="264" height="34"/>
+                                <rect key="frame" x="75" y="431" width="264" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="Qy0-ZM-3j9"/>
+                                    <constraint firstAttribute="width" constant="264" id="9jC-n7-gRH"/>
+                                    <constraint firstAttribute="height" constant="34" id="xdp-L0-Ewo"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log Out">
@@ -1559,33 +1543,39 @@ Let's see if you can do it again!  1 Stand  =  1 Point</string>
                                     <action selector="logoutAction:" destination="1GW-8L-r8b" eventType="touchUpInside" id="blU-Fv-ulL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0I-cU-N5g">
+                                <rect key="frame" x="75" y="369" width="264" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="cpx-0K-8zp"/>
+                                    <constraint firstAttribute="width" constant="264" id="zjx-Tx-r7b"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Update">
+                                    <color key="baseBackgroundColor" systemColor="tableCellBlueTextColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logoutAction:" destination="1GW-8L-r8b" eventType="touchUpInside" id="mbE-D8-FbG"/>
+                                    <action selector="updateAccount:" destination="1GW-8L-r8b" eventType="touchUpInside" id="ppg-Fq-b2G"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ln3-qy-Du2"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Ban-MT-yE6" firstAttribute="top" secondItem="uGg-yl-nPk" secondAttribute="bottom" constant="1" id="0qm-TC-Cht"/>
-                            <constraint firstItem="Zwb-mZ-jwY" firstAttribute="centerX" secondItem="Q0C-aW-Fgm" secondAttribute="centerX" id="3Ow-HZ-qdq"/>
-                            <constraint firstItem="Zwb-mZ-jwY" firstAttribute="top" secondItem="dJa-Y2-nU4" secondAttribute="bottom" constant="1" id="3em-mO-3qk"/>
-                            <constraint firstItem="lWQ-Iu-213" firstAttribute="centerX" secondItem="Q0C-aW-Fgm" secondAttribute="centerX" id="5LI-TG-ulG"/>
-                            <constraint firstItem="dJa-Y2-nU4" firstAttribute="leading" secondItem="ln3-qy-Du2" secondAttribute="leading" id="8lc-Df-Qbg"/>
-                            <constraint firstItem="uGg-yl-nPk" firstAttribute="centerX" secondItem="Q0C-aW-Fgm" secondAttribute="centerX" id="9Pq-kI-U30"/>
-                            <constraint firstItem="lWQ-Iu-213" firstAttribute="top" secondItem="Ban-MT-yE6" secondAttribute="bottom" constant="50" id="BT3-kF-7bH"/>
-                            <constraint firstItem="zXC-aK-Hwx" firstAttribute="top" secondItem="Zwb-mZ-jwY" secondAttribute="bottom" constant="1" id="KEl-og-U4z"/>
-                            <constraint firstItem="Ban-MT-yE6" firstAttribute="leading" secondItem="ln3-qy-Du2" secondAttribute="leading" id="Ms5-GZ-HvR"/>
-                            <constraint firstItem="Zwb-mZ-jwY" firstAttribute="leading" secondItem="ln3-qy-Du2" secondAttribute="leading" id="Pcw-jH-OeV"/>
-                            <constraint firstItem="lWQ-Iu-213" firstAttribute="leading" secondItem="Q0C-aW-Fgm" secondAttribute="leading" constant="75" id="Ufk-LI-cZ2"/>
-                            <constraint firstItem="uGg-yl-nPk" firstAttribute="leading" secondItem="ln3-qy-Du2" secondAttribute="leading" id="Yzx-3g-dri"/>
-                            <constraint firstItem="Ban-MT-yE6" firstAttribute="centerX" secondItem="Q0C-aW-Fgm" secondAttribute="centerX" id="aVE-EU-QWt"/>
-                            <constraint firstItem="zXC-aK-Hwx" firstAttribute="leading" secondItem="ln3-qy-Du2" secondAttribute="leading" id="cXz-Cw-E7q"/>
-                            <constraint firstItem="dJa-Y2-nU4" firstAttribute="centerX" secondItem="Q0C-aW-Fgm" secondAttribute="centerX" id="ccg-ym-Nf7"/>
-                            <constraint firstItem="uGg-yl-nPk" firstAttribute="top" secondItem="zXC-aK-Hwx" secondAttribute="bottom" constant="1" id="df8-in-kh1"/>
-                            <constraint firstItem="zXC-aK-Hwx" firstAttribute="centerX" secondItem="Q0C-aW-Fgm" secondAttribute="centerX" id="tex-hC-DPY"/>
-                            <constraint firstItem="dJa-Y2-nU4" firstAttribute="top" secondItem="ln3-qy-Du2" secondAttribute="top" id="yCa-n8-tHO"/>
+                            <constraint firstItem="s0I-cU-N5g" firstAttribute="leading" secondItem="ln3-qy-Du2" secondAttribute="leading" constant="75" id="4Qr-BV-zWn"/>
+                            <constraint firstItem="ln3-qy-Du2" firstAttribute="bottom" secondItem="lWQ-Iu-213" secondAttribute="bottom" constant="397" id="5iY-nU-RPr"/>
+                            <constraint firstItem="lWQ-Iu-213" firstAttribute="top" secondItem="s0I-cU-N5g" secondAttribute="bottom" constant="28" id="GOD-St-pyA"/>
+                            <constraint firstItem="ln3-qy-Du2" firstAttribute="trailing" secondItem="s0I-cU-N5g" secondAttribute="trailing" constant="75" id="WSI-C1-9x7"/>
+                            <constraint firstItem="ln3-qy-Du2" firstAttribute="trailing" secondItem="lWQ-Iu-213" secondAttribute="trailing" constant="75" id="ZDI-LD-ikr"/>
+                            <constraint firstItem="lWQ-Iu-213" firstAttribute="leading" secondItem="ln3-qy-Du2" secondAttribute="leading" constant="75" id="kjG-fU-zo5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" style="editor" id="3Fv-PN-MzA"/>
                     <connections>
+                        <outlet property="birthdatePicker" destination="dRe-f1-NOI" id="zhN-DX-CHW"/>
                         <outlet property="logoutButton" destination="lWQ-Iu-213" id="wU1-yT-pha"/>
+                        <outlet property="reminderTimePicker" destination="K5O-ZN-4dA" id="OUl-Ty-Ooi"/>
+                        <outlet property="updateButton" destination="s0I-cU-N5g" id="sJb-pJ-aPe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksv-36-rue" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

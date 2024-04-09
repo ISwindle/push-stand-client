@@ -131,7 +131,7 @@ class DailyQuestionViewController: UIViewController {
         let thumbsUpGesture = UITapGestureRecognizer(target: self, action: #selector(thumbsUpTapped))
         thumbsUpAnswer.addGestureRecognizer(thumbsUpGesture)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        yesterdaysResultsView.addGestureRecognizer(tapGesture)
+        questionBot.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {

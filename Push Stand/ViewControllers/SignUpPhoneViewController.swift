@@ -36,14 +36,6 @@ class SignUpPhoneViewController: UIViewController {
         
     }
     
-    func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
-        // This pattern matches exactly 10 digits
-            let pattern = "^\\d{10,11}$"
-            let regex = try? NSRegularExpression(pattern: pattern, options: [])
-            let range = NSRange(location: 0, length: phoneNumber.utf16.count)
-            return regex?.firstMatch(in: phoneNumber, options: [], range: range) != nil
-    }
-    
     @IBAction func next(_ sender: Any) {
         
         dataManager.onboardingData.phoneNumber = phoneNumberTextField.text

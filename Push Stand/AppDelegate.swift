@@ -24,9 +24,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // Configure Firebase
         FirebaseApp.configure()
         
+        currentUser.uid = UserDefaults.standard.string(forKey: "userId")
+        let url = URL(string: "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users?userId=\(currentUser.uid!)")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Error during the network request: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            
+            do {
+                if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    // Assign the data to the singleton, ensuring nulls or missing fields default to ""
+                        self.currentUser.reminderTime = jsonResponse["ReminderTime"] as? String ?? ""
+                        self.currentUser.birthdate = jsonResponse["Birthdate"] as? String ?? ""
+                        self.currentUser.phoneNumber = jsonResponse["PhoneNumber"] as? String ?? ""
+                        self.currentUser.email = jsonResponse["Email"] as? String ?? ""
+                        self.currentUser.firebaseAuthToken = jsonResponse["FirebaseAuthToken"] as? String ?? ""
+                        print("Lok!: \(jsonResponse)")
+                }
+            } catch {
+                print("Error parsing the JSON response: \(error.localizedDescription)")
+            }
+        }
+        
+        task.resume()
+        
         // Set UNUserNotificationCenter delegate
         UNUserNotificationCenter.current().delegate = self
-                
+        
         // Set up Firebase messaging delegate
         Messaging.messaging().delegate = self
         UNUserNotificationCenter.current().delegate = self
@@ -35,17 +63,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             options: authOptions,
             completionHandler: {_, _ in })
         application.registerForRemoteNotifications()
-                
-        currentUser.uid = UserDefaults.standard.string(forKey: "userId")
-        currentUser.email = UserDefaults.standard.string(forKey: "userEmail")
-
+        
+        
+        
         return true
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
     }
-
+    
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register for remote notifications: \(error.localizedDescription)")
     }
@@ -112,6 +139,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     // Receive FCM token
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("Firebase registration token: \(String(describing: fcmToken))")
+        
+        guard let fcmToken = fcmToken, !fcmToken.isEmpty else {
+            print("FCM token is null or empty.")
+            return
+        }
+        
+        let url = URL(string: "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        // Add authorization header if needed
+        // request.addValue("Bearer \(yourAuthToken)", forHTTPHeaderField: "Authorization")
+        
+        let payload: [String: Any] = [
+            "UserId": currentUser.uid,
+            "Birthdate": currentUser.birthdate,
+            "Email": currentUser.email,
+            "PhoneNumber": currentUser.phoneNumber,
+            "ReminderTime": currentUser.reminderTime,
+            "FirebaseAuthToken": fcmToken,
+        ]
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])
+            request.httpBody = jsonData
+        } catch {
+            print("Error encoding JSON: \(error)")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error making PUT request: \(error)")
+                return
+            }
+            guard let data = data, let response = response as? HTTPURLResponse,
+                  (200...299).contains(response.statusCode) else {
+                print("Server error or invalid response")
+                return
+            }
+            
+            if let responseString = String(data: data, encoding: .utf8) {
+                print("Response from the server: \(responseString)")
+            }
+        }
+        
+        task.resume()
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
