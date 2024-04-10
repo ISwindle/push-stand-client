@@ -13,6 +13,9 @@ class AccountPhoneNumberViewController: UIViewController {
     @IBOutlet weak var phoneText: UITextField!
     @IBOutlet weak var confirmationButton: UIButton!
     
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     @IBAction func changePhoneNumber(_ sender: Any) {
         guard let phone = phoneText.text, isValidPhoneNumber(phone) else {
                 print("Invalid email address")

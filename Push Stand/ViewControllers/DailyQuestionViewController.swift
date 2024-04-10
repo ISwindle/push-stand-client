@@ -282,8 +282,8 @@ class DailyQuestionViewController: UIViewController {
     @objc func thumbsDownTapped() {
         tapHaptic()
         self.submitButton.isHidden = false
-        self.thumbsDownAnswer.image =  UIImage(named: "thumb-down")
-        self.thumbsUpAnswer.image =  UIImage(named: "thumbUpEmpty")
+        self.thumbsDownAnswer.image =  UIImage(named: "red-thumbdown")
+        self.thumbsUpAnswer.image =  UIImage(named: "grey-thumbup")
         self.submitButton.isUserInteractionEnabled = true
         activeAnswer = false
     }
@@ -291,8 +291,8 @@ class DailyQuestionViewController: UIViewController {
     @objc func thumbsUpTapped() {
         tapHaptic()
         self.submitButton.isHidden = false
-        self.thumbsDownAnswer.image =  UIImage(named: "thumbDownEmpty")
-        self.thumbsUpAnswer.image =  UIImage(named: "thumb-up")
+        self.thumbsDownAnswer.image =  UIImage(named: "grey-thumbdown")
+        self.thumbsUpAnswer.image =  UIImage(named: "green-thumbup")
         self.submitButton.isUserInteractionEnabled = true
         activeAnswer = true
     }

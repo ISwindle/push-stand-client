@@ -75,6 +75,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
         // Example usage
         
+        yesterdayLabel.layer.cornerRadius = 16
+        yesterdayLabel.layer.masksToBounds = true
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: Date())
@@ -145,7 +148,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                     // Handle successful response with JSON
                     if let goalValue = json["Goal"] as? String {
                         let attributedString = NSMutableAttributedString(string: "\(goalValue)\nDaily Goal")
-                        attributedString.addAttributes([.font: UIFont.boldSystemFont(ofSize: 22)], range: NSRange(location: 0, length: goalValue.count))
+                        let fontSize: CGFloat = 18
+                        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSRange(location: attributedString.length - 10, length: 10))
                         self.dailyGoalCount.attributedText = attributedString
                     } else {
                         self.dailyGoalCount.text = "0\nDaily Goal"

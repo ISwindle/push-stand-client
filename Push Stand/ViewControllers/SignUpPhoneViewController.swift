@@ -36,6 +36,9 @@ class SignUpPhoneViewController: UIViewController {
         
     }
     
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     @IBAction func next(_ sender: Any) {
         
         dataManager.onboardingData.phoneNumber = phoneNumberTextField.text

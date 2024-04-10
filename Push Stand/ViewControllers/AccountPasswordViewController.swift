@@ -17,6 +17,9 @@ class AccountPasswordViewController: UIViewController {
     
     @IBOutlet weak var submitButton: UIButton!
     
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     @IBAction func changePassword(_ sender: Any) {
     }
     

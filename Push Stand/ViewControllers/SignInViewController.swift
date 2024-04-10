@@ -15,6 +15,9 @@ class SignInViewController: UIViewController {
         
     }
     
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     @IBAction func login(_ sender: Any) {
         
         // Create cleaned versions of the text field

@@ -8,6 +8,9 @@ class SignUpUsernamePasswordViewController: UIViewController {
     
     var dataManager = OnboardingManager.shared
     
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     @IBAction func enterUnAndPw(_ sender: Any) {
     }
     
