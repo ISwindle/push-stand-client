@@ -8,7 +8,7 @@
 import UIKit
 
 class AccountSettingsViewController: UIViewController {
-
+    
     
     @IBOutlet weak var logoutButton: UIButton!
     
@@ -35,7 +35,7 @@ class AccountSettingsViewController: UIViewController {
         super.viewDidLoad()
         birthdatePicker.addTarget(self, action: #selector(birthdatePickerValueChanged(_:)), for: .valueChanged)
         reminderTimePicker.addTarget(self, action: #selector(reminderTimeValueChanged(_:)), for: .valueChanged)
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -49,7 +49,7 @@ class AccountSettingsViewController: UIViewController {
         // Now, perform the API call with the selected date
         //performAPICall(withDate: dateString)
     }
-
+    
     @objc func reminderTimeValueChanged(_ sender: UIDatePicker) {
         let selectedDate = sender.date
         // Format the date as needed
@@ -60,7 +60,7 @@ class AccountSettingsViewController: UIViewController {
         // Now, perform the API call with the selected date
         //performAPICall(withDate: dateString)
     }
-
+    
     func updateSettings() {
         let url = URL(string: "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users")!
         var request = URLRequest(url: url)
@@ -70,13 +70,18 @@ class AccountSettingsViewController: UIViewController {
         // request.addValue("Bearer \(yourAuthToken)", forHTTPHeaderField: "Authorization")
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let currentUser = appDelegate.currentUser
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd" // Example format
+            
+            let timeFormatter = DateFormatter()
+            timeFormatter.dateFormat = "HH:mm:ss" // Example format
             
             let payload: [String: Any] = [
                 "UserId": currentUser.uid,
-                "Birthdate": birthdatePicker.date,
+                "Birthdate": formatter.string(from: birthdatePicker.date),
                 "Email": currentUser.email,
                 "PhoneNumber": currentUser.phoneNumber,
-                "ReminderTime": reminderTimePicker.date,
+                "ReminderTime": timeFormatter.string(from: reminderTimePicker.date),
                 "FirebaseAuthToken": currentUser.firebaseAuthToken,
             ]
             
@@ -105,18 +110,28 @@ class AccountSettingsViewController: UIViewController {
             }
             
             task.resume()
+            // Create the alert controller
+            let alert = UIAlertController(title: "Update!", message: "Profile Updated Successfully", preferredStyle: .alert)
+            
+            // Present the alert to the user
+            self.present(alert, animated: true, completion: nil)
+            
+            // Use DispatchQueue to dismiss the alert after a delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change 2.0 to your desired number of seconds
+                alert.dismiss(animated: true, completion: nil)
+            }
         }
         
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

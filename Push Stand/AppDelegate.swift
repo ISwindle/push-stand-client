@@ -10,6 +10,7 @@ import CoreData
 import FirebaseCore
 import FirebaseMessaging
 
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     
@@ -23,14 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Configure Firebase
         FirebaseApp.configure()
-        
+        let semaphore = DispatchSemaphore(value: 0)
         currentUser.uid = UserDefaults.standard.string(forKey: "userId")
         if let userId = UserDefaults.standard.string(forKey: "userId") {
             let url = URL(string: "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users?userId=\(currentUser.uid!)")
             var request = URLRequest(url: url!)
             request.httpMethod = "GET"
             
+            
+                
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                defer { semaphore.signal() } // Signal to the semaphore upon task completion
                 guard let data = data, error == nil else {
                     print("Error during the network request: \(error?.localizedDescription ?? "Unknown error")")
                     return
@@ -52,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             }
             
             task.resume()
+            semaphore.wait()
         }
         
         // Set UNUserNotificationCenter delegate

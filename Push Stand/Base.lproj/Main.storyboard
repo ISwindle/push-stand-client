@@ -1649,7 +1649,6 @@ Let's see if you can do it again!</string>
                                     <color key="baseBackgroundColor" systemColor="tableCellBlueTextColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="logoutAction:" destination="1GW-8L-r8b" eventType="touchUpInside" id="mbE-D8-FbG"/>
                                     <action selector="updateAccount:" destination="1GW-8L-r8b" eventType="touchUpInside" id="ppg-Fq-b2G"/>
                                 </connections>
                             </button>

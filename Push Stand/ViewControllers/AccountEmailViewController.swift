@@ -63,6 +63,16 @@ class AccountEmailViewController: UIViewController {
             }
             
             task.resume()
+            // Create the alert controller
+            let alert = UIAlertController(title: "Update!", message: "Email Updated Successfully", preferredStyle: .alert)
+            
+            // Present the alert to the user
+            self.present(alert, animated: true, completion: nil)
+            
+            // Use DispatchQueue to dismiss the alert after a delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change 2.0 to your desired number of seconds
+                alert.dismiss(animated: true, completion: nil)
+            }
         }
         
     }
