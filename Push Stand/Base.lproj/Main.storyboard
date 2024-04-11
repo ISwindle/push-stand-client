@@ -231,14 +231,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RvJ-ly-A4h" userLabel="bothunselectedThumbs">
                                         <rect key="frame" x="10" y="404" width="394" height="95"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="grey-thumbdown" translatesAutoresizingMaskIntoConstraints="NO" id="PDF-nt-EAr">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="grey-thumb-down" translatesAutoresizingMaskIntoConstraints="NO" id="PDF-nt-EAr">
                                                 <rect key="frame" x="0.0" y="0.0" width="197" height="95"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="PDF-nt-EAr" secondAttribute="height" multiplier="197:95" id="MWG-yp-RxV"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="grey-thumbup" translatesAutoresizingMaskIntoConstraints="NO" id="beI-hR-R3d">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="grey-thumb-up" translatesAutoresizingMaskIntoConstraints="NO" id="beI-hR-R3d">
                                                 <rect key="frame" x="197" y="0.0" width="197" height="95"/>
                                                 <gestureRecognizers/>
                                             </imageView>
@@ -326,13 +326,13 @@
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="1sS-nB-69v" userLabel="Selected Thumbs">
                                         <rect key="frame" x="10" y="430" width="394" height="95"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" image="red-thumbdown" translatesAutoresizingMaskIntoConstraints="NO" id="Yhh-Gl-C39">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" image="red-thumb-down" translatesAutoresizingMaskIntoConstraints="NO" id="Yhh-Gl-C39">
                                                 <rect key="frame" x="0.0" y="0.0" width="197" height="95"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Yhh-Gl-C39" secondAttribute="height" multiplier="207:100" id="AvU-y6-VqH"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" image="green-thumbup" translatesAutoresizingMaskIntoConstraints="NO" id="k3z-5l-LUk">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" image="green-thumb-up" translatesAutoresizingMaskIntoConstraints="NO" id="k3z-5l-LUk">
                                                 <rect key="frame" x="197" y="0.0" width="197" height="95"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="k3z-5l-LUk" secondAttribute="height" multiplier="207:100" id="diY-My-cXg"/>
@@ -2997,9 +2997,9 @@ Will you stand with us?</string>
         <image name="cyan-star-icon" width="480" height="440"/>
         <image name="eagle-pic" width="720" height="720"/>
         <image name="gold-star-icon" width="480" height="440"/>
-        <image name="green-thumbup" width="2048" height="2048"/>
-        <image name="grey-thumbdown" width="2048" height="2048"/>
-        <image name="grey-thumbup" width="2048" height="2048"/>
+        <image name="green-thumb-up" width="160" height="159.66667175292969"/>
+        <image name="grey-thumb-down" width="160" height="159.66667175292969"/>
+        <image name="grey-thumb-up" width="160" height="159.66667175292969"/>
         <image name="group-request" width="50" height="50"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
@@ -3011,7 +3011,7 @@ Will you stand with us?</string>
         <image name="questionmark.bubble" catalog="system" width="128" height="110"/>
         <image name="questionmark.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="red-star-icon" width="480" height="440"/>
-        <image name="red-thumbdown" width="2048" height="2048"/>
+        <image name="red-thumb-down" width="160" height="159.66667175292969"/>
         <image name="search-icon" width="50" height="50"/>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <image name="stand-btn" width="170.5" height="170.5"/>

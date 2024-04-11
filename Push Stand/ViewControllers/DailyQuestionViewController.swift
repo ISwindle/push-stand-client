@@ -247,8 +247,8 @@ class DailyQuestionViewController: UIViewController {
             self.questionLabel.frame.origin.y += 30
             //self.thumbsUpAnswer.frame.origin.y += 10
             //self.thumbsDownAnswer.frame.origin.y += 10
-            self.thumbsDownAnswer.image =  UIImage(named: "grey-thumbdown")
-            self.thumbsUpAnswer.image =  UIImage(named: "grey-thumbup")
+            self.thumbsDownAnswer.image =  UIImage(named: "grey-thumb-down")
+            self.thumbsUpAnswer.image =  UIImage(named: "grey-thumb-up")
             self.todaysQuestionView.alpha = 1.0
             self.questionLabel.text = "\(question)"
             self.submitButton.isHidden = true
@@ -282,8 +282,8 @@ class DailyQuestionViewController: UIViewController {
     @objc func thumbsDownTapped() {
         tapHaptic()
         self.submitButton.isHidden = false
-        self.thumbsDownAnswer.image =  UIImage(named: "red-thumbdown")
-        self.thumbsUpAnswer.image =  UIImage(named: "grey-thumbup")
+        self.thumbsDownAnswer.image =  UIImage(named: "red-thumb-down")
+        self.thumbsUpAnswer.image =  UIImage(named: "grey-thumb-up")
         self.submitButton.isUserInteractionEnabled = true
         activeAnswer = false
     }
@@ -291,8 +291,8 @@ class DailyQuestionViewController: UIViewController {
     @objc func thumbsUpTapped() {
         tapHaptic()
         self.submitButton.isHidden = false
-        self.thumbsDownAnswer.image =  UIImage(named: "grey-thumbdown")
-        self.thumbsUpAnswer.image =  UIImage(named: "green-thumbup")
+        self.thumbsDownAnswer.image =  UIImage(named: "grey-thumb-down")
+        self.thumbsUpAnswer.image =  UIImage(named: "green-thumb-up")
         self.submitButton.isUserInteractionEnabled = true
         activeAnswer = true
     }
