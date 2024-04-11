@@ -247,8 +247,8 @@ class DailyQuestionViewController: UIViewController {
             self.questionLabel.frame.origin.y += 30
             //self.thumbsUpAnswer.frame.origin.y += 10
             //self.thumbsDownAnswer.frame.origin.y += 10
-            self.thumbsDownAnswer.image =  UIImage(named: "thumbDownEmpty")
-            self.thumbsUpAnswer.image =  UIImage(named: "thumbUpEmpty")
+            self.thumbsDownAnswer.image =  UIImage(named: "grey-thumbdown")
+            self.thumbsUpAnswer.image =  UIImage(named: "grey-thumbup")
             self.todaysQuestionView.alpha = 1.0
             self.questionLabel.text = "\(question)"
             self.submitButton.isHidden = true

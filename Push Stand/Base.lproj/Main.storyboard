@@ -689,8 +689,8 @@ let's see if you can do it again!</string>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="Yesterday : -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Ll-VV-Gpv">
-                                <rect key="frame" x="154" y="678" width="106.5" height="30"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="        -        " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Ll-VV-Gpv">
+                                <rect key="frame" x="164.5" y="678" width="85" height="30"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VYG-r6-mrQ"/>
@@ -869,10 +869,8 @@ Stands</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ov3-1B-ftm" customClass="CircularProgressBar" customModule="Push_Stand" customModuleProvider="target">
                                         <rect key="frame" x="83.5" y="53" width="247" height="246.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="FRt-ke-DPV">
-                                                <rect key="frame" x="37" y="87.5" width="173" height="72"/>
-                                                <string key="text">-
-Daily Goal</string>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="FRt-ke-DPV">
+                                                <rect key="frame" x="37" y="105.5" width="173" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
