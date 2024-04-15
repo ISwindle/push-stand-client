@@ -1,7 +1,7 @@
 import UIKit
 
 class CircularProgressBar: UIView {
-
+    
     private var progressLayer = CAShapeLayer()
     private var trackLayer = CAShapeLayer()
     private var isAnimating = false
@@ -13,12 +13,12 @@ class CircularProgressBar: UIView {
             }
         }
     }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         createCircularPath()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         createCircularPath()
@@ -30,7 +30,7 @@ class CircularProgressBar: UIView {
         // THIS FIXED THE ISSUE WE'VE BEEN HAVING!
         createCircularPath()
     }
-
+    
     private func createCircularPath() {
         self.backgroundColor = .clear
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.height / 2.0), startAngle: -CGFloat.pi / 2, endAngle: 1.5 * CGFloat.pi, clockwise: true)
@@ -80,8 +80,22 @@ class CircularProgressBar: UIView {
         animation2.duration = 2.0 // Use remaining duration
         animation2.timingFunction = CAMediaTimingFunction(name: .easeOut)
         
-        animationGroup.animations = [animation1, animation2]
-        progressLayer.add(animationGroup, forKey: "strokeEndAnimation")
-        
+        // Additional Animation: Toggle stroke color
+        // If daily goal is met, the circular bar's color will appear and disappear repeatedly
+        if value >= 1.0 {
+            let colorAnimation = CAKeyframeAnimation(keyPath: "strokeColor")
+            colorAnimation.values = [UIColor.white.cgColor, UIColor.red.cgColor, UIColor.white.cgColor]
+            colorAnimation.keyTimes = [0, 0.5, 1] // Control the timing of color change
+            colorAnimation.duration = 2.75 // Duration for one cycle of color transition
+            colorAnimation.beginTime = CACurrentMediaTime() + 2.75 // Delay color animation until both progress animations are complete
+            colorAnimation.repeatCount = .infinity // Repeat indefinitely
+            
+            animationGroup.animations = [animation1, animation2]
+            progressLayer.add(animationGroup, forKey: "progressAnimationGroup")
+            progressLayer.add(colorAnimation, forKey: "colorAnimation")
+        } else {
+            animationGroup.animations = [animation1, animation2]
+            progressLayer.add(animationGroup, forKey: "progressAnimationGroup")
+        }
     }
 }

@@ -944,6 +944,12 @@ Stands</string>
                                     <constraint firstAttribute="width" constant="25" id="U0i-mn-X9J"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwt-gq-ghg">
+                                <rect key="frame" x="179" y="167" width="56" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="textColor" red="0.85882353779999998" green="0.74117648599999997" blue="0.49411764740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KpS-l5-xEw" userLabel="Push Stand Title">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="188.5"/>
                                 <subviews>
@@ -956,26 +962,15 @@ Stands</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwt-gq-ghg">
-                                        <rect key="frame" x="179" y="167" width="56" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                        <color key="textColor" red="0.85882353779999998" green="0.74117648599999997" blue="0.49411764740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
-                                        </variation>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Iwt-gq-ghg" secondAttribute="bottom" id="Qlp-8u-NKw"/>
                                     <constraint firstItem="SA6-Vp-XW0" firstAttribute="centerY" secondItem="KpS-l5-xEw" secondAttribute="centerY" constant="30" id="QtH-zH-aIk"/>
                                     <constraint firstItem="SA6-Vp-XW0" firstAttribute="centerX" secondItem="KpS-l5-xEw" secondAttribute="centerX" id="TRU-vU-pBz"/>
                                     <constraint firstItem="SA6-Vp-XW0" firstAttribute="leading" secondItem="KpS-l5-xEw" secondAttribute="leading" constant="75" id="dLg-d8-w2A"/>
-                                    <constraint firstItem="Iwt-gq-ghg" firstAttribute="centerX" secondItem="KpS-l5-xEw" secondAttribute="centerX" id="ge0-kh-Nxj"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="BBj-fo-GNU" appends="YES" id="Hw1-Z8-LWq"/>
@@ -1143,6 +1138,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="3Ll-VV-Gpv" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="SpS-e1-1B6"/>
                             <constraint firstItem="37R-ty-kPb" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="Ti0-mk-RSg"/>
                             <constraint firstItem="3iR-fP-Osy" firstAttribute="centerY" secondItem="2z3-0T-A7t" secondAttribute="centerY" id="Tx5-EI-aQF"/>
+                            <constraint firstItem="YvP-FP-E9c" firstAttribute="top" secondItem="Iwt-gq-ghg" secondAttribute="bottom" id="Uq7-cE-EUr"/>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="trailing" secondItem="cSM-t7-qWL" secondAttribute="trailing" constant="30" id="VRR-D2-apM"/>
                             <constraint firstItem="37R-ty-kPb" firstAttribute="top" secondItem="YvP-FP-E9c" secondAttribute="bottom" id="Ve7-uF-O50"/>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="trailing" secondItem="37R-ty-kPb" secondAttribute="trailing" id="XBc-mZ-5d5"/>
@@ -1170,6 +1166,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="3iR-fP-Osy" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" constant="30" id="uj3-Tx-jk0"/>
                             <constraint firstItem="Q7G-p0-aSC" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="vTp-cV-dOt"/>
                             <constraint firstItem="KpS-l5-xEw" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="wrJ-gd-XsQ"/>
+                            <constraint firstItem="Iwt-gq-ghg" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="yKH-FP-ktr"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="U9C-q8-0yQ">
