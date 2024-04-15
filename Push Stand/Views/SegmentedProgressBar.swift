@@ -1,7 +1,7 @@
 import UIKit
 
 class SegmentedBar: UIView {
-
+    
     var value: Int = 0 {
         didSet {
             updateBar()
@@ -13,9 +13,9 @@ class SegmentedBar: UIView {
     var spacing: CGFloat = 2
     var selectedColor: UIColor = .systemRed
     var unselectedColor: UIColor = .darkGray
-
+    
     private let stackView = UIStackView()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupBar()
@@ -45,7 +45,7 @@ class SegmentedBar: UIView {
         
         createSegments()
     }
-
+    
     private func createSegments() {
         for _ in 0..<maximum {
             let segment = UIView()
@@ -56,10 +56,12 @@ class SegmentedBar: UIView {
         }
         updateBar()
     }
-
+    
     private func updateBar() {
         for (index, segment) in stackView.arrangedSubviews.enumerated() {
-            segment.backgroundColor = index < value ? selectedColor : unselectedColor
+            UIView.animate(withDuration: 0.5) {
+                segment.backgroundColor = index < self.value ? self.selectedColor : self.unselectedColor
+            }
         }
     }
 }

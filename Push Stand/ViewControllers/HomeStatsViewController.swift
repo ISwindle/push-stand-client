@@ -333,7 +333,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         pointsTitle.font = UIFont.boldSystemFont(ofSize: pointsTitle.font.pointSize)
         segmentedStreakBar.alpha = 0
         streakImage.alpha = 0
-        myPointsLabel.alpha = 1
+        UIView.animate(withDuration: 0.5) {
+            self.myPointsLabel.alpha = 1
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
