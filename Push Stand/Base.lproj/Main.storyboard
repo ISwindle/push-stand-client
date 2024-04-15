@@ -607,7 +607,7 @@ let's see if you can do it again!</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sweepstakes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-ut-2Pg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Sweepstakes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-ut-2Pg">
                                 <rect key="frame" x="0.0" y="48" width="414" height="33.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
@@ -615,16 +615,22 @@ let's see if you can do it again!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0aV-kR-Agm" userLabel="Wording View">
-                                <rect key="frame" x="0.0" y="451.5" width="414" height="361.5"/>
+                                <rect key="frame" x="0.0" y="410" width="414" height="403"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once this daily stand goal is reached, you can use your points to enter sweepstakes!" textAlignment="center" lineBreakMode="clip" numberOfLines="4" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="lYp-we-3zE">
-                                        <rect key="frame" x="40" y="71.5" width="334" height="72"/>
-                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
-                                        <color key="textColor" red="0.85882353779999998" green="0.74117648599999997" blue="0.49803921579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once this daily stand goal is achieved, you can use your points to enter our sweepstakes!" textAlignment="center" lineBreakMode="clip" numberOfLines="0" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="lYp-we-3zE" userLabel="Explain Label">
+                                        <rect key="frame" x="40" y="72" width="334" height="64.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="1,000,000" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="i9A-fb-Yxb">
-                                        <rect key="frame" x="70" y="0.0" width="274" height="71.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlike other sweepstakes where you can purchase entries, here, you have to earn them." textAlignment="center" lineBreakMode="clip" numberOfLines="0" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="TlE-0x-dxz" userLabel="Earn Label">
+                                        <rect key="frame" x="40" y="156.5" width="334" height="64.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="100,000" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="i9A-fb-Yxb">
+                                        <rect key="frame" x="70" y="0.0" width="274" height="72"/>
                                         <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="60"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -638,11 +644,14 @@ let's see if you can do it again!</string>
                                     <constraint firstItem="i9A-fb-Yxb" firstAttribute="top" secondItem="0aV-kR-Agm" secondAttribute="top" id="FNu-5d-mV9"/>
                                     <constraint firstItem="i9A-fb-Yxb" firstAttribute="leading" secondItem="0aV-kR-Agm" secondAttribute="leading" constant="70" id="OhC-vV-rar"/>
                                     <constraint firstItem="lYp-we-3zE" firstAttribute="leading" secondItem="0aV-kR-Agm" secondAttribute="leading" constant="40" id="Rh1-QC-b6b"/>
+                                    <constraint firstItem="TlE-0x-dxz" firstAttribute="leading" secondItem="0aV-kR-Agm" secondAttribute="leading" constant="40" id="jMa-Wv-rg0"/>
                                     <constraint firstItem="lYp-we-3zE" firstAttribute="centerX" secondItem="0aV-kR-Agm" secondAttribute="centerX" id="nrF-hr-2Vc"/>
+                                    <constraint firstItem="TlE-0x-dxz" firstAttribute="top" secondItem="lYp-we-3zE" secondAttribute="bottom" constant="20" id="q0J-4C-lmy"/>
+                                    <constraint firstItem="TlE-0x-dxz" firstAttribute="centerX" secondItem="0aV-kR-Agm" secondAttribute="centerX" id="sMQ-Sr-qbd"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Treasure Chest" translatesAutoresizingMaskIntoConstraints="NO" id="N6H-t4-fP6">
-                                <rect key="frame" x="62" y="111.5" width="290" height="290"/>
+                                <rect key="frame" x="73.5" y="103" width="267" height="267"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="N6H-t4-fP6" secondAttribute="height" multiplier="1:1" id="3RH-hE-tlC"/>
                                 </constraints>
@@ -654,16 +663,20 @@ let's see if you can do it again!</string>
                             <constraint firstItem="Nfu-9g-DCt" firstAttribute="trailing" secondItem="eDK-ut-2Pg" secondAttribute="trailing" id="AtH-kE-Xgf"/>
                             <constraint firstItem="eDK-ut-2Pg" firstAttribute="top" secondItem="Nfu-9g-DCt" secondAttribute="top" id="C1j-cg-ibG"/>
                             <constraint firstItem="eDK-ut-2Pg" firstAttribute="centerX" secondItem="Hre-0E-c4b" secondAttribute="centerX" id="EMF-3z-KTx"/>
-                            <constraint firstItem="0aV-kR-Agm" firstAttribute="top" secondItem="N6H-t4-fP6" secondAttribute="bottom" constant="50" id="EkB-Ta-qHf"/>
+                            <constraint firstItem="0aV-kR-Agm" firstAttribute="top" secondItem="N6H-t4-fP6" secondAttribute="bottom" constant="40" id="Fha-9d-HEi"/>
                             <constraint firstItem="Nfu-9g-DCt" firstAttribute="bottom" secondItem="0aV-kR-Agm" secondAttribute="bottom" id="LkP-e9-HuT"/>
-                            <constraint firstItem="N6H-t4-fP6" firstAttribute="width" secondItem="Hre-0E-c4b" secondAttribute="width" multiplier="0.7" id="OXV-wf-3xf"/>
-                            <constraint firstItem="N6H-t4-fP6" firstAttribute="top" secondItem="eDK-ut-2Pg" secondAttribute="bottom" constant="30" id="SdL-B9-mDj"/>
-                            <constraint firstItem="N6H-t4-fP6" firstAttribute="centerX" secondItem="Hre-0E-c4b" secondAttribute="centerX" id="cHF-4f-gqh"/>
+                            <constraint firstItem="N6H-t4-fP6" firstAttribute="width" secondItem="Hre-0E-c4b" secondAttribute="width" multiplier="0.644928" id="Y7N-0S-J5U"/>
+                            <constraint firstItem="N6H-t4-fP6" firstAttribute="top" secondItem="eDK-ut-2Pg" secondAttribute="bottom" constant="21.5" id="a5f-NJ-uWa"/>
                             <constraint firstItem="0aV-kR-Agm" firstAttribute="leading" secondItem="Nfu-9g-DCt" secondAttribute="leading" id="g3D-hU-lyk"/>
                             <constraint firstItem="0aV-kR-Agm" firstAttribute="centerX" secondItem="Hre-0E-c4b" secondAttribute="centerX" id="syb-AB-hRx"/>
+                            <constraint firstItem="N6H-t4-fP6" firstAttribute="centerX" secondItem="Hre-0E-c4b" secondAttribute="centerX" id="y4E-67-RSG"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sweepstakes" image="ticket" catalog="system" selectedImage="ticket.fill" id="bAJ-ZV-IuY"/>
+                    <connections>
+                        <outlet property="earnLabel" destination="TlE-0x-dxz" id="Qre-uc-L2l"/>
+                        <outlet property="explainLabel" destination="lYp-we-3zE" id="E58-6K-SZJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9P-JG-SPP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

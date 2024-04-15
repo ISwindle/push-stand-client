@@ -4,10 +4,13 @@ class CircularProgressBar: UIView {
 
     private var progressLayer = CAShapeLayer()
     private var trackLayer = CAShapeLayer()
-
+    private var isAnimating = false
+    
     var progress: CGFloat = 0.0 {
         didSet {
-            animateProgress(to: progress)
+            if progress > 0 && !isAnimating {
+                animateProgress(to: progress)
+            }
         }
     }
 
@@ -50,10 +53,12 @@ class CircularProgressBar: UIView {
         progressLayer.strokeEnd = 0.0 // Initially set to 0
         layer.addSublayer(progressLayer)
         
-        animateProgress(to: progress) // Start the animation when the view is loaded
+        //animateProgress(to: progress) // Start the animation when the view is loaded
     }
     
     private func animateProgress(to value: CGFloat) {
+        isAnimating = true
+        
         let animationGroup = CAAnimationGroup()
         animationGroup.duration = 2.75 // Total duration of the animation
         animationGroup.fillMode = .forwards // Freeze at the end

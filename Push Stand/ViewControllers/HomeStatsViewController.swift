@@ -72,7 +72,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
         // Connect the tap gesture recognizer action
         
-        
         // Example usage
         
         yesterdayLabel.layer.cornerRadius = 16
@@ -83,7 +82,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let dateString = dateFormatter.string(from: Date())
         let dailyGoalsQueryParams = ["date": dateString]
         var newDateString = dateFormatter.string(from: Date())
-        
+
         // Convert the string to a Date object
         if let date = dateFormatter.date(from: dateString) {
             // Use the Calendar to subtract one day
@@ -145,9 +144,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
-                    // Handle successful response with JSON
-                    if let goalValue = json["Goal"] as? String {
-                        let attributedString = NSMutableAttributedString(string: "\(goalValue)\nDaily Goal")
+                    if let goalValue = json["Goal"] as? String,
+                       let goalInt = Int(goalValue) {
+                        let formattedGoal = self.formatNumber(goalInt)
+                        let attributedString = NSMutableAttributedString(string: "\(formattedGoal)\nDaily Goal")
                         let fontSize: CGFloat = 18
                         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSRange(location: attributedString.length - 10, length: 10))
                         self.dailyGoalCount.attributedText = attributedString
@@ -200,7 +200,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                     print(json)
                     // Handle successful response with JSON
                     if let usStands = json["count"] as? Int {
-                        self.usaTotalStandsLabel.text = "\(usStands)"
+                        let formattedStands = self.formatNumber(usStands)
+                        self.usaTotalStandsLabel.text = formattedStands
                     } else {
                         self.usaTotalStandsLabel.text = "0"
                     }
@@ -593,5 +594,23 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         controller.dismiss(animated: true, completion: nil)
     }
     
-    
+    func formatNumber(_ number: Int) -> String {
+        // let number = put number here to test daily goal and usa total stands
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 1
+            
+        if number >= 1000000000 {
+            let billion = Double(number) / 1_000_000_000
+            return "\(formatter.string(from: NSNumber(value: billion)) ?? "")B"
+        } else if number >= 1000000 {
+            let million = Double(number) / 1_000_000
+            return "\(formatter.string(from: NSNumber(value: million)) ?? "")M"
+        } else if number >= 1000 {
+            let thousand = Double(number) / 1_000
+            return "\(formatter.string(from: NSNumber(value: thousand)) ?? "")K"
+        } else {
+            return "\(number)"
+        }
+    }
 }
