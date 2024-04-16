@@ -1,6 +1,8 @@
 import UIKit
 
 class CircularProgressBar: UIView {
+
+
     
     private var progressLayer = CAShapeLayer()
     private var trackLayer = CAShapeLayer()
@@ -57,6 +59,7 @@ class CircularProgressBar: UIView {
     }
     
     private func animateProgress(to value: CGFloat) {
+        
         isAnimating = true
         
         let animationGroup = CAAnimationGroup()
