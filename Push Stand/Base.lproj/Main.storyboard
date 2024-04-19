@@ -401,10 +401,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awq-zy-xIQ">
-                                            <rect key="frame" x="30" y="211" width="354" height="45.5"/>
+                                            <rect key="frame" x="30" y="211" width="354" height="43"/>
                                             <string key="text">You filled your answer streak,
 let's see if you can do it again!</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -422,16 +422,16 @@ let's see if you can do it again!</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 1 Answer = 2 Points *" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HgG-eY-0sl">
-                                            <rect key="frame" x="125" y="296.5" width="164.5" height="19.5"/>
+                                            <rect key="frame" x="125" y="294" width="164.5" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tB6-c4-yjY" userLabel="Got it button view">
-                                            <rect key="frame" x="0.0" y="316" width="414" height="340.5"/>
+                                            <rect key="frame" x="0.0" y="313.5" width="414" height="343"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcM-2d-4wl">
-                                                    <rect key="frame" x="122" y="150.5" width="170" height="40"/>
+                                                    <rect key="frame" x="122" y="151.5" width="170" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="I04-tc-nH4"/>
                                                         <constraint firstAttribute="width" constant="170" id="Q5t-2V-inK"/>
@@ -1056,7 +1056,7 @@ Stands</string>
                                             <rect key="frame" x="30" y="211" width="354" height="43"/>
                                             <string key="text">You filled your stand streak,
 let's see if you can do it again!</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1080,7 +1080,7 @@ let's see if you can do it again!</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-AV-dXn" userLabel="Got it button view">
-                                            <rect key="frame" x="0.0" y="322" width="414" height="269"/>
+                                            <rect key="frame" x="0.0" y="322" width="414" height="268.5"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-r3J">
                                                     <rect key="frame" x="122" y="114.5" width="170" height="40"/>
