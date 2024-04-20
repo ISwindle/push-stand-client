@@ -39,7 +39,7 @@ class SignUpReminderViewController: UIViewController {
         let db = Firestore.firestore()
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Example format
+        formatter.dateFormat = "yyyy-MM-dd" // Example format
         
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm:ss" // Example format

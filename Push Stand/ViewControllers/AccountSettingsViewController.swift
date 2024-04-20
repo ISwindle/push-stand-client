@@ -63,7 +63,7 @@ class AccountSettingsViewController: UIViewController {
                         DispatchQueue.main.async {
                             if let dateString = jsonResponse["Birthdate"] as? String {
                                 let dateFormatter = DateFormatter()
-                                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                dateFormatter.dateFormat = "yyyy-MM-dd"
                                 
                                 if let date = dateFormatter.date(from: dateString) {
                                     self.birthdatePicker.date = date
