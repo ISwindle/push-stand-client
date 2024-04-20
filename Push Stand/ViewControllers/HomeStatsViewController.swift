@@ -481,6 +481,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                         }, completion: nil)
                     }
                 }
+                let progressAmount = self.current / self.goal
+                self.standProgressBar.progress = CGFloat(progressAmount)
             }
         }
     }
@@ -547,8 +549,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             self.usaTotalStandsLabel.text = String(newCount)
         }
         self.current = self.current + 1
-        let progressAmount = self.current / self.goal
-        self.standProgressBar.progress = CGFloat(progressAmount)
         self.myCurrentStreak = self.myCurrentStreak + 1
         if self.myCurrentStreak > 0 && self.myCurrentStreak % 10 == 0 {
             segmentedStreakBar.value = 10

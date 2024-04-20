@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AccountPasswordViewController: UIViewController {
 
@@ -21,6 +22,38 @@ class AccountPasswordViewController: UIViewController {
         view.endEditing(true)
     }
     @IBAction func changePassword(_ sender: Any) {
+        
+        guard let currentUser = Auth.auth().currentUser,
+                      let currentPassword = currentPassword.text,
+                      let newPassword = newPassword.text,
+                      let confirmPassword = confirmNewPassword.text else {
+                    print("One or more fields are empty.")
+                    return
+                }
+                
+                // Check if the new passwords match
+                guard newPassword == confirmPassword else {
+                    print("The new passwords do not match.")
+                    return
+                }
+                
+                // Re-authenticate the user
+                let credential = EmailAuthProvider.credential(withEmail: currentUser.email!, password: currentPassword)
+                currentUser.reauthenticate(with: credential) { authResult, error in
+                    if let error = error {
+                        print("Re-authentication failed: \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    // Proceed to update the password
+                    currentUser.updatePassword(to: newPassword) { error in
+                        if let error = error {
+                            print("Error updating password: \(error.localizedDescription)")
+                        } else {
+                            print("Password updated successfully.")
+                        }
+                    }
+                }
     }
     
     override func viewDidLoad() {
@@ -30,6 +63,8 @@ class AccountPasswordViewController: UIViewController {
     }
     
 
+    
+    
     /*
     // MARK: - Navigation
 
