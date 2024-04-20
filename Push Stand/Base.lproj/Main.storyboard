@@ -210,7 +210,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="398.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="kEI-GT-CvW">
-                                                <rect key="frame" x="10" y="186.5" width="394" height="25.5"/>
+                                                <rect key="frame" x="20" y="186.5" width="374" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -219,7 +219,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="kEI-GT-CvW" firstAttribute="centerY" secondItem="rt9-h0-mY5" secondAttribute="centerY" id="W6Y-WH-0ox"/>
-                                            <constraint firstItem="kEI-GT-CvW" firstAttribute="leading" secondItem="rt9-h0-mY5" secondAttribute="leading" constant="10" id="kHZ-vc-dOu">
+                                            <constraint firstItem="kEI-GT-CvW" firstAttribute="leading" secondItem="rt9-h0-mY5" secondAttribute="leading" constant="20" id="kHZ-vc-dOu">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="30"/>
                                             </constraint>
                                             <constraint firstItem="kEI-GT-CvW" firstAttribute="centerX" secondItem="rt9-h0-mY5" secondAttribute="centerX" id="nkU-8S-Ew3"/>
@@ -305,7 +305,7 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DO YOU BELIEVE GLOBAL WARMING IS POLITICALLY DRIVEN?" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="nEm-sQ-Z7x" userLabel="Yesterday Question">
-                                                <rect key="frame" x="10" y="189.5" width="394" height="50.5"/>
+                                                <rect key="frame" x="20" y="189.5" width="374" height="50.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -317,7 +317,7 @@
                                             <constraint firstItem="nEm-sQ-Z7x" firstAttribute="centerY" secondItem="nsU-lL-TDH" secondAttribute="centerY" id="XYi-wF-eDv"/>
                                             <constraint firstItem="ftz-xY-vB4" firstAttribute="centerX" secondItem="nsU-lL-TDH" secondAttribute="centerX" id="Y2y-aS-Fif"/>
                                             <constraint firstItem="nEm-sQ-Z7x" firstAttribute="top" secondItem="ftz-xY-vB4" secondAttribute="bottom" constant="25" id="b2O-6i-AnQ"/>
-                                            <constraint firstItem="nEm-sQ-Z7x" firstAttribute="leading" secondItem="nsU-lL-TDH" secondAttribute="leading" constant="10" id="x1r-Wu-sph"/>
+                                            <constraint firstItem="nEm-sQ-Z7x" firstAttribute="leading" secondItem="nsU-lL-TDH" secondAttribute="leading" constant="20" id="x1r-Wu-sph"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="1sS-nB-69v" userLabel="Selected Thumbs">
