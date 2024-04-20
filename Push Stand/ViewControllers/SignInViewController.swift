@@ -3,7 +3,7 @@ import Firebase
 import FirebaseFirestore
 
 class SignInViewController: UIViewController {
-
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var userNameTextField: UITextField!
@@ -15,6 +15,26 @@ class SignInViewController: UIViewController {
         
     }
     
+    
+    @IBAction func forgotPasswordEmailSend(_ sender: Any) {
+        
+        guard let email = userNameTextField.text, !email.isEmpty else {
+            print("Error: Email field is empty")
+            return
+        }
+        
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                // Handle errors
+                print("Error sending password reset email: \(error.localizedDescription)")
+            } else {
+                // Successfully sent password reset email
+                print("Password reset email sent successfully")
+            }
+        }
+        
+    }
+    
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
@@ -23,10 +43,10 @@ class SignInViewController: UIViewController {
         // Create cleaned versions of the text field
         let email = userNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-
+        
         // Signing in the user
         Auth.auth().signIn(withEmail: email, password: password) { [self] _, error in
-
+            
             if error != nil {
                 // Add Error Handling
                 let ac = UIAlertController(title: "Login Failed", message: "Username/Password Not Found", preferredStyle: .alert)
@@ -57,7 +77,7 @@ class SignInViewController: UIViewController {
                         setRootViewController(window: window, with: tabBarController)
                     }
                 }
-
+                
                 func setRootViewController(window: UIWindow, with viewController: UIViewController) {
                     window.rootViewController = viewController
                     window.makeKeyAndVisible()
