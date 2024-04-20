@@ -57,6 +57,9 @@ class DailyQuestionViewController: UIViewController {
         }
         // Fade in the label
         UIView.animate(withDuration: 1.0, animations: {
+            if self.answerStreak > 0 && self.answerStreak % 10 == 0 {
+                self.streakPointLabel.text = "10 Points"
+            }
             self.streakPointLabel.alpha = 1.0 // Make the label fully visible
         }) { (finished) in
             // After the fade-in completes, start the fade-out
@@ -91,6 +94,9 @@ class DailyQuestionViewController: UIViewController {
             }
         }
         let previousDailyQuestionsQueryParams = ["Date": getPreviousDateFormatted()]
+        self.yesterdayQuestionLabel.alpha = 0.0
+        self.downPercentage.alpha = 0.0
+        self.upPercentage.alpha = 0.0
         // Assuming callAPIGateway is correctly implemented and working
         callAPIGateway(endpoint: dailyQuestionAnswerEndpoint, queryParams: previousDailyQuestionsQueryParams, httpMethod: .get) { result in
             DispatchQueue.main.async {
@@ -119,6 +125,13 @@ class DailyQuestionViewController: UIViewController {
                     // Handle error
                     self.yesterdayQuestionLabel.text = "No Question Results Available"
                     print("Error: \(error.localizedDescription)")
+                }
+                UIView.animate(withDuration: 1.0, animations: {
+                    self.yesterdayQuestionLabel.alpha = 1.0
+                    self.downPercentage.alpha = 1.0
+                    self.upPercentage.alpha = 1.0
+                }) { (true) in
+                    
                 }
             }
         }
@@ -329,6 +342,7 @@ class DailyQuestionViewController: UIViewController {
             self.answerStreak = self.answerStreak + 1
             if self.answerStreak > 0 && self.answerStreak % 10 == 0 {
                 self.streakSegmentedBar.value = 10
+                self.streakPointLabel.text = "10 Points"
                 self.bonusAnswerView.isHidden = false
                 self.streakFillView.isHidden = false
             } else {

@@ -77,141 +77,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         yesterdayLabel.layer.cornerRadius = 16
         yesterdayLabel.layer.masksToBounds = true
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateString = dateFormatter.string(from: Date())
-        let dailyGoalsQueryParams = ["date": dateString]
-        var newDateString = dateFormatter.string(from: Date())
-
-        // Convert the string to a Date object
-        if let date = dateFormatter.date(from: dateString) {
-            // Use the Calendar to subtract one day
-            if let newDate = Calendar.current.date(byAdding: .day, value: -1, to: date) {
-                // Convert the new Date object back to a string
-                newDateString = dateFormatter.string(from: newDate)
-                print(newDateString)  // Output will be "2023-12-26"
-            }
-        }
-        let yesterdayQueryParams = ["date": newDateString]
-        let userTotalStandsQueryParams = ["userId": CurrentUser.shared.uid!]
-        let pushStandCheckQueryParams = ["user_id": CurrentUser.shared.uid!]
         
-        let semaphore = DispatchSemaphore(value: 0) // Create a semaphore
-        
-        fetchData(fromEndpoint: pushStandEndpoint, withUserId: CurrentUser.shared.uid!) {result in
-            switch result {
-                    case .success(let data):
-                        // Attempt to convert the data to a String
-                        if let responseString = String(data: data, encoding: .utf8) {
-                            if Bool(responseString)! {
-                                let dateString = self.getDateFormatted()
-                                UserDefaults.standard.set(true, forKey: dateString)
-                            }
-                        } else {
-                            // Handle the case where data could not be converted to a String
-                            print("Could not convert data to string.")
-                        }
-                    case .failure(let error):
-                        // Handle the error
-                        print("Error: \(error.localizedDescription)")
-                    }
-            semaphore.signal() // Signal the semaphore once the task is completed
-
-        }
-        
-        semaphore.wait() // Wait for the signal
-        
-        //Today
-        callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: yesterdayQueryParams, httpMethod: .get ) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let json):
-                    if let currentValue = json["Current"] as? String {
-                        self.yesterdayLabel.text = "      Yesterday: \(currentValue)      "
-                    } else {
-                        self.yesterdayLabel.text = "      N/A      "
-                    }
-                case .failure(let error):
-                    // Handle error
-                    self.dailyGoalCount.text = "0"
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-        
-        //Yesterday
-        callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: dailyGoalsQueryParams, httpMethod: .get) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let json):
-                    if let goalValue = json["Goal"] as? String,
-                       let goalInt = Int(goalValue) {
-                        let formattedGoal = self.formatNumber(goalInt)
-                        let attributedString = NSMutableAttributedString(string: "\(formattedGoal)\nDaily Goal")
-                        let fontSize: CGFloat = 18
-                        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSRange(location: attributedString.length - 10, length: 10))
-                        self.dailyGoalCount.attributedText = attributedString
-                    } else {
-                        self.dailyGoalCount.text = "0\nDaily Goal"
-                    }
-                    if let currentValue = json["Current"] as? String {
-                        self.globalStandCount.text = "\(currentValue)"
-                    } else {
-                        self.globalStandCount.text = "0"
-                    }
-                    self.goal = Float((json["Goal"] as? String)!)!
-                    self.current = Float((json["Current"] as? String)!)!
-                    let progressAmount = self.current / self.goal
-                    self.standProgressBar.progress = CGFloat(progressAmount)
-                    print("JSON: \(json)")
-                case .failure(let error):
-                    // Handle error
-                    self.dailyGoalCount.text = "0"
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-        
-        //Yesterday
-        callAPIGateway(endpoint: userTotalStandsEndpoint, queryParams: userTotalStandsQueryParams, httpMethod: .get) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let json):
-                    print(json)
-                    // Handle successful response with JSON
-                    if let myStands = json["count"] as? Int {
-                        self.myTotalStandsLabel.text = "\(myStands)"
-                    } else {
-                        self.myTotalStandsLabel.text = "0"
-                    }
-                case .failure(let error):
-                    // Handle error
-                    self.myTotalStandsLabel.text = "0"
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-        
-        //Us Total
-        callAPIGateway(endpoint: usTotalStandsEndpoint, queryParams: [:], httpMethod: .get) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let json):
-                    print(json)
-                    // Handle successful response with JSON
-                    if let usStands = json["count"] as? Int {
-                        let formattedStands = self.formatNumber(usStands)
-                        self.usaTotalStandsLabel.text = formattedStands
-                    } else {
-                        self.usaTotalStandsLabel.text = "0"
-                    }
-                case .failure(let error):
-                    // Handle error
-                    self.usaTotalStandsLabel.text = "0"
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
         
         
         
@@ -358,6 +224,142 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let currentStandStreakQueryParams = ["userId": CurrentUser.shared.uid!]
         let answerStreakQueryParams = ["userId": CurrentUser.shared.uid!]
         let userPointsQueryParams = ["userId": CurrentUser.shared.uid!]
+        
+
+        let dailyGoalsQueryParams = ["date": dateString]
+        var newDateString = dateFormatter.string(from: Date())
+
+        // Convert the string to a Date object
+        if let date = dateFormatter.date(from: dateString) {
+            // Use the Calendar to subtract one day
+            if let newDate = Calendar.current.date(byAdding: .day, value: -1, to: date) {
+                // Convert the new Date object back to a string
+                newDateString = dateFormatter.string(from: newDate)
+                print(newDateString)  // Output will be "2023-12-26"
+            }
+        }
+        let yesterdayQueryParams = ["date": newDateString]
+        let userTotalStandsQueryParams = ["userId": CurrentUser.shared.uid!]
+        let pushStandCheckQueryParams = ["user_id": CurrentUser.shared.uid!]
+        
+        let semaphore = DispatchSemaphore(value: 0) // Create a semaphore
+        
+        fetchData(fromEndpoint: pushStandEndpoint, withUserId: CurrentUser.shared.uid!) {result in
+            switch result {
+                    case .success(let data):
+                        // Attempt to convert the data to a String
+                        if let responseString = String(data: data, encoding: .utf8) {
+                            if Bool(responseString)! {
+                                let dateString = self.getDateFormatted()
+                                UserDefaults.standard.set(true, forKey: dateString)
+                            }
+                        } else {
+                            // Handle the case where data could not be converted to a String
+                            print("Could not convert data to string.")
+                        }
+                    case .failure(let error):
+                        // Handle the error
+                        print("Error: \(error.localizedDescription)")
+                    }
+            semaphore.signal() // Signal the semaphore once the task is completed
+
+        }
+        
+        semaphore.wait() // Wait for the signal
+        
+        //Yesterday
+        callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: yesterdayQueryParams, httpMethod: .get ) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let json):
+                    if let currentValue = json["Current"] as? String {
+                        self.yesterdayLabel.text = "      Yesterday: \(currentValue)      "
+                    } else {
+                        self.yesterdayLabel.text = "      N/A      "
+                    }
+                case .failure(let error):
+                    // Handle error
+                    self.dailyGoalCount.text = "0"
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        //Daily Goal
+        callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: dailyGoalsQueryParams, httpMethod: .get) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let json):
+                    if let goalValue = json["Goal"] as? String,
+                       let goalInt = Int(goalValue) {
+                        let formattedGoal = self.formatNumber(goalInt)
+                        let attributedString = NSMutableAttributedString(string: "\(formattedGoal)\nDaily Goal")
+                        let fontSize: CGFloat = 18
+                        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSRange(location: attributedString.length - 10, length: 10))
+                        self.dailyGoalCount.attributedText = attributedString
+                    } else {
+                        self.dailyGoalCount.text = "0\nDaily Goal"
+                    }
+                    if let currentValue = json["Current"] as? String {
+                        self.globalStandCount.text = "\(currentValue)"
+                    } else {
+                        self.globalStandCount.text = "0"
+                    }
+                    self.goal = Float((json["Goal"] as? String)!)!
+                    self.current = Float((json["Current"] as? String)!)!
+                    let progressAmount = self.current / self.goal
+                    self.standProgressBar.progress = CGFloat(progressAmount)
+                    print("JSON: \(json)")
+                case .failure(let error):
+                    // Handle error
+                    self.dailyGoalCount.text = "0"
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        //User Total Stands
+        callAPIGateway(endpoint: userTotalStandsEndpoint, queryParams: userTotalStandsQueryParams, httpMethod: .get) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let json):
+                    print(json)
+                    // Handle successful response with JSON
+                    if let myStands = json["count"] as? Int {
+                        self.myTotalStandsLabel.text = "\(myStands)"
+                    } else {
+                        self.myTotalStandsLabel.text = "0"
+                    }
+                case .failure(let error):
+                    // Handle error
+                    self.myTotalStandsLabel.text = "0"
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        //Us Total
+        callAPIGateway(endpoint: usTotalStandsEndpoint, queryParams: [:], httpMethod: .get) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let json):
+                    print(json)
+                    // Handle successful response with JSON
+                    if let usStands = json["count"] as? Int {
+                        let formattedStands = self.formatNumber(usStands)
+                        self.usaTotalStandsLabel.text = formattedStands
+                    } else {
+                        self.usaTotalStandsLabel.text = "0"
+                    }
+                case .failure(let error):
+                    // Handle error
+                    self.usaTotalStandsLabel.text = "0"
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        
         //Stand Streak
         callAPIGateway(endpoint: currentStandStreakEndpoint, queryParams: currentStandStreakQueryParams, httpMethod: .get) { result in
             DispatchQueue.main.async {
@@ -420,6 +422,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     
+    
     @IBAction func acknowledgeStreakFilled(_ sender: Any) {
         bonusStandView.isHidden = true
         streakFillView.isHidden = true
@@ -467,6 +470,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                     self.accountButton.isHidden = false
                     self.shareIcon.isHidden = false
                     UIView.animate(withDuration: 1.0, animations: {
+                        if self.myCurrentStreak > 0 && self.myCurrentStreak % 10 == 0 {
+                            self.onePoint.text = "5 Points"
+                        }
                         self.onePoint.alpha = 1.0 // Make the label fully visible
                     }) { (finished) in
                         // After the fade-in completes, start the fade-out
