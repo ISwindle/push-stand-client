@@ -178,6 +178,7 @@ class AccountSettingsViewController: UIViewController {
             // Use DispatchQueue to dismiss the alert after a delay
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change 2.0 to your desired number of seconds
                 alert.dismiss(animated: true, completion: nil)
+                self.updateButton.isHidden = true
             }
         }
         

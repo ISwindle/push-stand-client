@@ -55,7 +55,6 @@ class CircularProgressBar: UIView {
         progressLayer.strokeEnd = 0.0 // Initially set to 0
         layer.addSublayer(progressLayer)
         
-        //animateProgress(to: progress) // Start the animation when the view is loaded
     }
     
     private func animateProgress(to value: CGFloat) {
