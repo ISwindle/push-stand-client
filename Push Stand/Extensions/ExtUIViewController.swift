@@ -170,6 +170,10 @@ extension UIViewController {
             return regex?.firstMatch(in: phoneNumber, options: [], range: range) != nil
     }
     
+    struct Event: Codable {
+        let eventDate: Date
+    }
+    
     enum HTTPMethod: String {
         case get = "GET"
         case post = "POST"

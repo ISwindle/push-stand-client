@@ -41,11 +41,14 @@ class SignUpReminderViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Example format
         
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm:ss" // Example format
+        
         // Data to save
         let userData: [String: String] = [
             "UserId": appId,
             "Email": dataManager.onboardingData.email!,
-            "ReminderTime": formatter.string(from: dataManager.onboardingData.reminderTime!),
+            "ReminderTime": timeFormatter.string(from: dataManager.onboardingData.reminderTime!),
             "Birthdate": formatter.string(from: dataManager.onboardingData.birthday!),
         ]
         

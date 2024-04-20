@@ -33,10 +33,69 @@ class AccountSettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.updateButton.isHidden = true
         birthdatePicker.addTarget(self, action: #selector(birthdatePickerValueChanged(_:)), for: .valueChanged)
         reminderTimePicker.addTarget(self, action: #selector(reminderTimeValueChanged(_:)), for: .valueChanged)
-        
-        // Do any additional setup after loading the view.
+        let semaphore = DispatchSemaphore(value: 0)
+        if let userId = UserDefaults.standard.string(forKey: "userId") {
+            let url = URL(string: "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users?userId=\(userId)")
+            var request = URLRequest(url: url!)
+            request.httpMethod = "GET"
+            
+            
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                defer { semaphore.signal() } // Signal to the semaphore upon task completion
+                guard let data = data, error == nil else {
+                    print("Error during the network request: \(error?.localizedDescription ?? "Unknown error")")
+                    return
+                }
+                
+                do {
+                    if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        // Assign the data to the singleton, ensuring nulls or missing fields default to ""
+                        //                        self.currentUser.reminderTime = jsonResponse["ReminderTime"] as? String ?? ""
+                        //                        self.currentUser.birthdate = jsonResponse["Birthdate"] as? String ?? ""
+                        //                        self.currentUser.phoneNumber = jsonResponse["PhoneNumber"] as? String ?? ""
+                        //                        self.currentUser.email = jsonResponse["Email"] as? String ?? ""
+                        //                        self.currentUser.firebaseAuthToken = jsonResponse["FirebaseAuthToken"] as? String ?? ""
+                        print("Lok!: \(jsonResponse)")
+                        DispatchQueue.main.async {
+                            if let dateString = jsonResponse["Birthdate"] as? String {
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                
+                                if let date = dateFormatter.date(from: dateString) {
+                                    self.birthdatePicker.date = date
+                                } else {
+                                    print("Error: The date string does not match the format expected.")
+                                }
+                            } else {
+                                print("Error: Birthdate key is missing or is not a string.")
+                            }
+                            // Extract and set the time
+                            if let timeString = jsonResponse["ReminderTime"] as? String {
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "HH:mm:ss"  // Format to match the time string
+                                
+                                if let time = dateFormatter.date(from: timeString) {
+                                    self.reminderTimePicker.date = time
+                                } else {
+                                    print("Error: The time string does not match the format expected.")
+                                }
+                            } else {
+                                print("Error: Time key is missing or is not a string.")
+                            }
+                        }
+                    }
+                } catch {
+                    print("Error parsing the JSON response: \(error.localizedDescription)")
+                }
+            }
+            
+            task.resume()
+            semaphore.wait()
+        }
     }
     
     @objc func birthdatePickerValueChanged(_ sender: UIDatePicker) {
@@ -45,7 +104,7 @@ class AccountSettingsViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: selectedDate)
-        
+        self.updateButton.isHidden = false
         // Now, perform the API call with the selected date
         //performAPICall(withDate: dateString)
     }
@@ -56,7 +115,7 @@ class AccountSettingsViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: selectedDate)
-        
+        self.updateButton.isHidden = false
         // Now, perform the API call with the selected date
         //performAPICall(withDate: dateString)
     }
