@@ -294,8 +294,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                        let goalInt = Int(goalValue) {
                         let formattedGoal = self.formatNumber(goalInt)
                         let attributedString = NSMutableAttributedString(string: "\(formattedGoal)\nDaily Goal")
-                        let fontSize: CGFloat = 18
-                        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSRange(location: attributedString.length - 10, length: 10))
+                        let fontSize: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 30 : 18
+                                        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSRange(location: attributedString.length - 10, length: 10))
                         self.dailyGoalCount.attributedText = attributedString
                     } else {
                         self.dailyGoalCount.text = "0\nDaily Goal"

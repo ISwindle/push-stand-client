@@ -35,13 +35,16 @@ class CircularProgressBar: UIView {
     
     private func createCircularPath() {
         self.backgroundColor = .clear
+        // This will adjust how long each dash (lineWidth) is depending on circle dimensions
+        // So smaller phones should have shorter lineWidth
+        let lineWidth = min(bounds.width, bounds.height) * 0.1
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.height / 2.0), startAngle: -CGFloat.pi / 2, endAngle: 1.5 * CGFloat.pi, clockwise: true)
         
         // Track layer
         trackLayer.path = circlePath.cgPath
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.strokeColor = UIColor.darkGray.cgColor
-        trackLayer.lineWidth = 20.0
+        trackLayer.lineWidth = lineWidth
         trackLayer.lineDashPattern = [3.0,4.0]
         trackLayer.strokeEnd = 1.0
         layer.addSublayer(trackLayer)
@@ -50,7 +53,7 @@ class CircularProgressBar: UIView {
         progressLayer.path = circlePath.cgPath
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.strokeColor = UIColor.white.cgColor
-        progressLayer.lineWidth = 20.0
+        progressLayer.lineWidth = lineWidth
         progressLayer.lineDashPattern = [3.0,4.0]
         progressLayer.strokeEnd = 0.0 // Initially set to 0
         layer.addSublayer(progressLayer)
