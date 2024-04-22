@@ -410,7 +410,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -1160,7 +1160,7 @@ Stands</string>
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-ty-kPb" userLabel="Bonus Stand View">
                                 <rect key="frame" x="0.0" y="237.5" width="414" height="575.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hbI-xq-uiL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="576"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="575.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-0Y-yxE">
