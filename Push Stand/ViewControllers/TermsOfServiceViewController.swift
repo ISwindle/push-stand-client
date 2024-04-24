@@ -21,7 +21,7 @@ class TermsOfServiceViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "https://pushstand.com/#about")!
+        let url = URL(string: "https://pushstand.com/terms.html")!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }

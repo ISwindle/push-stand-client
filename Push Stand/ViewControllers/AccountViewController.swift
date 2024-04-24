@@ -50,15 +50,13 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 navigationController?.pushViewController(viewController, animated: true)
             }
         case 1:
-            let cell = settingsTableView.dequeueReusableCell(withIdentifier: "terms", for: indexPath)
+                // Present TermsOfServiceViewController
             let webVC = TermsOfServiceViewController()
             present(webVC, animated: true)
-            return
         case 2:
-            let cell = settingsTableView.dequeueReusableCell(withIdentifier: "privacy", for: indexPath)
+                // Present PrivacyPolicyViewController
             let webVC = PrivacyPolicyViewController()
             present(webVC, animated: true)
-            return
         case 3:
             // Example of pushing a view controller that is identified in a storyboard
             if let viewController = storyboard?.instantiateViewController(withIdentifier: "HelpCenterViewController") as? HelpCenterViewController {
@@ -85,6 +83,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "terms")
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "privacy")
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "help")
+    }
+    
+    // Action method for xMark button
+    @IBAction func xMarkTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

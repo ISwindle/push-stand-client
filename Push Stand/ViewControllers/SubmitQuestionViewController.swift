@@ -12,14 +12,25 @@ class SubmitQuestionViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var submitButton: UIButton!
     
+    @IBOutlet weak var exitIcon: UIImageView!
     
     let dailyQuestionSuggestionsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/questions/suggestions"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Do any additional setup after loading the view.
         questionSuggestionView.delegate = self
+        
+        // Add tap gesture recognizer to the exit icon
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(exitIconTapped))
+        exitIcon.isUserInteractionEnabled = true
+        exitIcon.addGestureRecognizer(tapGesture)
+    }
+        
+    @objc func exitIconTapped() {
+        dismiss(animated: true, completion: nil)
     }
     
 
@@ -69,4 +80,5 @@ class SubmitQuestionViewController: UIViewController, UITextViewDelegate {
         task.resume()
         dismiss(animated: true, completion: nil)
     }
+    
 }

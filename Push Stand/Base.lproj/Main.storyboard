@@ -179,11 +179,21 @@
                                     <constraint firstAttribute="width" secondItem="xP8-dz-DLW" secondAttribute="height" multiplier="414:125" id="ALi-pu-URj"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ged-Bd-nPf" userLabel="Daily Question Title">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ged-Bd-nPf" userLabel="Daily Question Title">
                                 <rect key="frame" x="0.0" y="58" width="414" height="33.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday's Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ua-2j-fAs" userLabel="Yesterday's Results Title">
+                                <rect key="frame" x="0.0" y="58" width="414" height="33.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.77647060160000003" blue="0.93333333730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
@@ -214,7 +224,7 @@
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsU-lL-TDH" userLabel="Yesterday Question View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="430"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday's Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftz-xY-vB4">
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday's Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftz-xY-vB4">
                                                 <rect key="frame" x="50" y="137" width="314" height="29"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                 <color key="textColor" red="0.55294120309999995" green="0.77647060160000003" blue="0.9529411793" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -410,7 +420,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -522,8 +532,10 @@ let's see if you can do it again!</string>
                             <constraint firstItem="xP8-dz-DLW" firstAttribute="bottom" secondItem="Sy1-da-Psm" secondAttribute="bottom" id="10L-dM-2R0"/>
                             <constraint firstItem="Sy1-da-Psm" firstAttribute="trailing" secondItem="Oop-dg-hza" secondAttribute="trailing" id="4lD-G5-HP1"/>
                             <constraint firstItem="xP8-dz-DLW" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="4y4-cI-6Hk"/>
-                            <constraint firstItem="ged-Bd-nPf" firstAttribute="leading" secondItem="PIY-nt-eya" secondAttribute="leading" id="AKv-cG-5Ub"/>
+                            <constraint firstItem="ged-Bd-nPf" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="AKv-cG-5Ub"/>
+                            <constraint firstItem="GUd-Wy-Mru" firstAttribute="top" secondItem="5ua-2j-fAs" secondAttribute="bottom" constant="30" id="GLQ-Is-tu8"/>
                             <constraint firstItem="7JX-Mg-abi" firstAttribute="top" secondItem="ged-Bd-nPf" secondAttribute="bottom" id="GSq-DO-aVw"/>
+                            <constraint firstItem="5ua-2j-fAs" firstAttribute="centerX" secondItem="PIY-nt-eya" secondAttribute="centerX" id="Mzg-Ft-65d"/>
                             <constraint firstItem="ged-Bd-nPf" firstAttribute="centerX" secondItem="PIY-nt-eya" secondAttribute="centerX" id="NDW-kJ-iNz"/>
                             <constraint firstItem="BwL-86-JUO" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="O3m-ov-WCk"/>
                             <constraint firstItem="Oop-dg-hza" firstAttribute="top" secondItem="wX5-cT-NA4" secondAttribute="bottom" id="R8Y-hc-tEr"/>
@@ -539,6 +551,7 @@ let's see if you can do it again!</string>
                             </constraint>
                             <constraint firstItem="GUd-Wy-Mru" firstAttribute="centerX" secondItem="PIY-nt-eya" secondAttribute="centerX" id="X8r-gd-OhT"/>
                             <constraint firstItem="Sy1-da-Psm" firstAttribute="bottom" secondItem="BwL-86-JUO" secondAttribute="bottom" id="ZI0-Oe-AzO"/>
+                            <constraint firstItem="5ua-2j-fAs" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="Zeb-vO-jhc"/>
                             <constraint firstItem="Sy1-da-Psm" firstAttribute="bottom" secondItem="wKn-5I-JNK" secondAttribute="bottom" id="agW-A6-ypo"/>
                             <constraint firstItem="7JX-Mg-abi" firstAttribute="trailing" secondItem="Sy1-da-Psm" secondAttribute="trailing" id="fv0-nx-yzj"/>
                             <constraint firstItem="xP8-dz-DLW" firstAttribute="trailing" secondItem="Sy1-da-Psm" secondAttribute="trailing" id="fvU-HA-ahm"/>
@@ -557,12 +570,14 @@ let's see if you can do it again!</string>
                             <constraint firstItem="Sy1-da-Psm" firstAttribute="trailing" secondItem="BwL-86-JUO" secondAttribute="trailing" id="vxQ-R7-9Z2"/>
                             <constraint firstItem="wKn-5I-JNK" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="y1o-sJ-Ssr"/>
                             <constraint firstItem="Sy1-da-Psm" firstAttribute="bottom" secondItem="tB6-c4-yjY" secondAttribute="bottom" id="zWk-MY-bPf"/>
+                            <constraint firstItem="5ua-2j-fAs" firstAttribute="top" secondItem="Sy1-da-Psm" secondAttribute="top" constant="10" id="zya-Xl-n21"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.bubble" catalog="system" selectedImage="questionmark.bubble.fill" id="asJ-Ax-25m"/>
                     <connections>
                         <outlet property="answerStackview" destination="RvJ-ly-A4h" id="uB5-SQ-DKQ"/>
                         <outlet property="bonusAnswerView" destination="wKn-5I-JNK" id="8Si-PJ-QgR"/>
+                        <outlet property="dailyQuestionTitle" destination="ged-Bd-nPf" id="Hu0-as-qZh"/>
                         <outlet property="downPercentage" destination="iru-Bw-zal" id="rR3-wC-BEs"/>
                         <outlet property="flameSteakImage" destination="wX5-cT-NA4" id="0lE-dO-alG"/>
                         <outlet property="questionBot" destination="Dal-z9-6mu" id="ydP-Go-WF1"/>
@@ -581,6 +596,7 @@ let's see if you can do it again!</string>
                         <outlet property="yesterdayThumbsDown" destination="Yhh-Gl-C39" id="MR4-RE-78z"/>
                         <outlet property="yesterdayThumbsUp" destination="k3z-5l-LUk" id="mBG-pN-koo"/>
                         <outlet property="yesterdaysQuestion" destination="nsU-lL-TDH" id="bir-Ay-lQh"/>
+                        <outlet property="yesterdaysResultsTitle" destination="5ua-2j-fAs" id="jeF-4S-DlX"/>
                         <outlet property="yesterdaysResultsView" destination="Oop-dg-hza" id="jSW-H6-c1C"/>
                         <segue destination="Ha6-ge-6e1" kind="presentation" identifier="submitQuestionSegue" id="8Dk-Sd-AAv"/>
                     </connections>
@@ -598,7 +614,7 @@ let's see if you can do it again!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share a question you'd like us to ask" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSl-c6-SXg">
-                                <rect key="frame" x="40" y="20" width="334" height="20.5"/>
+                                <rect key="frame" x="40" y="50" width="334" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -607,12 +623,12 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Max 150 Characters" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XgK-So-uNv">
-                                <rect key="frame" x="40" y="60.5" width="334" height="230"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="40" y="90.5" width="334" height="230"/>
+                                <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="230" id="CmE-op-gLP"/>
                                 </constraints>
-                                <color key="textColor" systemColor="labelColor"/>
+                                <color key="textColor" systemColor="lightTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
@@ -623,19 +639,26 @@ let's see if you can do it again!</string>
                                 </variation>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gv-fj-SVr">
-                                <rect key="frame" x="40" y="345.5" width="334" height="34"/>
+                                <rect key="frame" x="40" y="375.5" width="334" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="2Rc-au-1El"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" red="0.54509806630000002" green="0.78039217000000005" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" systemColor="tintColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="submitSuggestion:" destination="Ha6-ge-6e1" eventType="touchUpInside" id="AAk-ZI-Agj"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="47M-Yz-poq">
+                                <rect key="frame" x="359" y="17" width="25" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Z5S-FZ-FyY"/>
+                                    <constraint firstAttribute="height" constant="25" id="gX9-Jc-hTU"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g53-uz-MM1"/>
                         <color key="backgroundColor" red="0.083885732320000003" green="0.083885732320000003" blue="0.083885732320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -643,24 +666,27 @@ let's see if you can do it again!</string>
                             <constraint firstItem="XgK-So-uNv" firstAttribute="leading" secondItem="g53-uz-MM1" secondAttribute="leading" constant="40" id="0rQ-ym-w2N">
                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
+                            <constraint firstItem="47M-Yz-poq" firstAttribute="top" secondItem="g53-uz-MM1" secondAttribute="top" constant="15" id="0zT-8h-bJ3"/>
                             <constraint firstItem="XgK-So-uNv" firstAttribute="top" secondItem="kSl-c6-SXg" secondAttribute="bottom" constant="20" id="D0Z-bM-RNZ"/>
                             <constraint firstItem="1Gv-fj-SVr" firstAttribute="leading" secondItem="kSl-c6-SXg" secondAttribute="leading" id="G6f-O8-Tg3"/>
                             <constraint firstItem="kSl-c6-SXg" firstAttribute="leading" secondItem="XgK-So-uNv" secondAttribute="leading" id="WrD-U5-6Lu"/>
-                            <constraint firstItem="kSl-c6-SXg" firstAttribute="top" secondItem="g53-uz-MM1" secondAttribute="top" constant="20" id="Z1S-Cc-d61"/>
+                            <constraint firstItem="kSl-c6-SXg" firstAttribute="top" secondItem="g53-uz-MM1" secondAttribute="top" constant="50" id="Z1S-Cc-d61"/>
                             <constraint firstItem="XgK-So-uNv" firstAttribute="centerX" secondItem="WaS-LZ-SGf" secondAttribute="centerX" id="e8P-Io-47T"/>
                             <constraint firstItem="1Gv-fj-SVr" firstAttribute="centerX" secondItem="WaS-LZ-SGf" secondAttribute="centerX" id="l52-yf-5gY"/>
                             <constraint firstItem="kSl-c6-SXg" firstAttribute="centerX" secondItem="WaS-LZ-SGf" secondAttribute="centerX" id="o5q-Qh-Vg9"/>
                             <constraint firstItem="1Gv-fj-SVr" firstAttribute="top" secondItem="XgK-So-uNv" secondAttribute="bottom" constant="55" id="vYh-0I-343"/>
+                            <constraint firstItem="g53-uz-MM1" firstAttribute="trailing" secondItem="47M-Yz-poq" secondAttribute="trailing" constant="30" id="zUk-AL-Ew9"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="exitIcon" destination="47M-Yz-poq" id="m1v-XC-CX0"/>
                         <outlet property="questionSuggestionView" destination="XgK-So-uNv" id="DM6-SF-MPD"/>
                         <outlet property="submitButton" destination="1Gv-fj-SVr" id="fOt-hG-fi6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDh-23-BpB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3044.9275362318845" y="1368.75"/>
+            <point key="canvasLocation" x="3065" y="1369"/>
         </scene>
         <!--Sweepstakes-->
         <scene sceneID="cGT-eK-Szo">
@@ -681,7 +707,7 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0aV-kR-Agm" userLabel="Wording View">
-                                <rect key="frame" x="0.0" y="420" width="414" height="393"/>
+                                <rect key="frame" x="0.0" y="408.5" width="414" height="404.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once this daily stand goal is achieved, you can use your points to enter our sweepstakes!" textAlignment="center" lineBreakMode="clip" numberOfLines="0" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="lYp-we-3zE" userLabel="Explain Label">
                                         <rect key="frame" x="40" y="71.5" width="334" height="64.5"/>
@@ -728,7 +754,7 @@ let's see if you can do it again!</string>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Treasure Chest" translatesAutoresizingMaskIntoConstraints="NO" id="N6H-t4-fP6">
-                                <rect key="frame" x="73.5" y="113" width="267" height="267"/>
+                                <rect key="frame" x="73.5" y="101.5" width="267" height="267"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="N6H-t4-fP6" secondAttribute="height" multiplier="1:1" id="3RH-hE-tlC">
                                         <variation key="heightClass=regular-widthClass=regular" constant="125"/>
@@ -747,7 +773,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="0aV-kR-Agm" firstAttribute="top" secondItem="N6H-t4-fP6" secondAttribute="bottom" constant="40" id="Fha-9d-HEi"/>
                             <constraint firstItem="Nfu-9g-DCt" firstAttribute="bottom" secondItem="0aV-kR-Agm" secondAttribute="bottom" id="LkP-e9-HuT"/>
                             <constraint firstItem="N6H-t4-fP6" firstAttribute="width" secondItem="Hre-0E-c4b" secondAttribute="width" multiplier="0.644928" id="Y7N-0S-J5U"/>
-                            <constraint firstItem="N6H-t4-fP6" firstAttribute="top" secondItem="eDK-ut-2Pg" secondAttribute="bottom" constant="21.5" id="a5f-NJ-uWa"/>
+                            <constraint firstItem="N6H-t4-fP6" firstAttribute="top" secondItem="eDK-ut-2Pg" secondAttribute="bottom" constant="10" id="a5f-NJ-uWa"/>
                             <constraint firstItem="0aV-kR-Agm" firstAttribute="leading" secondItem="Nfu-9g-DCt" secondAttribute="leading" id="g3D-hU-lyk"/>
                             <constraint firstItem="0aV-kR-Agm" firstAttribute="centerX" secondItem="Hre-0E-c4b" secondAttribute="centerX" id="syb-AB-hRx"/>
                             <constraint firstItem="N6H-t4-fP6" firstAttribute="centerX" secondItem="Hre-0E-c4b" secondAttribute="centerX" id="y4E-67-RSG"/>
@@ -795,7 +821,7 @@ let's see if you can do it again!</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="35"/>
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Q7G-p0-aSC" userLabel="Home Stats Titles">
@@ -1026,9 +1052,9 @@ Stands</string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="qy0-r9-aID" firstAttribute="leading" secondItem="lRz-Qw-Pnj" secondAttribute="leading" id="FUA-T9-dfG"/>
                                     <constraint firstItem="qy0-r9-aID" firstAttribute="top" secondItem="lRz-Qw-Pnj" secondAttribute="top" id="JJY-1T-zQE"/>
                                     <constraint firstItem="qy0-r9-aID" firstAttribute="centerX" secondItem="lRz-Qw-Pnj" secondAttribute="centerX" id="dbL-gh-ibj"/>
-                                    <constraint firstItem="qy0-r9-aID" firstAttribute="leading" secondItem="lRz-Qw-Pnj" secondAttribute="leading" id="uYF-Gd-212"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3iR-fP-Osy" userLabel="Account">
@@ -1146,7 +1172,7 @@ Stands</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="55"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="55"/>
                                         </variation>
                                     </label>
                                 </subviews>
@@ -1411,7 +1437,13 @@ let's see if you can do it again!</string>
                             <constraint firstItem="ewm-hU-R96" firstAttribute="centerX" secondItem="4QZ-uV-ysb" secondAttribute="centerX" id="y9a-TG-n95"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Account" id="bnA-I0-Xqd"/>
+                    <navigationItem key="navigationItem" title="Account" id="bnA-I0-Xqd">
+                        <barButtonItem key="rightBarButtonItem" image="xmark" catalog="system" id="D3D-i8-cMc">
+                            <connections>
+                                <action selector="xMarkTapped:" destination="0jQ-WK-pNK" id="1az-Wi-370"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="settingsTableView" destination="ewm-hU-R96" id="LAD-W6-lTk"/>
                     </connections>
@@ -2001,6 +2033,7 @@ let's see if you can do it again!</string>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="geM-F7-1bF"/>
                         <color key="backgroundColor" red="0.083885732320000003" green="0.083885732320000003" blue="0.083885732320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" systemColor="tintColor"/>
                         <constraints>
                             <constraint firstItem="F9R-ED-813" firstAttribute="centerX" secondItem="8d1-sY-982" secondAttribute="centerX" id="4QG-r0-7L9"/>
                             <constraint firstItem="q0R-b5-T14" firstAttribute="top" secondItem="YYg-5B-XAS" secondAttribute="bottom" constant="50" id="69x-DZ-xGJ"/>
@@ -2241,17 +2274,18 @@ let's see if you can do it again!</string>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRp-AU-nEc">
                                 <rect key="frame" x="50" y="690" width="314" height="34"/>
+                                <color key="backgroundColor" systemColor="tintColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="XTf-4T-V5G">
                                         <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                     </constraint>
                                 </constraints>
-                                <color key="tintColor" red="0.0" green="0.11719390016153571" blue="0.96611279249191284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" systemColor="tintColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Join Now"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Join Now">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" systemColor="tableCellBlueTextColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="joinNow:" destination="YXV-jZ-k7a" eventType="touchUpInside" id="y1B-ZD-X6W"/>
@@ -2271,7 +2305,7 @@ let's see if you can do it again!</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH STAND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VrC-4a-paV">
                                 <rect key="frame" x="98" y="468" width="218" height="42"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
@@ -2953,10 +2987,13 @@ let's see if you can do it again!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="c1F-Ai-BbO">
-                                <rect key="frame" x="134.5" y="117" width="145" height="35"/>
+                                <rect key="frame" x="134.5" y="117" width="145.5" height="35"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="45"/>
+                                </variation>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5IE-qf-vpx">
                                 <rect key="frame" x="50" y="197" width="314" height="44"/>
@@ -2986,10 +3023,11 @@ let's see if you can do it again!</string>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="mRd-Pu-vpK"/>
                                 </constraints>
+                                <color key="tintColor" systemColor="tintColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" systemColor="tintColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="login:" destination="55U-qR-eJ6" eventType="touchUpInside" id="6dU-dQ-PWo"/>
@@ -3057,10 +3095,10 @@ let's see if you can do it again!</string>
             </objects>
             <point key="canvasLocation" x="-4981.159420289855" y="273.88392857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Learn More-->
         <scene sceneID="GsE-3O-z7R">
             <objects>
-                <viewController id="Ibz-Q0-F6J" sceneMemberID="viewController">
+                <viewController title="Learn More" id="Ibz-Q0-F6J" customClass="LearnMoreViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5AO-PA-OFw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3069,55 +3107,55 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNH-uw-ZyJ" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="918"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="921"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uniting Americans one" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXs-Dn-oW8">
-                                                <rect key="frame" x="69.5" y="20" width="275" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
-                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <rect key="frame" x="96.5" y="50" width="221" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="26"/>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STAND at a time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbe-dj-eGC">
-                                                <rect key="frame" x="110.5" y="52" width="193" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
-                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <rect key="frame" x="129" y="76" width="156.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="26"/>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3b-VX-4DF">
-                                                <rect key="frame" x="40" y="112" width="78" height="21.5"/>
+                                                <rect key="frame" x="40" y="115" width="78" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                <color key="textColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" systemColor="tintColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push Stand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTH-wa-IjM">
-                                                <rect key="frame" x="40" y="321.5" width="96" height="21.5"/>
+                                                <rect key="frame" x="40" y="324.5" width="96" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                <color key="textColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" systemColor="tintColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8f-nn-cPo">
-                                                <rect key="frame" x="40" y="637.5" width="128" height="21.5"/>
+                                                <rect key="frame" x="40" y="640.5" width="128" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                <color key="textColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" systemColor="tintColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2G-s0-MSt">
-                                                <rect key="frame" x="40" y="143.5" width="334" height="153"/>
+                                                <rect key="frame" x="40" y="146.5" width="334" height="153"/>
                                                 <string key="text">We're just a couple of friends that wanted to create an impactful way to stand for our country.  
 
 Our mission is to capture and share the true, unbiased visibility into the number of Americans standing.  And with this visibility comes a spark to an unstoppable movement.</string>
@@ -3129,7 +3167,7 @@ Our mission is to capture and share the true, unbiased visibility into the numbe
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our app is designed to be used by you, not the other way around." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBn-In-trI">
-                                                <rect key="frame" x="40" y="353" width="334" height="38.5"/>
+                                                <rect key="frame" x="40" y="356" width="334" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -3138,7 +3176,7 @@ Our mission is to capture and share the true, unbiased visibility into the numbe
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q28-lQ-twk">
-                                                <rect key="frame" x="60" y="406.5" width="294" height="95.5"/>
+                                                <rect key="frame" x="60" y="409.5" width="294" height="95.5"/>
                                                 <string key="text">No endless scrolling
 
 No clickbaits 
@@ -3152,7 +3190,7 @@ No maximizing user retention</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dC-3M-i4n">
-                                                <rect key="frame" x="40" y="669" width="334" height="95.5"/>
+                                                <rect key="frame" x="40" y="672" width="334" height="95.5"/>
                                                 <string key="text">Your trust matters.  At Push Stand, we prioritize your privacy and are committed to earning and keeping your trust every single day.  With this being said, here is a very clear promise from us to you.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3162,7 +3200,7 @@ No maximizing user retention</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuV-lf-xx5">
-                                                <rect key="frame" x="40" y="517" width="334" height="95.5"/>
+                                                <rect key="frame" x="40" y="520" width="334" height="95.5"/>
                                                 <string key="text">Standing for your country on Push Stand takes less time than reciting the Pledge of Allegiance.
 
 Will you stand with us?</string>
@@ -3174,7 +3212,7 @@ Will you stand with us?</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We will NEVER sell/share your contact information." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJP-uV-SOf">
-                                                <rect key="frame" x="60" y="779.5" width="294" height="38.5"/>
+                                                <rect key="frame" x="60" y="782.5" width="294" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -3183,7 +3221,7 @@ Will you stand with us?</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We understand that contact information is very lucrative to sell.  But it goes against everything we believe in." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtI-UQ-LGJ">
-                                                <rect key="frame" x="40" y="828" width="334" height="60"/>
+                                                <rect key="frame" x="40" y="831" width="334" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -3191,8 +3229,15 @@ Will you stand with us?</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 </variation>
                                             </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6Id-ab-hFq">
+                                                <rect key="frame" x="359" y="17" width="25" height="20.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="USZ-1o-epn"/>
+                                                    <constraint firstAttribute="height" constant="25" id="hlK-H6-jYV"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.082352943720000002" green="0.082352943720000002" blue="0.082352943720000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="L8f-nn-cPo" firstAttribute="leading" secondItem="JNH-uw-ZyJ" secondAttribute="leading" constant="40" id="0AW-e6-2De"/>
                                             <constraint firstItem="UBn-In-trI" firstAttribute="leading" secondItem="JNH-uw-ZyJ" secondAttribute="leading" constant="40" id="0qe-RY-87G"/>
@@ -3208,6 +3253,7 @@ Will you stand with us?</string>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L8f-nn-cPo" secondAttribute="trailing" constant="20" symbolic="YES" id="Isg-F3-99b"/>
                                             <constraint firstItem="EtI-UQ-LGJ" firstAttribute="top" secondItem="hJP-uV-SOf" secondAttribute="bottom" constant="10" id="KXw-HK-J0B"/>
                                             <constraint firstItem="Hbe-dj-eGC" firstAttribute="centerX" secondItem="JNH-uw-ZyJ" secondAttribute="centerX" id="LZW-ZO-cUK"/>
+                                            <constraint firstItem="6Id-ab-hFq" firstAttribute="top" secondItem="JNH-uw-ZyJ" secondAttribute="top" constant="15" id="MVO-rg-2Co"/>
                                             <constraint firstItem="TTH-wa-IjM" firstAttribute="top" secondItem="r2G-s0-MSt" secondAttribute="bottom" constant="25" id="POy-8A-7BH"/>
                                             <constraint firstItem="D3b-VX-4DF" firstAttribute="leading" secondItem="JNH-uw-ZyJ" secondAttribute="leading" constant="40" id="PaR-LW-Yhb"/>
                                             <constraint firstAttribute="bottom" secondItem="hJP-uV-SOf" secondAttribute="bottom" constant="100" id="Q0R-YV-Vwa"/>
@@ -3219,17 +3265,18 @@ Will you stand with us?</string>
                                             <constraint firstItem="LuV-lf-xx5" firstAttribute="top" secondItem="Q28-lQ-twk" secondAttribute="bottom" constant="15" id="age-fY-agK"/>
                                             <constraint firstItem="2dC-3M-i4n" firstAttribute="top" secondItem="L8f-nn-cPo" secondAttribute="bottom" constant="10" id="bLN-eW-Rco"/>
                                             <constraint firstItem="r2G-s0-MSt" firstAttribute="top" secondItem="D3b-VX-4DF" secondAttribute="bottom" constant="10" id="bSU-Xm-zEt"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Id-ab-hFq" secondAttribute="trailing" constant="30" id="cku-j3-d2L"/>
                                             <constraint firstItem="hJP-uV-SOf" firstAttribute="top" secondItem="2dC-3M-i4n" secondAttribute="bottom" constant="15" id="dbh-ry-aAY"/>
                                             <constraint firstItem="Q28-lQ-twk" firstAttribute="leading" secondItem="JNH-uw-ZyJ" secondAttribute="leading" constant="60" id="iup-bk-co9"/>
                                             <constraint firstItem="hJP-uV-SOf" firstAttribute="leading" secondItem="JNH-uw-ZyJ" secondAttribute="leading" constant="60" id="m8P-2h-rFh"/>
                                             <constraint firstItem="cXs-Dn-oW8" firstAttribute="centerX" secondItem="JNH-uw-ZyJ" secondAttribute="centerX" id="mjL-wa-pq9"/>
-                                            <constraint firstItem="D3b-VX-4DF" firstAttribute="top" secondItem="Hbe-dj-eGC" secondAttribute="bottom" constant="30" id="pCn-AV-ZWl"/>
+                                            <constraint firstItem="D3b-VX-4DF" firstAttribute="top" secondItem="Hbe-dj-eGC" secondAttribute="bottom" constant="15" id="pCn-AV-ZWl"/>
                                             <constraint firstItem="Hbe-dj-eGC" firstAttribute="top" secondItem="cXs-Dn-oW8" secondAttribute="bottom" constant="2" id="pb6-8S-mhQ"/>
                                             <constraint firstItem="r2G-s0-MSt" firstAttribute="centerX" secondItem="JNH-uw-ZyJ" secondAttribute="centerX" id="q0C-8X-DsH"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D3b-VX-4DF" secondAttribute="trailing" constant="20" symbolic="YES" id="tiW-py-bbH"/>
                                             <constraint firstItem="LuV-lf-xx5" firstAttribute="leading" secondItem="JNH-uw-ZyJ" secondAttribute="leading" constant="40" id="uwY-AV-uE8"/>
                                             <constraint firstItem="UBn-In-trI" firstAttribute="centerX" secondItem="JNH-uw-ZyJ" secondAttribute="centerX" id="vQ2-aR-JPz"/>
-                                            <constraint firstItem="cXs-Dn-oW8" firstAttribute="top" secondItem="JNH-uw-ZyJ" secondAttribute="top" constant="20" id="yAq-zh-4t8"/>
+                                            <constraint firstItem="cXs-Dn-oW8" firstAttribute="top" secondItem="JNH-uw-ZyJ" secondAttribute="top" constant="50" id="yAq-zh-4t8"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -3255,10 +3302,13 @@ Will you stand with us?</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" style="editor" id="Xkv-cx-G6s"/>
+                    <connections>
+                        <outlet property="exitIcon" destination="6Id-ab-hFq" id="Crv-iH-wSo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzF-Kw-f9Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5923.188405797102" y="273.88392857142856"/>
+            <point key="canvasLocation" x="-5923" y="274"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hAs-wo-aWr">
@@ -3354,30 +3404,28 @@ Will you stand with us?</string>
         <image name="stand-btn" width="170.5" height="170.5"/>
         <image name="ticket" catalog="system" width="128" height="86"/>
         <image name="ticket.fill" catalog="system" width="128" height="86"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="lightTextColor">
             <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="separatorColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tableCellBlueTextColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

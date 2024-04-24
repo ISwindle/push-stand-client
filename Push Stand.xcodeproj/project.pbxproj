@@ -67,6 +67,7 @@
 		22DB7CE92B93886300581C10 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB7CE82B93886300581C10 /* AccountSettingsViewController.swift */; };
 		22DB7CEB2B93895B00581C10 /* AccountDeletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB7CEA2B93895B00581C10 /* AccountDeletionViewController.swift */; };
 		22F1BD012B5C20DF00F1570F /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */; };
+		8E5240802BD9631D00A9989A /* LearnMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E52407F2BD9631D00A9989A /* LearnMoreViewController.swift */; };
 		8E52D97D2B732DE100C84468 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E52D97B2B732DE100C84468 /* GroupsTableViewCell.swift */; };
 		8E52D97E2B732DE100C84468 /* GroupsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E52D97C2B732DE100C84468 /* GroupsTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -146,6 +147,7 @@
 		22DB7CE82B93886300581C10 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		22DB7CEA2B93895B00581C10 /* AccountDeletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDeletionViewController.swift; sourceTree = "<group>"; };
 		22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
+		8E52407F2BD9631D00A9989A /* LearnMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnMoreViewController.swift; sourceTree = "<group>"; };
 		8E52D97B2B732DE100C84468 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		8E52D97C2B732DE100C84468 /* GroupsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,6 +240,7 @@
 				22C7F3D52BC58F0500F5BE9A /* AccountEmailViewController.swift */,
 				22C7F3D72BC58F3000F5BE9A /* AccountPasswordViewController.swift */,
 				22C7F3D92BC58F5000F5BE9A /* AccountPhoneNumberViewController.swift */,
+				8E52407F2BD9631D00A9989A /* LearnMoreViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				22359DD62B6C7B71003D3520 /* User.swift in Sources */,
 				229C49FD2B14E11800C8E065 /* ExtUITabBarController.swift in Sources */,
 				22DB7CEB2B93895B00581C10 /* AccountDeletionViewController.swift in Sources */,
+				8E5240802BD9631D00A9989A /* LearnMoreViewController.swift in Sources */,
 				22C7F3D42BAFC34800F5BE9A /* PrivacyPolicyViewController.swift in Sources */,
 				223EA0832AEED76F0055F94B /* CircularProgressBar.swift in Sources */,
 				2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */,

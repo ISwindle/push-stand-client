@@ -16,6 +16,8 @@ class DailyQuestionViewController: UIViewController {
     let currentAnswerStreakEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/streaks/answers"
     
     
+    @IBOutlet weak var dailyQuestionTitle: UILabel!
+    @IBOutlet weak var yesterdaysResultsTitle: UILabel!
     @IBOutlet weak var flameSteakImage: UIImageView!
     @IBOutlet weak var streakPointLabel: UILabel!
     @IBOutlet weak var streakSegmentedBar: SegmentedBar!
@@ -86,9 +88,11 @@ class DailyQuestionViewController: UIViewController {
         UIView.animate(withDuration: 1.0, animations: {
             self.todaysQuestionView.alpha = 0.0
             self.submitButton.alpha = 0.0
+            self.dailyQuestionTitle.alpha = 0.0 //Daily Question Title fading out
         }) { (true) in
             UIView.animate(withDuration: 1.0, animations: {
                 self.yesterdaysResultsView.alpha = 1.0
+                self.yesterdaysResultsTitle.alpha = 1.0 //Yesterday's Results fading in
             }) { (true) in
                 
             }
@@ -148,7 +152,6 @@ class DailyQuestionViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         questionLabel.alpha = 0.0
         submitButton.isUserInteractionEnabled = false
         submitButton.isHidden = true
@@ -216,6 +219,7 @@ class DailyQuestionViewController: UIViewController {
                                             let falsePercentageString = String(falsePercentage)
                                             // Update the label to display the question and percentages
                                             self.yesterdayQuestionLabel.alpha = 0.0
+                                            self.yesterdaysResultsTitle.alpha = 1.0
                                             self.downPercentage.alpha = 0.0
                                             self.upPercentage.alpha = 0.0
                                             self.yesterdayQuestionLabel.text = "\(question)"
@@ -263,6 +267,7 @@ class DailyQuestionViewController: UIViewController {
             self.thumbsDownAnswer.image =  UIImage(named: "grey-thumb-down")
             self.thumbsUpAnswer.image =  UIImage(named: "grey-thumb-up")
             self.todaysQuestionView.alpha = 1.0
+            self.dailyQuestionTitle.alpha = 1.0
             self.questionLabel.text = "\(question)"
             self.submitButton.isHidden = true
             self.submitButton.alpha = 1.0

@@ -20,7 +20,7 @@ class PrivacyPolicyViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "https://pushstand.com/#about")!
+        let url = URL(string: "https://pushstand.com/privacy.html")!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }
