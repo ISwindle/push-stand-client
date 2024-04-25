@@ -76,6 +76,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
         yesterdayLabel.layer.cornerRadius = 16
         yesterdayLabel.layer.masksToBounds = true
+        yesterdayLabel.layer.borderColor = UIColor.white.cgColor
+        yesterdayLabel.layer.borderWidth = 1.0 // Adjust the width as needed
         
         
         
@@ -153,8 +155,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     @objc func standStreakTapped() {
         standStreakIcon.image = UIImage(named: "red-star-icon")
+        standStreakIcon.alpha = 1.0
         questionStreakIcon.image = UIImage(named: "cyan-star-icon")
+        questionStreakIcon.alpha = 0.5
         pointsIcon.image = UIImage(named: "gold-star-icon")
+        pointsIcon.alpha = 0.4
         standStreakTitle.textColor = UIColor.systemRed
         standStreakTitle.font = UIFont.boldSystemFont(ofSize: standStreakTitle.font.pointSize)
         questionStreakTitle.textColor = .white
@@ -171,8 +176,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     // Action for tap gesture
     @objc func questionStreakTapped() {
         standStreakIcon.image = UIImage(named: "red-star-icon")
+        standStreakIcon.alpha = 0.5
         questionStreakIcon.image = UIImage(named: "cyan-star-icon")
+        questionStreakIcon.alpha = 1.0
         pointsIcon.image = UIImage(named: "gold-star-icon")
+        pointsIcon.alpha = 0.4
         standStreakTitle.textColor = .white
         standStreakTitle.font = UIFont.systemFont(ofSize: standStreakTitle.font.pointSize, weight: .light)
         questionStreakTitle.textColor = .systemCyan
@@ -189,8 +197,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     // Action for tap gesture
     @objc func pointsTapped() {
         standStreakIcon.image = UIImage(named: "red-star-icon")
+        standStreakIcon.alpha = 0.5
         questionStreakIcon.image = UIImage(named: "cyan-star-icon")
+        questionStreakIcon.alpha = 0.5
         pointsIcon.image = UIImage(named: "gold-star-icon")
+        pointsIcon.alpha = 1.0
         standStreakTitle.textColor = .white
         standStreakTitle.font = UIFont.systemFont(ofSize: standStreakTitle.font.pointSize, weight: .light)
         questionStreakTitle.textColor = .white

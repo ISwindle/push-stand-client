@@ -811,7 +811,7 @@ let's see if you can do it again!</string>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="        -        " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Ll-VV-Gpv">
                                 <rect key="frame" x="164.5" y="678" width="85" height="30"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VYG-r6-mrQ">
                                         <variation key="heightClass=regular-widthClass=regular" constant="45"/>
@@ -863,25 +863,6 @@ Stands</string>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Q7G-p0-aSC" secondAttribute="height" multiplier="414:35" id="Gvt-Ty-wTV">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="200"/>
-                                    </constraint>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-E1-3cg" userLabel="Top Icons">
-                                <rect key="frame" x="20" y="114.5" width="374" height="48"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="red-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-ah-BgZ" userLabel="Stand Streak Icon">
-                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="48"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="cyan-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="O3e-xe-AEd">
-                                        <rect key="frame" x="124.5" y="0.0" width="125" height="48"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="gold-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="9tL-5f-BSN">
-                                        <rect key="frame" x="249.5" y="0.0" width="124.5" height="48"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="N5a-E1-3cg" secondAttribute="height" multiplier="187:24" id="cL7-O3-zC5">
                                         <variation key="heightClass=regular-widthClass=regular" constant="200"/>
                                     </constraint>
                                 </constraints>
@@ -957,6 +938,26 @@ Stands</string>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="jEa-vN-uLe">
                                         <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                                    </constraint>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-E1-3cg" userLabel="Top Icons">
+                                <rect key="frame" x="20" y="114.5" width="374" height="48"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="red-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-ah-BgZ" userLabel="Stand Streak Icon">
+                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="48"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" image="cyan-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="O3e-xe-AEd">
+                                        <rect key="frame" x="124.5" y="0.0" width="125" height="48"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFit" image="gold-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="9tL-5f-BSN">
+                                        <rect key="frame" x="249.5" y="0.0" width="124.5" height="48"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="N5a-E1-3cg" secondAttribute="height" multiplier="187:24" id="cL7-O3-zC5">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="200"/>
                                     </constraint>
                                 </constraints>
                             </stackView>
@@ -1043,7 +1044,7 @@ Stands</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRz-Qw-Pnj" userLabel="Home Pic View">
                                 <rect key="frame" x="0.0" y="208.5" width="414" height="449.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="eagle-pic" translatesAutoresizingMaskIntoConstraints="NO" id="qy0-r9-aID">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="eagle-home-pic" translatesAutoresizingMaskIntoConstraints="NO" id="qy0-r9-aID">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qy0-r9-aID" secondAttribute="height" multiplier="1:1" id="agx-MG-fqF"/>
@@ -1236,7 +1237,7 @@ let's see if you can do it again!</string>
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-AV-dXn" userLabel="Got it button view">
-                                            <rect key="frame" x="0.0" y="322" width="414" height="253.5"/>
+                                            <rect key="frame" x="0.0" y="322" width="414" height="254"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-r3J">
                                                     <rect key="frame" x="122" y="107" width="170" height="40"/>
@@ -3382,7 +3383,7 @@ Will you stand with us?</string>
         <image name="Treasure Chest" width="2048" height="2048"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="cyan-star-icon" width="480" height="440"/>
-        <image name="eagle-pic" width="720" height="720"/>
+        <image name="eagle-home-pic" width="720" height="720"/>
         <image name="gold-star-icon" width="480" height="440"/>
         <image name="green-thumb-up" width="160" height="159.66667175292969"/>
         <image name="grey-thumb-down" width="160" height="159.66667175292969"/>

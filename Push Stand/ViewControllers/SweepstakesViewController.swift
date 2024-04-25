@@ -28,7 +28,7 @@ class SweepstakesViewController: UIViewController {
         }
         
         // Animate the second label to fade in with a delay of 1 second
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             UIView.animate(withDuration: 2.5) {
                 self.earnLabel.alpha = 1
             }
