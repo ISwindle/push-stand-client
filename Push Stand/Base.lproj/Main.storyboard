@@ -239,7 +239,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 </variation>
                                             </label>
                                         </subviews>
@@ -291,7 +291,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcs-yk-UA3" userLabel="Up Percentage">
@@ -300,7 +300,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                         </variation>
                                     </label>
                                 </subviews>
@@ -340,7 +340,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 </variation>
                                             </label>
                                         </subviews>
@@ -420,7 +420,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -715,7 +715,7 @@ let's see if you can do it again!</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlike other sweepstakes where you can purchase entries, here, you have to earn them." textAlignment="center" lineBreakMode="clip" numberOfLines="0" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="TlE-0x-dxz" userLabel="Earn Label">
@@ -724,7 +724,7 @@ let's see if you can do it again!</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="100,000" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="i9A-fb-Yxb">
@@ -879,7 +879,7 @@ Stands</string>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="z9d-tv-roT">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="z9d-tv-roT">
                                         <rect key="frame" x="138" y="0.0" width="138" height="35"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -888,7 +888,7 @@ Stands</string>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="BmD-Tr-TJg">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="BmD-Tr-TJg">
                                         <rect key="frame" x="276" y="0.0" width="138" height="35"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -904,6 +904,33 @@ Stands</string>
                                     </constraint>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ss1-3H-smd">
+                                <rect key="frame" x="54" y="725.5" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="8mg-Rw-pVU"/>
+                                    <constraint firstAttribute="height" constant="30" id="DiP-JB-sKM"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="CWh-KK-Eye" userLabel="My Total Stands Loading">
+                                <rect key="frame" x="192" y="725.5" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="SNR-ju-bgM"/>
+                                    <constraint firstAttribute="height" constant="30" id="smz-Yx-66T"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="NqF-dE-EOi" userLabel="USA Total Stands Loading">
+                                <rect key="frame" x="330" y="725.5" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Adu-w4-sIY"/>
+                                    <constraint firstAttribute="width" constant="30" id="bGm-aS-vr8"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3bp-ZZ-nZs" userLabel="Top Icon Titles">
                                 <rect key="frame" x="20" y="162.5" width="374" height="20"/>
                                 <subviews>
@@ -1010,37 +1037,6 @@ Stands</string>
                                     <constraint firstAttribute="bottom" secondItem="UBD-tg-X7g" secondAttribute="bottom" constant="7" id="t8f-lt-z1f"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wlz-PA-Rkk" userLabel="Circular View">
-                                <rect key="frame" x="0.0" y="232.5" width="414" height="337.5"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ov3-1B-ftm" customClass="CircularProgressBar" customModule="Push_Stand" customModuleProvider="target">
-                                        <rect key="frame" x="89" y="50.5" width="236" height="236.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="FRt-ke-DPV">
-                                                <rect key="frame" x="35.5" y="100.5" width="165" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                                <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="50"/>
-                                                </variation>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="ov3-1B-ftm" secondAttribute="height" multiplier="1:1" id="0BC-TR-E6c"/>
-                                            <constraint firstItem="FRt-ke-DPV" firstAttribute="width" secondItem="ov3-1B-ftm" secondAttribute="width" multiplier="0.7" id="47g-Eg-3TE"/>
-                                            <constraint firstItem="FRt-ke-DPV" firstAttribute="centerX" secondItem="ov3-1B-ftm" secondAttribute="centerX" id="GJG-7v-FxX"/>
-                                            <constraint firstItem="FRt-ke-DPV" firstAttribute="centerY" secondItem="ov3-1B-ftm" secondAttribute="centerY" id="N3o-8F-xT6"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="ov3-1B-ftm" firstAttribute="centerX" secondItem="Wlz-PA-Rkk" secondAttribute="centerX" id="6Zj-UT-4gR"/>
-                                    <constraint firstItem="ov3-1B-ftm" firstAttribute="centerY" secondItem="Wlz-PA-Rkk" secondAttribute="centerY" id="f9a-UK-L7P"/>
-                                    <constraint firstItem="ov3-1B-ftm" firstAttribute="height" secondItem="Wlz-PA-Rkk" secondAttribute="height" multiplier="0.7" id="g14-MT-mAC"/>
-                                </constraints>
-                            </view>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3iR-fP-Osy" userLabel="Account">
                                 <rect key="frame" x="30" y="67" width="26" height="23.5"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1077,6 +1073,48 @@ Stands</string>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 </variation>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wlz-PA-Rkk" userLabel="Circular View">
+                                <rect key="frame" x="0.0" y="232.5" width="414" height="337.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ov3-1B-ftm" customClass="CircularProgressBar" customModule="Push_Stand" customModuleProvider="target">
+                                        <rect key="frame" x="89" y="50.5" width="236" height="236.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="FRt-ke-DPV">
+                                                <rect key="frame" x="35.5" y="118.5" width="165" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="50"/>
+                                                </variation>
+                                            </label>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="tId-zi-OB9">
+                                                <rect key="frame" x="98" y="98.5" width="40" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="4VQ-k5-COp"/>
+                                                    <constraint firstAttribute="width" constant="40" id="g19-Wc-qar"/>
+                                                </constraints>
+                                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ov3-1B-ftm" secondAttribute="height" multiplier="1:1" id="0BC-TR-E6c"/>
+                                            <constraint firstItem="FRt-ke-DPV" firstAttribute="width" secondItem="ov3-1B-ftm" secondAttribute="width" multiplier="0.7" id="47g-Eg-3TE"/>
+                                            <constraint firstItem="FRt-ke-DPV" firstAttribute="centerX" secondItem="ov3-1B-ftm" secondAttribute="centerX" id="GJG-7v-FxX"/>
+                                            <constraint firstItem="FRt-ke-DPV" firstAttribute="centerY" secondItem="ov3-1B-ftm" secondAttribute="centerY" id="N3o-8F-xT6"/>
+                                            <constraint firstItem="tId-zi-OB9" firstAttribute="centerX" secondItem="ov3-1B-ftm" secondAttribute="centerX" id="TN5-fE-2ky"/>
+                                            <constraint firstItem="tId-zi-OB9" firstAttribute="centerY" secondItem="ov3-1B-ftm" secondAttribute="centerY" id="ac3-Pa-eS0"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ov3-1B-ftm" firstAttribute="centerX" secondItem="Wlz-PA-Rkk" secondAttribute="centerX" id="6Zj-UT-4gR"/>
+                                    <constraint firstItem="ov3-1B-ftm" firstAttribute="centerY" secondItem="Wlz-PA-Rkk" secondAttribute="centerY" id="f9a-UK-L7P"/>
+                                    <constraint firstItem="ov3-1B-ftm" firstAttribute="height" secondItem="Wlz-PA-Rkk" secondAttribute="height" multiplier="0.7" id="g14-MT-mAC"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KpS-l5-xEw" userLabel="Push Stand Title">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="203.5"/>
                                 <subviews>
@@ -1184,10 +1222,19 @@ Stands</string>
                                     <constraint firstItem="6cQ-TE-pqg" firstAttribute="top" secondItem="WKY-V7-7fx" secondAttribute="bottom" id="xea-Gp-pv2"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-MC-Zfc" userLabel="Global Standing Today">
+                                <rect key="frame" x="192" y="581.5" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KFw-4u-0N9"/>
+                                    <constraint firstAttribute="width" constant="30" id="Na9-u7-mAI"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-ty-kPb" userLabel="Bonus Stand View">
                                 <rect key="frame" x="0.0" y="232.5" width="414" height="580.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hbI-xq-uiL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="580.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="581"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-0Y-yxE">
@@ -1237,7 +1284,7 @@ let's see if you can do it again!</string>
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-AV-dXn" userLabel="Got it button view">
-                                            <rect key="frame" x="0.0" y="322" width="414" height="258.5"/>
+                                            <rect key="frame" x="0.0" y="322" width="414" height="259"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-r3J">
                                                     <rect key="frame" x="122" y="109.5" width="170" height="40"/>
@@ -1304,7 +1351,9 @@ let's see if you can do it again!</string>
                                 <variation key="heightClass=regular-widthClass=regular" constant="30"/>
                             </constraint>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="bottom" secondItem="37R-ty-kPb" secondAttribute="bottom" id="6Nb-Gi-M6A"/>
+                            <constraint firstItem="ss1-3H-smd" firstAttribute="centerY" secondItem="mIy-hv-gIg" secondAttribute="centerY" id="80c-vF-sn6"/>
                             <constraint firstItem="R9l-Tj-CeX" firstAttribute="top" secondItem="lRz-Qw-Pnj" secondAttribute="bottom" id="9Tc-eY-2hJ"/>
+                            <constraint firstItem="CWh-KK-Eye" firstAttribute="centerX" secondItem="z9d-tv-roT" secondAttribute="centerX" id="AcY-kJ-HNu"/>
                             <constraint firstItem="YvP-FP-E9c" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="C1j-Nw-ZXi"/>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="trailing" secondItem="3bp-ZZ-nZs" secondAttribute="trailing" constant="20" id="CAs-Sz-1uQ">
                                 <variation key="heightClass=regular-widthClass=regular" constant="80"/>
@@ -1320,6 +1369,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="cSM-t7-qWL" firstAttribute="centerY" secondItem="2z3-0T-A7t" secondAttribute="centerY" id="H7q-fx-XS5"/>
                             <constraint firstItem="R9l-Tj-CeX" firstAttribute="trailing" secondItem="FPa-gG-5KV" secondAttribute="trailing" id="HcX-nv-Omz"/>
                             <constraint firstAttribute="bottom" secondItem="R9l-Tj-CeX" secondAttribute="bottom" id="I5J-bK-3Gt"/>
+                            <constraint firstItem="ss1-3H-smd" firstAttribute="centerX" secondItem="mIy-hv-gIg" secondAttribute="centerX" id="KEk-XX-DJG"/>
                             <constraint firstItem="Wlz-PA-Rkk" firstAttribute="top" secondItem="YvP-FP-E9c" secondAttribute="bottom" id="KTv-4q-i6a"/>
                             <constraint firstItem="Q7G-p0-aSC" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="N4X-gU-m7q">
                                 <variation key="heightClass=regular-widthClass=regular" constant="80"/>
@@ -1335,6 +1385,7 @@ let's see if you can do it again!</string>
                             </constraint>
                             <constraint firstItem="3Ll-VV-Gpv" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="SpS-e1-1B6"/>
                             <constraint firstItem="37R-ty-kPb" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="Ti0-mk-RSg"/>
+                            <constraint firstItem="NqF-dE-EOi" firstAttribute="centerY" secondItem="BmD-Tr-TJg" secondAttribute="centerY" id="To0-5m-lZ6"/>
                             <constraint firstItem="3iR-fP-Osy" firstAttribute="centerY" secondItem="2z3-0T-A7t" secondAttribute="centerY" id="Tx5-EI-aQF"/>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="trailing" secondItem="cSM-t7-qWL" secondAttribute="trailing" constant="30" id="VRR-D2-apM"/>
                             <constraint firstItem="37R-ty-kPb" firstAttribute="top" secondItem="YvP-FP-E9c" secondAttribute="bottom" id="Ve7-uF-O50"/>
@@ -1345,11 +1396,13 @@ let's see if you can do it again!</string>
                             <constraint firstItem="N5a-E1-3cg" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" constant="20" id="cwr-eo-msV">
                                 <variation key="heightClass=regular-widthClass=regular" constant="80"/>
                             </constraint>
+                            <constraint firstItem="fv2-MC-Zfc" firstAttribute="centerX" secondItem="WKY-V7-7fx" secondAttribute="centerX" id="dhA-Ip-gAw"/>
                             <constraint firstItem="Q7G-p0-aSC" firstAttribute="top" secondItem="7Dy-dL-GMi" secondAttribute="bottom" id="fj6-OQ-FMp">
                                 <variation key="heightClass=regular-widthClass=regular" constant="10"/>
                             </constraint>
                             <constraint firstItem="lRz-Qw-Pnj" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="gMA-kr-0Am"/>
                             <constraint firstItem="2z3-0T-A7t" firstAttribute="top" secondItem="FPa-gG-5KV" secondAttribute="top" constant="20" id="gvC-5Z-phQ"/>
+                            <constraint firstItem="CWh-KK-Eye" firstAttribute="centerY" secondItem="z9d-tv-roT" secondAttribute="centerY" id="hAH-xb-9vO"/>
                             <constraint firstItem="7Dy-dL-GMi" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="iNj-iw-JVF">
                                 <variation key="heightClass=regular-widthClass=regular" constant="80"/>
                             </constraint>
@@ -1365,7 +1418,9 @@ let's see if you can do it again!</string>
                             <constraint firstItem="lRz-Qw-Pnj" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="uaZ-5v-tU3"/>
                             <constraint firstItem="3iR-fP-Osy" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" constant="30" id="uj3-Tx-jk0"/>
                             <constraint firstItem="Q7G-p0-aSC" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="vTp-cV-dOt"/>
+                            <constraint firstItem="fv2-MC-Zfc" firstAttribute="centerY" secondItem="WKY-V7-7fx" secondAttribute="centerY" id="wHU-4a-zmG"/>
                             <constraint firstItem="KpS-l5-xEw" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="wrJ-gd-XsQ"/>
+                            <constraint firstItem="NqF-dE-EOi" firstAttribute="centerX" secondItem="BmD-Tr-TJg" secondAttribute="centerX" id="yCR-ac-dTu"/>
                             <constraint firstItem="Iwt-gq-ghg" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="yKH-FP-ktr"/>
                         </constraints>
                     </view>
@@ -1378,12 +1433,16 @@ let's see if you can do it again!</string>
                         <outlet property="accountButton" destination="3iR-fP-Osy" id="LXN-NC-wqN"/>
                         <outlet property="bonusStandView" destination="37R-ty-kPb" id="jSS-et-Ppp"/>
                         <outlet property="dailyGoalCount" destination="FRt-ke-DPV" id="W3Z-I0-6Hc"/>
+                        <outlet property="dailyGoalLoading" destination="tId-zi-OB9" id="Tcv-kB-i0D"/>
                         <outlet property="globalStandCount" destination="WKY-V7-7fx" id="R3s-RN-faB"/>
+                        <outlet property="globalStandingTodayLoading" destination="fv2-MC-Zfc" id="rf2-zE-Irc"/>
                         <outlet property="landingViewWithButton" destination="R9l-Tj-CeX" id="4Ry-0h-Iar"/>
                         <outlet property="landingViewWithPicture" destination="lRz-Qw-Pnj" id="cA5-Tt-3ru"/>
                         <outlet property="myCurrentStreakLabel" destination="mIy-hv-gIg" id="Ec6-JY-d1X"/>
+                        <outlet property="myCurrentStreakLoading" destination="ss1-3H-smd" id="Lxi-0U-DC3"/>
                         <outlet property="myPointsLabel" destination="rhB-y6-c0a" id="KBt-sg-P8X"/>
                         <outlet property="myTotalStandsLabel" destination="z9d-tv-roT" id="rtN-qo-Dki"/>
+                        <outlet property="myTotalStandsLoading" destination="CWh-KK-Eye" id="d5u-MG-afO"/>
                         <outlet property="onePoint" destination="Iwt-gq-ghg" id="hqJ-Xo-xMw"/>
                         <outlet property="pointsIcon" destination="9tL-5f-BSN" id="If8-HE-9RP"/>
                         <outlet property="pointsTitle" destination="sle-yn-ue8" id="I9V-2r-BSK"/>
@@ -1401,6 +1460,7 @@ let's see if you can do it again!</string>
                         <outlet property="streakFillView" destination="hbI-xq-uiL" id="yFp-xt-uU9"/>
                         <outlet property="streakImage" destination="poi-qy-dAp" id="T5s-TQ-SVl"/>
                         <outlet property="usaTotalStandsLabel" destination="BmD-Tr-TJg" id="Acs-n2-KYS"/>
+                        <outlet property="usaTotalStandsLoading" destination="NqF-dE-EOi" id="nMb-Nb-7bi"/>
                         <outlet property="yesterdayLabel" destination="3Ll-VV-Gpv" id="czE-xL-FiV"/>
                         <segue destination="E3o-WU-5q2" kind="presentation" identifier="account" id="fX4-Zp-iLS"/>
                     </connections>
@@ -1613,8 +1673,8 @@ let's see if you can do it again!</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZq-sZ-F7j">
-                                <rect key="frame" x="40" y="10" width="48.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter New Phone #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZq-sZ-F7j">
+                                <rect key="frame" x="40" y="10" width="146" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1688,7 +1748,7 @@ let's see if you can do it again!</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsS-ME-Jyn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter New Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsS-ME-Jyn">
                                 <rect key="frame" x="40" y="10" width="334" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

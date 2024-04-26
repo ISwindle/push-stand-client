@@ -41,6 +41,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBOutlet weak var streakFillView: UIView!
     @IBOutlet weak var streakFillButton: UIButton!
     
+    @IBOutlet weak var dailyGoalLoading: UIActivityIndicatorView!
+    @IBOutlet weak var myCurrentStreakLoading: UIActivityIndicatorView!
+    @IBOutlet weak var myTotalStandsLoading: UIActivityIndicatorView!
+    @IBOutlet weak var usaTotalStandsLoading: UIActivityIndicatorView!
+    @IBOutlet weak var globalStandingTodayLoading: UIActivityIndicatorView!
     
     var goal:Float = 0.0
     var current:Float = 0.0
@@ -299,6 +304,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         //Daily Goal
         callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: dailyGoalsQueryParams, httpMethod: .get) { result in
             DispatchQueue.main.async {
+                self.dailyGoalLoading.isHidden = true
+                self.globalStandingTodayLoading.isHidden = true
                 switch result {
                 case .success(let json):
                     if let goalValue = json["Goal"] as? String,
@@ -332,6 +339,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         //User Total Stands
         callAPIGateway(endpoint: userTotalStandsEndpoint, queryParams: userTotalStandsQueryParams, httpMethod: .get) { result in
             DispatchQueue.main.async {
+                self.myTotalStandsLoading.isHidden = true
                 switch result {
                 case .success(let json):
                     print(json)
@@ -352,6 +360,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         //Us Total
         callAPIGateway(endpoint: usTotalStandsEndpoint, queryParams: [:], httpMethod: .get) { result in
             DispatchQueue.main.async {
+                self.usaTotalStandsLoading.isHidden = true
                 switch result {
                 case .success(let json):
                     print(json)
@@ -374,6 +383,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         //Stand Streak
         callAPIGateway(endpoint: currentStandStreakEndpoint, queryParams: currentStandStreakQueryParams, httpMethod: .get) { result in
             DispatchQueue.main.async {
+                self.myCurrentStreakLoading.isHidden = true
                 switch result {
                 case .success(let json):
                     print(json)

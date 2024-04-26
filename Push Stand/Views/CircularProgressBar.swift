@@ -10,7 +10,7 @@ class CircularProgressBar: UIView {
     
     var progress: CGFloat = 0.0 {
         didSet {
-            if progress > 0 && !isAnimating {
+            if progress != oldValue { // Check if progress value has changed
                 animateProgress(to: progress)
             }
         }

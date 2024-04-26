@@ -47,7 +47,6 @@ class DailyQuestionViewController: UIViewController {
     var answerStreak = 0
     var activeAnswer: Bool = false
     
-    
     @IBAction func submitAnswer(_ sender: Any) {
         if activeAnswer {
             self.thumbsDownAnswer.image =  UIImage(named: "thumbDownEmpty")
@@ -254,7 +253,7 @@ class DailyQuestionViewController: UIViewController {
             }
         }
     }
-    
+
     func setupQuestion(question:String) {
         
         DispatchQueue.main.async {
