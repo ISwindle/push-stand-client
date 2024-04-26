@@ -420,7 +420,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -798,7 +798,7 @@ let's see if you can do it again!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH STAND" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2z3-0T-A7t">
-                                <rect key="frame" x="149.5" y="73" width="115" height="21.5"/>
+                                <rect key="frame" x="149.5" y="68" width="115" height="21.5"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -905,7 +905,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3bp-ZZ-nZs" userLabel="Top Icon Titles">
-                                <rect key="frame" x="20" y="167.5" width="374" height="20"/>
+                                <rect key="frame" x="20" y="162.5" width="374" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stand Streak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrV-CV-p34">
                                         <rect key="frame" x="0.0" y="0.0" width="124.5" height="20"/>
@@ -942,7 +942,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-E1-3cg" userLabel="Top Icons">
-                                <rect key="frame" x="20" y="114.5" width="374" height="48"/>
+                                <rect key="frame" x="20" y="109.5" width="374" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="red-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-ah-BgZ" userLabel="Stand Streak Icon">
                                         <rect key="frame" x="0.0" y="0.0" width="124.5" height="48"/>
@@ -962,16 +962,16 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YvP-FP-E9c" userLabel="Icon Change View">
-                                <rect key="frame" x="0.0" y="208.5" width="414" height="29"/>
+                                <rect key="frame" x="0.0" y="203.5" width="414" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="rhB-y6-c0a" userLabel="Points Home">
-                                        <rect key="frame" x="164" y="0.0" width="86.5" height="29"/>
+                                        <rect key="frame" x="168.5" y="1.5" width="77.5" height="26.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <color key="textColor" red="0.85882353779999998" green="0.74209670577561493" blue="0.49274153061206338" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
                                         </variation>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="red-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="poi-qy-dAp">
@@ -1011,13 +1011,13 @@ Stands</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wlz-PA-Rkk" userLabel="Circular View">
-                                <rect key="frame" x="0.0" y="237.5" width="414" height="332.5"/>
+                                <rect key="frame" x="0.0" y="232.5" width="414" height="337.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ov3-1B-ftm" customClass="CircularProgressBar" customModule="Push_Stand" customModuleProvider="target">
-                                        <rect key="frame" x="90.5" y="50" width="233" height="232.5"/>
+                                        <rect key="frame" x="89" y="50.5" width="236" height="236.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="FRt-ke-DPV">
-                                                <rect key="frame" x="35" y="98.5" width="163" height="36"/>
+                                                <rect key="frame" x="35.5" y="100.5" width="165" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1041,25 +1041,8 @@ Stands</string>
                                     <constraint firstItem="ov3-1B-ftm" firstAttribute="height" secondItem="Wlz-PA-Rkk" secondAttribute="height" multiplier="0.7" id="g14-MT-mAC"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRz-Qw-Pnj" userLabel="Home Pic View">
-                                <rect key="frame" x="0.0" y="208.5" width="414" height="449.5"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="eagle-home-pic" translatesAutoresizingMaskIntoConstraints="NO" id="qy0-r9-aID">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="qy0-r9-aID" secondAttribute="height" multiplier="1:1" id="agx-MG-fqF"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="qy0-r9-aID" firstAttribute="leading" secondItem="lRz-Qw-Pnj" secondAttribute="leading" id="FUA-T9-dfG"/>
-                                    <constraint firstItem="qy0-r9-aID" firstAttribute="top" secondItem="lRz-Qw-Pnj" secondAttribute="top" id="JJY-1T-zQE"/>
-                                    <constraint firstItem="qy0-r9-aID" firstAttribute="centerX" secondItem="lRz-Qw-Pnj" secondAttribute="centerX" id="dbL-gh-ibj"/>
-                                </constraints>
-                            </view>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3iR-fP-Osy" userLabel="Account">
-                                <rect key="frame" x="30" y="72" width="26" height="23.5"/>
+                                <rect key="frame" x="30" y="67" width="26" height="23.5"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
@@ -1074,7 +1057,7 @@ Stands</string>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cSM-t7-qWL">
-                                <rect key="frame" x="359" y="69" width="25" height="27.5"/>
+                                <rect key="frame" x="359" y="64" width="25" height="27.5"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="AU6-Hh-UBF">
@@ -1086,7 +1069,7 @@ Stands</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwt-gq-ghg">
-                                <rect key="frame" x="179" y="190.5" width="56" height="21.5"/>
+                                <rect key="frame" x="179" y="185.5" width="56" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="textColor" red="0.85882353779999998" green="0.74117648599999997" blue="0.49411764740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -1095,10 +1078,10 @@ Stands</string>
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KpS-l5-xEw" userLabel="Push Stand Title">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="208.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="203.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH STAND" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="SA6-Vp-XW0">
-                                        <rect key="frame" x="75" y="110.5" width="264" height="48"/>
+                                        <rect key="frame" x="75" y="108" width="264" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SA6-Vp-XW0" secondAttribute="height" multiplier="11:2" id="KAU-3d-81x"/>
                                         </constraints>
@@ -1122,6 +1105,23 @@ Stands</string>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="BBj-fo-GNU" appends="YES" id="Hw1-Z8-LWq"/>
                                 </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRz-Qw-Pnj" userLabel="Home Pic View">
+                                <rect key="frame" x="0.0" y="156" width="414" height="502"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="eagle-home-pic" translatesAutoresizingMaskIntoConstraints="NO" id="qy0-r9-aID">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="qy0-r9-aID" secondAttribute="height" multiplier="1:1" id="agx-MG-fqF"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="qy0-r9-aID" firstAttribute="leading" secondItem="lRz-Qw-Pnj" secondAttribute="leading" id="FUA-T9-dfG"/>
+                                    <constraint firstItem="qy0-r9-aID" firstAttribute="top" secondItem="lRz-Qw-Pnj" secondAttribute="top" id="JJY-1T-zQE"/>
+                                    <constraint firstItem="qy0-r9-aID" firstAttribute="centerX" secondItem="lRz-Qw-Pnj" secondAttribute="centerX" id="dbL-gh-ibj"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9l-Tj-CeX">
                                 <rect key="frame" x="0.0" y="658" width="414" height="238"/>
@@ -1185,9 +1185,9 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-ty-kPb" userLabel="Bonus Stand View">
-                                <rect key="frame" x="0.0" y="237.5" width="414" height="575.5"/>
+                                <rect key="frame" x="0.0" y="232.5" width="414" height="580.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hbI-xq-uiL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="575.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="580.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-0Y-yxE">
@@ -1237,10 +1237,10 @@ let's see if you can do it again!</string>
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-AV-dXn" userLabel="Got it button view">
-                                            <rect key="frame" x="0.0" y="322" width="414" height="254"/>
+                                            <rect key="frame" x="0.0" y="322" width="414" height="258.5"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-r3J">
-                                                    <rect key="frame" x="122" y="107" width="170" height="40"/>
+                                                    <rect key="frame" x="122" y="109.5" width="170" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="1JK-4E-gIk"/>
                                                         <constraint firstAttribute="width" constant="170" id="kzm-g8-lOo"/>
@@ -1349,10 +1349,11 @@ let's see if you can do it again!</string>
                                 <variation key="heightClass=regular-widthClass=regular" constant="10"/>
                             </constraint>
                             <constraint firstItem="lRz-Qw-Pnj" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="gMA-kr-0Am"/>
-                            <constraint firstItem="2z3-0T-A7t" firstAttribute="top" secondItem="FPa-gG-5KV" secondAttribute="top" constant="25" id="gvC-5Z-phQ"/>
+                            <constraint firstItem="2z3-0T-A7t" firstAttribute="top" secondItem="FPa-gG-5KV" secondAttribute="top" constant="20" id="gvC-5Z-phQ"/>
                             <constraint firstItem="7Dy-dL-GMi" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="iNj-iw-JVF">
                                 <variation key="heightClass=regular-widthClass=regular" constant="80"/>
                             </constraint>
+                            <constraint firstItem="lRz-Qw-Pnj" firstAttribute="top" secondItem="SA6-Vp-XW0" secondAttribute="bottom" id="jAb-hS-6nN"/>
                             <constraint firstItem="7Dy-dL-GMi" firstAttribute="top" secondItem="3Ll-VV-Gpv" secondAttribute="bottom" constant="15" id="jZe-xn-rWh">
                                 <variation key="heightClass=regular-widthClass=regular" constant="35"/>
                             </constraint>
@@ -1361,7 +1362,6 @@ let's see if you can do it again!</string>
                             </constraint>
                             <constraint firstItem="YvP-FP-E9c" firstAttribute="trailing" secondItem="FPa-gG-5KV" secondAttribute="trailing" id="kSv-JU-2gx"/>
                             <constraint firstItem="UBD-tg-X7g" firstAttribute="top" secondItem="Iwt-gq-ghg" secondAttribute="bottom" constant="3.5" id="lWu-PK-tJ4"/>
-                            <constraint firstItem="lRz-Qw-Pnj" firstAttribute="top" secondItem="KpS-l5-xEw" secondAttribute="bottom" id="nfU-MY-rOV"/>
                             <constraint firstItem="lRz-Qw-Pnj" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="uaZ-5v-tU3"/>
                             <constraint firstItem="3iR-fP-Osy" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" constant="30" id="uj3-Tx-jk0"/>
                             <constraint firstItem="Q7G-p0-aSC" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="vTp-cV-dOt"/>
@@ -2577,7 +2577,7 @@ let's see if you can do it again!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEP 2 of 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="6GF-aZ-4ur">
-                                <rect key="frame" x="126" y="108" width="162.5" height="35"/>
+                                <rect key="frame" x="125.5" y="108" width="163" height="35"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2809,7 +2809,7 @@ let's see if you can do it again!</string>
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a reminder time." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="80h-ur-hxQ">
-                                <rect key="frame" x="120.5" y="188" width="173.5" height="20.5"/>
+                                <rect key="frame" x="120.5" y="188" width="173" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2891,7 +2891,7 @@ let's see if you can do it again!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEP 2 of 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="bgs-1h-Nvj">
-                                <rect key="frame" x="126" y="117" width="162.5" height="35"/>
+                                <rect key="frame" x="125.5" y="117" width="163" height="35"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2988,7 +2988,7 @@ let's see if you can do it again!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="c1F-Ai-BbO">
-                                <rect key="frame" x="134.5" y="117" width="145.5" height="35"/>
+                                <rect key="frame" x="134.5" y="117" width="145" height="35"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -3120,7 +3120,7 @@ let's see if you can do it again!</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STAND at a time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbe-dj-eGC">
-                                                <rect key="frame" x="129" y="76" width="156.5" height="24"/>
+                                                <rect key="frame" x="128.5" y="76" width="157" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>

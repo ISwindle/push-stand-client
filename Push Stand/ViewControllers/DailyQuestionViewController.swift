@@ -48,7 +48,6 @@ class DailyQuestionViewController: UIViewController {
     var activeAnswer: Bool = false
     
     
-    
     @IBAction func submitAnswer(_ sender: Any) {
         if activeAnswer {
             self.thumbsDownAnswer.image =  UIImage(named: "thumbDownEmpty")
@@ -185,6 +184,7 @@ class DailyQuestionViewController: UIViewController {
                 }
             }
         }
+
         
         //Question
         callAPIGateway(endpoint: dailyQuestionEndpoint, queryParams: dailyQuestionsQueryParams, httpMethod: .get) { result in
