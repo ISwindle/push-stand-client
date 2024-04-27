@@ -38,13 +38,22 @@ class SignupBirthdateViewController: UIViewController {
     }
     
     @objc func switchValueDidChange(_ sender: UISwitch) {
-        if sender.isOn {
-            nextButton.isEnabled = true
-            dataManager.onboardingData.isAgeConfirmed = true
+        // Check if the selected date makes the user at least 18 years old
+        if let age = Calendar.current.dateComponents([.year], from: datePicker.date, to: Date()).year, age >= 18 {
+            // Enable the switch only if the age requirement is met
+            if sender.isOn {
+                nextButton.isEnabled = true
+                dataManager.onboardingData.isAgeConfirmed = true
+            } else {
+                // Handle the switch being turned off
+                nextButton.isEnabled = false
+                dataManager.onboardingData.isAgeConfirmed = false
+            }
         } else {
-            // Handle the switch being turned off
+            // If the selected date makes the user under 18, keep the switch off and disable the next button
+            sender.isOn = false
             nextButton.isEnabled = false
-            dataManager.onboardingData.isAgeConfirmed = false
+            showAlert(message: "")
         }
     }
     
@@ -66,6 +75,13 @@ class SignupBirthdateViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "SignUpReminderViewController") as! SignUpReminderViewController
         self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    // Function to display an alert message
+    func showAlert(message: String) {
+        let alertController = UIAlertController(title: "Important", message: "You must be at least 18 years of age to enter", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
     
 }
