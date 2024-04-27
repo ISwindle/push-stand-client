@@ -19,6 +19,7 @@ class AccountPhoneNumberViewController: UIViewController {
     @IBAction func changePhoneNumber(_ sender: Any) {
         guard let phone = phoneText.text, isValidPhoneNumber(phone) else {
                 print("Invalid email address")
+                self.showAlert(title: "Invalid Phone #", message: "The entered phone number is invalid.  Please try again.")
                 // Handle invalid email (e.g., show an alert or error message)
                 return
         }
@@ -67,27 +68,50 @@ class AccountPhoneNumberViewController: UIViewController {
             
             task.resume()
             // Create the alert controller
-            let alert = UIAlertController(title: "Update!", message: "Phone Number Updated Successfully", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Update!", message: "Phone number updated successfully", preferredStyle: .alert)
+            // Add OK action
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+                if let navigationController = self.navigationController {
+                    // If AccountSettingsViewController is two view controllers back in the navigation stack
+                    if let accountSettingsViewController = navigationController.viewControllers.first(where: { $0 is AccountSettingsViewController }) {
+                        navigationController.popToViewController(accountSettingsViewController, animated: true)
+                    }
+                }
+            })
+            alert.addAction(okAction)
             
             // Present the alert to the user
             self.present(alert, animated: true, completion: nil)
+        
             
             // Use DispatchQueue to dismiss the alert after a delay
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change 2.0 to your desired number of seconds
-                alert.dismiss(animated: true, completion: nil)
-            }
+            //DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change 2.0 to your desired number of seconds
+              //  alert.dismiss(animated: true, completion: nil)
+            //}
         }
         
     }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    func showAlert(title: String, message: String, dismissViewController: Bool = false) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            if dismissViewController {
+                if let navigationController = self.navigationController {
+                    // If AccountSettingsViewController is two view controllers back in the navigation stack
+                    if let accountSettingsViewController = navigationController.viewControllers.first(where: { $0 is AccountSettingsViewController }) {
+                        navigationController.popToViewController(accountSettingsViewController, animated: true)
+                    }
+                }
+            }
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

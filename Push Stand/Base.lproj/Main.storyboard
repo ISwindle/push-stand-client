@@ -1593,20 +1593,6 @@ let's see if you can do it again!</string>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Forgot Password?"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="xmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="H4D-SM-fYm">
-                                <rect key="frame" x="40" y="314.5" width="20" height="19"/>
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New password does not match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZN-tP-8nd">
-                                <rect key="frame" x="70" y="315" width="250" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="AiL-OM-1UE"/>
-                                    <constraint firstAttribute="height" constant="18" id="NlA-vP-nub"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cEa-7g-RcQ"/>
                         <color key="backgroundColor" red="0.083885732320000003" green="0.083885732320000003" blue="0.083885732320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1623,23 +1609,19 @@ let's see if you can do it again!</string>
                             </constraint>
                             <constraint firstItem="7bk-XS-j1L" firstAttribute="height" secondItem="Bnr-td-rVZ" secondAttribute="height" id="PU9-C5-E2E"/>
                             <constraint firstItem="1XD-hx-WRY" firstAttribute="leading" secondItem="Oi1-G0-FuZ" secondAttribute="leading" id="S1w-eo-a6L"/>
-                            <constraint firstItem="hZN-tP-8nd" firstAttribute="centerY" secondItem="H4D-SM-fYm" secondAttribute="centerY" id="Ub4-jQ-r0G"/>
                             <constraint firstItem="Bnr-td-rVZ" firstAttribute="leading" secondItem="Oi1-G0-FuZ" secondAttribute="leading" id="ZQa-BV-aod"/>
                             <constraint firstItem="tFs-bR-GsJ" firstAttribute="height" secondItem="Bnr-td-rVZ" secondAttribute="height" id="ZYN-fZ-tdF"/>
-                            <constraint firstItem="H4D-SM-fYm" firstAttribute="top" secondItem="tFs-bR-GsJ" secondAttribute="bottom" constant="8" symbolic="YES" id="cQj-65-XLx"/>
                             <constraint firstItem="cEa-7g-RcQ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Oi1-G0-FuZ" secondAttribute="trailing" symbolic="YES" id="d7f-l8-Rso"/>
                             <constraint firstItem="7bk-XS-j1L" firstAttribute="top" secondItem="p21-NT-SL9" secondAttribute="bottom" constant="10" id="eEg-cd-tAO"/>
                             <constraint firstItem="tFs-bR-GsJ" firstAttribute="centerX" secondItem="gws-56-G0O" secondAttribute="centerX" id="fC8-DH-9ZS"/>
                             <constraint firstItem="DBl-hR-no9" firstAttribute="top" secondItem="tFs-bR-GsJ" secondAttribute="bottom" constant="45" id="g1m-uz-yGa"/>
                             <constraint firstItem="cEa-7g-RcQ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1XD-hx-WRY" secondAttribute="trailing" symbolic="YES" id="i7v-3e-H4C"/>
                             <constraint firstItem="7bk-XS-j1L" firstAttribute="leading" secondItem="Oi1-G0-FuZ" secondAttribute="leading" id="iRx-aa-542"/>
-                            <constraint firstItem="H4D-SM-fYm" firstAttribute="leading" secondItem="Oi1-G0-FuZ" secondAttribute="leading" id="iuh-5X-mdR"/>
                             <constraint firstItem="tFs-bR-GsJ" firstAttribute="top" secondItem="1XD-hx-WRY" secondAttribute="bottom" constant="5" id="ldV-s2-CGt"/>
                             <constraint firstItem="Bnr-td-rVZ" firstAttribute="top" secondItem="Oi1-G0-FuZ" secondAttribute="bottom" constant="10" id="oOM-rH-R7h"/>
                             <constraint firstItem="Bnr-td-rVZ" firstAttribute="centerX" secondItem="gws-56-G0O" secondAttribute="centerX" id="pAo-z9-8iv"/>
                             <constraint firstItem="tFs-bR-GsJ" firstAttribute="leading" secondItem="Oi1-G0-FuZ" secondAttribute="leading" id="qPb-j3-uer"/>
                             <constraint firstItem="1XD-hx-WRY" firstAttribute="top" secondItem="7bk-XS-j1L" secondAttribute="bottom" constant="20" id="sDD-Xf-Yzf"/>
-                            <constraint firstItem="hZN-tP-8nd" firstAttribute="leading" secondItem="H4D-SM-fYm" secondAttribute="trailing" constant="10" id="uKj-8o-SAo"/>
                             <constraint firstItem="Oi1-G0-FuZ" firstAttribute="top" secondItem="cEa-7g-RcQ" secondAttribute="top" constant="10" id="xv1-jK-D2U"/>
                             <constraint firstItem="cEa-7g-RcQ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="p21-NT-SL9" secondAttribute="trailing" symbolic="YES" id="zRo-i7-eFO"/>
                             <constraint firstItem="p21-NT-SL9" firstAttribute="leading" secondItem="Oi1-G0-FuZ" secondAttribute="leading" id="zoL-J4-L5M"/>
@@ -3466,7 +3448,6 @@ Will you stand with us?</string>
         <image name="ticket" catalog="system" width="128" height="86"/>
         <image name="ticket.fill" catalog="system" width="128" height="86"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
-        <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

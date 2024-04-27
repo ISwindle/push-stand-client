@@ -20,6 +20,7 @@ class SignInViewController: UIViewController {
         
         guard let email = userNameTextField.text, !email.isEmpty else {
             print("Error: Email field is empty")
+            self.showAlert(title: "Enter Email", message: "Please enter your account's email first")
             return
         }
         
@@ -27,9 +28,11 @@ class SignInViewController: UIViewController {
             if let error = error {
                 // Handle errors
                 print("Error sending password reset email: \(error.localizedDescription)")
+                self.showAlert(title: "Error", message: "Password reset email unsuccessful")
             } else {
                 // Successfully sent password reset email
                 print("Password reset email sent successfully")
+                self.showAlert(title: "Password Reset", message: "Password reset email sent successfully")
             }
         }
         
@@ -49,7 +52,7 @@ class SignInViewController: UIViewController {
             
             if error != nil {
                 // Add Error Handling
-                let ac = UIAlertController(title: "Login Failed", message: "Username/Password Not Found", preferredStyle: .alert)
+                let ac = UIAlertController(title: "Login Failed", message: "Invalid username or password", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Try Again", style: .default))
                 self.present(ac, animated: true)
                 print("Error in Signin")
@@ -90,6 +93,10 @@ class SignInViewController: UIViewController {
         }
         
     }
-    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
     
 }
