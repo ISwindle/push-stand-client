@@ -39,6 +39,7 @@
 		2263D2182AF91E6900D2E136 /* SignUpReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2172AF91E6900D2E136 /* SignUpReminderViewController.swift */; };
 		2263D21A2AF91FEB00D2E136 /* SignUpVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */; };
 		2263D21C2AF926CB00D2E136 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */; };
+		226D35162BE04F2C0092592B /* NetworkErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D35152BE04F2C0092592B /* NetworkErrorViewController.swift */; };
 		227D0F9F2B1E17890001E568 /* DailyQuestionContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227D0F9E2B1E17890001E568 /* DailyQuestionContainerViewController.swift */; };
 		229BB4962B8177FF00959B3F /* SubmitQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229BB4952B8177FF00959B3F /* SubmitQuestionViewController.swift */; };
 		229C49FA2B14E0D100C8E065 /* HomeStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C49F92B14E0D100C8E065 /* HomeStatsViewController.swift */; };
@@ -115,6 +116,7 @@
 		2263D2172AF91E6900D2E136 /* SignUpReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReminderViewController.swift; sourceTree = "<group>"; };
 		2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVerificationViewController.swift; sourceTree = "<group>"; };
 		2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
+		226D35152BE04F2C0092592B /* NetworkErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorViewController.swift; sourceTree = "<group>"; };
 		227D0F9E2B1E17890001E568 /* DailyQuestionContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuestionContainerViewController.swift; sourceTree = "<group>"; };
 		229BB4952B8177FF00959B3F /* SubmitQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitQuestionViewController.swift; sourceTree = "<group>"; };
 		229C49F92B14E0D100C8E065 /* HomeStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				22C7F3D72BC58F3000F5BE9A /* AccountPasswordViewController.swift */,
 				22C7F3D92BC58F5000F5BE9A /* AccountPhoneNumberViewController.swift */,
 				8E52407F2BD9631D00A9989A /* LearnMoreViewController.swift */,
+				226D35152BE04F2C0092592B /* NetworkErrorViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				22AD2D302ADF583000B3B1A8 /* SceneDelegate.swift in Sources */,
 				222C4C462B14E41F006FC90B /* ShopViewController.swift in Sources */,
 				22D12AA62B3C93D2004880B6 /* SignInViewController.swift in Sources */,
+				226D35162BE04F2C0092592B /* NetworkErrorViewController.swift in Sources */,
 				223EA0882AEEDCA60055F94B /* SegmentedProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
