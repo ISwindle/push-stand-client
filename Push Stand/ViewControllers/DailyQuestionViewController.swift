@@ -130,6 +130,7 @@ class DailyQuestionViewController: UIViewController {
             self.thumbsDownAnswer.image =  UIImage(named: "thumb-down")
             self.thumbsUpAnswer.image =  UIImage(named: "thumbUpEmpty")
         }
+        self.answerStreak += 1
         // Fade in the label
         UIView.animate(withDuration: 1.0, animations: {
             if self.answerStreak > 0 && self.answerStreak % 10 == 0 {

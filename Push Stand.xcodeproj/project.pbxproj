@@ -723,7 +723,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.36;
+				MARKETING_VERSION = 0.37;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -758,7 +758,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.36;
+				MARKETING_VERSION = 0.37;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
