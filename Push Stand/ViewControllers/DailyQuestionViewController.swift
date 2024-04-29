@@ -47,6 +47,81 @@ class DailyQuestionViewController: UIViewController {
     var answerStreak = 0
     var activeAnswer: Bool = false
     
+    struct DailyQuestion : Codable {
+        let question: String
+        let truePercentage: Int
+        let falsePercentage: Int
+    }
+    
+    func fetchQuestion() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let todayString = dateFormatter.string(from: Date())
+        
+        // Attempt to retrieve the cached question
+        if let cachedQuestionData = UserDefaults.standard.object(forKey: "cachedDailyQuestion") as? Data,
+           let cachedQuestion = try? JSONDecoder().decode(DailyQuestion.self, from: cachedQuestionData),
+           UserDefaults.standard.string(forKey: "cachedQuestionDate") == todayString {
+            // Update UI with cached data
+            updateUIWithQuestion(cachedQuestion)
+            return
+        }
+        
+        // If not cached, fetch new data
+        fetchNewQuestionData()
+    }
+    
+    func updateUIWithQuestion(_ question: DailyQuestion) {
+        DispatchQueue.main.async {
+            self.yesterdayQuestionLabel.text = question.question
+            self.downPercentage.text = "\(question.falsePercentage)%"
+            self.upPercentage.text = "\(question.truePercentage)%"
+            UIView.animate(withDuration: 1.0, animations: {
+                self.yesterdaysResultsTitle.alpha = 1.0
+                self.yesterdayQuestionLabel.alpha = 1.0
+                self.downPercentage.alpha = 1.0
+                self.upPercentage.alpha = 1.0
+            })
+        }
+    }
+    
+    func fetchNewQuestionData() {
+        let previousDailyQuestionsQueryParams = ["Date": getPreviousDateFormatted()]
+        callAPIGateway(endpoint: dailyQuestionAnswerEndpoint, queryParams: previousDailyQuestionsQueryParams, httpMethod: .get) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let json):
+                    print(json)
+                    if let question = json["Question"] as? String,
+                       let truePercentage = json["TruePercentage"] as? Int,
+                       let falsePercentage = json["FalsePercentage"] as? Int {
+                        let newQuestion = DailyQuestion(question: question, truePercentage: truePercentage, falsePercentage: falsePercentage)
+                        self.updateUIWithQuestion(newQuestion)
+                        self.cacheQuestion(newQuestion)
+                    } else {
+                        self.yesterdayQuestionLabel.text = "No Question Available"
+                    }
+                case .failure(let error):
+                    self.yesterdayQuestionLabel.text = "No Question Results Available"
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    func cacheQuestion(_ question: DailyQuestion) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let todayString = dateFormatter.string(from: Date())
+        
+        UserDefaults.standard.set(todayString, forKey: "cachedQuestionDate")
+        if let encoded = try? JSONEncoder().encode(question) {
+            UserDefaults.standard.set(encoded, forKey: "cachedDailyQuestion")
+        }
+    }
+    
+    
+    
     @IBAction func submitAnswer(_ sender: Any) {
         if activeAnswer {
             self.thumbsDownAnswer.image =  UIImage(named: "thumbDownEmpty")
@@ -100,43 +175,7 @@ class DailyQuestionViewController: UIViewController {
         self.downPercentage.alpha = 0.0
         self.upPercentage.alpha = 0.0
         // Assuming callAPIGateway is correctly implemented and working
-        callAPIGateway(endpoint: dailyQuestionAnswerEndpoint, queryParams: previousDailyQuestionsQueryParams, httpMethod: .get) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let json):
-                    print(json)
-                    UIView.animate(withDuration: 0.5, animations: {
-                        // Handle successful response with JSON
-                        if let question = json["Question"] as? String,
-                           let truePercentage = json["TruePercentage"] as? Int,
-                           let falsePercentage = json["FalsePercentage"] as? Int {
-                            // Format the true and false percentages as strings
-                            let truePercentageString = String(truePercentage)
-                            let falsePercentageString = String(falsePercentage)
-                            // Update the label to display the question and percentages
-                            self.yesterdayQuestionLabel.text = "\(question)"
-                            self.downPercentage.text = "\(falsePercentageString)%"
-                            self.upPercentage.text = "\(truePercentageString)%"
-                        } else {
-                            self.yesterdayQuestionLabel.text = "No Question Available"
-                        }
-                    }) { (true) in
-                        
-                    }
-                case .failure(let error):
-                    // Handle error
-                    self.yesterdayQuestionLabel.text = "No Question Results Available"
-                    print("Error: \(error.localizedDescription)")
-                }
-                UIView.animate(withDuration: 1.0, animations: {
-                    self.yesterdayQuestionLabel.alpha = 1.0
-                    self.downPercentage.alpha = 1.0
-                    self.upPercentage.alpha = 1.0
-                }) { (true) in
-                    
-                }
-            }
-        }
+        fetchQuestion()
     }
     
     override func viewDidLoad() {
@@ -183,7 +222,7 @@ class DailyQuestionViewController: UIViewController {
                 }
             }
         }
-
+        
         
         //Question
         callAPIGateway(endpoint: dailyQuestionEndpoint, queryParams: dailyQuestionsQueryParams, httpMethod: .get) { result in
@@ -201,49 +240,9 @@ class DailyQuestionViewController: UIViewController {
                             }
                             return
                         }
-                            self.yesterdaysResultsView.alpha = 1.0
+                        self.yesterdaysResultsView.alpha = 1.0
                         // Assuming callAPIGateway is correctly implemented and working
-                        self.callAPIGateway(endpoint: self.dailyQuestionAnswerEndpoint, queryParams: previousDailyQuestionsQueryParams, httpMethod: .get) { result in
-                            DispatchQueue.main.async {
-                                switch result {
-                                case .success(let json):
-                                    print(json)
-                                    UIView.animate(withDuration: 0.5, animations: {
-                                        // Handle successful response with JSON
-                                        if let question = json["Question"] as? String,
-                                           let truePercentage = json["TruePercentage"] as? Int,
-                                           let falsePercentage = json["FalsePercentage"] as? Int {
-                                            // Format the true and false percentages as strings
-                                            let truePercentageString = String(truePercentage)
-                                            let falsePercentageString = String(falsePercentage)
-                                            // Update the label to display the question and percentages
-                                            self.yesterdayQuestionLabel.alpha = 0.0
-                                            self.yesterdaysResultsTitle.alpha = 1.0
-                                            self.downPercentage.alpha = 0.0
-                                            self.upPercentage.alpha = 0.0
-                                            self.yesterdayQuestionLabel.text = "\(question)"
-                                            self.downPercentage.text = "\(falsePercentageString)%"
-                                            self.upPercentage.text = "\(truePercentageString)%"
-                                        } else {
-                                            self.yesterdayQuestionLabel.text = "No Question Available"
-                                        }
-                                    }) { (true) in
-                                        
-                                    }
-                                case .failure(let error):
-                                    // Handle error
-                                    self.yesterdayQuestionLabel.text = "No Question Results Available"
-                                    print("Error: \(error.localizedDescription)")
-                                }
-                                UIView.animate(withDuration: 1.0, animations: {
-                                    self.yesterdayQuestionLabel.alpha = 1.0
-                                    self.downPercentage.alpha = 1.0
-                                    self.upPercentage.alpha = 1.0
-                                }) { (true) in
-                                    
-                                }
-                            }
-                        }
+                        self.fetchQuestion()
                     }
                 case .failure(let error):
                     // Handle error
@@ -253,7 +252,7 @@ class DailyQuestionViewController: UIViewController {
             }
         }
     }
-
+    
     func setupQuestion(question:String) {
         
         DispatchQueue.main.async {
