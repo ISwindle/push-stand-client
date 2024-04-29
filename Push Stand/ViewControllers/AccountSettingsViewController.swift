@@ -11,9 +11,7 @@ class AccountSettingsViewController: UIViewController {
     
     
     @IBOutlet weak var logoutButton: UIButton!
-    
     @IBOutlet weak var updateButton: UIButton!
-    
     @IBOutlet weak var birthdatePicker: UIDatePicker!
     @IBOutlet weak var reminderTimePicker: UIDatePicker!
     
