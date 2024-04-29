@@ -223,6 +223,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.alpha = 0
         let uuid = UUID()
         let uuidString = uuid.uuidString
         let dateFormatter = DateFormatter()
@@ -258,10 +259,20 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                     case .success(let data):
                         // Attempt to convert the data to a String
                         if let responseString = String(data: data, encoding: .utf8) {
-                            print(responseString)
                             if let boolVal = Bool(responseString) {
-                                let dateString = self.getDateFormatted()
-                                UserDefaults.standard.set(true, forKey: dateString)
+                                if boolVal {
+                                    let dateString = self.getDateFormatted()
+                                    UserDefaults.standard.set(true, forKey: dateString)
+                                    DispatchQueue.main.async {
+                                        if UserDefaults.standard.bool(forKey: dateString) {
+                                            self.landingViewWithButton.isHidden = true
+                                            self.pushStandTitle.isHidden = true
+                                            self.landingViewWithPicture.isHidden = true
+                                            self.accountButton.isHidden = false
+                                            self.tabBarController?.tabBar.alpha = 1
+                                        }
+                                    }
+                                }
                             }
                         } else {
                             // Handle the case where data could not be converted to a String
@@ -271,16 +282,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                         // Handle the error
                         print("Error: \(error.localizedDescription)")
                     }
-            DispatchQueue.main.async {
-                if UserDefaults.standard.bool(forKey: dateString) {
-                    self.landingViewWithButton.isHidden = true
-                    self.pushStandTitle.isHidden = true
-                    self.landingViewWithPicture.isHidden = true
-                    self.accountButton.isHidden = false
-                } else {
-                    self.tabBarController?.tabBar.alpha = 0
-                }
-            }
+            
             semaphore.signal() // Signal the semaphore once the task is completed
 
         }

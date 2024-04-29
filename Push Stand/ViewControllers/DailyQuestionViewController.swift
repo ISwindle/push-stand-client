@@ -93,9 +93,9 @@ class DailyQuestionViewController: UIViewController {
                 case .success(let json):
                     print(json)
                     if let question = json["Question"] as? String,
-                       let truePercentage = json["TruePercentage"] as? Int,
-                       let falsePercentage = json["FalsePercentage"] as? Int {
-                        let newQuestion = DailyQuestion(question: question, truePercentage: truePercentage, falsePercentage: falsePercentage)
+                       let truePercentage = json["TruePercentage"] as? Double,
+                       let falsePercentage = json["FalsePercentage"] as? Double {
+                        let newQuestion = DailyQuestion(question: question, truePercentage: Int(truePercentage), falsePercentage: Int(falsePercentage))
                         self.updateUIWithQuestion(newQuestion)
                         self.cacheQuestion(newQuestion)
                     } else {
