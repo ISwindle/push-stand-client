@@ -420,7 +420,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -1283,7 +1283,7 @@ let's see if you can do it again!</string>
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-AV-dXn" userLabel="Got it button view">
-                                            <rect key="frame" x="0.0" y="317" width="414" height="263.5"/>
+                                            <rect key="frame" x="0.0" y="317" width="414" height="264"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-r3J">
                                                     <rect key="frame" x="122" y="112" width="170" height="40"/>
@@ -2834,7 +2834,7 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-SL-DqD">
-                                <rect key="frame" x="107" y="299.5" width="200" height="150"/>
+                                <rect key="frame" x="107" y="319.5" width="200" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="2vl-NT-uAY">
                                         <variation key="heightClass=regular-widthClass=regular" constant="300"/>
@@ -2856,8 +2856,8 @@ let's see if you can do it again!</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every day, at the selected time, you will receive a reminder to Stand." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="MIs-iY-1xF">
-                                <rect key="frame" x="50" y="228.5" width="314" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every day, at the selected time, you will receive a reminder to Stand for our country." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="MIs-iY-1xF">
+                                <rect key="frame" x="50" y="228.5" width="314" height="61"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2866,10 +2866,10 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k30-Tz-RMw">
-                                <rect key="frame" x="0.0" y="449.5" width="414" height="446.5"/>
+                                <rect key="frame" x="0.0" y="469.5" width="414" height="426.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hf-gI-vlN">
-                                        <rect key="frame" x="164.5" y="198.5" width="85" height="50"/>
+                                        <rect key="frame" x="164.5" y="188.5" width="85" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="kMu-na-Gi6"/>
                                         </constraints>
