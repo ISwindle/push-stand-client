@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LogoButton" translatesAutoresizingMaskIntoConstraints="NO" id="Fph-D9-rfg">
-                                <rect key="frame" x="452" y="507" width="120" height="120"/>
+                                <rect key="frame" x="175" y="386" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="BJO-iX-Tsc">
                                         <variation key="heightClass=regular-widthClass=regular" constant="120"/>
@@ -28,7 +28,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH STAND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXb-r2-3z5">
-                                <rect key="frame" x="327.5" y="647" width="369.5" height="72"/>
+                                <rect key="frame" x="106.33333333333331" y="486" width="217.66666666666669" height="42"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -42,7 +42,9 @@
                         <constraints>
                             <constraint firstItem="NXb-r2-3z5" firstAttribute="top" secondItem="Fph-D9-rfg" secondAttribute="bottom" constant="20" id="1kf-QO-QQK"/>
                             <constraint firstItem="NXb-r2-3z5" firstAttribute="centerX" secondItem="Fph-D9-rfg" secondAttribute="centerX" id="A18-86-Dzy"/>
-                            <constraint firstItem="NXb-r2-3z5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="HSV-aS-KUe"/>
+                            <constraint firstItem="Fph-D9-rfg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-40" id="pnp-Ua-VyP">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-70"/>
+                            </constraint>
                             <constraint firstItem="Fph-D9-rfg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uDM-Gw-30w"/>
                         </constraints>
                     </view>

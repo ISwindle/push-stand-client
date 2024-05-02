@@ -1233,7 +1233,7 @@ Stands</string>
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-ty-kPb" userLabel="Bonus Stand View">
                                 <rect key="frame" x="0.0" y="232.5" width="414" height="580.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hbI-xq-uiL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="581"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="580.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-0Y-yxE">
@@ -1283,7 +1283,7 @@ let's see if you can do it again!</string>
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-AV-dXn" userLabel="Got it button view">
-                                            <rect key="frame" x="0.0" y="317" width="414" height="264"/>
+                                            <rect key="frame" x="0.0" y="317" width="414" height="263.5"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-r3J">
                                                     <rect key="frame" x="122" y="112" width="170" height="40"/>
@@ -2336,7 +2336,7 @@ let's see if you can do it again!</string>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LogoButton" translatesAutoresizingMaskIntoConstraints="NO" id="2KS-AB-Teh">
-                                <rect key="frame" x="167" y="327" width="80" height="80"/>
+                                <rect key="frame" x="167" y="368" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Jb1-bo-Fnb">
                                         <variation key="heightClass=regular-widthClass=regular" constant="120"/>
@@ -2347,7 +2347,7 @@ let's see if you can do it again!</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH STAND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VrC-4a-paV">
-                                <rect key="frame" x="98" y="427" width="218" height="42"/>
+                                <rect key="frame" x="98" y="468" width="218" height="42"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2387,6 +2387,9 @@ let's see if you can do it again!</string>
                             <constraint firstItem="p5L-hr-I1R" firstAttribute="height" secondItem="HRp-AU-nEc" secondAttribute="height" id="734-aY-kbz"/>
                             <constraint firstItem="VrC-4a-paV" firstAttribute="top" secondItem="2KS-AB-Teh" secondAttribute="bottom" constant="20" id="EsB-ZJ-bUL"/>
                             <constraint firstItem="p5L-hr-I1R" firstAttribute="top" secondItem="HRp-AU-nEc" secondAttribute="bottom" constant="25" id="GiV-FI-r0I"/>
+                            <constraint firstItem="2KS-AB-Teh" firstAttribute="centerY" secondItem="sKK-wH-TUR" secondAttribute="centerY" constant="-40" id="NX6-dJ-bic">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-70"/>
+                            </constraint>
                             <constraint firstItem="hNJ-a0-hU2" firstAttribute="centerX" secondItem="sKK-wH-TUR" secondAttribute="centerX" id="QEM-SB-d0Q"/>
                             <constraint firstItem="D5k-F9-RwW" firstAttribute="bottom" secondItem="hNJ-a0-hU2" secondAttribute="bottom" constant="25" id="Rs6-xq-kuX">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
@@ -2396,7 +2399,6 @@ let's see if you can do it again!</string>
                                 <variation key="heightClass=regular-widthClass=regular" constant="200"/>
                             </constraint>
                             <constraint firstItem="hNJ-a0-hU2" firstAttribute="top" secondItem="p5L-hr-I1R" secondAttribute="bottom" constant="20" id="jdd-55-HFL"/>
-                            <constraint firstItem="VrC-4a-paV" firstAttribute="centerY" secondItem="sKK-wH-TUR" secondAttribute="centerY" id="ucX-Zy-ySg"/>
                             <constraint firstItem="p5L-hr-I1R" firstAttribute="leading" secondItem="HRp-AU-nEc" secondAttribute="leading" id="vYq-dI-myl"/>
                             <constraint firstItem="hNJ-a0-hU2" firstAttribute="height" secondItem="HRp-AU-nEc" secondAttribute="height" id="y5L-OO-bt0"/>
                             <constraint firstItem="HRp-AU-nEc" firstAttribute="centerX" secondItem="sKK-wH-TUR" secondAttribute="centerX" id="yAz-fK-Vhq"/>
