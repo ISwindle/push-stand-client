@@ -420,7 +420,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -573,7 +573,9 @@ let's see if you can do it again!</string>
                             <constraint firstItem="5ua-2j-fAs" firstAttribute="top" secondItem="Sy1-da-Psm" secondAttribute="top" constant="10" id="zya-Xl-n21"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.bubble" catalog="system" selectedImage="questionmark.bubble.fill" id="asJ-Ax-25m"/>
+                    <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.bubble" catalog="system" badgeValue="!" selectedImage="questionmark.bubble.fill" id="asJ-Ax-25m">
+                        <color key="badgeColor" systemColor="systemRedColor"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="answerStackview" destination="RvJ-ly-A4h" id="uB5-SQ-DKQ"/>
                         <outlet property="bonusAnswerView" destination="wKn-5I-JNK" id="8Si-PJ-QgR"/>
@@ -588,6 +590,7 @@ let's see if you can do it again!</string>
                         <outlet property="streakSegmentedBar" destination="GUd-Wy-Mru" id="KyC-Oe-qWN"/>
                         <outlet property="submitAfterSelection" destination="xP8-dz-DLW" id="wea-tg-7QJ"/>
                         <outlet property="submitButton" destination="0Hp-Xe-5f3" id="aSV-LV-164"/>
+                        <outlet property="tabBarItemBadge" destination="asJ-Ax-25m" id="Olq-wo-ldH"/>
                         <outlet property="thumbsDownAnswer" destination="PDF-nt-EAr" id="gTw-nU-4XI"/>
                         <outlet property="thumbsUpAnswer" destination="beI-hR-R3d" id="tNX-TF-qNj"/>
                         <outlet property="todaysQuestionView" destination="BwL-86-JUO" id="rXv-P2-Nz7"/>
@@ -629,16 +632,16 @@ let's see if you can do it again!</string>
                                     <constraint firstAttribute="height" constant="230" id="CmE-op-gLP"/>
                                 </constraints>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 </variation>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gv-fj-SVr">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gv-fj-SVr">
                                 <rect key="frame" x="40" y="375.5" width="334" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="2Rc-au-1El"/>
@@ -962,6 +965,7 @@ Stands</string>
                                         </variation>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="jEa-vN-uLe">
                                         <variation key="heightClass=regular-widthClass=regular" constant="30"/>
@@ -1233,7 +1237,7 @@ Stands</string>
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-ty-kPb" userLabel="Bonus Stand View">
                                 <rect key="frame" x="0.0" y="232.5" width="414" height="580.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hbI-xq-uiL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="580.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="581"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-0Y-yxE">
@@ -1283,7 +1287,7 @@ let's see if you can do it again!</string>
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-AV-dXn" userLabel="Got it button view">
-                                            <rect key="frame" x="0.0" y="317" width="414" height="263.5"/>
+                                            <rect key="frame" x="0.0" y="317" width="414" height="264"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-r3J">
                                                     <rect key="frame" x="122" y="112" width="170" height="40"/>
@@ -1447,7 +1451,7 @@ let's see if you can do it again!</string>
                         <outlet property="pointsIcon" destination="9tL-5f-BSN" id="If8-HE-9RP"/>
                         <outlet property="pointsTitle" destination="sle-yn-ue8" id="I9V-2r-BSK"/>
                         <outlet property="pushStandButton" destination="sMR-kY-hS2" id="xrQ-Bl-Hf8"/>
-                        <outlet property="pushStandGesture" destination="BBj-fo-GNU" id="zmM-PM-0Iw"/>
+                        <outlet property="pushStandLongPressGesture" destination="BBj-fo-GNU" id="PrS-vI-1YT"/>
                         <outlet property="pushStandTitle" destination="KpS-l5-xEw" id="wlG-iQ-rQP"/>
                         <outlet property="questionStreakIcon" destination="O3e-xe-AEd" id="87x-Dt-bR7"/>
                         <outlet property="questionStreakTitle" destination="FgB-z7-uba" id="PDk-0k-ief"/>
@@ -1468,7 +1472,7 @@ let's see if you can do it again!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7U-Tz-u7S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="BBj-fo-GNU"/>
             </objects>
-            <point key="canvasLocation" x="-1250.4000000000001" y="660.71964017991013"/>
+            <point key="canvasLocation" x="-1250.7246376811595" y="660.26785714285711"/>
         </scene>
         <!--Account-->
         <scene sceneID="UeT-BF-sod">

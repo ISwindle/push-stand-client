@@ -26,6 +26,8 @@ class DailyQuestionViewController: UIViewController {
     @IBOutlet weak var thumbsUpAnswer: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
     
+    @IBOutlet weak var tabBarItemBadge: UITabBarItem!
+    
     @IBOutlet weak var todaysQuestionView: UIView!
     @IBOutlet weak var yesterdaysResultsView: UIView!
     @IBOutlet weak var yesterdaysQuestion: UIView!
@@ -143,6 +145,7 @@ class DailyQuestionViewController: UIViewController {
                 self.streakPointLabel.alpha = 0.0 // Make the label fully transparent
             }, completion: nil)
         }
+        
         self.submitButton.isUserInteractionEnabled = false
         self.submitButton.isHidden = true
         let queryParams = [
@@ -157,12 +160,13 @@ class DailyQuestionViewController: UIViewController {
         let unixTimestamp = Date().timeIntervalSince1970
         let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": "2"]
         postPoints(endpoint: userPointsEndpoint, queryParams: postPointQueryParams) { result in
-            
+        
         }
         UIView.animate(withDuration: 1.0, animations: {
             self.todaysQuestionView.alpha = 0.0
             self.submitButton.alpha = 0.0
             self.dailyQuestionTitle.alpha = 0.0 //Daily Question Title fading out
+            self.tabBarItemBadge.badgeValue = nil //Alert badge fading out
         }) { (true) in
             UIView.animate(withDuration: 1.0, animations: {
                 self.yesterdaysResultsView.alpha = 1.0
@@ -177,6 +181,7 @@ class DailyQuestionViewController: UIViewController {
         self.upPercentage.alpha = 0.0
         // Assuming callAPIGateway is correctly implemented and working
         fetchQuestion()
+        
     }
     
     override func viewDidLoad() {

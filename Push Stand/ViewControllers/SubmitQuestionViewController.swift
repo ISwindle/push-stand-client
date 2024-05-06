@@ -19,6 +19,8 @@ class SubmitQuestionViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        questionSuggestionView.layer.cornerRadius = 10
+        questionSuggestionView.layer.masksToBounds = true
         
         // Do any additional setup after loading the view.
         questionSuggestionView.delegate = self
@@ -27,6 +29,9 @@ class SubmitQuestionViewController: UIViewController, UITextViewDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(exitIconTapped))
         exitIcon.isUserInteractionEnabled = true
         exitIcon.addGestureRecognizer(tapGesture)
+        
+        // Initially set submit button's alpha to 0
+        submitButton.alpha = 0
     }
         
     @objc func exitIconTapped() {
@@ -50,6 +55,19 @@ class SubmitQuestionViewController: UIViewController, UITextViewDelegate {
         if textView.text == "Max 150 Characters" || textView.text.isEmpty {
             textView.text = "" // Clear the text
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+            // Check if text view has content, if yes, make submit button visible
+            if !textView.text.isEmpty {
+                UIView.animate(withDuration: 0.3) {
+                    self.submitButton.alpha = 1
+                }
+            } else {
+                UIView.animate(withDuration: 0.3) {
+                    self.submitButton.alpha = 0
+                }
+            }
     }
 
     @IBAction func submitSuggestion(_ sender: Any) {

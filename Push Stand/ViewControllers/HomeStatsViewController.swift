@@ -12,7 +12,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBOutlet weak var landingViewWithButton: UIView!
     @IBOutlet weak var landingViewWithPicture: UIView!
     @IBOutlet weak var pushStandTitle: UIView!
-    @IBOutlet var pushStandGesture: UITapGestureRecognizer!
+    @IBOutlet var pushStandLongPressGesture: UILongPressGestureRecognizer!
     @IBOutlet weak var standProgressBar: CircularProgressBar!
     @IBOutlet weak var dailyGoalCount: UILabel!
     @IBOutlet weak var globalStandCount: UILabel!
@@ -71,13 +71,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
         
         // Connect the tap gesture recognizer action
-        pushStandGesture.addTarget(self, action: #selector(pushStand(_:)))
-        pushStandButton.addGestureRecognizer(pushStandGesture)
+        //pushStandGesture.addTarget(self, action: #selector(pushStand(_:)))
+        //pushStandButton.addGestureRecognizer(pushStandGesture)
         
-        
-        // Connect the tap gesture recognizer action
-        
-        // Example usage
         
         yesterdayLabel.layer.cornerRadius = 16
         yesterdayLabel.layer.masksToBounds = true
@@ -85,23 +81,38 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         yesterdayLabel.layer.borderWidth = 1.0 // Adjust the width as needed
         
         
-        
-        
-        
         // Ensure the image view can interact with the user
         standStreakIcon.isUserInteractionEnabled = true
+        standStreakTitle.isUserInteractionEnabled = true
         questionStreakIcon.isUserInteractionEnabled = true
+        questionStreakTitle.isUserInteractionEnabled = true
         pointsIcon.isUserInteractionEnabled = true
+        pointsTitle.isUserInteractionEnabled = true
+        
+        // Create a UILongPressGestureRecognizer
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        longPressGesture.minimumPressDuration = 0.0 // Adjust the minimum press duration as needed
+        pushStandButton.addGestureRecognizer(longPressGesture)
         
         // Create a UITapGestureRecognizer
         let standStreakGesture = UITapGestureRecognizer(target: self, action: #selector(standStreakTapped))
         standStreakIcon.addGestureRecognizer(standStreakGesture)
+        let standStreakGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(standStreakTapped))
+        standStreakTitle.addGestureRecognizer(standStreakGestureRecognizer)
+        
         let questionStreakGesture = UITapGestureRecognizer(target: self, action: #selector(questionStreakTapped))
         questionStreakIcon.addGestureRecognizer(questionStreakGesture)
+        let questionStreakTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(questionStreakTapped))
+        questionStreakTitle.addGestureRecognizer(questionStreakTapGestureRecognizer)
+        
         let pointsGesture = UITapGestureRecognizer(target: self, action: #selector(pointsTapped))
         pointsIcon.addGestureRecognizer(pointsGesture)
+        let pointsTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(pointsTapped))
+        pointsTitle.addGestureRecognizer(pointsTapGestureRecognizer)
+        
         let accountsGesture = UITapGestureRecognizer(target: self, action: #selector(accountsTapped))
         accountButton.addGestureRecognizer(accountsGesture)
+        
         let shareGesture = UITapGestureRecognizer(target: self, action: #selector(sendMessage))
         shareIcon.addGestureRecognizer(shareGesture)
         
@@ -149,6 +160,26 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
         // Start the task
         task.resume()
+    }
+
+    // Action for long press gesture
+    @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            // Scale down the button by 20%
+            UIView.animate(withDuration: 0.1) {
+                self.pushStandButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            }
+        } else if gesture.state == .ended || gesture.state == .cancelled {
+            // Scale back to original size
+            UIView.animate(withDuration: 0.1) {
+                self.pushStandButton.transform = .identity
+            }
+            // Haptic triggered
+            tapHaptic()
+            
+            // Long press ended, trigger the pushStand method
+            pushStand(nil) // Call pushStand with nil sender
+        }
     }
 
     
@@ -456,7 +487,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         segmentedStreakBar.value = myCurrentStreak % 10
     }
     
-    @IBAction func pushStand(_ sender: UITapGestureRecognizer) {
+    @IBAction func pushStand(_ sender: UILongPressGestureRecognizer?) {
         let uuid = UUID()
         let uuidString = uuid.uuidString
         let dateString = getDateFormatted()
@@ -479,7 +510,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         UserDefaults.standard.set(true, forKey: dateString)
         self.appDelegate.userDefault.set(true, forKey: dateString)
         self.appDelegate.userDefault.synchronize()
-        UIView.animate(withDuration: 0.0, animations: {
+        UIView.animate(withDuration: 0.0, delay: 0.2, animations: {
             // This will start the animation to fade out the view
             self.pushStandButton.alpha = 0
         }) { (true) in
@@ -634,7 +665,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         // let number = put number here to test daily goal and usa total stands
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 1
+        formatter.maximumFractionDigits = 2
             
         if number >= 1000000000 {
             let billion = Double(number) / 1_000_000_000

@@ -34,6 +34,7 @@ class CircularProgressBar: UIView {
     }
     
     private func createCircularPath() {
+
         self.backgroundColor = .clear
         // This will adjust how long each dash (lineWidth) is depending on circle dimensions
         // So smaller phones should have shorter lineWidth
