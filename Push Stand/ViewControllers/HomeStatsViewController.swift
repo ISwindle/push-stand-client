@@ -165,14 +165,16 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     // Action for long press gesture
     @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
         if gesture.state == .began {
-            // Scale down the button by 20%
+            // Scale down the button by 15% and shade button by 15%
             UIView.animate(withDuration: 0.1) {
-                self.pushStandButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                self.pushStandButton.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+                self.pushStandButton.alpha = 0.85
             }
         } else if gesture.state == .ended || gesture.state == .cancelled {
             // Scale back to original size
             UIView.animate(withDuration: 0.1) {
                 self.pushStandButton.transform = .identity
+                self.pushStandButton.alpha = 1.0
             }
             // Haptic triggered
             tapHaptic()
