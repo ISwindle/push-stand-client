@@ -66,8 +66,28 @@ class AccountPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Disable the submit button initially
+        submitButton.isEnabled = false
+        
+        // Add observers for text field editing changes
+        currentPassword.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        newPassword.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        confirmNewPassword.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
         // Do any additional setup after loading the view.
     }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        // Check if all three text fields have text
+        let currentPasswordText = currentPassword.text ?? ""
+        let newPasswordText = newPassword.text ?? ""
+        let confirmNewPasswordText = confirmNewPassword.text ?? ""
+        let allFieldsFilled = !currentPasswordText.isEmpty && !newPasswordText.isEmpty && !confirmNewPasswordText.isEmpty
+        
+        // Enable or disable the submit button based on the condition
+        submitButton.isEnabled = allFieldsFilled
+    }
+    
     func showAlert(title: String, message: String, dismissViewController: Bool = false) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in

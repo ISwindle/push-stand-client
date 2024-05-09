@@ -94,8 +94,27 @@ class AccountPhoneNumberViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Hide the submit button initially
+        confirmationButton.isEnabled = false
+                
+        // Add observer for text field editing changes
+        phoneText.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+
         // Do any additional setup after loading the view.
     }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        
+        // Assuming nextButton is accessible here, and phoneNumberTextField is your UITextField
+            if let text = textField.text, isValidPhoneNumber(text) {
+                confirmationButton.isEnabled = true
+            } else {
+                confirmationButton.isEnabled = false
+            }
+        
+    }
+    
+        // Do any additional setup after loading the view.
     
     func showAlert(title: String, message: String, dismissViewController: Bool = false) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

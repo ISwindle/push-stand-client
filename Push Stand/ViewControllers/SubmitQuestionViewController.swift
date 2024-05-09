@@ -30,8 +30,9 @@ class SubmitQuestionViewController: UIViewController, UITextViewDelegate {
         exitIcon.isUserInteractionEnabled = true
         exitIcon.addGestureRecognizer(tapGesture)
         
-        // Initially set submit button's alpha to 0
-        submitButton.alpha = 0
+        // Hide the submit button initially
+        submitButton.isEnabled = false
+                
     }
         
     @objc func exitIconTapped() {
@@ -58,16 +59,8 @@ class SubmitQuestionViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-            // Check if text view has content, if yes, make submit button visible
-            if !textView.text.isEmpty {
-                UIView.animate(withDuration: 0.3) {
-                    self.submitButton.alpha = 1
-                }
-            } else {
-                UIView.animate(withDuration: 0.3) {
-                    self.submitButton.alpha = 0
-                }
-            }
+        // Enable or disable the submit button based on text view content
+        submitButton.isEnabled = !textView.text.isEmpty
     }
 
     @IBAction func submitSuggestion(_ sender: Any) {

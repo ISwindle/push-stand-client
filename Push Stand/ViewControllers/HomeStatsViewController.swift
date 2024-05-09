@@ -64,6 +64,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     let userPointsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/points"
     let pushStandEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/stand"
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Ensure the image view can receive touch events
@@ -253,6 +254,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         }
         
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -484,8 +486,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     
     @IBAction func acknowledgeStreakFilled(_ sender: Any) {
-        bonusStandView.isHidden = true
-        streakFillView.isHidden = true
+        bonusStandView.isHidden = false
+        streakFillView.isHidden = false
         segmentedStreakBar.value = myCurrentStreak % 10
     }
     
