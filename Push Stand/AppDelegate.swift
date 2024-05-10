@@ -70,11 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             options: authOptions,
             completionHandler: {_, _ in })
         application.registerForRemoteNotifications()
-        
-        
+
         
         return true
     }
+    
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken

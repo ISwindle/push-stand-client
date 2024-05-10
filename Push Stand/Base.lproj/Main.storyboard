@@ -420,7 +420,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -996,16 +996,6 @@ Stands</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YvP-FP-E9c" userLabel="Icon Change View">
                                 <rect key="frame" x="0.0" y="203.5" width="414" height="29"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="rhB-y6-c0a" userLabel="Points Home">
-                                        <rect key="frame" x="168.5" y="1.5" width="77.5" height="26.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                        <color key="textColor" red="0.85882353779999998" green="0.74209670577561493" blue="0.49274153061206338" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
-                                        </variation>
-                                    </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="red-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="poi-qy-dAp">
                                         <rect key="frame" x="364" y="1.5" width="22" height="22"/>
                                         <constraints>
@@ -1017,6 +1007,16 @@ Stands</string>
                                             </constraint>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="rhB-y6-c0a" userLabel="Points Home">
+                                        <rect key="frame" x="207" y="14.5" width="0.0" height="0.0"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <color key="textColor" red="0.85882353779999998" green="0.74209670577561493" blue="0.49274153061206338" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
+                                        </variation>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBD-tg-X7g" customClass="SegmentedBar" customModule="Push_Stand" customModuleProvider="target">
                                         <rect key="frame" x="60" y="7" width="294" height="15"/>
                                         <constraints>
@@ -1238,7 +1238,7 @@ Stands</string>
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-ty-kPb" userLabel="Bonus Stand View">
                                 <rect key="frame" x="0.0" y="232.5" width="414" height="580.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hbI-xq-uiL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="581"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="580.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-0Y-yxE">
@@ -1288,7 +1288,7 @@ let's see if you can do it again!</string>
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-AV-dXn" userLabel="Got it button view">
-                                            <rect key="frame" x="0.0" y="317" width="414" height="264"/>
+                                            <rect key="frame" x="0.0" y="317" width="414" height="263.5"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-r3J">
                                                     <rect key="frame" x="122" y="115" width="170" height="34"/>
@@ -2453,8 +2453,19 @@ let's see if you can do it again!</string>
                                     <action selector="signInWithPhone:" destination="Qiy-ev-pog" eventType="touchUpInside" id="YRC-Xt-D1b"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By creating an account, you agree to Push Stand's Terms of Service and Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8R-9A-RLh">
-                                <rect key="frame" x="60" y="331" width="294" height="33.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Service and Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8R-9A-RLh">
+                                <rect key="frame" x="0.0" y="353" width="414" height="17"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up, you agree to Push Stand's" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNc-0f-Wh3">
+                                <rect key="frame" x="0.0" y="331" width="414" height="17"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2465,26 +2476,31 @@ let's see if you can do it again!</string>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcb-X3-BUc"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="HNc-0f-Wh3" firstAttribute="leading" secondItem="Bcb-X3-BUc" secondAttribute="leading" id="0OX-gy-CcX"/>
                             <constraint firstItem="SiH-gK-CbQ" firstAttribute="top" secondItem="6af-e7-3P0" secondAttribute="bottom" constant="45" id="234-Hl-ecK">
                                 <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                             </constraint>
                             <constraint firstItem="X8R-9A-RLh" firstAttribute="centerX" secondItem="MhG-FZ-9fY" secondAttribute="centerX" id="4NH-gI-cFG"/>
                             <constraint firstItem="6af-e7-3P0" firstAttribute="centerX" secondItem="MhG-FZ-9fY" secondAttribute="centerX" id="BC2-RT-oVx"/>
+                            <constraint firstItem="HNc-0f-Wh3" firstAttribute="centerX" secondItem="MhG-FZ-9fY" secondAttribute="centerX" id="F2k-D3-8QB"/>
+                            <constraint firstItem="HNc-0f-Wh3" firstAttribute="top" secondItem="SiH-gK-CbQ" secondAttribute="bottom" constant="100" id="HvH-zB-U7n"/>
                             <constraint firstItem="SiH-gK-CbQ" firstAttribute="centerX" secondItem="MhG-FZ-9fY" secondAttribute="centerX" id="Jja-qK-DMZ"/>
-                            <constraint firstItem="X8R-9A-RLh" firstAttribute="leading" secondItem="Bcb-X3-BUc" secondAttribute="leading" constant="60" id="R5h-Y4-YnQ">
+                            <constraint firstItem="X8R-9A-RLh" firstAttribute="leading" secondItem="Bcb-X3-BUc" secondAttribute="leading" id="R5h-Y4-YnQ">
                                 <variation key="heightClass=regular-widthClass=regular" constant="200"/>
                             </constraint>
                             <constraint firstItem="6af-e7-3P0" firstAttribute="top" secondItem="Bcb-X3-BUc" secondAttribute="top" constant="69" id="XnM-Vh-zwp"/>
                             <constraint firstItem="SiH-gK-CbQ" firstAttribute="leading" secondItem="Bcb-X3-BUc" secondAttribute="leading" constant="50" id="lMb-Fh-ho5">
                                 <variation key="heightClass=regular-widthClass=regular" constant="200"/>
                             </constraint>
-                            <constraint firstItem="X8R-9A-RLh" firstAttribute="top" secondItem="SiH-gK-CbQ" secondAttribute="bottom" constant="100" id="rs3-wT-P5q"/>
+                            <constraint firstItem="X8R-9A-RLh" firstAttribute="top" secondItem="HNc-0f-Wh3" secondAttribute="bottom" constant="5" id="ore-E2-av8"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Vfl-3y-AyQ"/>
                     <navigationItem key="navigationItem" id="hF7-7K-MTO"/>
                     <connections>
+                        <outlet property="hyperlinkLabel" destination="X8R-9A-RLh" id="F2j-LM-Uc1"/>
                         <outlet property="signInButton" destination="SiH-gK-CbQ" id="waC-mR-eoC"/>
                     </connections>
                 </viewController>

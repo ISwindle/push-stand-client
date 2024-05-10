@@ -27,3 +27,4 @@ class TermsOfServiceViewController: UIViewController, WKNavigationDelegate {
     }
     
 }
+
