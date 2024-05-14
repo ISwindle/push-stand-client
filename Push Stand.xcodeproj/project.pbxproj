@@ -32,6 +32,7 @@
 		223EA0862AEEDB290055F94B /* IconWithTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0852AEEDB290055F94B /* IconWithTextView.swift */; };
 		223EA0882AEEDCA60055F94B /* SegmentedProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0872AEEDCA60055F94B /* SegmentedProgressBar.swift */; };
 		223EA08A2AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */; };
+		224F249A2BF3CF190083FE09 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F24992BF3CF190083FE09 /* NetworkService.swift */; };
 		2263D2102AF8A11200D2E136 /* LandingRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */; };
 		2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */; };
 		2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */; };
@@ -109,6 +110,7 @@
 		223EA0852AEEDB290055F94B /* IconWithTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconWithTextView.swift; sourceTree = "<group>"; };
 		223EA0872AEEDCA60055F94B /* SegmentedProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedProgressBar.swift; sourceTree = "<group>"; };
 		223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInitialPhoneViewController.swift; sourceTree = "<group>"; };
+		224F24992BF3CF190083FE09 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = "Push Stand/NetworkService.swift"; sourceTree = SOURCE_ROOT; };
 		2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingRootViewController.swift; sourceTree = "<group>"; };
 		2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneViewController.swift; sourceTree = "<group>"; };
 		2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUsernamePasswordViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 		229BB4972B84437900959B3F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				224F24992BF3CF190083FE09 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				22DB7CE92B93886300581C10 /* AccountSettingsViewController.swift in Sources */,
 				227D0F9F2B1E17890001E568 /* DailyQuestionContainerViewController.swift in Sources */,
 				22DB7CE72B93864A00581C10 /* HelpCenterViewController.swift in Sources */,
+				224F249A2BF3CF190083FE09 /* NetworkService.swift in Sources */,
 				8E52D97D2B732DE100C84468 /* GroupsTableViewCell.swift in Sources */,
 				222C4C402B14E342006FC90B /* GroupsViewController.swift in Sources */,
 				22359DE62B6E9F09003D3520 /* ContactsTableViewCell.swift in Sources */,
