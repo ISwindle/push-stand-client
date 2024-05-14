@@ -17,7 +17,7 @@ class OnboardingData {
     var rememberMe: Bool = false
     var birthday: Date?
     var isAgeConfirmed: Bool = false
-    var reminderTime: Date?
+    var reminderTime: String?
     
     private init() {}
 }
