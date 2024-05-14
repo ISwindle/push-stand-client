@@ -61,50 +61,15 @@ class SignUpUsernamePasswordViewController: UIViewController {
     }
     
     private func checkEmailAvailability(_ email: String, completion: @escaping (Bool) -> Void) {
-        let urlString = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users/checkEmail"
-        guard let url = URL(string: urlString) else {
-            print("Invalid URL")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let payload = ["email": email]
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: payload, options: [])
-        } catch {
-            print("Error encoding JSON: \(error)")
-            return
-        }
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil,
-                  let httpResponse = response as? HTTPURLResponse,
-                  httpResponse.statusCode == 200 else {
-                print("Network request failed or bad status code")
-                return completion(false)
+        let data = ["email": email]
+        NetworkService.shared.request(endpoint: .checkEmail, method: "POST", data: data) { (result: Result<EmailCheckResponse, Error>) in
+            switch result {
+            case .success(let response):
+                completion(!response.email_exists)
+            case .failure:
+                completion(false)
             }
-            
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                   let emailExists = json["email_exists"] as? Bool {
-                    DispatchQueue.main.async {
-                        completion(!emailExists)
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        completion(false)
-                    }
-                }
-            } catch {
-                print("Error parsing JSON: \(error)")
-                DispatchQueue.main.async {
-                    completion(false)
-                }
-            }
-        }.resume()
+        }
     }
     
     private func proceedToNextScreen() {

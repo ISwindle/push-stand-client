@@ -33,6 +33,7 @@
 		223EA0882AEEDCA60055F94B /* SegmentedProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0872AEEDCA60055F94B /* SegmentedProgressBar.swift */; };
 		223EA08A2AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */; };
 		224F249A2BF3CF190083FE09 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F24992BF3CF190083FE09 /* NetworkService.swift */; };
+		224F249C2BF3E3F10083FE09 /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F249B2BF3E3F10083FE09 /* Responses.swift */; };
 		2263D2102AF8A11200D2E136 /* LandingRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */; };
 		2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */; };
 		2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */; };
@@ -111,6 +112,7 @@
 		223EA0872AEEDCA60055F94B /* SegmentedProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedProgressBar.swift; sourceTree = "<group>"; };
 		223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInitialPhoneViewController.swift; sourceTree = "<group>"; };
 		224F24992BF3CF190083FE09 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = "Push Stand/NetworkService.swift"; sourceTree = SOURCE_ROOT; };
+		224F249B2BF3E3F10083FE09 /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
 		2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingRootViewController.swift; sourceTree = "<group>"; };
 		2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneViewController.swift; sourceTree = "<group>"; };
 		2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUsernamePasswordViewController.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				22B8EA1C2B3DD53300FC9257 /* CurrentUser.swift */,
 				22359DD52B6C7B71003D3520 /* User.swift */,
 				22359DDC2B6CB431003D3520 /* OnboardingData.swift */,
+				224F249B2BF3E3F10083FE09 /* Responses.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				22C7F3D22BAFC2B400F5BE9A /* TermsOfServiceViewController.swift in Sources */,
 				22DB7CE92B93886300581C10 /* AccountSettingsViewController.swift in Sources */,
 				227D0F9F2B1E17890001E568 /* DailyQuestionContainerViewController.swift in Sources */,
+				224F249C2BF3E3F10083FE09 /* Responses.swift in Sources */,
 				22DB7CE72B93864A00581C10 /* HelpCenterViewController.swift in Sources */,
 				224F249A2BF3CF190083FE09 /* NetworkService.swift in Sources */,
 				8E52D97D2B732DE100C84468 /* GroupsTableViewCell.swift in Sources */,
