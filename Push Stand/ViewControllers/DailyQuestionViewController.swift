@@ -158,7 +158,8 @@ class DailyQuestionViewController: UIViewController {
             
         }
         let unixTimestamp = Date().timeIntervalSince1970
-        let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": "2"]
+        let pointsAwarded = (answerStreak % 10 == 0) ? "10" : "2"
+        let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
         postPoints(endpoint: userPointsEndpoint, queryParams: postPointQueryParams) { result in
         
         }
@@ -365,7 +366,7 @@ class DailyQuestionViewController: UIViewController {
     @IBAction func acknowledgeStreakFill(_ sender: Any) {
         bonusAnswerView.isHidden = true
         streakFillView.isHidden = true
-        self.streakSegmentedBar.value = self.answerStreak % 10
+        self.streakSegmentedBar.value = 0
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

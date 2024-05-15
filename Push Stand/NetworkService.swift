@@ -60,26 +60,3 @@ class NetworkService {
         }.resume()
     }
 }
-
-// Example models for Decodable types
-struct DailyGoal: Decodable {
-    let id: String
-    let title: String
-}
-
-struct UserStreak: Decodable {
-    let days: Int
-}
-
-// Example usage
-// Call this in your ViewController or ViewModel to fetch data
-func fetchDailyGoals() {
-    NetworkService.shared.request(endpoint: .dailyGoals) { (result: Result<[DailyGoal], Error>) in
-        switch result {
-        case .success(let goals):
-            print("Successfully fetched daily goals:", goals)
-        case .failure(let error):
-            print("Error fetching daily goals:", error.localizedDescription)
-        }
-    }
-}

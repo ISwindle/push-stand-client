@@ -11,3 +11,14 @@ import Foundation
 struct EmailCheckResponse: Decodable {
     let email_exists: Bool
 }
+
+struct DailyQuestionResponse: Codable {
+    let question: String
+    let truePercentage: Int
+    let falsePercentage: Int
+}
+
+struct StreakResponse: Codable {
+    let streak_count: Int
+}
+

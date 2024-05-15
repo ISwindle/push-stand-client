@@ -34,6 +34,7 @@
 		223EA08A2AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */; };
 		224F249A2BF3CF190083FE09 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F24992BF3CF190083FE09 /* NetworkService.swift */; };
 		224F249C2BF3E3F10083FE09 /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F249B2BF3E3F10083FE09 /* Responses.swift */; };
+		224F249E2BF4404A0083FE09 /* DataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F249D2BF4404A0083FE09 /* DataObjects.swift */; };
 		2263D2102AF8A11200D2E136 /* LandingRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */; };
 		2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */; };
 		2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */; };
@@ -113,6 +114,7 @@
 		223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInitialPhoneViewController.swift; sourceTree = "<group>"; };
 		224F24992BF3CF190083FE09 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = "Push Stand/NetworkService.swift"; sourceTree = SOURCE_ROOT; };
 		224F249B2BF3E3F10083FE09 /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
+		224F249D2BF4404A0083FE09 /* DataObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataObjects.swift; sourceTree = "<group>"; };
 		2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingRootViewController.swift; sourceTree = "<group>"; };
 		2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneViewController.swift; sourceTree = "<group>"; };
 		2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUsernamePasswordViewController.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				22359DD52B6C7B71003D3520 /* User.swift */,
 				22359DDC2B6CB431003D3520 /* OnboardingData.swift */,
 				224F249B2BF3E3F10083FE09 /* Responses.swift */,
+				224F249D2BF4404A0083FE09 /* DataObjects.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				222C4C402B14E342006FC90B /* GroupsViewController.swift in Sources */,
 				22359DE62B6E9F09003D3520 /* ContactsTableViewCell.swift in Sources */,
 				2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */,
+				224F249E2BF4404A0083FE09 /* DataObjects.swift in Sources */,
 				22359DE32B6E9C8D003D3520 /* GroupRequestsViewController.swift in Sources */,
 				2263D21A2AF91FEB00D2E136 /* SignUpVerificationViewController.swift in Sources */,
 				22359DDB2B6C9BE3003D3520 /* OnboardingManager.swift in Sources */,
@@ -735,7 +739,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.43;
+				MARKETING_VERSION = 0.44;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -770,7 +774,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.43;
+				MARKETING_VERSION = 0.44;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pushstandllc.pushstand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

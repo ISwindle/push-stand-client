@@ -16,7 +16,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBOutlet weak var standProgressBar: CircularProgressBar!
     @IBOutlet weak var dailyGoalCount: UILabel!
     @IBOutlet weak var globalStandCount: UILabel!
-    @IBOutlet weak var onePoint: UILabel!
+    @IBOutlet weak var standStreakLabel: UILabel!
     
     @IBOutlet weak var yesterdayLabel: UILabel!
     @IBOutlet weak var standStreakTitle: UILabel!
@@ -49,8 +49,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     var goal:Float = 0.0
     var current:Float = 0.0
-    var answerStreak:Int = 0
-    var myCurrentStreak = 0
+    var questionAnswerStreak:Int = 0
+    var standStreak = 0
     let totalStands = 0
     let usaTotalStands = 0
     let pointsCount = 0
@@ -209,7 +209,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         segmentedStreakBar.alpha = 1
         streakImage.alpha = 1
         segmentedStreakBar.selectedColor = .systemRed
-        segmentedStreakBar.value = myCurrentStreak % 10
+        segmentedStreakBar.value = standStreak % 10
         streakImage.image = UIImage(named: "red-star-icon")
     }
     // Action for tap gesture
@@ -230,7 +230,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         segmentedStreakBar.alpha = 1
         streakImage.alpha = 1
         segmentedStreakBar.selectedColor = .systemCyan
-        segmentedStreakBar.value = answerStreak % 10
+        segmentedStreakBar.value = questionAnswerStreak % 10
         streakImage.image = UIImage(named: "cyan-star-icon")
     }
     // Action for tap gesture
@@ -323,6 +323,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         }
         
         semaphore.wait() // Wait for the signal
+        
+        standStreakTapped()
         
         //Yesterday
         callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: yesterdayQueryParams, httpMethod: .get ) { result in
@@ -432,7 +434,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                     if let streaks = json["streak_count"] as? Int {
                         self.myCurrentStreakLabel.text = "\(streaks)"
                         self.segmentedStreakBar.value = streaks % 10
-                        self.myCurrentStreak = streaks
+                        self.standStreak = streaks
                     } else {
                         self.myCurrentStreakLabel.text = "0"
                     }
@@ -452,7 +454,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                     print(json)
                     // Handle successful response with JSON
                     if let streaks = json["streak_count"] as? Int {
-                        self.answerStreak = streaks
+                        self.questionAnswerStreak = streaks
                     }
                 case .failure(let error):
                     // Handle error
@@ -488,7 +490,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBAction func acknowledgeStreakFilled(_ sender: Any) {
         bonusStandView.isHidden = false
         streakFillView.isHidden = false
-        segmentedStreakBar.value = myCurrentStreak % 10
+        segmentedStreakBar.value = 0
     }
     
     @IBAction func pushStand(_ sender: UILongPressGestureRecognizer?) {
@@ -504,7 +506,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             }
         }
         let unixTimestamp = Date().timeIntervalSince1970
-        let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": "1"]
+        let pointsAwarded = (questionAnswerStreak % 10 == 0) ? "5" : "1"
+        let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
         postPoints(endpoint: userPointsEndpoint, queryParams: postPointQueryParams) { result in
             DispatchQueue.main.async {
                 
@@ -532,14 +535,14 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                     self.accountButton.isHidden = false
                     self.shareIcon.isHidden = false
                     UIView.animate(withDuration: 1.0, animations: {
-                        if self.myCurrentStreak > 0 && self.myCurrentStreak % 10 == 0 {
-                            self.onePoint.text = "5 Points"
+                        if self.standStreak > 0 && self.standStreak % 10 == 0 {
+                            self.standStreakLabel.text = "5 Points"
                         }
-                        self.onePoint.alpha = 1.0 // Make the label fully visible
+                        self.standStreakLabel.alpha = 1.0 // Make the label fully visible
                     }) { (finished) in
                         // After the fade-in completes, start the fade-out
                         UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
-                            self.onePoint.alpha = 0.0 // Make the label fully transparent
+                            self.standStreakLabel.alpha = 0.0 // Make the label fully transparent
                         }, completion: nil)
                     }
                 }
@@ -611,13 +614,13 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             self.usaTotalStandsLabel.text = String(newCount)
         }
         self.current = self.current + 1
-        self.myCurrentStreak = self.myCurrentStreak + 1
-        if self.myCurrentStreak > 0 && self.myCurrentStreak % 10 == 0 {
+        self.standStreak = self.standStreak + 1
+        if self.standStreak > 0 && self.standStreak % 10 == 0 {
             segmentedStreakBar.value = 10
             self.bonusStandView.isHidden = false
             self.streakFillView.isHidden = false
         } else {
-            self.segmentedStreakBar.value = self.answerStreak % 10
+            self.segmentedStreakBar.value = self.questionAnswerStreak % 10
         }
         
         let newCount = pointsCount + 1
