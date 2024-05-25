@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AccountDeletionViewController: UIViewController {
 
@@ -16,23 +17,60 @@ class AccountDeletionViewController: UIViewController {
     }
     
     @IBOutlet weak var deleteAccountButton: UIButton!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func deleteAccount(_ sender: Any) {
-        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let loginNavController = storyboard.instantiateViewController(identifier: "InitialViewController")
-        
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
+        deleteUser {_ in 
+            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let loginNavController = storyboard.instantiateViewController(identifier: "InitialViewController")
+            
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
+        }
     }
-    /*
-    // MARK: - Navigation
+    func deleteUser(completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let user = Auth.auth().currentUser else {
+            completion(.failure(NSError(domain: "FirebaseAuth", code: -1, userInfo: [NSLocalizedDescriptionKey: "No user is currently signed in."])))
+            return
+        }
+        
+        user.delete { error in
+            if let error = error {
+                // Re-authenticate the user and then try deleting again if deletion fails
+                if let credential = self.getReauthenticationCredential() {
+                    user.reauthenticate(with: credential) { result, reauthError in
+                        if let reauthError = reauthError {
+                            completion(.failure(reauthError))
+                        } else {
+                            // Re-authentication succeeded, try deleting the user again
+                            user.delete { deleteError in
+                                if let deleteError = deleteError {
+                                    completion(.failure(deleteError))
+                                } else {
+                                    completion(.success(()))
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    completion(.failure(NSError(domain: "FirebaseAuth", code: -1, userInfo: [NSLocalizedDescriptionKey: "User re-authentication failed."])))
+                }
+            } else {
+                
+                completion(.success(()))
+            }
+        }
+    }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // Helper function to get the re-authentication credential
+    func getReauthenticationCredential() -> AuthCredential? {
+        // You need to provide the appropriate credential for re-authentication
+        // For example, if the user signed in with email and password:
+        let email = CurrentUser.shared.email!
+        let password = passwordTextField.text
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password!)
+        return credential
     }
-    */
 
 }

@@ -154,7 +154,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         self.dailyGoalLoading.isHidden = true
         self.globalStandingTodayLoading.isHidden = true
         if let goalValue = goals["Goal"] as? String, let goalInt = Int(goalValue) {
-            print(goalInt)
             let formattedGoal = formatLargeNumber(goalInt)
             let attributedString = NSMutableAttributedString(string: "\(formattedGoal)\nDaily Goal")
             let fontSize: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 30 : 18
@@ -170,7 +169,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         }
         goal = Float(goals["Goal"] as? String ?? "0")!
         current = Float(goals["Current"] as? String ?? "0")!
-        standProgressBar.progress = CGFloat(current / goal)
     }
 
     private func handleYesterdayGoals(_ goals: [String: Any]) {

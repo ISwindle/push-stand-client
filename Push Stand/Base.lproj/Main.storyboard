@@ -2153,10 +2153,7 @@ let's see if you can do it again!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRb-hQ-MHW">
-                                <rect key="frame" x="70" y="201.5" width="274" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="uz7-5C-fHa"/>
-                                </constraints>
+                                <rect key="frame" x="70" y="284" width="274" height="34"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Delete Account"/>
@@ -2165,34 +2162,63 @@ let's see if you can do it again!</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isz-NL-ddh">
-                                <rect key="frame" x="40" y="265.5" width="334" height="72"/>
+                                <rect key="frame" x="40" y="348" width="334" height="72"/>
                                 <string key="text">We retain account information as necessary for certain purposes, such as fulfilling our legal obligations.  We delete this account information once our internal hold period expires.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcJ-eo-yEq">
+                                <rect key="frame" x="40" y="177" width="180" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="CsG-sQ-wYl"/>
+                                    <constraint firstAttribute="width" constant="180" id="t2P-l4-laM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U16-Ao-qdZ">
+                                <rect key="frame" x="40" y="208" width="334" height="44"/>
+                                <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Df3-LG-5it"/>
+                                    <constraint firstAttribute="width" constant="334" id="dvd-5O-L29"/>
+                                    <constraint firstAttribute="height" constant="44" id="eS2-YM-W0J"/>
+                                </constraints>
+                                <color key="textColor" systemColor="lightTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="csH-zM-mQ4"/>
                         <color key="backgroundColor" red="0.083885732320000003" green="0.083885732320000003" blue="0.083885732320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Isz-NL-ddh" firstAttribute="leading" secondItem="6dG-Wn-80u" secondAttribute="leading" id="7Jt-HX-3SU"/>
+                            <constraint firstItem="Isz-NL-ddh" firstAttribute="top" secondItem="hRb-hQ-MHW" secondAttribute="bottom" constant="30" id="1Ye-Az-SfM"/>
                             <constraint firstItem="6dG-Wn-80u" firstAttribute="centerX" secondItem="ZBg-5L-4ZE" secondAttribute="centerX" id="7WF-gc-yN1"/>
-                            <constraint firstItem="Isz-NL-ddh" firstAttribute="centerX" secondItem="ZBg-5L-4ZE" secondAttribute="centerX" id="AY4-AB-8JQ"/>
-                            <constraint firstItem="hRb-hQ-MHW" firstAttribute="centerX" secondItem="ZBg-5L-4ZE" secondAttribute="centerX" id="Bk4-pI-Btb"/>
-                            <constraint firstItem="hRb-hQ-MHW" firstAttribute="leading" secondItem="csH-zM-mQ4" secondAttribute="leading" constant="70" id="Gwa-FZ-F8L">
-                                <variation key="heightClass=regular-widthClass=regular" constant="200"/>
-                            </constraint>
+                            <constraint firstItem="hRb-hQ-MHW" firstAttribute="leading" secondItem="csH-zM-mQ4" secondAttribute="leading" constant="70" id="Aut-Vf-fNI"/>
                             <constraint firstItem="6dG-Wn-80u" firstAttribute="leading" secondItem="csH-zM-mQ4" secondAttribute="leading" constant="40" id="Ifj-TV-iXX">
                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
+                            <constraint firstItem="U16-Ao-qdZ" firstAttribute="top" secondItem="QcJ-eo-yEq" secondAttribute="bottom" constant="10" id="XLH-q6-WbA"/>
+                            <constraint firstItem="Isz-NL-ddh" firstAttribute="leading" secondItem="U16-Ao-qdZ" secondAttribute="leading" id="XqT-f6-M6x"/>
+                            <constraint firstItem="U16-Ao-qdZ" firstAttribute="top" secondItem="QcJ-eo-yEq" secondAttribute="bottom" constant="10" id="Z3h-aB-Z0J"/>
+                            <constraint firstItem="QcJ-eo-yEq" firstAttribute="top" secondItem="6dG-Wn-80u" secondAttribute="bottom" constant="25.5" id="aHF-9B-W6A"/>
+                            <constraint firstItem="QcJ-eo-yEq" firstAttribute="leading" secondItem="6dG-Wn-80u" secondAttribute="leading" id="b19-Zl-I56"/>
                             <constraint firstItem="6dG-Wn-80u" firstAttribute="top" secondItem="csH-zM-mQ4" secondAttribute="top" constant="50" id="cy3-9f-hJJ"/>
-                            <constraint firstItem="Isz-NL-ddh" firstAttribute="top" secondItem="hRb-hQ-MHW" secondAttribute="bottom" constant="30" id="hrT-np-ViG"/>
-                            <constraint firstItem="hRb-hQ-MHW" firstAttribute="top" secondItem="6dG-Wn-80u" secondAttribute="bottom" constant="50" id="wfw-JE-nS3"/>
+                            <constraint firstItem="hRb-hQ-MHW" firstAttribute="top" secondItem="U16-Ao-qdZ" secondAttribute="bottom" constant="32" id="faN-MI-DLu"/>
+                            <constraint firstItem="Isz-NL-ddh" firstAttribute="trailing" secondItem="U16-Ao-qdZ" secondAttribute="trailing" id="smA-2b-BRE"/>
+                            <constraint firstItem="hRb-hQ-MHW" firstAttribute="centerX" secondItem="U16-Ao-qdZ" secondAttribute="centerX" id="xac-7a-dV9"/>
+                            <constraint firstItem="U16-Ao-qdZ" firstAttribute="leading" secondItem="QcJ-eo-yEq" secondAttribute="leading" id="zyv-Pz-g2L"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Account Deletion" style="editor" id="mg0-Ir-rER"/>
                     <connections>
                         <outlet property="deleteAccountButton" destination="hRb-hQ-MHW" id="wJ3-RT-dvo"/>
+                        <outlet property="passwordTextField" destination="U16-Ao-qdZ" id="rDS-6K-SXk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iu6-E5-PhC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
