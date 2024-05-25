@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -419,7 +420,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -612,7 +613,7 @@ let's see if you can do it again!</string>
             <objects>
                 <viewController storyboardIdentifier="SubmitQuestionViewController" id="Ha6-ge-6e1" customClass="SubmitQuestionViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WaS-LZ-SGf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share a question you'd like us to ask" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSl-c6-SXg">
@@ -832,7 +833,7 @@ let's see if you can do it again!</string>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="cLP-iK-Scg" userLabel="My Current Streak">
                                         <rect key="frame" x="0.0" y="0.0" width="138" height="35"/>
-                                        <string key="text">My Current
+                                        <string key="text">My Stand 
 Streak</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1237,7 +1238,7 @@ Stands</string>
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-ty-kPb" userLabel="Bonus Stand View">
                                 <rect key="frame" x="0.0" y="232.5" width="414" height="580.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hbI-xq-uiL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="580.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="581"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-0Y-yxE">
@@ -1287,7 +1288,7 @@ let's see if you can do it again!</string>
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-AV-dXn" userLabel="Got it button view">
-                                            <rect key="frame" x="0.0" y="317" width="414" height="263.5"/>
+                                            <rect key="frame" x="0.0" y="317" width="414" height="264"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-r3J">
                                                     <rect key="frame" x="122" y="115" width="170" height="34"/>
@@ -1477,7 +1478,7 @@ let's see if you can do it again!</string>
             <objects>
                 <viewController id="0jQ-WK-pNK" customClass="AccountViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4QZ-uV-ysb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewm-hU-R96">
@@ -1520,7 +1521,7 @@ let's see if you can do it again!</string>
             <objects>
                 <viewController id="WYf-Vs-Zqd" customClass="AccountPasswordViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gws-56-G0O">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oi1-G0-FuZ">
@@ -1655,7 +1656,7 @@ let's see if you can do it again!</string>
             <objects>
                 <viewController id="4Pp-SF-Dyh" customClass="AccountPhoneNumberViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pYs-jE-Sd5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter New Phone #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZq-sZ-F7j">
@@ -1730,7 +1731,7 @@ let's see if you can do it again!</string>
             <objects>
                 <viewController id="3Uk-oz-HBZ" customClass="AccountEmailViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OKY-l6-Eix">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter New Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsS-ME-Jyn">
@@ -1752,11 +1753,33 @@ let's see if you can do it again!</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hY-aX-YZ2">
-                                <rect key="frame" x="40" y="130" width="334" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gz-lt-LoR">
+                                <rect key="frame" x="40" y="98" width="180" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="Huv-dZ-K1g"/>
+                                    <constraint firstAttribute="height" constant="21" id="FYF-hb-nqj"/>
+                                    <constraint firstAttribute="width" constant="180" id="Z47-I1-puq"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a93-w7-jLn">
+                                <rect key="frame" x="40" y="129" width="334" height="44"/>
+                                <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="334" id="GtN-EH-ZFf"/>
+                                    <constraint firstAttribute="height" constant="44" id="T7H-Am-gvr"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="gp7-w5-hDn"/>
+                                </constraints>
+                                <color key="textColor" systemColor="lightTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hY-aX-YZ2">
+                                <rect key="frame" x="40" y="191" width="334" height="34"/>
                                 <color key="tintColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit"/>
@@ -1769,16 +1792,22 @@ let's see if you can do it again!</string>
                         <color key="backgroundColor" red="0.083885732320000003" green="0.083885732320000003" blue="0.083885732320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="leading" secondItem="NSS-l4-lS1" secondAttribute="leading" id="093-5k-E96"/>
+                            <constraint firstItem="8Gz-lt-LoR" firstAttribute="top" secondItem="NSS-l4-lS1" secondAttribute="bottom" constant="13" id="1Kp-A6-A7c"/>
+                            <constraint firstItem="a93-w7-jLn" firstAttribute="top" secondItem="8Gz-lt-LoR" secondAttribute="bottom" constant="10" id="4RO-w5-2KD"/>
                             <constraint firstItem="zsS-ME-Jyn" firstAttribute="centerX" secondItem="OKY-l6-Eix" secondAttribute="centerX" id="66h-0q-jAW"/>
+                            <constraint firstItem="a93-w7-jLn" firstAttribute="top" secondItem="8Gz-lt-LoR" secondAttribute="bottom" constant="10" id="77e-lZ-aTH"/>
+                            <constraint firstItem="a93-w7-jLn" firstAttribute="leading" secondItem="b7j-rl-LQ4" secondAttribute="leading" constant="40" id="9Zl-ae-ogE"/>
+                            <constraint firstItem="8Gz-lt-LoR" firstAttribute="leading" secondItem="b7j-rl-LQ4" secondAttribute="leading" constant="40" id="EeX-kC-kVs"/>
+                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="trailing" secondItem="a93-w7-jLn" secondAttribute="trailing" id="EiC-S8-Mld"/>
                             <constraint firstItem="NSS-l4-lS1" firstAttribute="leading" secondItem="zsS-ME-Jyn" secondAttribute="leading" id="JLS-fN-WB5"/>
+                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="leading" secondItem="a93-w7-jLn" secondAttribute="leading" id="Lnx-NW-VLN"/>
+                            <constraint firstItem="a93-w7-jLn" firstAttribute="leading" secondItem="8Gz-lt-LoR" secondAttribute="leading" id="MtF-L4-pma"/>
+                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="top" secondItem="a93-w7-jLn" secondAttribute="bottom" constant="18" id="T88-5V-egP"/>
                             <constraint firstItem="NSS-l4-lS1" firstAttribute="top" secondItem="zsS-ME-Jyn" secondAttribute="bottom" constant="10" id="WOQ-UM-Zk0"/>
                             <constraint firstItem="zsS-ME-Jyn" firstAttribute="leading" secondItem="b7j-rl-LQ4" secondAttribute="leading" constant="40" id="XFY-Ho-0fs">
                                 <variation key="heightClass=regular-widthClass=regular" constant="150"/>
                             </constraint>
                             <constraint firstItem="NSS-l4-lS1" firstAttribute="centerX" secondItem="OKY-l6-Eix" secondAttribute="centerX" id="gGa-Yu-y1n"/>
-                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="top" secondItem="NSS-l4-lS1" secondAttribute="bottom" constant="45" id="ie8-Va-8e1"/>
-                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="centerX" secondItem="OKY-l6-Eix" secondAttribute="centerX" id="q42-gf-W29"/>
                             <constraint firstItem="zsS-ME-Jyn" firstAttribute="top" secondItem="b7j-rl-LQ4" secondAttribute="top" constant="10" id="zFO-d4-eje"/>
                         </constraints>
                         <connections>
@@ -1788,6 +1817,7 @@ let's see if you can do it again!</string>
                     <navigationItem key="navigationItem" title="Email" style="editor" id="kIg-oZ-xOv"/>
                     <connections>
                         <outlet property="confirmationEmailButton" destination="5hY-aX-YZ2" id="qqx-cv-yqA"/>
+                        <outlet property="currentPasswordTextField" destination="a93-w7-jLn" id="zxp-Hu-PPx"/>
                         <outlet property="emailText" destination="NSS-l4-lS1" id="xFL-tl-7Xs"/>
                     </connections>
                 </viewController>
@@ -1798,7 +1828,7 @@ let's see if you can do it again!</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-3362" y="2839"/>
+            <point key="canvasLocation" x="-3362.3188405797105" y="2838.6160714285711"/>
         </scene>
         <!--Settings-->
         <scene sceneID="rXf-SS-xrJ">
@@ -2112,7 +2142,7 @@ let's see if you can do it again!</string>
             <objects>
                 <viewController storyboardIdentifier="AccountDeletionViewController" id="X5p-Ox-8EO" customClass="AccountDeletionViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZBg-5L-4ZE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dG-Wn-80u">
@@ -2130,6 +2160,9 @@ let's see if you can do it again!</string>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Delete Account"/>
+                                <connections>
+                                    <action selector="deleteAccount:" destination="X5p-Ox-8EO" eventType="touchUpInside" id="EZ9-Vv-3P7"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isz-NL-ddh">
                                 <rect key="frame" x="40" y="265.5" width="334" height="72"/>
@@ -2158,6 +2191,9 @@ let's see if you can do it again!</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Account Deletion" style="editor" id="mg0-Ir-rER"/>
+                    <connections>
+                        <outlet property="deleteAccountButton" destination="hRb-hQ-MHW" id="wJ3-RT-dvo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iu6-E5-PhC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2550,7 +2586,6 @@ let's see if you can do it again!</string>
                                     <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="enterUnAndPw:" destination="r3X-Rc-OOd" eventType="touchUpInside" id="DAg-x0-kQZ"/>
                                     <action selector="next:" destination="Pga-bq-Z84" eventType="touchUpInside" id="xmz-21-eii"/>
                                 </connections>
                             </button>
@@ -2609,7 +2644,6 @@ let's see if you can do it again!</string>
                                     <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="enterUnAndPw:" destination="r3X-Rc-OOd" eventType="touchUpInside" id="CzC-dt-wKo"/>
                                     <action selector="next:" destination="zCG-Bf-ImL" eventType="touchUpInside" id="8Vc-mh-PSM"/>
                                 </connections>
                             </button>
@@ -2680,7 +2714,6 @@ let's see if you can do it again!</string>
                                     <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="enterUnAndPw:" destination="r3X-Rc-OOd" eventType="touchUpInside" id="fXc-bL-Una"/>
                                     <action selector="next:" destination="r3X-Rc-OOd" eventType="touchUpInside" id="N1h-p2-F90"/>
                                 </connections>
                             </button>
@@ -2798,9 +2831,6 @@ let's see if you can do it again!</string>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dsO-Kk-mba">
                                 <rect key="frame" x="182.5" y="459" width="51" height="31"/>
                                 <color key="onTintColor" systemColor="systemGreenColor"/>
-                                <connections>
-                                    <action selector="ageConfirmationValueChanged:" destination="xVa-IX-pR7" eventType="valueChanged" id="uNs-iJ-ZV0"/>
-                                </connections>
                             </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mWr-tp-YZq"/>
@@ -2991,7 +3021,6 @@ let's see if you can do it again!</string>
                                     <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="enterUnAndPw:" destination="N57-hs-JcO" eventType="touchUpInside" id="I8b-Ld-6Mz"/>
                                     <action selector="next:" destination="N57-hs-JcO" eventType="touchUpInside" id="pnD-iL-JFr"/>
                                 </connections>
                             </button>
@@ -3160,7 +3189,7 @@ let's see if you can do it again!</string>
             <objects>
                 <viewController title="Learn More" id="Ibz-Q0-F6J" customClass="LearnMoreViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5AO-PA-OFw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oo1-1J-u7K">

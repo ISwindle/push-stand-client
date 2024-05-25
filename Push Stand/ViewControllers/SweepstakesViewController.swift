@@ -22,14 +22,14 @@ class SweepstakesViewController: UIViewController {
             
             // Animate the label's alpha property to 1 (fully visible)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            UIView.animate(withDuration: 2.5) {
+            UIView.animate(withDuration: 1.5) {
                 self.explainLabel.alpha = 1
             }
         }
         
         // Animate the second label to fade in with a delay of 1 second
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            UIView.animate(withDuration: 2.5) {
+            UIView.animate(withDuration: 1.5) {
                 self.earnLabel.alpha = 1
             }
         }

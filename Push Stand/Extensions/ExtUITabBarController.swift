@@ -1,25 +1,31 @@
 import UIKit
 
 extension UITabBarController {
-    func replaceViewController(atIndex index: Int, withViewControllerIdentifier identifier: String) {
-        guard index < self.viewControllers?.count ?? 0 else { return }
+    
+    func replaceViewController(atIndex index: Int, withViewControllerIdentifier identifier: String, storyboardName: String = "Main") {
+        guard let viewControllers = self.viewControllers, index < viewControllers.count else {
+            print("Index out of bounds or viewControllers are nil")
+            return
+        }
 
-        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Replace "Main" with your storyboard name
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         let newViewController = storyboard.instantiateViewController(withIdentifier: identifier)
 
-            // Create a fade animation
-            let transition = CATransition()
-            transition.duration = 0.5
-            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-            transition.type = CATransitionType.fade
+        // Apply the transition animation
+        applyFadeTransition()
 
-            // Replace the view controller at the specified index
-            var viewControllers = self.viewControllers
-            viewControllers?[index] = newViewController
+        // Replace the view controller at the specified index
+        var updatedViewControllers = viewControllers
+        updatedViewControllers[index] = newViewController
 
-            // Apply the transition
-            self.view.layer.add(transition, forKey: nil)
-            self.setViewControllers(viewControllers, animated: false)
-        
+        self.setViewControllers(updatedViewControllers, animated: false)
+    }
+    
+    private func applyFadeTransition() {
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        self.view.layer.add(transition, forKey: nil)
     }
 }

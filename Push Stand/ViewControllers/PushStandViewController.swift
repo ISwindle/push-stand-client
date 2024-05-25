@@ -5,16 +5,16 @@ class PushStandViewController: UIViewController {
     @IBOutlet weak var pushStandButton: UIImageView!
     @IBOutlet var pushStandGesture: UITapGestureRecognizer!
 
-        override func viewDidLoad() {
-            super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-            // Ensure the image view can receive touch events
-            pushStandButton.isUserInteractionEnabled = true
+        // Ensure the image view can receive touch events
+        pushStandButton.isUserInteractionEnabled = true
 
-            // Connect the tap gesture recognizer action
-            pushStandGesture.addTarget(self, action: #selector(pushStand(_:)))
-            pushStandButton.addGestureRecognizer(pushStandGesture)
-        }
+        // Connect the tap gesture recognizer action
+        pushStandGesture.addTarget(self, action: #selector(pushStand(_:)))
+        pushStandButton.addGestureRecognizer(pushStandGesture)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -26,15 +26,19 @@ class PushStandViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
 
-        @IBAction func pushStand(_ sender: UITapGestureRecognizer) {
-            let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
-            feedbackGenerator.prepare()
-            feedbackGenerator.impactOccurred()
-            print("Tapped")
-            self.tabBarController?.tabBar.isHidden = false
-            // Perform the action when the image view is tapped
-            tabBarController?.replaceViewController(atIndex: 0, withViewControllerIdentifier: "HomeStatsViewController")
+    @objc private func pushStand(_ sender: UITapGestureRecognizer) {
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+        feedbackGenerator.prepare()
+        feedbackGenerator.impactOccurred()
+        
+        self.tabBarController?.tabBar.isHidden = false
+        
+        // Perform the action when the image view is tapped
+        guard let tabBarController = self.tabBarController else {
+            print("Tab bar controller is nil")
+            return
         }
-
-    
+        
+        tabBarController.replaceViewController(atIndex: 0, withViewControllerIdentifier: "HomeStatsViewController")
+    }
 }

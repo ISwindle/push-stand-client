@@ -1,9 +1,9 @@
-
-//
 import UIKit
 import MessageUI
 
 class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerDelegate {
+    
+    // MARK: - Properties
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -17,7 +17,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBOutlet weak var dailyGoalCount: UILabel!
     @IBOutlet weak var globalStandCount: UILabel!
     @IBOutlet weak var standStreakLabel: UILabel!
-    
     @IBOutlet weak var yesterdayLabel: UILabel!
     @IBOutlet weak var standStreakTitle: UILabel!
     @IBOutlet weak var questionStreakTitle: UILabel!
@@ -27,664 +26,480 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBOutlet weak var questionStreakIcon: UIImageView!
     @IBOutlet weak var pointsIcon: UIImageView!
     @IBOutlet weak var shareIcon: UIImageView!
-    
-    
     @IBOutlet weak var segmentedStreakBar: SegmentedBar!
     @IBOutlet weak var streakImage: UIImageView!
-    
-    
     @IBOutlet weak var myCurrentStreakLabel: UILabel!
     @IBOutlet weak var myTotalStandsLabel: UILabel!
     @IBOutlet weak var usaTotalStandsLabel: UILabel!
-    
     @IBOutlet weak var bonusStandView: UIVisualEffectView!
     @IBOutlet weak var streakFillView: UIView!
     @IBOutlet weak var streakFillButton: UIButton!
-    
     @IBOutlet weak var dailyGoalLoading: UIActivityIndicatorView!
     @IBOutlet weak var myCurrentStreakLoading: UIActivityIndicatorView!
     @IBOutlet weak var myTotalStandsLoading: UIActivityIndicatorView!
     @IBOutlet weak var usaTotalStandsLoading: UIActivityIndicatorView!
     @IBOutlet weak var globalStandingTodayLoading: UIActivityIndicatorView!
     
-    var goal:Float = 0.0
-    var current:Float = 0.0
-    var questionAnswerStreak:Int = 0
-    var standStreak = 0
-    let totalStands = 0
-    let usaTotalStands = 0
-    let pointsCount = 0
-    let stoodToday = false
+    private var goal: Float = 0.0
+    private var current: Float = 0.0
+    private var questionAnswerStreak: Int = 0
+    private var standStreak = 0
+    private var pointsCount = 0
     
-    let dailyGoalsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/dailygoals"
-    let currentStandStreakEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/streaks"
-    let currentAnswerStreakEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/streaks/answers"
-    let userTotalStandsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/stands/user"
-    let usTotalStandsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/stands"
-    let userPointsEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/points"
-    let pushStandEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/stand"
+    let dailyGoalsEndpoint = NetworkService.Endpoint.dailyGoals.rawValue
+    let userTotalStandsEndpoint = NetworkService.Endpoint.userStands.rawValue
+    let usTotalStandsEndpoint = NetworkService.Endpoint.stands.rawValue
+    let currentStandStreakEndpoint = NetworkService.Endpoint.streaks.rawValue
+    let currentAnswerStreakEndpoint = NetworkService.Endpoint.streaksAnswers.rawValue
+    let userPointsEndpoint = NetworkService.Endpoint.points.rawValue
+    let pushStandEndpoint = NetworkService.Endpoint.stand.rawValue
     
+    // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Ensure the image view can receive touch events
-        pushStandButton.isUserInteractionEnabled = true
+        configureViewComponents()
+        setupGestureRecognizers()
+        let dateString = getDateFormatted()
+        if !UserDefaults.standard.bool(forKey: dateString) {
+            loadHome()
+        }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.alpha = 0
+        let dateString = getDateFormatted()
+        if UserDefaults.standard.bool(forKey: dateString) {
+            updateUIForPushStand()
+            loadHome()
+        }
+    }
+
+    func loadHome() {
+        NetworkService.shared.request(endpoint: .stand, method: "GET", queryParams: ["user_id": CurrentUser.shared.uid!]) { (result: Result<[String: Any], Error>) in
+            DispatchQueue.main.async {
+                self.fetchDataAndUpdateUI()
+            }
+        }
+    }
+
+    // MARK: - Data Fetching and UI Update
+
+    private func fetchDataAndUpdateUI() {
+        let dateString = getCurrentDateFormatted()
+        let yesterdayString = getYesterdayDateFormatted()
         
-        // Connect the tap gesture recognizer action
-        //pushStandGesture.addTarget(self, action: #selector(pushStand(_:)))
-        //pushStandButton.addGestureRecognizer(pushStandGesture)
+        let queryParams = [
+            "userId": CurrentUser.shared.uid!,
+            "StartDate": "2024-01-01",  // Example start date
+            "EndDate": "2024-05-25"     // Example end date
+        ]
         
+        NetworkService.shared.request(endpoint: .home, method: "GET", queryParams: queryParams) { result in
+            print("Returned!!!")
+            DispatchQueue.main.async {
+                self.handleAPIResponse(result, handler: self.handleUnifiedResponse)
+            }
+        }
+    }
+
+    // MARK: - API Response Handlers
+
+    private func handleAPIResponse(_ result: Result<[String: Any], Error>, handler: @escaping (Result<[String: Any], Error>) -> Void) {
+        DispatchQueue.main.async {
+            handler(result)
+        }
+    }
+
+    // MARK: - Unified API Response Handler
+
+    private func handleUnifiedResponse(_ result: Result<[String: Any], Error>) {
+        switch result {
+        case .success(let json):
+            if let dailyGoals = json["daily_goals"] as? [String: Any],
+               let todayGoals = dailyGoals["today"] as? [String: Any] {
+                self.handleDailyGoals(todayGoals)
+            }
+            if let dailyGoals = json["daily_goals"] as? [String: Any],
+               let yesterdayGoals = dailyGoals["yesterday"] as? [String: Any] {
+                self.handleYesterdayGoals(yesterdayGoals)
+            }
+            if let dailyStandsCount = json["daily_stands_count"] as? Int {
+                self.handleDailyStandsCount(dailyStandsCount)
+            }
+            if let dailyStandsUserCount = json["daily_stands_user_count"] as? Int {
+                self.handleDailyStandsUserCount(dailyStandsUserCount)
+            }
+            if let standStreak = json["daily_stands_streak"] as? Int {
+                self.handleStandStreak(standStreak)
+            }
+            if let answerStreak = json["daily_question_answers_streak"] as? Int {
+                self.handleAnswerStreak(answerStreak)
+            }
+            if let userPoints = json["user_points"] as? [String: Any],
+               let totalPoints = userPoints["total_points"] as? Int {
+                self.handleUserPoints(totalPoints)
+            }
+        case .failure(let error):
+            print("Error: \(error.localizedDescription)")
+            // Handle the error appropriately
+        }
+    }
+
+    // MARK: - Specific Response Handlers
+
+    private func handleDailyGoals(_ goals: [String: Any]) {
+        self.dailyGoalLoading.isHidden = true
+        self.globalStandingTodayLoading.isHidden = true
+        if let goalValue = goals["Goal"] as? String, let goalInt = Int(goalValue) {
+            print(goalInt)
+            let formattedGoal = formatLargeNumber(goalInt)
+            let attributedString = NSMutableAttributedString(string: "\(formattedGoal)\nDaily Goal")
+            let fontSize: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 30 : 18
+            attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSRange(location: attributedString.length - 10, length: 10))
+            dailyGoalCount.attributedText = attributedString
+        } else {
+            dailyGoalCount.text = "0\nDaily Goal"
+        }
+        if let currentValue = goals["Current"] as? String {
+            globalStandCount.text = "\(currentValue)"
+        } else {
+            globalStandCount.text = "0"
+        }
+        goal = Float(goals["Goal"] as? String ?? "0")!
+        current = Float(goals["Current"] as? String ?? "0")!
+        standProgressBar.progress = CGFloat(current / goal)
+    }
+
+    private func handleYesterdayGoals(_ goals: [String: Any]) {
+        if let currentValue = goals["Current"] as? String {
+            yesterdayLabel.text = "      Yesterday: \(currentValue)      "
+        } else {
+            yesterdayLabel.text = "      N/A      "
+        }
+    }
+
+    private func handleDailyStandsCount(_ count: Int) {
+        self.usaTotalStandsLoading.isHidden = true
+        usaTotalStandsLabel.text = "\(count)"
+    }
+
+    private func handleDailyStandsUserCount(_ count: Int) {
+        self.myTotalStandsLoading.isHidden = true
+        myTotalStandsLabel.text = "\(count)"
+    }
+
+    private func handleStandStreak(_ streak: Int) {
+        self.myCurrentStreakLoading.isHidden = true
+        myCurrentStreakLabel.text = "\(streak)"
+        segmentedStreakBar.value = streak % 10
+        standStreak = streak
+    }
+
+    private func handleAnswerStreak(_ streak: Int) {
+        questionAnswerStreak = streak
+    }
+
+    private func handleUserPoints(_ points: Int) {
+        print(points)
+        myPointsLabel.text = "\(points) Points"
+    }
+    // MARK: - View Configuration
+    
+    private func configureViewComponents() {
+        let interactableViews = [
+            pushStandButton, accountButton, standStreakIcon, standStreakTitle,
+            questionStreakIcon, questionStreakTitle, pointsIcon, pointsTitle, shareIcon
+        ]
+        interactableViews.forEach { $0?.isUserInteractionEnabled = true }
         
         yesterdayLabel.layer.cornerRadius = 16
         yesterdayLabel.layer.masksToBounds = true
         yesterdayLabel.layer.borderColor = UIColor.white.cgColor
-        yesterdayLabel.layer.borderWidth = 1.0 // Adjust the width as needed
-        
-        
-        // Ensure the image view can interact with the user
-        standStreakIcon.isUserInteractionEnabled = true
-        standStreakTitle.isUserInteractionEnabled = true
-        questionStreakIcon.isUserInteractionEnabled = true
-        questionStreakTitle.isUserInteractionEnabled = true
-        pointsIcon.isUserInteractionEnabled = true
-        pointsTitle.isUserInteractionEnabled = true
-        
-        // Create a UILongPressGestureRecognizer
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
-        longPressGesture.minimumPressDuration = 0.0 // Adjust the minimum press duration as needed
-        pushStandButton.addGestureRecognizer(longPressGesture)
-        
-        // Create a UITapGestureRecognizer
-        let standStreakGesture = UITapGestureRecognizer(target: self, action: #selector(standStreakTapped))
-        standStreakIcon.addGestureRecognizer(standStreakGesture)
-        let standStreakGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(standStreakTapped))
-        standStreakTitle.addGestureRecognizer(standStreakGestureRecognizer)
-        
-        let questionStreakGesture = UITapGestureRecognizer(target: self, action: #selector(questionStreakTapped))
-        questionStreakIcon.addGestureRecognizer(questionStreakGesture)
-        let questionStreakTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(questionStreakTapped))
-        questionStreakTitle.addGestureRecognizer(questionStreakTapGestureRecognizer)
-        
-        let pointsGesture = UITapGestureRecognizer(target: self, action: #selector(pointsTapped))
-        pointsIcon.addGestureRecognizer(pointsGesture)
-        let pointsTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(pointsTapped))
-        pointsTitle.addGestureRecognizer(pointsTapGestureRecognizer)
-        
-        let accountsGesture = UITapGestureRecognizer(target: self, action: #selector(accountsTapped))
-        accountButton.addGestureRecognizer(accountsGesture)
-        
-        let shareGesture = UITapGestureRecognizer(target: self, action: #selector(sendMessage))
-        shareIcon.addGestureRecognizer(shareGesture)
-        
+        yesterdayLabel.layer.borderWidth = 1.0
     }
     
-    /// Makes a network call to a specified endpoint and includes a `user_id` query parameter.
-    /// - Parameters:
-    ///   - endpoint: The base URL of the endpoint (e.g., "https://api.example.com/data").
-    ///   - userId: The user ID to include as a query parameter.
-    ///   - completion: A completion handler that is called with the result of the request.
-    func fetchData(fromEndpoint endpoint: String, withUserId userId: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        // Construct the URL with query parameter
-        var components = URLComponents(string: endpoint)
-        components?.queryItems = [
-            URLQueryItem(name: "user_id", value: userId)
-        ]
+    // MARK: - Gesture Setup
+    
+    private func setupGestureRecognizers() {
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        longPressGesture.minimumPressDuration = 0.0
+        pushStandButton.addGestureRecognizer(longPressGesture)
         
-        guard let url = components?.url else {
-            completion(.failure(URLError(.badURL)))
-            return
-        }
-        
-        // Create a URLSession data task
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            // Ensure there is no error for this HTTP response
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                completion(.failure(URLError(.badServerResponse)))
-                return
-            }
-            
-            // Ensure data is not nil
-            guard let data = data else {
-                completion(.failure(URLError(.cannotParseResponse)))
-                return
-            }
-            
-            // Return the received data
-            completion(.success(data))
-        }
-        
-        // Start the task
-        task.resume()
+        addTapGestureRecognizer(to: standStreakIcon, action: #selector(standStreakTapped))
+        addTapGestureRecognizer(to: standStreakTitle, action: #selector(standStreakTapped))
+        addTapGestureRecognizer(to: questionStreakIcon, action: #selector(questionStreakTapped))
+        addTapGestureRecognizer(to: questionStreakTitle, action: #selector(questionStreakTapped))
+        addTapGestureRecognizer(to: pointsIcon, action: #selector(pointsTapped))
+        addTapGestureRecognizer(to: pointsTitle, action: #selector(pointsTapped))
+        addTapGestureRecognizer(to: accountButton, action: #selector(accountsTapped))
+        addTapGestureRecognizer(to: shareIcon, action: #selector(sendMessage))
     }
-
-    // Action for long press gesture
-    @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+    
+    private func addTapGestureRecognizer(to view: UIView?, action: Selector) {
+        let tapGesture = UITapGestureRecognizer(target: self, action: action)
+        view?.addGestureRecognizer(tapGesture)
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func getCurrentDateFormatted() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: Date())
+    }
+    
+    private func getYesterdayDateFormatted() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let date = dateFormatter.date(from: getCurrentDateFormatted()),
+           let newDate = Calendar.current.date(byAdding: .day, value: -1, to: date) {
+            return dateFormatter.string(from: newDate)
+        }
+        return ""
+    }
+    
+    private func updateUIForPushStand() {
+        landingViewWithButton.isHidden = true
+        pushStandTitle.isHidden = true
+        landingViewWithPicture.isHidden = true
+        accountButton.isHidden = false
+        tabBarController?.tabBar.alpha = 1
+    }
+    
+    @objc private func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+        print("handleLongPress")
         if gesture.state == .began {
-            // Scale down the button by 15% and shade button by 15%
             UIView.animate(withDuration: 0.1) {
                 self.pushStandButton.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
                 self.pushStandButton.alpha = 0.85
             }
         } else if gesture.state == .ended || gesture.state == .cancelled {
-            // Scale back to original size
             UIView.animate(withDuration: 0.1) {
                 self.pushStandButton.transform = .identity
                 self.pushStandButton.alpha = 1.0
             }
-            // Haptic triggered
             tapHaptic()
-            
-            // Long press ended, trigger the pushStand method
-            pushStand(nil) // Call pushStand with nil sender
+            print("ended")
+            pushStand(gesture)
         }
     }
-
     
-    // Action for tap gesture
-    @objc func accountsTapped() {
-        print("Tapped")
-        self.performSegue(withIdentifier: "account", sender: self)
+    @objc private func accountsTapped() {
+        performSegue(withIdentifier: "account", sender: self)
     }
     
-    @objc func standStreakTapped() {
-        standStreakIcon.image = UIImage(named: "red-star-icon")
-        standStreakIcon.alpha = 1.0
-        questionStreakIcon.image = UIImage(named: "cyan-star-icon")
-        questionStreakIcon.alpha = 0.5
-        pointsIcon.image = UIImage(named: "gold-star-icon")
-        pointsIcon.alpha = 0.4
-        standStreakTitle.textColor = UIColor.systemRed
-        standStreakTitle.font = UIFont.boldSystemFont(ofSize: standStreakTitle.font.pointSize)
-        questionStreakTitle.textColor = .white
-        questionStreakTitle.font = UIFont.systemFont(ofSize: questionStreakTitle.font.pointSize, weight: .light)
-        pointsTitle.textColor = .white
-        pointsTitle.font = UIFont.systemFont(ofSize: pointsTitle.font.pointSize, weight: .light)
+    @objc private func standStreakTapped() {
+        updateStreakUI(
+            selectedIcon: standStreakIcon,
+            selectedIconImage: "red-star-icon",
+            selectedTitle: standStreakTitle,
+            selectedColor: .systemRed,
+            selectedStreakValue: standStreak % 10
+        )
+    }
+    
+    @objc private func questionStreakTapped() {
+        updateStreakUI(
+            selectedIcon: questionStreakIcon,
+            selectedIconImage: "cyan-star-icon",
+            selectedTitle: questionStreakTitle,
+            selectedColor: .systemCyan,
+            selectedStreakValue: questionAnswerStreak % 10
+        )
+    }
+    
+    @objc private func pointsTapped() {
+        updateStreakIconsForPoints()
+        updateTitles(
+            standStreakColor: .white,
+            standStreakFontWeight: .light,
+            questionStreakColor: .white,
+            questionStreakFontWeight: .light,
+            pointsColor: UIColor.systemBrown,
+            pointsFontWeight: .bold
+        )
+        segmentedStreakBar.alpha = 0
+        streakImage.alpha = 0
+        UIView.animate(withDuration: 0.5) {
+            self.myPointsLabel.alpha = 1
+        }
+    }
+    
+    @IBAction private func acknowledgeStreakFilled(_ sender: Any) {
+        bonusStandView.isHidden = false
+        streakFillView.isHidden = false
+        segmentedStreakBar.value = 0
+    }
+    
+    @IBAction private func pushStand(_ sender: UILongPressGestureRecognizer?) {
+        let uuidString = UUID().uuidString
+        let dateString = getDateFormatted()
+        tabBarController?.tabBar.isHidden = false
+        tapHaptic()
+        
+        let pushStandQueryParams = ["UserId": CurrentUser.shared.uid!, "Date": dateString]
+        let unixTimestamp = Date().timeIntervalSince1970
+        let pointsAwarded = (questionAnswerStreak % 10 == 0) ? "5" : "1"
+        let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
+        
+        postStand(queryParams: pushStandQueryParams) { result in
+            self.postPoints(queryParams: postPointQueryParams) { result in
+                // Handle result if needed
+            }
+        }
+        
+        savePushStandToUserDefaults(for: dateString)
+        animatePushStandButtonFadeOut()
+    }
+    
+    private func savePushStandToUserDefaults(for dateString: String) {
+        UserDefaults.standard.set(true, forKey: dateString)
+        appDelegate.userDefault.set(true, forKey: dateString)
+        appDelegate.userDefault.synchronize()
+    }
+    
+    private func animatePushStandButtonFadeOut() {
+        UIView.animate(withDuration: 0.0, delay: 0.2, animations: {
+            self.pushStandButton.alpha = 0
+        }) { _ in
+            self.animateLandingViewsFadeOut()
+        }
+    }
+    
+    private func animateLandingViewsFadeOut() {
+        UIView.animate(withDuration: 1.0, delay: 1.5, animations: {
+            self.landingViewWithPicture.alpha = 0
+            self.pushStandTitle.alpha = 0
+            self.landingViewWithButton.alpha = 0
+            self.tabBarController?.tabBar.alpha = 1
+        }) { finished in
+            if finished {
+                self.landingViewWithButton.isHidden = true
+                self.pushStandTitle.isHidden = true
+                self.landingViewWithPicture.isHidden = true
+                self.accountButton.isHidden = false
+                self.shareIcon.isHidden = false
+                self.animateStandStreakLabel()
+            }
+            self.updateProgressBar()
+        }
+    }
+    
+    private func animateStandStreakLabel() {
+        UIView.animate(withDuration: 1.0, animations: {
+            if self.standStreak > 0 && self.standStreak % 10 == 0 {
+                self.standStreakLabel.text = "5 Points"
+            }
+            self.standStreakLabel.alpha = 1.0
+        }) { finished in
+            if finished {
+                UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
+                    self.standStreakLabel.alpha = 0.0
+                }, completion: nil)
+            }
+        }
+    }
+    
+    private func updateProgressBar() {
+        let progressAmount = current / goal
+        standProgressBar.progress = CGFloat(progressAmount)
+    }
+    
+    private func updateStreakUI(selectedIcon: UIImageView, selectedIconImage: String, selectedTitle: UILabel, selectedColor: UIColor, selectedStreakValue: Int) {
+        let icons = [standStreakIcon, questionStreakIcon, pointsIcon]
+        
+        icons.forEach { $0?.alpha = 0.5 }
+        selectedIcon.alpha = 1.0
+        selectedIcon.image = UIImage(named: selectedIconImage)
+        
+        updateTitles(
+            standStreakColor: selectedColor == .systemRed ? selectedColor : .white,
+            standStreakFontWeight: selectedColor == .systemRed ? .bold : .light,
+            questionStreakColor: selectedColor == .systemCyan ? selectedColor : .white,
+            questionStreakFontWeight: selectedColor == .systemCyan ? .bold : .light,
+            pointsColor: selectedColor == .systemBrown ? selectedColor : .white,
+            pointsFontWeight: selectedColor == .systemBrown ? .bold : .light
+        )
+        
         myPointsLabel.alpha = 0
         segmentedStreakBar.alpha = 1
         streakImage.alpha = 1
-        segmentedStreakBar.selectedColor = .systemRed
-        segmentedStreakBar.value = standStreak % 10
-        streakImage.image = UIImage(named: "red-star-icon")
+        segmentedStreakBar.selectedColor = selectedColor
+        segmentedStreakBar.value = selectedStreakValue
+        streakImage.image = UIImage(named: selectedIconImage)
     }
-    // Action for tap gesture
-    @objc func questionStreakTapped() {
-        standStreakIcon.image = UIImage(named: "red-star-icon")
-        standStreakIcon.alpha = 0.5
-        questionStreakIcon.image = UIImage(named: "cyan-star-icon")
-        questionStreakIcon.alpha = 1.0
-        pointsIcon.image = UIImage(named: "gold-star-icon")
-        pointsIcon.alpha = 0.4
-        standStreakTitle.textColor = .white
-        standStreakTitle.font = UIFont.systemFont(ofSize: standStreakTitle.font.pointSize, weight: .light)
-        questionStreakTitle.textColor = .systemCyan
-        questionStreakTitle.font = UIFont.boldSystemFont(ofSize: questionStreakTitle.font.pointSize)
-        pointsTitle.textColor = .white
-        pointsTitle.font = UIFont.systemFont(ofSize: pointsTitle.font.pointSize, weight: .light)
-        myPointsLabel.alpha = 0
-        segmentedStreakBar.alpha = 1
-        streakImage.alpha = 1
-        segmentedStreakBar.selectedColor = .systemCyan
-        segmentedStreakBar.value = questionAnswerStreak % 10
-        streakImage.image = UIImage(named: "cyan-star-icon")
+    
+    private func updateTitles(standStreakColor: UIColor, standStreakFontWeight: UIFont.Weight, questionStreakColor: UIColor, questionStreakFontWeight: UIFont.Weight, pointsColor: UIColor, pointsFontWeight: UIFont.Weight) {
+        standStreakTitle.textColor = standStreakColor
+        standStreakTitle.font = UIFont.systemFont(ofSize: standStreakTitle.font.pointSize, weight: standStreakFontWeight)
+        
+        questionStreakTitle.textColor = questionStreakColor
+        questionStreakTitle.font = UIFont.systemFont(ofSize: questionStreakTitle.font.pointSize, weight: questionStreakFontWeight)
+        
+        pointsTitle.textColor = pointsColor
+        pointsTitle.font = UIFont.systemFont(ofSize: pointsTitle.font.pointSize, weight: pointsFontWeight)
     }
-    // Action for tap gesture
-    @objc func pointsTapped() {
+    
+    private func updateStreakIconsForPoints() {
         standStreakIcon.image = UIImage(named: "red-star-icon")
         standStreakIcon.alpha = 0.5
         questionStreakIcon.image = UIImage(named: "cyan-star-icon")
         questionStreakIcon.alpha = 0.5
         pointsIcon.image = UIImage(named: "gold-star-icon")
         pointsIcon.alpha = 1.0
-        standStreakTitle.textColor = .white
-        standStreakTitle.font = UIFont.systemFont(ofSize: standStreakTitle.font.pointSize, weight: .light)
-        questionStreakTitle.textColor = .white
-        questionStreakTitle.font = UIFont.systemFont(ofSize: questionStreakTitle.font.pointSize, weight: .light)
-        pointsTitle.textColor = UIColor.systemBrown
-        pointsTitle.font = UIFont.boldSystemFont(ofSize: pointsTitle.font.pointSize)
-        segmentedStreakBar.alpha = 0
-        streakImage.alpha = 0
-        UIView.animate(withDuration: 0.5) {
-            self.myPointsLabel.alpha = 1
-        }
-        
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.alpha = 0
-        let uuid = UUID()
-        let uuidString = uuid.uuidString
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateString = dateFormatter.string(from: Date())
-        print("Defaults: \(UserDefaults.standard.bool(forKey: dateString)) \(dateString)")
-       
-        let currentStandStreakQueryParams = ["userId": CurrentUser.shared.uid!]
-        let answerStreakQueryParams = ["userId": CurrentUser.shared.uid!]
-        let userPointsQueryParams = ["userId": CurrentUser.shared.uid!]
-        
-
-        let dailyGoalsQueryParams = ["date": dateString]
-        var newDateString = dateFormatter.string(from: Date())
-
-        // Convert the string to a Date object
-        if let date = dateFormatter.date(from: dateString) {
-            // Use the Calendar to subtract one day
-            if let newDate = Calendar.current.date(byAdding: .day, value: -1, to: date) {
-                // Convert the new Date object back to a string
-                newDateString = dateFormatter.string(from: newDate)
-                print(newDateString)  // Output will be "2023-12-26"
-            }
-        }
-        let yesterdayQueryParams = ["date": newDateString]
-        let userTotalStandsQueryParams = ["userId": CurrentUser.shared.uid!]
-        let pushStandCheckQueryParams = ["user_id": CurrentUser.shared.uid!]
-        
-        let semaphore = DispatchSemaphore(value: 0) // Create a semaphore
-        
-        fetchData(fromEndpoint: pushStandEndpoint, withUserId: CurrentUser.shared.uid!) {result in
-            switch result {
-                    case .success(let data):
-                        // Attempt to convert the data to a String
-                        if let responseString = String(data: data, encoding: .utf8) {
-                            if let boolVal = Bool(responseString) {
-                                if boolVal {
-                                    let dateString = self.getDateFormatted()
-                                    UserDefaults.standard.set(true, forKey: dateString)
-                                    DispatchQueue.main.async {
-                                        if UserDefaults.standard.bool(forKey: dateString) {
-                                            self.landingViewWithButton.isHidden = true
-                                            self.pushStandTitle.isHidden = true
-                                            self.landingViewWithPicture.isHidden = true
-                                            self.accountButton.isHidden = false
-                                            self.tabBarController?.tabBar.alpha = 1
-                                        }
-                                    }
-                                }
-                            }
-                        } else {
-                            // Handle the case where data could not be converted to a String
-                            print("Could not convert data to string.")
-                        }
-                    case .failure(let error):
-                        // Handle the error
-                        print("Error: \(error.localizedDescription)")
-                    }
+    private func postStand(queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
+        // Call the request method of NetworkService
+        NetworkService.shared.request(endpoint: .stand, method: "POST", data: queryParams) {result in
             
-            semaphore.signal() // Signal the semaphore once the task is completed
-
-        }
-        
-        semaphore.wait() // Wait for the signal
-        
-        standStreakTapped()
-        
-        //Yesterday
-        callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: yesterdayQueryParams, httpMethod: .get ) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let json):
-                    if let currentValue = json["Current"] as? String {
-                        self.yesterdayLabel.text = "      Yesterday: \(currentValue)      "
-                    } else {
-                        self.yesterdayLabel.text = "      N/A      "
-                    }
-                case .failure(let error):
-                    // Handle error
-                    self.dailyGoalCount.text = "0"
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-        
-        //Daily Goal
-        callAPIGateway(endpoint: dailyGoalsEndpoint, queryParams: dailyGoalsQueryParams, httpMethod: .get) { result in
-            DispatchQueue.main.async {
-                self.dailyGoalLoading.isHidden = true
-                self.globalStandingTodayLoading.isHidden = true
-                switch result {
-                case .success(let json):
-                    if let goalValue = json["Goal"] as? String,
-                       let goalInt = Int(goalValue) {
-                        let formattedGoal = self.formatNumber(goalInt)
-                        let attributedString = NSMutableAttributedString(string: "\(formattedGoal)\nDaily Goal")
-                        let fontSize: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 30 : 18
-                                        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSRange(location: attributedString.length - 10, length: 10))
-                        self.dailyGoalCount.attributedText = attributedString
-                    } else {
-                        self.dailyGoalCount.text = "0\nDaily Goal"
-                    }
-                    if let currentValue = json["Current"] as? String {
-                        self.globalStandCount.text = "\(currentValue)"
-                    } else {
-                        self.globalStandCount.text = "0"
-                    }
-                    self.goal = Float((json["Goal"] as? String)!)!
-                    self.current = Float((json["Current"] as? String)!)!
-                    let progressAmount = self.current / self.goal
-                    self.standProgressBar.progress = CGFloat(progressAmount)
-                    print("JSON: \(json)")
-                case .failure(let error):
-                    // Handle error
-                    self.dailyGoalCount.text = "0"
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-        
-        //User Total Stands
-        callAPIGateway(endpoint: userTotalStandsEndpoint, queryParams: userTotalStandsQueryParams, httpMethod: .get) { result in
-            DispatchQueue.main.async {
-                self.myTotalStandsLoading.isHidden = true
-                switch result {
-                case .success(let json):
-                    print(json)
-                    // Handle successful response with JSON
-                    if let myStands = json["count"] as? Int {
-                        self.myTotalStandsLabel.text = "\(myStands)"
-                    } else {
-                        self.myTotalStandsLabel.text = "0"
-                    }
-                case .failure(let error):
-                    // Handle error
-                    self.myTotalStandsLabel.text = "0"
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-        
-        //Us Total
-        callAPIGateway(endpoint: usTotalStandsEndpoint, queryParams: [:], httpMethod: .get) { result in
-            DispatchQueue.main.async {
-                self.usaTotalStandsLoading.isHidden = true
-                switch result {
-                case .success(let json):
-                    print(json)
-                    // Handle successful response with JSON
-                    if let usStands = json["count"] as? Int {
-                        let formattedStands = self.formatNumber(usStands)
-                        self.usaTotalStandsLabel.text = formattedStands
-                    } else {
-                        self.usaTotalStandsLabel.text = "0"
-                    }
-                case .failure(let error):
-                    // Handle error
-                    self.usaTotalStandsLabel.text = "0"
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-        
-        
-        //Stand Streak
-        callAPIGateway(endpoint: currentStandStreakEndpoint, queryParams: currentStandStreakQueryParams, httpMethod: .get) { result in
-            DispatchQueue.main.async {
-                self.myCurrentStreakLoading.isHidden = true
-                switch result {
-                case .success(let json):
-                    print(json)
-                    // Handle successful response with JSON
-                    if let streaks = json["streak_count"] as? Int {
-                        self.myCurrentStreakLabel.text = "\(streaks)"
-                        self.segmentedStreakBar.value = streaks % 10
-                        self.standStreak = streaks
-                    } else {
-                        self.myCurrentStreakLabel.text = "0"
-                    }
-                case .failure(let error):
-                    // Handle error
-                    self.myCurrentStreakLabel.text = "0"
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-        
-        //Question Streak
-        callAPIGateway(endpoint: currentAnswerStreakEndpoint, queryParams: answerStreakQueryParams, httpMethod: .get) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let json):
-                    print(json)
-                    // Handle successful response with JSON
-                    if let streaks = json["streak_count"] as? Int {
-                        self.questionAnswerStreak = streaks
-                    }
-                case .failure(let error):
-                    // Handle error
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-        
-        //Points
-        callAPIGateway(endpoint: userPointsEndpoint, queryParams: userPointsQueryParams, httpMethod: .get) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let json):
-                    print(json)
-                    // Handle successful response with JSON
-                    if let points = json["TotalPoints"] as? Int {
-                        self.myPointsLabel.text = "\(points) Points"
-                    } else {
-                        self.myPointsLabel.text = "0 Points"
-                    }
-                case .failure(let error):
-                    // Handle error
-                    self.myPointsLabel.text = "0 Points"
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
+            print(result)
+            self.updateStandCounts()
+            self.updateUIForNewStand()
         }
         
     }
     
-    
-    
-    @IBAction func acknowledgeStreakFilled(_ sender: Any) {
-        bonusStandView.isHidden = false
-        streakFillView.isHidden = false
-        segmentedStreakBar.value = 0
-    }
-    
-    @IBAction func pushStand(_ sender: UILongPressGestureRecognizer?) {
-        let uuid = UUID()
-        let uuidString = uuid.uuidString
-        let dateString = getDateFormatted()
-        self.tabBarController?.tabBar.isHidden = false
-        tapHaptic()
-        let pushStandQueryParams = ["UserId": CurrentUser.shared.uid!, "Date": dateString]
-        postStand(endpoint: pushStandEndpoint, queryParams: pushStandQueryParams) { result in
-            DispatchQueue.main.async {
-                
-            }
-        }
-        let unixTimestamp = Date().timeIntervalSince1970
-        let pointsAwarded = (questionAnswerStreak % 10 == 0) ? "5" : "1"
-        let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
-        postPoints(endpoint: userPointsEndpoint, queryParams: postPointQueryParams) { result in
-            DispatchQueue.main.async {
-                
-            }
-        }
-        print(dateString)
-        UserDefaults.standard.set(true, forKey: dateString)
-        self.appDelegate.userDefault.set(true, forKey: dateString)
-        self.appDelegate.userDefault.synchronize()
-        UIView.animate(withDuration: 0.0, delay: 0.2, animations: {
-            // This will start the animation to fade out the view
-            self.pushStandButton.alpha = 0
-        }) { (true) in
-            UIView.animate(withDuration: 1.0, delay: 1.5, animations: {
-                self.landingViewWithPicture.alpha = 0
-                self.pushStandTitle.alpha = 0
-                self.landingViewWithButton.alpha = 0
-                self.tabBarController?.tabBar.alpha = 1
-            }) { (finished) in
-                // Once the animation is finished, hide the view
-                if finished {
-                    self.landingViewWithButton.isHidden = true
-                    self.pushStandTitle.isHidden = true
-                    self.landingViewWithPicture.isHidden = true
-                    self.accountButton.isHidden = false
-                    self.shareIcon.isHidden = false
-                    UIView.animate(withDuration: 1.0, animations: {
-                        if self.standStreak > 0 && self.standStreak % 10 == 0 {
-                            self.standStreakLabel.text = "5 Points"
-                        }
-                        self.standStreakLabel.alpha = 1.0 // Make the label fully visible
-                    }) { (finished) in
-                        // After the fade-in completes, start the fade-out
-                        UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
-                            self.standStreakLabel.alpha = 0.0 // Make the label fully transparent
-                        }, completion: nil)
-                    }
-                }
-                let progressAmount = self.current / self.goal
-                self.standProgressBar.progress = CGFloat(progressAmount)
+    private func updateStandCounts() {
+        let labels = [globalStandCount, myCurrentStreakLabel, myTotalStandsLabel, usaTotalStandsLabel]
+        
+        labels.forEach { label in
+            if let currentCount = Int(label?.text ?? "0") {
+                label?.text = String(currentCount + 1)
             }
         }
     }
     
-    func getDailyGoals(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
-        // Construct the URL with query parameters
-        var urlComponents = URLComponents(string: endpoint)
-        urlComponents?.queryItems = queryParams.map { URLQueryItem(name: $0.key, value: $0.value) }
+    private func updateUIForNewStand() {
+        current += 1
+        standStreak += 1
         
-        guard let url = urlComponents?.url else {
-            completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
-            return
-        }
-        
-        // Create a URLRequest
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        // URLSession task to call the API
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            // Check for errors
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            // Check for valid data
-            guard let data = data else {
-                completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
-                return
-            }
-            
-            // Attempt to parse JSON
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    completion(.success(json))
-                } else {
-                    completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid JSON"])))
-                }
-            } catch let error {
-                completion(.failure(error))
-            }
-        }
-        
-        // Start the task
-        task.resume()
-    }
-    
-    func postStand(endpoint: String, queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
-        if let currentCount = Int(self.globalStandCount.text ?? "0") {
-            let newCount = currentCount + 1
-            self.globalStandCount.text = String(newCount)
-        }
-        if let currentCount = Int(self.myCurrentStreakLabel.text ?? "0") {
-            let newCount = currentCount + 1
-            self.myCurrentStreakLabel.text = String(newCount)
-        }
-        if let currentCount = Int(self.myTotalStandsLabel.text ?? "0") {
-            let newCount = currentCount + 1
-            self.myTotalStandsLabel.text = String(newCount)
-        }
-        if let currentCount = Int(self.usaTotalStandsLabel.text ?? "0") {
-            let newCount = currentCount + 1
-            self.usaTotalStandsLabel.text = String(newCount)
-        }
-        self.current = self.current + 1
-        self.standStreak = self.standStreak + 1
-        if self.standStreak > 0 && self.standStreak % 10 == 0 {
+        if standStreak > 0 && standStreak % 10 == 0 {
             segmentedStreakBar.value = 10
-            self.bonusStandView.isHidden = false
-            self.streakFillView.isHidden = false
+            bonusStandView.isHidden = false
+            streakFillView.isHidden = false
         } else {
-            self.segmentedStreakBar.value = self.questionAnswerStreak % 10
+            segmentedStreakBar.value = standStreak % 10
         }
         
-        let newCount = pointsCount + 1
-        self.myPointsLabel.text = "\(newCount) Points"
-        
-        
-        let urlString = endpoint
-        let url = NSURL(string: urlString)!
-        let paramString = queryParams
-        let request = NSMutableURLRequest(url: url as URL)
-        request.httpMethod = "POST"
-        request.httpBody = try? JSONSerialization.data(withJSONObject: paramString, options: [.prettyPrinted])
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, _, _ in
-            do {
-                if let jsonData = data {
-                    if let jsonDataDict = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: AnyObject] {
-                        NSLog("Received data:\n\(jsonDataDict))")
-                        //                        self.log.mpUpdate("CLIENT_PUSH_NOTIFICATION", "status", "success")
-                    }
-                }
-            } catch let err as NSError {
-                // print(err.debugDescription)
-                //                self.log.mpUpdate("CLIENT_PUSH_NOTIFICATION_FAILED", "status", "failed", "error", err.localizedDescription)
-            }
-        }
-        task.resume()
-        
+        pointsCount += 1
+        myPointsLabel.text = "\(pointsCount) Points"
     }
     
-    // Function to compose and present the message interface
-    @objc func sendMessage() {
+    @objc private func sendMessage() {
         if MFMessageComposeViewController.canSendText() {
             let messageVC = MFMessageComposeViewController()
             messageVC.body = "Join me on the app that is uniting Americans one STAND at a time! \n\n Follow us! \n Insta: pushstand_now \n X: @pushstand_now \n\n https://pushstand.com/"
             messageVC.recipients = [] // Enter the phone number here
             messageVC.messageComposeDelegate = self
-            self.present(messageVC, animated: true, completion: nil)
+            present(messageVC, animated: true, completion: nil)
         }
     }
     
-    // Delegate method to handle the message interface result
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        // Handle the result (sent, cancelled, failed)
         controller.dismiss(animated: true, completion: nil)
-    }
-    
-    func formatNumber(_ number: Int) -> String {
-        // let number = put number here to test daily goal and usa total stands
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 2
-            
-        if number >= 1000000000 {
-            let billion = Double(number) / 1_000_000_000
-            return "\(formatter.string(from: NSNumber(value: billion)) ?? "")B"
-        } else if number >= 1000000 {
-            let million = Double(number) / 1_000_000
-            return "\(formatter.string(from: NSNumber(value: million)) ?? "")M"
-        } else if number >= 1000 {
-            let thousand = Double(number) / 1_000
-            return "\(formatter.string(from: NSNumber(value: thousand)) ?? "")K"
-        } else {
-            return "\(number)"
-        }
     }
 }

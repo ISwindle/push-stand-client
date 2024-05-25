@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Configure Firebase
         FirebaseApp.configure()
+        
+        NetworkMonitor.shared // Initialize the network monitor
         let semaphore = DispatchSemaphore(value: 0)
         currentUser.uid = UserDefaults.standard.string(forKey: "userId")
         if let userId = UserDefaults.standard.string(forKey: "userId") {
@@ -32,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             request.httpMethod = "GET"
             
             
-                
+            
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 defer { semaphore.signal() } // Signal to the semaphore upon task completion
                 guard let data = data, error == nil else {
@@ -58,6 +60,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             task.resume()
             semaphore.wait()
         }
+        if let userId = CurrentUser.shared.uid {
+            let queryParams = ["user_id": CurrentUser.shared.uid!]
+            NetworkService.shared.request(endpoint: .stand, method: "GET", queryParams: queryParams) { result in
+                defer { semaphore.signal() }
+                switch result {
+                case .success(let json):
+                    if let hasTakenAction = json["has_taken_action"] as? Bool {
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd"
+                        let dateString = dateFormatter.string(from: Date())
+                        UserDefaults.standard.set(true, forKey: dateString)
+                        self.userDefault.set(true, forKey: dateString)
+                        self.userDefault.synchronize()
+                    } else {
+                        print("Invalid response format")
+                    }
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                    // Handle the error appropriately
+                }
+                
+            }
+        }
+        
         
         // Set UNUserNotificationCenter delegate
         UNUserNotificationCenter.current().delegate = self
@@ -70,11 +96,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             options: authOptions,
             completionHandler: {_, _ in })
         application.registerForRemoteNotifications()
-
+        
         
         return true
     }
     
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        
+    }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken

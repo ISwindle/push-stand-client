@@ -15,7 +15,16 @@ class AccountDeletionViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBOutlet weak var deleteAccountButton: UIButton!
+    
+    @IBAction func deleteAccount(_ sender: Any) {
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let loginNavController = storyboard.instantiateViewController(identifier: "InitialViewController")
+        
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
+    }
     /*
     // MARK: - Navigation
 

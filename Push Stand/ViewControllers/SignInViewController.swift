@@ -64,7 +64,28 @@ class SignInViewController: UIViewController {
                 UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: "userId")
                 UserDefaults.standard.set(Auth.auth().currentUser?.email, forKey: "userEmail")
                 UserDefaults.standard.synchronize()
-                
+
+                let queryParams = ["user_id": CurrentUser.shared.uid!]
+                NetworkService.shared.request(endpoint: .stand, method: "GET", queryParams: queryParams) { result in
+
+                    switch result {
+                    case .success(let json):
+                        if let hasTakenAction = json["has_taken_action"] as? Bool {
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd"
+                            let dateString = dateFormatter.string(from: Date())
+                            UserDefaults.standard.set(true, forKey: dateString)
+                            appDelegate.userDefault.set(true, forKey: dateString)
+                            appDelegate.userDefault.synchronize()
+                        } else {
+                            print("Invalid response format")
+                        }
+                    case .failure(let error):
+                        print("Error: \(error.localizedDescription)")
+                        // Handle the error appropriately
+                    }
+                    
+                }
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController") as? UITabBarController else { return }
                 

@@ -1,4 +1,5 @@
 import UIKit
+import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
@@ -8,6 +9,7 @@ class SignUpReminderViewController: UIViewController {
     
     let usersEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users"
     var dataManager = OnboardingManager.shared
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +65,8 @@ class SignUpReminderViewController: UIViewController {
         }
         
         let db = Firestore.firestore()
+        print("Firebase App: \(FirebaseApp.app()!)")
+        print("Firestore Instance: \(Firestore.firestore())")
         let userData: [String: Any] = [
             "UserId": user.uid,
             "Email": user.email ?? "",
@@ -71,13 +75,27 @@ class SignUpReminderViewController: UIViewController {
             "PhoneNumber": dataManager.onboardingData.phoneNumber ?? ""
         ]
         
-        db.collection("users").document(user.uid).setData(userData) { error in
-            if let error = error {
+        
+        NetworkService.shared.request(endpoint: .updateUser, method: "POST", data: userData) { [self] result in
+            switch result {
+            case .success(let json):
+                var currentUser = CurrentUser.shared
+                currentUser.uid = user.uid
+                currentUser.reminderTime = self.dataManager.onboardingData.reminderTime ?? ""
+                currentUser.birthdate = formattedDate(date: self.dataManager.onboardingData.birthday)
+                currentUser.phoneNumber = self.dataManager.onboardingData.phoneNumber ?? ""
+                currentUser.email = user.email
+                currentUser.firebaseAuthToken = ""
+                UserDefaults.standard.set(true, forKey: "usersignedin")
+                UserDefaults.standard.set(currentUser.uid, forKey: "userId")
+                UserDefaults.standard.set(currentUser.email, forKey: "userEmail")
+                UserDefaults.standard.synchronize()
+                self.transitionToMainApp()
+            case .failure(let error):
                 self.presentAlert(title: "Error", message: error.localizedDescription)
-                return
             }
-            self.transitionToMainApp()
         }
+        
     }
     
     private func formattedDate(date: Date?) -> String {

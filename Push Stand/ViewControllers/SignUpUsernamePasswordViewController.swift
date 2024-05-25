@@ -7,87 +7,95 @@ class SignUpUsernamePasswordViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     var dataManager = OnboardingManager.shared
-    
-    @IBAction func enterUnAndPw(_ sender: Any) {
-    }
-    
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
+    private let minimumPasswordLength = 6
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        addTextFieldTargets()
+    }
+    
+    private func setupUI() {
         nextButton.isEnabled = false
+    }
+    
+    private func addTextFieldTargets() {
         usernameTextField.addTarget(self, action: #selector(usernameFieldDidChange(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(passwordFieldDidChange(_:)), for: .editingChanged)
     }
     
-    @objc func usernameFieldDidChange(_ textField: UITextField) {
+    @objc private func usernameFieldDidChange(_ textField: UITextField) {
         validateForm()
     }
     
-    @objc func passwordFieldDidChange(_ textField: UITextField) {
+    @objc private func passwordFieldDidChange(_ textField: UITextField) {
         validateForm()
     }
     
-    func validateForm() {
-        if let username = usernameTextField.text, isValidEmail(username),
-           let password = passwordTextField.text, isValidPassword(password) {
-            nextButton.isEnabled = true
-        } else {
+    private func validateForm() {
+        guard let username = usernameTextField.text, isValidEmail(username),
+              let password = passwordTextField.text, isValidPassword(password) else {
             nextButton.isEnabled = false
+            return
         }
+        nextButton.isEnabled = true
     }
     
-    func isValidPassword(_ password: String) -> Bool {
-        return password.count >= 6
+    @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
-    @IBAction func next(_ sender: Any) {
+    @IBAction private func next(_ sender: Any) {
         guard let email = usernameTextField.text, isValidEmail(email) else {
-            presentAlertWithTitle(title: "Invalid Email", message: "Please enter a valid email address.", options: "OK") { _ in }
+            presentAlertWithTitle(title: "Invalid Email", message: "Please enter a valid email address.")
             return
         }
         
         checkEmailAvailability(email) { [weak self] available in
             guard available else {
-                self?.presentAlertWithTitle(title: "Email Unavailable", message: "This email is already in use. Please try another one.", options: "OK") { _ in }
+                self?.presentAlertWithTitle(title: "Email Unavailable", message: "This email is already in use. Please try another one.")
                 return
             }
-            
-            // If email is available and valid, proceed with next steps
             self?.proceedToNextScreen()
         }
     }
     
     private func checkEmailAvailability(_ email: String, completion: @escaping (Bool) -> Void) {
         let data = ["email": email]
-        NetworkService.shared.request(endpoint: .checkEmail, method: "POST", data: data) { (result: Result<EmailCheckResponse, Error>) in
+        NetworkService.shared.request(endpoint: .checkEmail, method: "POST", data: data) { (result: Result<[String: Any], Error>) in
             switch result {
             case .success(let response):
-                completion(!response.email_exists)
+                if let emailExists = response["email_exists"] as? Bool {
+                    completion(!emailExists)
+                } else {
+                    completion(false) // Handle the case where email_exists is not found in the response
+                }
             case .failure:
                 completion(false)
             }
         }
     }
     
+    
     private func proceedToNextScreen() {
         dataManager.onboardingData.username = usernameTextField.text
         dataManager.onboardingData.email = usernameTextField.text
         dataManager.onboardingData.password = passwordTextField.text
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextViewController = storyboard.instantiateViewController(withIdentifier: "SignupBirthdateViewController") as! SignupBirthdateViewController
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+        guard let nextViewController = storyboard.instantiateViewController(withIdentifier: "SignupBirthdateViewController") as? SignupBirthdateViewController else {
+            print("ViewController with identifier SignupBirthdateViewController not found.")
+            return
+        }
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
     
-    func presentAlertWithTitle(title: String, message: String, options: String..., completion: @escaping (Int) -> Void) {
+    private func presentAlertWithTitle(title: String, message: String, options: [String] = ["OK"], completion: ((Int) -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         for (index, option) in options.enumerated() {
             alertController.addAction(UIAlertAction(title: option, style: .default) { _ in
-                completion(index)
+                completion?(index)
             })
         }
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
 }

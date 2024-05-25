@@ -2,7 +2,6 @@ import UIKit
 
 class SignupBirthdateViewController: UIViewController {
     
-    
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var ageConfirmationSwitch: UISwitch!
     @IBOutlet weak var nextButton: UIButton!
@@ -12,76 +11,64 @@ class SignupBirthdateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureUI()
+        setupTargets()
+    }
+    
+    private func configureUI() {
         nextButton.isEnabled = false
-        
-        // Configure the date picker properties if needed
         datePicker.maximumDate = Date() // Prevents future dates from being selected
-        
-        
-        // Set the background color of the date picker to black
         datePicker.backgroundColor = .black
-        
-        // Set the tintColor to white to affect non-text components
         datePicker.tintColor = .white
         
-        // Attempt to set the text color of the wheels to white
-        // This uses a private API and may not work in all versions of iOS
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle = .wheels
             datePicker.setValue(UIColor.white, forKey: "textColor")
-            datePicker.overrideUserInterfaceStyle = .dark // This ensures dark mode styling, which may help with your color scheme
+            datePicker.overrideUserInterfaceStyle = .dark // Ensures dark mode styling
         }
-        
-        // Add target-action mechanism for the switch
+    }
+    
+    private func setupTargets() {
         ageConfirmationSwitch.addTarget(self, action: #selector(switchValueDidChange(_:)), for: .valueChanged)
-        
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
     }
     
     @objc func switchValueDidChange(_ sender: UISwitch) {
-        // Check if the selected date makes the user at least 18 years old
-        if let age = Calendar.current.dateComponents([.year], from: datePicker.date, to: Date()).year, age >= 18 {
-            // Enable the switch only if the age requirement is met
-            if sender.isOn {
-                nextButton.isEnabled = true
-                dataManager.onboardingData.isAgeConfirmed = true
-            } else {
-                // Handle the switch being turned off
-                nextButton.isEnabled = false
-                dataManager.onboardingData.isAgeConfirmed = false
-            }
-        } else {
-            // If the selected date makes the user under 18, keep the switch off and disable the next button
-            sender.isOn = false
-            nextButton.isEnabled = false
-            showAlert(message: "")
-        }
+        validateAgeAndSwitchState()
     }
     
-    @IBAction func ageConfirmationValueChanged(_ sender: Any) {
-        dataManager.onboardingData.isAgeConfirmed = (sender as AnyObject).isOn
+    @objc func datePickerValueChanged(_ sender: UIDatePicker) {
+        validateAgeAndSwitchState()
+    }
+    
+    private func validateAgeAndSwitchState() {
+        let age = Calendar.current.dateComponents([.year], from: datePicker.date, to: Date()).year ?? 0
+        let isAgeValid = age >= 18
+        ageConfirmationSwitch.isEnabled = isAgeValid
+        ageConfirmationSwitch.isOn = isAgeValid && ageConfirmationSwitch.isOn
+        nextButton.isEnabled = isAgeValid && ageConfirmationSwitch.isOn
+        dataManager.onboardingData.isAgeConfirmed = isAgeValid && ageConfirmationSwitch.isOn
+        
+        if !isAgeValid {
+            showAlert(message: "You must be at least 18 years of age to enter")
+        }
     }
     
     @IBAction func next(_ sender: Any) {
-        // Save the date and age confirmation in the singleton when the user proceeds to the next step
         dataManager.onboardingData.birthday = datePicker.date
-        // Check if the user is at least 18 years old, and update isAgeConfirmed accordingly
-        // This is a simplistic check and does not account for leap years etc.
-        if let age = Calendar.current.dateComponents([.year], from: datePicker.date, to: Date()).year, age >= 18 {
-            dataManager.onboardingData.isAgeConfirmed = true
-        } else {
-            dataManager.onboardingData.isAgeConfirmed = false
-            // Handle underage users, possibly show an alert
+        validateAgeAndSwitchState()
+        
+        if dataManager.onboardingData.isAgeConfirmed {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyboard.instantiateViewController(withIdentifier: "SignUpReminderViewController") as! SignUpReminderViewController
+            navigationController?.pushViewController(nextViewController, animated: true)
         }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextViewController = storyboard.instantiateViewController(withIdentifier: "SignUpReminderViewController") as! SignUpReminderViewController
-        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
-    // Function to display an alert message
-    func showAlert(message: String) {
-        let alertController = UIAlertController(title: "Important", message: "You must be at least 18 years of age to enter", preferredStyle: .alert)
+    
+    private func showAlert(message: String) {
+        let alertController = UIAlertController(title: "Important", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
-    
 }
