@@ -6,10 +6,6 @@ class AccountEmailViewController: UIViewController {
     @IBOutlet weak var currentPasswordTextField: UITextField!
     @IBOutlet weak var confirmationEmailButton: UIButton!
     
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
-    
     @IBAction func updateEmail(_ sender: Any) {
         guard let email = emailText.text, isValidEmail(email) else {
             showAlert(title: "Invalid Email", message: "The entered email is invalid. Please try again.")

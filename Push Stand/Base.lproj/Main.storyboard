@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -420,7 +420,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -1238,7 +1238,7 @@ Stands</string>
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-ty-kPb" userLabel="Bonus Stand View">
                                 <rect key="frame" x="0.0" y="232.5" width="414" height="580.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hbI-xq-uiL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="581"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="580.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-0Y-yxE">
@@ -1288,7 +1288,7 @@ let's see if you can do it again!</string>
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-AV-dXn" userLabel="Got it button view">
-                                            <rect key="frame" x="0.0" y="317" width="414" height="264"/>
+                                            <rect key="frame" x="0.0" y="317" width="414" height="263.5"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-r3J">
                                                     <rect key="frame" x="122" y="115" width="170" height="34"/>
@@ -1757,7 +1757,6 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="40" y="98" width="180" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="FYF-hb-nqj"/>
-                                    <constraint firstAttribute="width" constant="180" id="Z47-I1-puq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1767,9 +1766,7 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="40" y="129" width="334" height="44"/>
                                 <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="334" id="GtN-EH-ZFf"/>
-                                    <constraint firstAttribute="height" constant="44" id="T7H-Am-gvr"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="gp7-w5-hDn"/>
+                                    <constraint firstAttribute="height" constant="44" id="5wF-a0-eT6"/>
                                 </constraints>
                                 <color key="textColor" systemColor="lightTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -1779,7 +1776,7 @@ let's see if you can do it again!</string>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hY-aX-YZ2">
-                                <rect key="frame" x="40" y="191" width="334" height="34"/>
+                                <rect key="frame" x="40" y="218" width="334" height="34"/>
                                 <color key="tintColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit"/>
@@ -1793,22 +1790,23 @@ let's see if you can do it again!</string>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="8Gz-lt-LoR" firstAttribute="top" secondItem="NSS-l4-lS1" secondAttribute="bottom" constant="13" id="1Kp-A6-A7c"/>
-                            <constraint firstItem="a93-w7-jLn" firstAttribute="top" secondItem="8Gz-lt-LoR" secondAttribute="bottom" constant="10" id="4RO-w5-2KD"/>
                             <constraint firstItem="zsS-ME-Jyn" firstAttribute="centerX" secondItem="OKY-l6-Eix" secondAttribute="centerX" id="66h-0q-jAW"/>
-                            <constraint firstItem="a93-w7-jLn" firstAttribute="top" secondItem="8Gz-lt-LoR" secondAttribute="bottom" constant="10" id="77e-lZ-aTH"/>
-                            <constraint firstItem="a93-w7-jLn" firstAttribute="leading" secondItem="b7j-rl-LQ4" secondAttribute="leading" constant="40" id="9Zl-ae-ogE"/>
-                            <constraint firstItem="8Gz-lt-LoR" firstAttribute="leading" secondItem="b7j-rl-LQ4" secondAttribute="leading" constant="40" id="EeX-kC-kVs"/>
-                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="trailing" secondItem="a93-w7-jLn" secondAttribute="trailing" id="EiC-S8-Mld"/>
+                            <constraint firstItem="8Gz-lt-LoR" firstAttribute="leading" secondItem="zsS-ME-Jyn" secondAttribute="leading" id="7UT-aw-9w5"/>
                             <constraint firstItem="NSS-l4-lS1" firstAttribute="leading" secondItem="zsS-ME-Jyn" secondAttribute="leading" id="JLS-fN-WB5"/>
                             <constraint firstItem="5hY-aX-YZ2" firstAttribute="leading" secondItem="a93-w7-jLn" secondAttribute="leading" id="Lnx-NW-VLN"/>
-                            <constraint firstItem="a93-w7-jLn" firstAttribute="leading" secondItem="8Gz-lt-LoR" secondAttribute="leading" id="MtF-L4-pma"/>
-                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="top" secondItem="a93-w7-jLn" secondAttribute="bottom" constant="18" id="T88-5V-egP"/>
+                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="leading" secondItem="zsS-ME-Jyn" secondAttribute="leading" id="NAF-vr-SE3"/>
+                            <constraint firstItem="a93-w7-jLn" firstAttribute="top" secondItem="8Gz-lt-LoR" secondAttribute="bottom" constant="10" id="Ngf-mO-zeS"/>
                             <constraint firstItem="NSS-l4-lS1" firstAttribute="top" secondItem="zsS-ME-Jyn" secondAttribute="bottom" constant="10" id="WOQ-UM-Zk0"/>
                             <constraint firstItem="zsS-ME-Jyn" firstAttribute="leading" secondItem="b7j-rl-LQ4" secondAttribute="leading" constant="40" id="XFY-Ho-0fs">
                                 <variation key="heightClass=regular-widthClass=regular" constant="150"/>
                             </constraint>
                             <constraint firstItem="NSS-l4-lS1" firstAttribute="centerX" secondItem="OKY-l6-Eix" secondAttribute="centerX" id="gGa-Yu-y1n"/>
+                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="centerX" secondItem="OKY-l6-Eix" secondAttribute="centerX" id="ghe-AN-bYp"/>
+                            <constraint firstItem="a93-w7-jLn" firstAttribute="leading" secondItem="zsS-ME-Jyn" secondAttribute="leading" id="l1P-gM-0dS"/>
+                            <constraint firstItem="b7j-rl-LQ4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Gz-lt-LoR" secondAttribute="trailing" symbolic="YES" id="qLQ-u2-xmy"/>
+                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="top" secondItem="a93-w7-jLn" secondAttribute="bottom" constant="45" id="svx-zU-zDi"/>
                             <constraint firstItem="zsS-ME-Jyn" firstAttribute="top" secondItem="b7j-rl-LQ4" secondAttribute="top" constant="10" id="zFO-d4-eje"/>
+                            <constraint firstItem="a93-w7-jLn" firstAttribute="centerX" secondItem="OKY-l6-Eix" secondAttribute="centerX" id="zay-ey-6Cy"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="OVa-jM-GXq" appends="YES" id="BRB-hJ-KMf"/>
@@ -1914,9 +1912,9 @@ let's see if you can do it again!</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maZ-qb-rgK">
-                                        <rect key="frame" x="320" y="10.5" width="54" height="34.5"/>
+                                        <rect key="frame" x="320" y="12.5" width="54" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34.5" id="DHM-hl-Bx4"/>
+                                            <constraint firstAttribute="height" constant="30" id="DHM-hl-Bx4"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Edit"/>
@@ -1981,7 +1979,7 @@ let's see if you can do it again!</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWQ-Iu-213">
-                                <rect key="frame" x="75" y="437" width="264" height="34"/>
+                                <rect key="frame" x="40" y="437" width="334" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log Out">
                                     <color key="baseBackgroundColor" red="0.17964804292929293" green="0.17964804292929293" blue="0.17964804292929293" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1991,7 +1989,7 @@ let's see if you can do it again!</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0I-cU-N5g">
-                                <rect key="frame" x="75" y="373" width="264" height="34"/>
+                                <rect key="frame" x="40" y="373" width="334" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="cpx-0K-8zp"/>
                                 </constraints>
@@ -2009,7 +2007,7 @@ let's see if you can do it again!</string>
                         <constraints>
                             <constraint firstItem="dJa-Y2-nU4" firstAttribute="leading" secondItem="ln3-qy-Du2" secondAttribute="leading" id="2cu-PE-dUT"/>
                             <constraint firstItem="dRe-f1-NOI" firstAttribute="trailing" secondItem="ToY-gD-ffS" secondAttribute="trailing" id="3Xt-tM-ueS"/>
-                            <constraint firstItem="s0I-cU-N5g" firstAttribute="leading" secondItem="ln3-qy-Du2" secondAttribute="leading" constant="75" id="4Qr-BV-zWn">
+                            <constraint firstItem="s0I-cU-N5g" firstAttribute="leading" secondItem="ln3-qy-Du2" secondAttribute="leading" constant="40" id="4Qr-BV-zWn">
                                 <variation key="heightClass=regular-widthClass=regular" constant="200"/>
                             </constraint>
                             <constraint firstItem="H7G-OT-ceE" firstAttribute="top" secondItem="ln3-qy-Du2" secondAttribute="top" id="5VM-Dp-GcI"/>
@@ -2069,7 +2067,7 @@ let's see if you can do it again!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9R-ED-813">
-                                <rect key="frame" x="40" y="98" width="334" height="81.5"/>
+                                <rect key="frame" x="40" y="68" width="334" height="81.5"/>
                                 <string key="text">Should you have any questions, or need assistance, please contact our support team at the email below.  Responses may take up to 2 business days.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2079,13 +2077,13 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="support@pushstand.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYg-5B-XAS">
-                                <rect key="frame" x="111" y="204.5" width="192" height="20.5"/>
+                                <rect key="frame" x="111" y="174.5" width="192" height="20.5"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <color key="textColor" red="0.36473633837561459" green="0.62227856874657406" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Should you want to delete your account, tap the button below to begin that process." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0R-b5-T14">
-                                <rect key="frame" x="40" y="275" width="334" height="41"/>
+                                <rect key="frame" x="40" y="245" width="334" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2094,7 +2092,7 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rth-5r-YoZ">
-                                <rect key="frame" x="70" y="366" width="274" height="34"/>
+                                <rect key="frame" x="40" y="331" width="334" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="enF-iH-47M"/>
                                 </constraints>
@@ -2114,10 +2112,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="F9R-ED-813" firstAttribute="centerX" secondItem="8d1-sY-982" secondAttribute="centerX" id="4QG-r0-7L9"/>
                             <constraint firstItem="q0R-b5-T14" firstAttribute="top" secondItem="YYg-5B-XAS" secondAttribute="bottom" constant="50" id="69x-DZ-xGJ"/>
                             <constraint firstItem="q0R-b5-T14" firstAttribute="leading" secondItem="F9R-ED-813" secondAttribute="leading" id="EfO-h7-oZj"/>
-                            <constraint firstItem="rth-5r-YoZ" firstAttribute="top" secondItem="q0R-b5-T14" secondAttribute="bottom" constant="50" id="Kxf-s8-UnG"/>
-                            <constraint firstItem="rth-5r-YoZ" firstAttribute="leading" secondItem="geM-F7-1bF" secondAttribute="leading" constant="70" id="PE1-x4-WJp">
-                                <variation key="heightClass=regular-widthClass=regular" constant="200"/>
-                            </constraint>
+                            <constraint firstItem="rth-5r-YoZ" firstAttribute="top" secondItem="q0R-b5-T14" secondAttribute="bottom" constant="45" id="Kxf-s8-UnG"/>
                             <constraint firstItem="q0R-b5-T14" firstAttribute="centerX" secondItem="8d1-sY-982" secondAttribute="centerX" id="RH1-U5-awm"/>
                             <constraint firstItem="YYg-5B-XAS" firstAttribute="top" secondItem="F9R-ED-813" secondAttribute="bottom" constant="25" id="dDS-Be-yab"/>
                             <constraint firstItem="rth-5r-YoZ" firstAttribute="centerX" secondItem="8d1-sY-982" secondAttribute="centerX" id="l04-ZV-vPb"/>
@@ -2125,7 +2120,8 @@ let's see if you can do it again!</string>
                             <constraint firstItem="F9R-ED-813" firstAttribute="leading" secondItem="geM-F7-1bF" secondAttribute="leading" constant="40" id="t7p-TS-x4R">
                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
-                            <constraint firstItem="F9R-ED-813" firstAttribute="top" secondItem="geM-F7-1bF" secondAttribute="top" constant="50" id="vak-Ah-BJ4"/>
+                            <constraint firstItem="F9R-ED-813" firstAttribute="top" secondItem="geM-F7-1bF" secondAttribute="top" constant="20" id="vak-Ah-BJ4"/>
+                            <constraint firstItem="rth-5r-YoZ" firstAttribute="leading" secondItem="q0R-b5-T14" secondAttribute="leading" id="zTg-Ky-qNV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Help Center" style="editor" id="riF-Dz-02M"/>
@@ -2146,14 +2142,17 @@ let's see if you can do it again!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dG-Wn-80u">
-                                <rect key="frame" x="40" y="50" width="334" height="101.5"/>
+                                <rect key="frame" x="40" y="20" width="334" height="101.5"/>
                                 <string key="text">Tap the button below to delete your account.  Your account information will be placed into our internal deletion process.  You will not longer be able to log into your account.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRb-hQ-MHW">
-                                <rect key="frame" x="70" y="284" width="274" height="34"/>
+                                <rect key="frame" x="40" y="267" width="334" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="yH0-da-juI"/>
+                                </constraints>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Delete Account"/>
@@ -2162,28 +2161,25 @@ let's see if you can do it again!</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isz-NL-ddh">
-                                <rect key="frame" x="40" y="348" width="334" height="72"/>
+                                <rect key="frame" x="40" y="331" width="334" height="72"/>
                                 <string key="text">We retain account information as necessary for certain purposes, such as fulfilling our legal obligations.  We delete this account information once our internal hold period expires.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcJ-eo-yEq">
-                                <rect key="frame" x="40" y="177" width="180" height="21"/>
+                                <rect key="frame" x="40" y="147" width="180" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="CsG-sQ-wYl"/>
-                                    <constraint firstAttribute="width" constant="180" id="t2P-l4-laM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U16-Ao-qdZ">
-                                <rect key="frame" x="40" y="208" width="334" height="44"/>
+                                <rect key="frame" x="40" y="178" width="334" height="44"/>
                                 <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Df3-LG-5it"/>
-                                    <constraint firstAttribute="width" constant="334" id="dvd-5O-L29"/>
                                     <constraint firstAttribute="height" constant="44" id="eS2-YM-W0J"/>
                                 </constraints>
                                 <color key="textColor" systemColor="lightTextColor"/>
@@ -2198,19 +2194,20 @@ let's see if you can do it again!</string>
                         <color key="backgroundColor" red="0.083885732320000003" green="0.083885732320000003" blue="0.083885732320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Isz-NL-ddh" firstAttribute="top" secondItem="hRb-hQ-MHW" secondAttribute="bottom" constant="30" id="1Ye-Az-SfM"/>
+                            <constraint firstItem="csH-zM-mQ4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QcJ-eo-yEq" secondAttribute="trailing" symbolic="YES" id="1jy-rV-rId"/>
+                            <constraint firstItem="hRb-hQ-MHW" firstAttribute="leading" secondItem="QcJ-eo-yEq" secondAttribute="leading" id="2y2-5L-X3p"/>
                             <constraint firstItem="6dG-Wn-80u" firstAttribute="centerX" secondItem="ZBg-5L-4ZE" secondAttribute="centerX" id="7WF-gc-yN1"/>
-                            <constraint firstItem="hRb-hQ-MHW" firstAttribute="leading" secondItem="csH-zM-mQ4" secondAttribute="leading" constant="70" id="Aut-Vf-fNI"/>
                             <constraint firstItem="6dG-Wn-80u" firstAttribute="leading" secondItem="csH-zM-mQ4" secondAttribute="leading" constant="40" id="Ifj-TV-iXX">
                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
                             <constraint firstItem="U16-Ao-qdZ" firstAttribute="top" secondItem="QcJ-eo-yEq" secondAttribute="bottom" constant="10" id="XLH-q6-WbA"/>
                             <constraint firstItem="Isz-NL-ddh" firstAttribute="leading" secondItem="U16-Ao-qdZ" secondAttribute="leading" id="XqT-f6-M6x"/>
-                            <constraint firstItem="U16-Ao-qdZ" firstAttribute="top" secondItem="QcJ-eo-yEq" secondAttribute="bottom" constant="10" id="Z3h-aB-Z0J"/>
                             <constraint firstItem="QcJ-eo-yEq" firstAttribute="top" secondItem="6dG-Wn-80u" secondAttribute="bottom" constant="25.5" id="aHF-9B-W6A"/>
                             <constraint firstItem="QcJ-eo-yEq" firstAttribute="leading" secondItem="6dG-Wn-80u" secondAttribute="leading" id="b19-Zl-I56"/>
-                            <constraint firstItem="6dG-Wn-80u" firstAttribute="top" secondItem="csH-zM-mQ4" secondAttribute="top" constant="50" id="cy3-9f-hJJ"/>
-                            <constraint firstItem="hRb-hQ-MHW" firstAttribute="top" secondItem="U16-Ao-qdZ" secondAttribute="bottom" constant="32" id="faN-MI-DLu"/>
-                            <constraint firstItem="Isz-NL-ddh" firstAttribute="trailing" secondItem="U16-Ao-qdZ" secondAttribute="trailing" id="smA-2b-BRE"/>
+                            <constraint firstItem="6dG-Wn-80u" firstAttribute="top" secondItem="csH-zM-mQ4" secondAttribute="top" constant="20" id="cy3-9f-hJJ"/>
+                            <constraint firstItem="hRb-hQ-MHW" firstAttribute="top" secondItem="U16-Ao-qdZ" secondAttribute="bottom" constant="45" id="faN-MI-DLu"/>
+                            <constraint firstItem="Isz-NL-ddh" firstAttribute="centerX" secondItem="ZBg-5L-4ZE" secondAttribute="centerX" id="u4c-iK-ZiW"/>
+                            <constraint firstItem="U16-Ao-qdZ" firstAttribute="centerX" secondItem="ZBg-5L-4ZE" secondAttribute="centerX" id="vym-qT-wsq"/>
                             <constraint firstItem="hRb-hQ-MHW" firstAttribute="centerX" secondItem="U16-Ao-qdZ" secondAttribute="centerX" id="xac-7a-dV9"/>
                             <constraint firstItem="U16-Ao-qdZ" firstAttribute="leading" secondItem="QcJ-eo-yEq" secondAttribute="leading" id="zyv-Pz-g2L"/>
                         </constraints>
@@ -3624,19 +3621,19 @@ Will you stand with us?</string>
             <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="separatorColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tableCellBlueTextColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
