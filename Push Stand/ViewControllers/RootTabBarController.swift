@@ -9,6 +9,9 @@ import UIKit
 
 class RootTabBarController: UITabBarController {
     
+    var currentUser = CurrentUser.shared
+    let userDefault = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

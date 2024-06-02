@@ -64,53 +64,53 @@ class SignInViewController: UIViewController {
                 UserDefaults.standard.set(Auth.auth().currentUser?.uid, forKey: "userId")
                 UserDefaults.standard.set(Auth.auth().currentUser?.email, forKey: "userEmail")
                 UserDefaults.standard.synchronize()
-
-                let queryParams = ["user_id": CurrentUser.shared.uid!]
-                NetworkService.shared.request(endpoint: .stand, method: "GET", queryParams: queryParams) { result in
-
-                    switch result {
-                    case .success(let json):
-                        if let hasTakenAction = json["has_taken_action"] as? Bool {
-                            let dateFormatter = DateFormatter()
-                            dateFormatter.dateFormat = "yyyy-MM-dd"
-                            let dateString = dateFormatter.string(from: Date())
-                            UserDefaults.standard.set(true, forKey: dateString)
-                            appDelegate.userDefault.set(true, forKey: dateString)
-                            appDelegate.userDefault.synchronize()
-                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController") as? UITabBarController else { return }
-                            
-                            if #available(iOS 15, *) {
-                                // iOS 15 and later: Use UIWindowScene.windows
-                                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                                   let window = windowScene.windows.first {
-                                    setRootViewController(window: window, with: tabBarController)
-                                }
-                            } else {
-                                // Earlier iOS versions: Use UIApplication.shared.windows
-                                if let window = UIApplication.shared.windows.first {
-                                    setRootViewController(window: window, with: tabBarController)
-                                }
-                            }
-                            
-                            func setRootViewController(window: UIWindow, with viewController: UIViewController) {
-                                window.rootViewController = viewController
-                                window.makeKeyAndVisible()
-                                
-                                // Optional: Add a transition animation
-                                UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
-                            }
-                        } else {
-                            print("Invalid response format")
-                        }
-                    case .failure(let error):
-                        print("Error: \(error.localizedDescription)")
-                        // Handle the error appropriately
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController") as? UITabBarController else { return }
+                
+                if #available(iOS 15, *) {
+                    // iOS 15 and later: Use UIWindowScene.windows
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                       let window = windowScene.windows.first {
+                        setRootViewController(window: window, with: tabBarController)
                     }
-                    
+                } else {
+                    // Earlier iOS versions: Use UIApplication.shared.windows
+                    if let window = UIApplication.shared.windows.first {
+                        setRootViewController(window: window, with: tabBarController)
+                    }
                 }
                 
-                // was here
+                func setRootViewController(window: UIWindow, with viewController: UIViewController) {
+                    window.rootViewController = viewController
+                    window.makeKeyAndVisible()
+                    
+                    // Optional: Add a transition animation
+                    UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
+                }
+//                let queryParams = ["user_id": CurrentUser.shared.uid!]
+//                NetworkService.shared.request(endpoint: .stand, method: "GET", queryParams: queryParams) { result in
+//
+//                    switch result {
+//                    case .success(let json):
+//                        if let hasTakenAction = json["has_taken_action"] as? Bool {
+//                            let dateFormatter = DateFormatter()
+//                            dateFormatter.dateFormat = "yyyy-MM-dd"
+//                            let dateString = dateFormatter.string(from: Date())
+//                            UserDefaults.standard.set(true, forKey: dateString)
+//                            appDelegate.userDefault.set(true, forKey: dateString)
+//                            appDelegate.userDefault.synchronize()
+//                            
+//                        } else {
+//                            print("Invalid response format")
+//                        }
+//                    case .failure(let error):
+//                        print("Error: \(error.localizedDescription)")
+//                        // Handle the error appropriately
+//                    }
+//                    
+//                }
+                
+
             }
         }
         

@@ -25,66 +25,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // Configure Firebase
         FirebaseApp.configure()
         
-        NetworkMonitor.shared // Initialize the network monitor
-        let semaphore = DispatchSemaphore(value: 0)
+        // NetworkMonitor.shared // Initialize the network monitor
+        //let semaphore = DispatchSemaphore(value: 0)
         currentUser.uid = UserDefaults.standard.string(forKey: "userId")
-        if let userId = UserDefaults.standard.string(forKey: "userId") {
-            let url = URL(string: "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users?userId=\(currentUser.uid!)")
-            var request = URLRequest(url: url!)
-            request.httpMethod = "GET"
-            
-            
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                defer { semaphore.signal() } // Signal to the semaphore upon task completion
-                guard let data = data, error == nil else {
-                    print("Error during the network request: \(error?.localizedDescription ?? "Unknown error")")
-                    return
-                }
-                
-                do {
-                    if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        // Assign the data to the singleton, ensuring nulls or missing fields default to ""
-                        self.currentUser.reminderTime = jsonResponse["ReminderTime"] as? String ?? ""
-                        self.currentUser.birthdate = jsonResponse["Birthdate"] as? String ?? ""
-                        self.currentUser.phoneNumber = jsonResponse["PhoneNumber"] as? String ?? ""
-                        self.currentUser.email = jsonResponse["Email"] as? String ?? ""
-                        self.currentUser.firebaseAuthToken = jsonResponse["FirebaseAuthToken"] as? String ?? ""
-                        print("Lok!: \(jsonResponse)")
-                    }
-                } catch {
-                    print("Error parsing the JSON response: \(error.localizedDescription)")
-                }
-            }
-            
-            task.resume()
-            semaphore.wait()
-        }
-        if let userId = CurrentUser.shared.uid {
-            let queryParams = ["user_id": CurrentUser.shared.uid!]
-            NetworkService.shared.request(endpoint: .stand, method: "GET", queryParams: queryParams) { result in
-                defer { semaphore.signal() }
+        if let userId = currentUser.uid {
+            print("in")
+            let queryParams = ["userId": userId]
+            NetworkService.shared.request(endpoint: .updateUser, method: "GET", queryParams: queryParams) { result in
+                //defer { semaphore.signal() }
                 switch result {
-                case .success(let json):
-                    if let hasTakenAction = json["has_taken_action"] as? Bool {
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd"
-                        let dateString = dateFormatter.string(from: Date())
-                        UserDefaults.standard.set(true, forKey: dateString)
-                        self.userDefault.set(true, forKey: dateString)
-                        self.userDefault.synchronize()
-                    } else {
-                        print("Invalid response format")
-                    }
+                case .success(let jsonResponse):
+                    self.currentUser.reminderTime = jsonResponse["ReminderTime"] as? String ?? ""
+                    self.currentUser.birthdate = jsonResponse["Birthdate"] as? String ?? ""
+                    self.currentUser.phoneNumber = jsonResponse["PhoneNumber"] as? String ?? ""
+                    self.currentUser.email = jsonResponse["Email"] as? String ?? ""
+                    self.currentUser.firebaseAuthToken = jsonResponse["FirebaseAuthToken"] as? String ?? ""
+                    print("Lok!: \(jsonResponse)")
                 case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
-                    // Handle the error appropriately
+                    print("Error during the network request: \(error.localizedDescription)")
+                    //semaphore.signal() // Signal the semaphore in case of failure
                 }
-                
             }
+
+           // semaphore.wait()
         }
-        
-        
+
         // Set UNUserNotificationCenter delegate
         UNUserNotificationCenter.current().delegate = self
         
@@ -180,49 +145,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             print("FCM token is null or empty.")
             return
         }
-        if let userId = UserDefaults.standard.string(forKey: "userId") {
-            let url = URL(string: "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users")!
-            var request = URLRequest(url: url)
-            request.httpMethod = "PUT"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            // Add authorization header if needed
-            // request.addValue("Bearer \(yourAuthToken)", forHTTPHeaderField: "Authorization")
-            
-            let payload: [String: Any] = [
-                "UserId": currentUser.uid,
-                "Birthdate": currentUser.birthdate,
-                "Email": currentUser.email,
-                "PhoneNumber": currentUser.phoneNumber,
-                "ReminderTime": currentUser.reminderTime,
-                "FirebaseAuthToken": fcmToken,
-            ]
-            
-            do {
-                let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])
-                request.httpBody = jsonData
-            } catch {
-                print("Error encoding JSON: \(error)")
-                return
-            }
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                if let error = error {
-                    print("Error making PUT request: \(error)")
-                    return
-                }
-                guard let data = data, let response = response as? HTTPURLResponse,
-                      (200...299).contains(response.statusCode) else {
-                    print("Server error or invalid response")
-                    return
-                }
-                
-                if let responseString = String(data: data, encoding: .utf8) {
-                    print("Response from the server: \(responseString)")
-                }
-            }
-            
-            task.resume()
-        }
+//        if let userId = UserDefaults.standard.string(forKey: "userId") {
+//            let url = URL(string: "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users")!
+//            var request = URLRequest(url: url)
+//            request.httpMethod = "PUT"
+//            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//            // Add authorization header if needed
+//            // request.addValue("Bearer \(yourAuthToken)", forHTTPHeaderField: "Authorization")
+//            
+//            let payload: [String: Any] = [
+//                "UserId": currentUser.uid,
+//                "Birthdate": currentUser.birthdate,
+//                "Email": currentUser.email,
+//                "PhoneNumber": currentUser.phoneNumber,
+//                "ReminderTime": currentUser.reminderTime,
+//                "FirebaseAuthToken": fcmToken,
+//            ]
+//            
+//            do {
+//                let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])
+//                request.httpBody = jsonData
+//            } catch {
+//                print("Error encoding JSON: \(error)")
+//                return
+//            }
+//            
+//            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//                if let error = error {
+//                    print("Error making PUT request: \(error)")
+//                    return
+//                }
+//                guard let data = data, let response = response as? HTTPURLResponse,
+//                      (200...299).contains(response.statusCode) else {
+//                    print("Server error or invalid response")
+//                    return
+//                }
+//                
+//                if let responseString = String(data: data, encoding: .utf8) {
+//                    print("Response from the server: \(responseString)")
+//                }
+//            }
+//            
+//            task.resume()
+//        }
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,

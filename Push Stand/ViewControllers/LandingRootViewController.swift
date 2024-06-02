@@ -9,33 +9,6 @@ class LandingRootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        performAnimations()
-    }
-    
-    private func setupUI() {
-        self.view.backgroundColor = .black
-        joinNowButton.alpha = 0
-        joinNowButton.setTitle("Join Now", for: .normal)
-        joinNowButton.titleLabel?.adjustsFontForContentSizeCategory = true
-    }
-    
-    private func performAnimations() {
-        UIView.animate(withDuration: 1.0, animations: {
-            // Add first animation here if needed
-        }) { _ in
-            UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
-                // Add second animation here if needed
-            }) { _ in
-                self.showJoinNowButton()
-            }
-        }
-    }
-    
-    private func showJoinNowButton() {
-        UIView.animate(withDuration: 1.0, animations: {
-            self.joinNowButton.alpha = 1
-        })
     }
     
     @IBAction func joinNow(_ sender: Any) {

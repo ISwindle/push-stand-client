@@ -40,6 +40,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBOutlet weak var usaTotalStandsLoading: UIActivityIndicatorView!
     @IBOutlet weak var globalStandingTodayLoading: UIActivityIndicatorView!
     
+    @IBOutlet weak var standingTodayView: UIStackView!
     private var goal: Float = 0.0
     private var current: Float = 0.0
     private var questionAnswerStreak: Int = 0
@@ -53,6 +54,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     let currentAnswerStreakEndpoint = NetworkService.Endpoint.streaksAnswers.rawValue
     let userPointsEndpoint = NetworkService.Endpoint.points.rawValue
     let pushStandEndpoint = NetworkService.Endpoint.stand.rawValue
+    var currentUser = CurrentUser.shared
+    let userDefault = UserDefaults.standard
     
     // MARK: - Lifecycle Methods
     
@@ -73,8 +76,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let dateString = getDateFormatted()
         if UserDefaults.standard.bool(forKey: dateString) {
             updateUIForPushStand()
-            loadHome()
+        } else {
+            updateUIForLoad()
+            checkStandToday()
         }
+        loadHome()
     }
 
     func loadHome() {
@@ -93,12 +99,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
         let queryParams = [
             "userId": CurrentUser.shared.uid!,
-            "StartDate": "2024-01-01",  // Example start date
-            "EndDate": "2024-05-25"     // Example end date
+            "StartDate": "2024-01-01",
+            "EndDate": "2024-06-01"
         ]
         
         NetworkService.shared.request(endpoint: .home, method: "GET", queryParams: queryParams) { result in
-            print("Returned!!!")
             DispatchQueue.main.async {
                 self.handleAPIResponse(result, handler: self.handleUnifiedResponse)
             }
@@ -138,10 +143,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             if let answerStreak = json["daily_question_answers_streak"] as? Int {
                 self.handleAnswerStreak(answerStreak)
             }
-            if let userPoints = json["user_points"] as? [String: Any],
-               let totalPoints = userPoints["total_points"] as? Int {
-                self.handleUserPoints(totalPoints)
+            if let userPoints = json["user_points"] as? Int {
+                self.handleUserPoints(userPoints)
             }
+            self.updateProgressBar()
         case .failure(let error):
             print("Error: \(error.localizedDescription)")
             // Handle the error appropriately
@@ -202,6 +207,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
 
     private func handleUserPoints(_ points: Int) {
         print(points)
+        myPointsLabel.isHidden = false
         myPointsLabel.text = "\(points) Points"
     }
     // MARK: - View Configuration
@@ -259,12 +265,66 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         return ""
     }
     
+    private func checkStandToday() {
+        currentUser.uid = UserDefaults.standard.string(forKey: "userId")
+        let queryParams = ["user_id": currentUser.uid!]
+        NetworkService.shared.request(endpoint: .stand, method: "GET", queryParams: queryParams) { result in
+            switch result {
+            case .success(let json):
+                if let hasTakenAction = json["has_taken_action"] as? Bool {
+                    if hasTakenAction {
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd"
+                        let dateString = dateFormatter.string(from: Date())
+                        UserDefaults.standard.set(true, forKey: dateString)
+                        self.userDefault.set(true, forKey: dateString)
+                        self.userDefault.synchronize()
+                        self.updateUIForPushStand()
+                    } else {
+                        self.updateUIForPushStandButton()
+                    }
+                } else {
+                    print(result)
+                    print("Invalid response format")
+                }
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
+                // Handle the error appropriately
+            }
+        }
+    }
+    
+    private func updateUIForLoad() {
+        landingViewWithButton.isHidden = false
+        standingTodayView.isHidden = true
+        pushStandTitle.isHidden = false
+        pushStandButton.isHidden = true
+        dailyGoalLoading.isHidden = true
+        globalStandingTodayLoading.isHidden = true
+        landingViewWithPicture.isHidden = false
+        accountButton.isHidden = true
+        tabBarController?.tabBar.alpha = 0
+    }
+    
     private func updateUIForPushStand() {
         landingViewWithButton.isHidden = true
         pushStandTitle.isHidden = true
+        standingTodayView.isHidden = false
         landingViewWithPicture.isHidden = true
         accountButton.isHidden = false
         tabBarController?.tabBar.alpha = 1
+    }
+    
+    private func updateUIForPushStandButton() {
+        landingViewWithButton.isHidden = false
+        standingTodayView.isHidden = false
+        pushStandTitle.isHidden = false
+        pushStandButton.isHidden = false
+        dailyGoalLoading.isHidden = true
+        globalStandingTodayLoading.isHidden = true
+        landingViewWithPicture.isHidden = false
+        accountButton.isHidden = true
+        tabBarController?.tabBar.alpha = 0
     }
     
     @objc private func handleLongPress(_ gesture: UILongPressGestureRecognizer) {

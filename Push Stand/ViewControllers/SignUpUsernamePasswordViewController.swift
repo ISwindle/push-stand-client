@@ -22,6 +22,16 @@ class SignUpUsernamePasswordViewController: UIViewController {
     private func addTextFieldTargets() {
         usernameTextField.addTarget(self, action: #selector(usernameFieldDidChange(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(passwordFieldDidChange(_:)), for: .editingChanged)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapDismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func tapDismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     @objc private func usernameFieldDidChange(_ textField: UITextField) {
@@ -39,10 +49,6 @@ class SignUpUsernamePasswordViewController: UIViewController {
             return
         }
         nextButton.isEnabled = true
-    }
-    
-    @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
     }
     
     @IBAction private func next(_ sender: Any) {

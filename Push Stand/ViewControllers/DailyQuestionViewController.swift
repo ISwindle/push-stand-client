@@ -131,6 +131,7 @@ class DailyQuestionViewController: UIViewController {
     
     private func fetchDailyQuestion() {
         let dailyQuestionsQueryParams = ["userId": CurrentUser.shared.uid!, "Date": getDateFormatted()]
+        print("Question")
         NetworkService.shared.request(endpoint: .questions, method: "GET", queryParams: dailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
             DispatchQueue.main.async {
                 switch result {
@@ -148,6 +149,7 @@ class DailyQuestionViewController: UIViewController {
                 }
             }
         }
+        print("Question After")
     }
     
     private func fetchYesterdaysQuestion() {
@@ -174,6 +176,28 @@ class DailyQuestionViewController: UIViewController {
     }
     
     private func setupQuestionLabel(question: String) {
+        DispatchQueue.main.async {
+            let finalPosition = self.questionLabel.frame.origin
+            self.questionLabel.frame.origin.y += 30
+            self.thumbsDownAnswer.image = UIImage(named: "grey-thumb-down")
+            self.thumbsUpAnswer.image = UIImage(named: "grey-thumb-up")
+            self.todaysQuestionView.alpha = 1.0
+            self.dailyQuestionTitle.alpha = 1.0
+            self.questionLabel.text = question
+            self.submitButton.isHidden = true
+            self.submitButton.alpha = 1.0
+            self.thumbsDownAnswer.isUserInteractionEnabled = true
+            self.thumbsUpAnswer.isUserInteractionEnabled = true
+            UIView.animate(withDuration: 2.0, delay: 0, options: [.curveEaseOut]) {
+                self.questionLabel.frame.origin = finalPosition
+                self.questionLabel.alpha = 1
+                self.thumbsDownAnswer.alpha = 1
+                self.thumbsUpAnswer.alpha = 1
+            }
+        }
+    }
+    
+    private func setupQNouestionLabel(question: String) {
         DispatchQueue.main.async {
             let finalPosition = self.questionLabel.frame.origin
             self.questionLabel.frame.origin.y += 30

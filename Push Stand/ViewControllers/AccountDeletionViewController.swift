@@ -12,15 +12,46 @@ class AccountDeletionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupUI()
+        addTextFieldTargets()
         // Do any additional setup after loading the view.
     }
     
     @IBOutlet weak var deleteAccountButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    private func setupUI() {
+        deleteAccountButton.isEnabled = false
+    }
+    
+    private func addTextFieldTargets() {
+        passwordTextField.addTarget(self, action: #selector(passwordFieldDidChange(_:)), for: .editingChanged)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapDismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func tapDismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    @objc private func passwordFieldDidChange(_ textField: UITextField) {
+        validateForm()
+    }
+    
+    private func validateForm() {
+        guard let password = passwordTextField.text, isValidPassword(password) else {
+            passwordTextField.isEnabled = false
+            return
+        }
+        passwordTextField.isEnabled = true
+    }
+    
     @IBAction func deleteAccount(_ sender: Any) {
-        deleteUser {_ in 
+        deleteUser {_ in
             UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
