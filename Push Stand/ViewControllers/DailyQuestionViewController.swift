@@ -68,6 +68,12 @@ class DailyQuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGestureRecognizers()
+        let defaults = UserDefaults.standard
+            let dictionary = defaults.dictionaryRepresentation()
+            
+            for (key, value) in dictionary {
+                print("\(key): \(value)")
+            }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -138,7 +144,11 @@ class DailyQuestionViewController: UIViewController {
                 case .success(let json):
                     if let answer = json["UserAnswer"] as? String, answer.isEmpty,
                        let question = json["Question"] as? String {
-                        //self.fetchYesterdaysQuestion()
+                        if !answer.isEmpty {
+                            self.fetchYesterdaysQuestion()
+                            self.saveQuestionAnswerToUserDefaults(for: self.getDateFormatted())
+                            return
+                        }
                         self.setupQuestionLabel(question: question)
                     } else {
                         self.questionLabel.text = "New Question Coming Soon"
@@ -289,7 +299,6 @@ class DailyQuestionViewController: UIViewController {
         let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
         NetworkService.shared.request(endpoint: .points, method: "POST", data: postPointQueryParams) { result in
             self.updateQuestionBadge()
-            self.saveQuestionAnswerToUserDefaults(for: self.getDateFormatted())
         }
         UIView.animate(withDuration: 1.0) {
             self.todaysQuestionView.alpha = 0.0
@@ -302,6 +311,7 @@ class DailyQuestionViewController: UIViewController {
                 self.yesterdaysResultsTitle.alpha = 1.0 // Yesterday's Results fading in
             }
         }
+        self.saveQuestionAnswerToUserDefaults(for: self.getDateFormatted())
         fetchYesterdaysQuestion()
     }
     
