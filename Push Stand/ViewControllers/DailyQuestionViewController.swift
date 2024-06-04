@@ -142,8 +142,9 @@ class DailyQuestionViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
-                    if let answer = json["UserAnswer"] as? String, answer.isEmpty,
+                    if let answer = json["UserAnswer"] as? String,
                        let question = json["Question"] as? String {
+                        print(answer.isEmpty)
                         if !answer.isEmpty {
                             self.fetchYesterdaysQuestion()
                             self.saveQuestionAnswerToUserDefaults(for: self.getDateFormatted())

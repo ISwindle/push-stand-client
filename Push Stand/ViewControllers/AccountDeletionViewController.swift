@@ -1,10 +1,3 @@
-//
-//  AccountDeletionViewController.swift
-//  Push Stand
-//
-//  Created by Isaac Swindle on 3/2/24.
-//
-
 import UIKit
 import Firebase
 
@@ -44,14 +37,14 @@ class AccountDeletionViewController: UIViewController {
     
     private func validateForm() {
         guard let password = passwordTextField.text, isValidPassword(password) else {
-            passwordTextField.isEnabled = false
+            deleteAccountButton.isEnabled = false
             return
         }
-        passwordTextField.isEnabled = true
+        deleteAccountButton.isEnabled = true
     }
     
     @IBAction func deleteAccount(_ sender: Any) {
-        deleteUser {_ in
+        deleteUser { _ in
             UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
@@ -60,6 +53,7 @@ class AccountDeletionViewController: UIViewController {
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
         }
     }
+    
     func deleteUser(completion: @escaping (Result<Void, Error>) -> Void) {
         guard let user = Auth.auth().currentUser else {
             completion(.failure(NSError(domain: "FirebaseAuth", code: -1, userInfo: [NSLocalizedDescriptionKey: "No user is currently signed in."])))
@@ -88,7 +82,6 @@ class AccountDeletionViewController: UIViewController {
                     completion(.failure(NSError(domain: "FirebaseAuth", code: -1, userInfo: [NSLocalizedDescriptionKey: "User re-authentication failed."])))
                 }
             } else {
-                
                 completion(.success(()))
             }
         }

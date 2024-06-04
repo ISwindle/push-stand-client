@@ -56,6 +56,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     let pushStandEndpoint = NetworkService.Endpoint.stand.rawValue
     var currentUser = CurrentUser.shared
     let userDefault = UserDefaults.standard
+    var initial_rev = false
     
     // MARK: - Lifecycle Methods
     
@@ -81,6 +82,12 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             checkStandToday()
         }
         loadHome()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 
     func loadHome() {
@@ -99,8 +106,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
         let queryParams = [
             "userId": CurrentUser.shared.uid!,
-            "StartDate": "2024-01-01",
-            "EndDate": "2024-06-01"
         ]
         
         NetworkService.shared.request(endpoint: .home, method: "GET", queryParams: queryParams) { result in
@@ -146,7 +151,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             if let userPoints = json["user_points"] as? Int {
                 self.handleUserPoints(userPoints)
             }
-            self.updateProgressBar()
+            if !initial_rev {
+                updateProgressBar()
+            }
         case .failure(let error):
             print("Error: \(error.localizedDescription)")
             // Handle the error appropriately
@@ -313,6 +320,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         landingViewWithPicture.isHidden = true
         accountButton.isHidden = false
         tabBarController?.tabBar.alpha = 1
+        
     }
     
     private func updateUIForPushStandButton() {
@@ -442,8 +450,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                 self.shareIcon.isHidden = false
                 self.animateStandStreakLabel()
             }
-            self.updateProgressBar()
         }
+        self.updateProgressBar()
     }
     
     private func animateStandStreakLabel() {
@@ -464,6 +472,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     private func updateProgressBar() {
         let progressAmount = current / goal
         standProgressBar.progress = CGFloat(progressAmount)
+        initial_rev = true
     }
     
     private func updateStreakUI(selectedIcon: UIImageView, selectedIconImage: String, selectedTitle: UILabel, selectedColor: UIColor, selectedStreakValue: Int) {
