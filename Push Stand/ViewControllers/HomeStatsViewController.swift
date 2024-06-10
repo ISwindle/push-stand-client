@@ -165,14 +165,15 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     private func handleDailyGoals(_ goals: [String: Any]) {
         self.dailyGoalLoading.isHidden = true
         self.globalStandingTodayLoading.isHidden = true
+        
         if let goalValue = goals["Goal"] as? String, let goalInt = Int(goalValue) {
             let formattedGoal = formatLargeNumber(goalInt)
-            let attributedString = NSMutableAttributedString(string: "\(formattedGoal)\nDaily Goal")
-            let fontSize: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 30 : 18
-            attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSRange(location: attributedString.length - 10, length: 10))
-            dailyGoalCount.attributedText = attributedString
+            //let attributedString = NSMutableAttributedString(string: "\(formattedGoal)\nDaily Goal")
+            //let fontSize: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 30 : 18
+            //attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSRange(location: attributedString.length - 10, length: 10))
+            //dailyGoalCount.attributedText = attributedString
         } else {
-            dailyGoalCount.text = "0\nDaily Goal"
+            dailyGoalCount.text = "0"
         }
         if let currentValue = goals["Current"] as? String {
             globalStandCount.text = "\(currentValue)"
