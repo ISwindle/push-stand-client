@@ -168,10 +168,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
         if let goalValue = goals["Goal"] as? String, let goalInt = Int(goalValue) {
             let formattedGoal = formatLargeNumber(goalInt)
-            //let attributedString = NSMutableAttributedString(string: "\(formattedGoal)\nDaily Goal")
+            let attributedString = NSMutableAttributedString(string: "\(formattedGoal)")
             //let fontSize: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 30 : 18
             //attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSRange(location: attributedString.length - 10, length: 10))
-            //dailyGoalCount.attributedText = attributedString
+            dailyGoalCount.attributedText = attributedString
         } else {
             dailyGoalCount.text = "0"
         }

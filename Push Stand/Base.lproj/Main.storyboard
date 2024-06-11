@@ -42,7 +42,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox9-yz-Zd6">
-                                <rect key="frame" x="123" y="198" width="39.333333333333314" height="14.333333333333343"/>
+                                <rect key="frame" x="122.99999999999999" y="198" width="39.333333333333329" height="14.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -66,7 +66,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHq-MJ-gIO">
-                                        <rect key="frame" x="322.66666666666674" y="6.9999999999999982" width="47.333333333333258" height="20.333333333333329"/>
+                                        <rect key="frame" x="322.66666666666669" y="6.9999999999999982" width="47.333333333333314" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -158,7 +158,7 @@
                                 <rect key="frame" x="0.0" y="102.66666666666669" width="430" height="746.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ws-7v-mrs">
-                                        <rect key="frame" x="181.33333333333337" y="5" width="67.666666666666629" height="21.666666666666668"/>
+                                        <rect key="frame" x="181.33333333333334" y="5" width="67.666666666666657" height="21.666666666666668"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <color key="textColor" red="0.86274516580000005" green="0.74117648599999997" blue="0.49411764740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -286,7 +286,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iru-Bw-zal" userLabel="Down Percentage">
-                                        <rect key="frame" x="96.333333333333314" y="557.33333333333337" width="32.333333333333343" height="26.333333333333371"/>
+                                        <rect key="frame" x="96.333333333333329" y="557.33333333333337" width="32.333333333333329" height="26.333333333333371"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -420,7 +420,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="168.33333333333331" width="430" height="680.66666666666674"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="430" height="681"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="680.66666666666674"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -471,7 +471,7 @@ let's see if you can do it again!</string>
                                             <rect key="frame" x="0.0" y="301" width="430" height="379.66666666666674"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcM-2d-4wl">
-                                                    <rect key="frame" x="126.66666666666669" y="173.00000000000006" width="176.66666666666663" height="34"/>
+                                                    <rect key="frame" x="126.66666666666667" y="173.00000000000006" width="176.66666666666663" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="I04-tc-nH4"/>
                                                     </constraints>
@@ -569,7 +569,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="5ua-2j-fAs" firstAttribute="top" secondItem="Sy1-da-Psm" secondAttribute="top" constant="10" id="zya-Xl-n21"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.bubble" catalog="system" badgeValue=" " selectedImage="questionmark.bubble.fill" id="asJ-Ax-25m">
+                    <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.square" catalog="system" badgeValue=" " selectedImage="questionmark.app.fill" id="asJ-Ax-25m">
                         <color key="badgeColor" systemColor="systemRedColor"/>
                     </tabBarItem>
                     <connections>
@@ -747,7 +747,7 @@ let's see if you can do it again!</string>
                                             <rect key="frame" x="0.0" y="10" width="344" height="539"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDe-jD-HC2" userLabel="Content View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="344" height="610"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="344" height="590"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbc-gB-i0B">
                                                             <rect key="frame" x="130.33333333333334" y="10.333333333333343" width="83.333333333333343" height="24"/>
@@ -777,7 +777,7 @@ let's see if you can do it again!</string>
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBn-qA-WW4">
-                                                            <rect key="frame" x="20" y="544" width="304" height="36"/>
+                                                            <rect key="frame" x="20" y="524" width="304" height="36"/>
                                                             <string key="text">While the Push Stand app is available on the app store, Apple Inc. (Apple) is not a sponsor or involved in the sweepstake activity in any manner.</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <color key="textColor" systemColor="underPageBackgroundColor"/>
@@ -787,7 +787,7 @@ let's see if you can do it again!</string>
                                                             </variation>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hr8-nf-Xqn">
-                                                            <rect key="frame" x="86" y="479.66666666666663" width="172" height="34.333333333333371"/>
+                                                            <rect key="frame" x="86" y="459.66666666666663" width="172" height="34.333333333333314"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="filled" title="Got it!">
                                                                 <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -801,7 +801,7 @@ let's see if you can do it again!</string>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Stand Goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n8-RK-Vgf">
-                                                            <rect key="frame" x="92.333333333333314" y="34.333333333333343" width="159.33333333333337" height="24"/>
+                                                            <rect key="frame" x="92.333333333333329" y="34.333333333333343" width="159.33333333333337" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -852,8 +852,8 @@ let's see if you can do it again!</string>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dLg-1r-WxD" userLabel="Question Stack">
                                                                     <rect key="frame" x="137.66666666666669" y="0.0" width="137.66666666666669" height="80"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="questionmark.bubble" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hbV-Sz-e6M">
-                                                                            <rect key="frame" x="0.0" y="1.3333333333333357" width="137.66666666666666" height="49"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="questionmark.app.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hbV-Sz-e6M">
+                                                                            <rect key="frame" x="0.0" y="1.6666666666666643" width="137.66666666666666" height="47"/>
                                                                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="50" id="5XH-n4-0uh">
@@ -881,7 +881,7 @@ let's see if you can do it again!</string>
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eOZ-6T-AEN" userLabel="Bottom Stack Row">
-                                                            <rect key="frame" x="34.333333333333343" y="369.66666666666663" width="275.33333333333326" height="80"/>
+                                                            <rect key="frame" x="34.333333333333343" y="349.66666666666669" width="275.33333333333326" height="80"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OYK-Zq-SYs" userLabel="Stand Streak Stack">
                                                                     <rect key="frame" x="0.0" y="0.0" width="137.66666666666666" height="80"/>
@@ -896,7 +896,7 @@ let's see if you can do it again!</string>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsJ-OX-CLu">
-                                                                            <rect key="frame" x="0.0" y="50" width="137.66666666666666" height="30"/>
+                                                                            <rect key="frame" x="0.0" y="49.999999999999943" width="137.66666666666666" height="30"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="30" id="Knf-Xz-VSL"/>
                                                                             </constraints>
@@ -925,7 +925,7 @@ let's see if you can do it again!</string>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ef-Hx-0MC">
-                                                                            <rect key="frame" x="0.0" y="50" width="137.66666666666666" height="30"/>
+                                                                            <rect key="frame" x="0.0" y="49.999999999999943" width="137.66666666666666" height="30"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="30" id="H71-TQ-gTC"/>
                                                                             </constraints>
@@ -965,7 +965,7 @@ let's see if you can do it again!</string>
                                                         <constraint firstItem="dRq-e0-170" firstAttribute="leading" secondItem="YDe-jD-HC2" secondAttribute="leading" constant="20" id="MnQ-R4-taW">
                                                             <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                                                         </constraint>
-                                                        <constraint firstItem="eOZ-6T-AEN" firstAttribute="top" secondItem="b9V-CQ-TLl" secondAttribute="bottom" constant="30" id="PEd-Ox-Bdw"/>
+                                                        <constraint firstItem="eOZ-6T-AEN" firstAttribute="top" secondItem="b9V-CQ-TLl" secondAttribute="bottom" constant="10" id="PEd-Ox-Bdw"/>
                                                         <constraint firstItem="eOZ-6T-AEN" firstAttribute="width" secondItem="YDe-jD-HC2" secondAttribute="width" multiplier="0.8" id="PJg-Gm-EFL"/>
                                                         <constraint firstItem="xbc-gB-i0B" firstAttribute="centerY" secondItem="Ryx-za-M7p" secondAttribute="centerY" id="Tx7-lH-pHe"/>
                                                         <constraint firstItem="Hr8-nf-Xqn" firstAttribute="width" secondItem="YDe-jD-HC2" secondAttribute="width" multiplier="0.5" id="VL0-5v-LfC"/>
@@ -1004,7 +1004,7 @@ let's see if you can do it again!</string>
                                         <constraint firstItem="P3g-7k-fbL" firstAttribute="top" secondItem="Aiw-YH-uGe" secondAttribute="top" constant="10" id="gew-X8-PrC"/>
                                     </constraints>
                                 </view>
-                                <blurEffect style="systemThickMaterialDark"/>
+                                <blurEffect style="systemMaterialDark"/>
                             </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Nfu-9g-DCt"/>
@@ -1918,7 +1918,7 @@ let's see if you can do it again!</string>
                             <outletCollection property="gestureRecognizers" destination="QYd-hw-vaw" appends="YES" id="wab-Hn-wPS"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Password" style="editor" id="I3K-VH-vHq"/>
+                    <navigationItem key="navigationItem" title="Password" id="I3K-VH-vHq"/>
                     <connections>
                         <outlet property="confirmNewPassword" destination="tFs-bR-GsJ" id="IrE-3K-oWD"/>
                         <outlet property="currentPassword" destination="Bnr-td-rVZ" id="IaU-Kz-Fac"/>
@@ -1995,7 +1995,7 @@ let's see if you can do it again!</string>
                             <outletCollection property="gestureRecognizers" destination="ndS-Xj-ajK" appends="YES" id="YGV-4v-ZxF"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Phone #" style="editor" id="cgf-Cp-h9o"/>
+                    <navigationItem key="navigationItem" title="Phone #" id="cgf-Cp-h9o"/>
                     <connections>
                         <outlet property="confirmationButton" destination="dyJ-1c-ih1" id="bFB-ht-jbz"/>
                         <outlet property="phoneText" destination="aph-xT-Tx0" id="5xb-Hy-om9"/>
@@ -2096,7 +2096,7 @@ let's see if you can do it again!</string>
                             <outletCollection property="gestureRecognizers" destination="OVa-jM-GXq" appends="YES" id="BRB-hJ-KMf"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Email" style="editor" id="kIg-oZ-xOv"/>
+                    <navigationItem key="navigationItem" title="Email" id="kIg-oZ-xOv"/>
                     <connections>
                         <outlet property="confirmationEmailButton" destination="5hY-aX-YZ2" id="qqx-cv-yqA"/>
                         <outlet property="currentPasswordTextField" destination="a93-w7-jLn" id="zxp-Hu-PPx"/>
@@ -2330,7 +2330,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="uGg-yl-nPk" firstAttribute="height" secondItem="dJa-Y2-nU4" secondAttribute="height" id="wpb-d1-3MM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" style="editor" id="3Fv-PN-MzA"/>
+                    <navigationItem key="navigationItem" title="Settings" id="3Fv-PN-MzA"/>
                     <connections>
                         <outlet property="birthdatePicker" destination="dRe-f1-NOI" id="zhN-DX-CHW"/>
                         <outlet property="logoutButton" destination="lWQ-Iu-213" id="wU1-yT-pha"/>
@@ -2408,7 +2408,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="rth-5r-YoZ" firstAttribute="leading" secondItem="q0R-b5-T14" secondAttribute="leading" id="zTg-Ky-qNV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Help Center" style="editor" id="riF-Dz-02M"/>
+                    <navigationItem key="navigationItem" title="Help Center" id="riF-Dz-02M"/>
                     <connections>
                         <outlet property="accountDeletionButton" destination="rth-5r-YoZ" id="sXV-5S-tL8"/>
                     </connections>
@@ -2496,7 +2496,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="U16-Ao-qdZ" firstAttribute="leading" secondItem="QcJ-eo-yEq" secondAttribute="leading" id="zyv-Pz-g2L"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Account Deletion" style="editor" id="mg0-Ir-rER"/>
+                    <navigationItem key="navigationItem" title="Account Deletion" id="mg0-Ir-rER"/>
                     <connections>
                         <outlet property="deleteAccountButton" destination="hRb-hQ-MHW" id="wJ3-RT-dvo"/>
                         <outlet property="passwordTextField" destination="U16-Ao-qdZ" id="rDS-6K-SXk"/>
@@ -2567,7 +2567,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="aDN-9C-GTQ" firstAttribute="leading" secondItem="JRt-8X-0QW" secondAttribute="leading" id="t6t-t0-dXc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Contacts" style="editor" id="2AL-gc-scv"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="2AL-gc-scv"/>
                     <connections>
                         <outlet property="tableView" destination="aDN-9C-GTQ" id="roD-sc-MrH"/>
                     </connections>
@@ -2620,7 +2620,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="7Wb-s8-ybe" firstAttribute="bottom" secondItem="RcB-m9-odJ" secondAttribute="bottom" id="mUz-l9-ke4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Requests" style="editor" id="PLI-y5-Cok"/>
+                    <navigationItem key="navigationItem" title="Requests" id="PLI-y5-Cok"/>
                     <connections>
                         <outlet property="tableView" destination="7Wb-s8-ybe" id="4rr-0d-2fU"/>
                     </connections>
@@ -2692,7 +2692,7 @@ let's see if you can do it again!</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH STAND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VrC-4a-paV">
-                                <rect key="frame" x="106.33333333333331" y="486" width="217.66666666666669" height="42"/>
+                                <rect key="frame" x="106.33333333333333" y="486" width="217.66666666666669" height="42"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2881,7 +2881,7 @@ let's see if you can do it again!</string>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuU-kF-WiP">
-                                <rect key="frame" x="172.66666666666663" y="285.33333333333331" width="85" height="50"/>
+                                <rect key="frame" x="172.66666666666666" y="285.33333333333331" width="84.999999999999972" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="EQk-aQ-mLF"/>
                                 </constraints>
@@ -2942,7 +2942,7 @@ let's see if you can do it again!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccj-eN-bGE">
-                                <rect key="frame" x="162.66666666666663" y="542" width="105" height="48"/>
+                                <rect key="frame" x="162.66666666666666" y="542" width="104.99999999999997" height="48"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Next &gt;">
@@ -3009,7 +3009,7 @@ let's see if you can do it again!</string>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gps-OO-LZD">
-                                <rect key="frame" x="172.66666666666663" y="396.66666666666669" width="85" height="50"/>
+                                <rect key="frame" x="172.66666666666666" y="396.66666666666669" width="84.999999999999972" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tSu-xl-nJ9"/>
                                 </constraints>
@@ -3113,7 +3113,7 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="0.0" y="500.33333333333326" width="430" height="431.66666666666674"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qH0-CE-lt9">
-                                        <rect key="frame" x="172.66666666666663" y="191.00000000000006" width="85" height="50"/>
+                                        <rect key="frame" x="172.66666666666666" y="191.00000000000006" width="84.999999999999972" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="ych-v9-wME"/>
                                         </constraints>
@@ -3136,7 +3136,7 @@ let's see if you can do it again!</string>
                                 </constraints>
                             </view>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dsO-Kk-mba">
-                                <rect key="frame" x="190.66666666666663" y="469.33333333333331" width="51.000000000000028" height="31"/>
+                                <rect key="frame" x="190.66666666666666" y="469.33333333333331" width="51" height="31"/>
                                 <color key="onTintColor" systemColor="systemGreenColor"/>
                             </switch>
                         </subviews>
@@ -3226,7 +3226,7 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="0.0" y="459.66666666666674" width="430" height="472.33333333333326"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hf-gI-vlN">
-                                        <rect key="frame" x="172.66666666666663" y="211.33333333333331" width="85" height="50"/>
+                                        <rect key="frame" x="172.66666666666666" y="211.33333333333331" width="84.999999999999972" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="kMu-na-Gi6"/>
                                         </constraints>
@@ -3319,7 +3319,7 @@ let's see if you can do it again!</string>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UA-LJ-ThX">
-                                <rect key="frame" x="175.66666666666663" y="405.66666666666669" width="79.000000000000028" height="44"/>
+                                <rect key="frame" x="175.66666666666666" y="405.66666666666669" width="79" height="44"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Next">
@@ -3697,7 +3697,7 @@ Will you STAND with us?</string>
                             <constraint firstItem="oo1-1J-u7K" firstAttribute="leading" secondItem="E1L-bi-uOQ" secondAttribute="leading" id="WuH-fW-JRF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" style="editor" id="Xkv-cx-G6s"/>
+                    <navigationItem key="navigationItem" id="Xkv-cx-G6s"/>
                     <connections>
                         <outlet property="exitIcon" destination="6Id-ab-hFq" id="Crv-iH-wSo"/>
                     </connections>
@@ -3738,7 +3738,7 @@ Will you STAND with us?</string>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oops!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qvq-nB-mcH">
-                                        <rect key="frame" x="171.33333333333337" y="158.33333333333334" width="87.666666666666629" height="34.666666666666657"/>
+                                        <rect key="frame" x="171.33333333333334" y="158.33333333333334" width="87.666666666666657" height="34.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="29"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -3887,8 +3887,8 @@ Will you STAND with us?</string>
         <image name="person.3" catalog="system" width="128" height="66"/>
         <image name="person.3.fill" catalog="system" width="128" height="66"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="questionmark.bubble" catalog="system" width="128" height="110"/>
-        <image name="questionmark.bubble.fill" catalog="system" width="128" height="110"/>
+        <image name="questionmark.app.fill" catalog="system" width="128" height="114"/>
+        <image name="questionmark.square" catalog="system" width="128" height="114"/>
         <image name="red-star-icon" width="480" height="440"/>
         <image name="red-thumb-down" width="160" height="159.66667175292969"/>
         <image name="search-icon" width="50" height="50"/>
