@@ -69,11 +69,12 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             loadHome()
         }
         
-        dailyGoalLoading.isHidden = true
-        myCurrentStreakLoading.isHidden = true
-        myTotalStandsLoading.isHidden = true
-        usaTotalStandsLoading.isHidden = true
-        globalStandingTodayLoading.isHidden = true
+        // loading false or true test
+        dailyGoalLoading.isHidden = false
+        myCurrentStreakLoading.isHidden = false
+        myTotalStandsLoading.isHidden = false
+        usaTotalStandsLoading.isHidden = false
+        globalStandingTodayLoading.isHidden = false
         
     }
     
@@ -235,7 +236,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
         yesterdayLabel.layer.cornerRadius = 16
         yesterdayLabel.layer.masksToBounds = true
-        yesterdayLabel.layer.borderColor = UIColor.white.cgColor
+        yesterdayLabel.layer.borderColor = UIColor.systemRed.cgColor
         yesterdayLabel.layer.borderWidth = 1.0
     }
     
