@@ -456,9 +456,14 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                 self.accountButton.isHidden = false
                 self.shareIcon.isHidden = false
                 self.animateStandStreakLabel()
+                
+                // Half-second delay before updating the progress bar
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.updateProgressBar()
+                }
             }
         }
-        self.updateProgressBar()
+        
     }
     
     private func animateStandStreakLabel() {
