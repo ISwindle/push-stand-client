@@ -7,7 +7,18 @@ class AccountSettingsViewController: UIViewController {
     @IBOutlet weak var birthdatePicker: UIDatePicker!
     @IBOutlet weak var reminderTimePicker: UIDatePicker!
     
+    @IBOutlet weak var resetTodayButton: UIButton!
+    
+    
     @IBAction func logoutAction(_ sender: Any) {
+        logout()
+    }
+    
+    @IBAction func updateAccount(_ sender: Any) {
+        updateSettings()
+    }
+    
+    private func logout() {
         UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -16,13 +27,13 @@ class AccountSettingsViewController: UIViewController {
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
     }
     
-    @IBAction func updateAccount(_ sender: Any) {
-        updateSettings()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateButton.isHidden = true
+        self.resetTodayButton.isHidden = true
+        if CurrentUser.shared.uid == "4jEEDwZeNiU53fDdSjnFflnMKdq1" || CurrentUser.shared.uid == "q3Alfwryqjhqut5RC4AZM3Djfn02" || CurrentUser.shared.uid == "ZAHntT382tWDySLY5GuWernZxcD2" || CurrentUser.shared.uid == "aS7kx7c28zVNRoigFPZVZGeImd02" {
+            self.resetTodayButton.isHidden = false
+        }
         birthdatePicker.addTarget(self, action: #selector(birthdatePickerValueChanged(_:)), for: .valueChanged)
         reminderTimePicker.addTarget(self, action: #selector(reminderTimeValueChanged(_:)), for: .valueChanged)
         
@@ -144,6 +155,12 @@ class AccountSettingsViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func resetToday(_ sender: Any) {
+        
+        logout()
+    }
+    
     
     private func showAlert(message: String) {
         let alertController = UIAlertController(title: "Important", message: message, preferredStyle: .alert)

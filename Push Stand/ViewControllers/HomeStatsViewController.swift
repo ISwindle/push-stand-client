@@ -69,6 +69,12 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             loadHome()
         }
         
+        dailyGoalLoading.isHidden = true
+        myCurrentStreakLoading.isHidden = true
+        myTotalStandsLoading.isHidden = true
+        usaTotalStandsLoading.isHidden = true
+        globalStandingTodayLoading.isHidden = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -329,7 +335,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         pushStandTitle.isHidden = false
         pushStandButton.isHidden = false
         dailyGoalLoading.isHidden = true
-        globalStandingTodayLoading.isHidden = true
+        globalStandingTodayLoading.isHidden = false
         landingViewWithPicture.isHidden = false
         accountButton.isHidden = true
         tabBarController?.tabBar.alpha = 0

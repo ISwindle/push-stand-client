@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -2260,6 +2260,21 @@ let's see if you can do it again!</string>
                                     <action selector="updateAccount:" destination="1GW-8L-r8b" eventType="touchUpInside" id="ppg-Fq-b2G"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6n-yg-Uwg">
+                                <rect key="frame" x="40" y="784" width="334" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="334" id="0ne-IZ-idJ"/>
+                                    <constraint firstAttribute="height" constant="35" id="1EM-BQ-Tcl"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Reset Today">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetToday:" destination="1GW-8L-r8b" eventType="touchUpInside" id="1cs-OV-gpY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ln3-qy-Du2"/>
                         <color key="backgroundColor" red="0.083885732320000003" green="0.083885732320000003" blue="0.083885732320000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2271,6 +2286,7 @@ let's see if you can do it again!</string>
                             </constraint>
                             <constraint firstItem="H7G-OT-ceE" firstAttribute="top" secondItem="ln3-qy-Du2" secondAttribute="top" id="5VM-Dp-GcI"/>
                             <constraint firstItem="Ban-MT-yE6" firstAttribute="top" secondItem="uGg-yl-nPk" secondAttribute="bottom" constant="1" id="6Rj-cc-dcl"/>
+                            <constraint firstItem="ln3-qy-Du2" firstAttribute="bottom" secondItem="G6n-yg-Uwg" secondAttribute="bottom" constant="43" id="6Uz-hA-10P"/>
                             <constraint firstItem="Zwb-mZ-jwY" firstAttribute="centerX" secondItem="dJa-Y2-nU4" secondAttribute="centerX" id="7Ic-qp-mcp"/>
                             <constraint firstItem="H7G-OT-ceE" firstAttribute="leading" secondItem="O4U-Dd-E5t" secondAttribute="leading" id="8zO-qy-rEd"/>
                             <constraint firstItem="Y0P-dA-JW1" firstAttribute="trailing" secondItem="ToY-gD-ffS" secondAttribute="trailing" id="ARN-Sa-OTx"/>
@@ -2288,7 +2304,9 @@ let's see if you can do it again!</string>
                             <constraint firstItem="Zwb-mZ-jwY" firstAttribute="height" secondItem="dJa-Y2-nU4" secondAttribute="height" id="UIT-4r-LUQ"/>
                             <constraint firstItem="lWQ-Iu-213" firstAttribute="leading" secondItem="s0I-cU-N5g" secondAttribute="leading" id="WAf-fQ-8Ae"/>
                             <constraint firstItem="dJa-Y2-nU4" firstAttribute="top" secondItem="ln3-qy-Du2" secondAttribute="top" constant="1" id="WVn-tq-1aT"/>
+                            <constraint firstItem="ln3-qy-Du2" firstAttribute="trailing" secondItem="G6n-yg-Uwg" secondAttribute="trailing" constant="40" id="YdT-AW-cY5"/>
                             <constraint firstItem="pCv-Py-RrC" firstAttribute="leading" secondItem="O4U-Dd-E5t" secondAttribute="leading" id="Z6b-OC-BiC"/>
+                            <constraint firstItem="G6n-yg-Uwg" firstAttribute="leading" secondItem="ln3-qy-Du2" secondAttribute="leading" constant="40" id="Zc1-p2-AsF"/>
                             <constraint firstItem="uGg-yl-nPk" firstAttribute="leading" secondItem="dJa-Y2-nU4" secondAttribute="leading" id="ZtF-Fp-9nZ"/>
                             <constraint firstItem="s0I-cU-N5g" firstAttribute="top" secondItem="Ban-MT-yE6" secondAttribute="bottom" constant="45" id="bP5-M1-Z1R"/>
                             <constraint firstItem="Ban-MT-yE6" firstAttribute="centerX" secondItem="dJa-Y2-nU4" secondAttribute="centerX" id="d4n-P1-UHq"/>
@@ -2310,6 +2328,7 @@ let's see if you can do it again!</string>
                         <outlet property="birthdatePicker" destination="dRe-f1-NOI" id="zhN-DX-CHW"/>
                         <outlet property="logoutButton" destination="lWQ-Iu-213" id="wU1-yT-pha"/>
                         <outlet property="reminderTimePicker" destination="K5O-ZN-4dA" id="OUl-Ty-Ooi"/>
+                        <outlet property="resetTodayButton" destination="G6n-yg-Uwg" id="Lpv-Xb-SCy"/>
                         <outlet property="updateButton" destination="s0I-cU-N5g" id="sJb-pJ-aPe"/>
                     </connections>
                 </viewController>
