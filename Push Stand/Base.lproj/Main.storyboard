@@ -521,16 +521,34 @@ let's see if you can do it again!</string>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nca-s3-GmW" userLabel="Loading View">
+                                <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="question-loading" translatesAutoresizingMaskIntoConstraints="NO" id="gaA-bK-Xdm">
+                                        <rect key="frame" x="176" y="243" width="62" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="gaA-bK-Xdm" secondAttribute="height" multiplier="1:1" id="ajj-nw-oJa"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gaA-bK-Xdm" firstAttribute="width" secondItem="nca-s3-GmW" secondAttribute="width" multiplier="0.15" id="sdk-uV-Ior"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sy1-da-Psm"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xP8-dz-DLW" firstAttribute="bottom" secondItem="Sy1-da-Psm" secondAttribute="bottom" id="10L-dM-2R0"/>
+                            <constraint firstItem="Sy1-da-Psm" firstAttribute="bottom" secondItem="nca-s3-GmW" secondAttribute="bottom" id="3tO-FG-8ej"/>
+                            <constraint firstItem="nca-s3-GmW" firstAttribute="top" secondItem="GUd-Wy-Mru" secondAttribute="bottom" constant="20" id="4h9-zU-jKz"/>
                             <constraint firstItem="Sy1-da-Psm" firstAttribute="trailing" secondItem="Oop-dg-hza" secondAttribute="trailing" id="4lD-G5-HP1"/>
                             <constraint firstItem="xP8-dz-DLW" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="4y4-cI-6Hk"/>
                             <constraint firstItem="ged-Bd-nPf" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="AKv-cG-5Ub"/>
                             <constraint firstItem="GUd-Wy-Mru" firstAttribute="top" secondItem="5ua-2j-fAs" secondAttribute="bottom" constant="30" id="GLQ-Is-tu8"/>
                             <constraint firstItem="7JX-Mg-abi" firstAttribute="top" secondItem="ged-Bd-nPf" secondAttribute="bottom" id="GSq-DO-aVw"/>
+                            <constraint firstItem="nca-s3-GmW" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="HVZ-pK-fuq"/>
                             <constraint firstItem="5ua-2j-fAs" firstAttribute="centerX" secondItem="PIY-nt-eya" secondAttribute="centerX" id="Mzg-Ft-65d"/>
                             <constraint firstItem="ged-Bd-nPf" firstAttribute="centerX" secondItem="PIY-nt-eya" secondAttribute="centerX" id="NDW-kJ-iNz"/>
                             <constraint firstItem="BwL-86-JUO" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="O3m-ov-WCk"/>
@@ -553,7 +571,10 @@ let's see if you can do it again!</string>
                             <constraint firstItem="xP8-dz-DLW" firstAttribute="trailing" secondItem="Sy1-da-Psm" secondAttribute="trailing" id="fvU-HA-ahm"/>
                             <constraint firstItem="7JX-Mg-abi" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="hKK-Nq-DAG"/>
                             <constraint firstItem="wKn-5I-JNK" firstAttribute="top" secondItem="GUd-Wy-Mru" secondAttribute="bottom" constant="20" id="iBD-rm-rTv"/>
+                            <constraint firstItem="gaA-bK-Xdm" firstAttribute="centerX" secondItem="Sy1-da-Psm" secondAttribute="centerX" id="jy4-Wv-29P"/>
+                            <constraint firstItem="Sy1-da-Psm" firstAttribute="trailing" secondItem="nca-s3-GmW" secondAttribute="trailing" id="l8w-HA-wNy"/>
                             <constraint firstItem="Sy1-da-Psm" firstAttribute="trailing" secondItem="wKn-5I-JNK" secondAttribute="trailing" id="mLu-Qr-AYl"/>
+                            <constraint firstItem="gaA-bK-Xdm" firstAttribute="centerY" secondItem="Sy1-da-Psm" secondAttribute="centerY" id="n8x-Nb-wjS"/>
                             <constraint firstItem="Sy1-da-Psm" firstAttribute="bottom" secondItem="Oop-dg-hza" secondAttribute="bottom" id="ohH-eF-0wv"/>
                             <constraint firstItem="GUd-Wy-Mru" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" constant="60" id="q26-TZ-sfy">
                                 <variation key="heightClass=regular-widthClass=regular" constant="180"/>
@@ -569,7 +590,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="5ua-2j-fAs" firstAttribute="top" secondItem="Sy1-da-Psm" secondAttribute="top" constant="10" id="zya-Xl-n21"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.app" catalog="system" selectedImage="questionmark.app.fill" id="asJ-Ax-25m">
+                    <tabBarItem key="tabBarItem" title="Daily ?" image="questionmark.app" catalog="system" badgeValue=" " selectedImage="questionmark.app.fill" id="asJ-Ax-25m">
                         <color key="badgeColor" systemColor="systemRedColor"/>
                     </tabBarItem>
                     <connections>
@@ -747,7 +768,7 @@ let's see if you can do it again!</string>
                                             <rect key="frame" x="0.0" y="10" width="331" height="518"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDe-jD-HC2" userLabel="Content View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="600"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="590"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbc-gB-i0B">
                                                             <rect key="frame" x="124" y="35" width="83.5" height="24"/>
@@ -779,7 +800,7 @@ Daily Goal</string>
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBn-qA-WW4">
-                                                            <rect key="frame" x="20" y="534" width="291" height="36"/>
+                                                            <rect key="frame" x="20" y="524" width="291" height="36"/>
                                                             <string key="text">While the Push Stand app is available on the app store, Apple Inc. (Apple) is not a sponsor or involved in the sweepstake activity in any manner.</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <color key="textColor" systemColor="underPageBackgroundColor"/>
@@ -789,7 +810,7 @@ Daily Goal</string>
                                                             </variation>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hr8-nf-Xqn">
-                                                            <rect key="frame" x="82.5" y="469.5" width="166" height="34.5"/>
+                                                            <rect key="frame" x="82.5" y="459.5" width="166" height="34.5"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="gray" title="Got it!">
                                                                 <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -822,21 +843,21 @@ Daily Goal</string>
                                                             </variation>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b9V-CQ-TLl" userLabel="Top Stack Row">
-                                                            <rect key="frame" x="33" y="284.5" width="265" height="70"/>
+                                                            <rect key="frame" x="33" y="284.5" width="265" height="65"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8g0-aq-UgL" userLabel="Stand Stack">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="132.5" height="70"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="132.5" height="65"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="e8n-HD-J57">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="132.5" height="50"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="132.5" height="45"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="50" id="fYF-mT-OOI">
+                                                                                <constraint firstAttribute="height" constant="45" id="fYF-mT-OOI">
                                                                                     <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                                                                                 </constraint>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Point" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cde-YW-K7G">
-                                                                            <rect key="frame" x="0.0" y="50" width="132.5" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="45" width="132.5" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="23D-Lv-fAZ"/>
                                                                             </constraints>
@@ -844,7 +865,7 @@ Daily Goal</string>
                                                                             <color key="textColor" systemColor="underPageBackgroundColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                             <variation key="heightClass=regular-widthClass=regular">
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                             </variation>
                                                                         </label>
                                                                     </subviews>
@@ -853,19 +874,19 @@ Daily Goal</string>
                                                                     </constraints>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dLg-1r-WxD" userLabel="Question Stack">
-                                                                    <rect key="frame" x="132.5" y="0.0" width="132.5" height="70"/>
+                                                                    <rect key="frame" x="132.5" y="0.0" width="132.5" height="65"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="questionmark.app.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hbV-Sz-e6M">
-                                                                            <rect key="frame" x="0.0" y="1" width="132.5" height="47.5"/>
+                                                                            <rect key="frame" x="0.0" y="1" width="132.5" height="42.5"/>
                                                                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="50" id="5XH-n4-0uh">
+                                                                                <constraint firstAttribute="height" constant="45" id="5XH-n4-0uh">
                                                                                     <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                                                                                 </constraint>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVu-Vo-pKA">
-                                                                            <rect key="frame" x="0.0" y="50" width="132.5" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="45" width="132.5" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="kxN-NN-0un"/>
                                                                             </constraints>
@@ -873,7 +894,7 @@ Daily Goal</string>
                                                                             <color key="textColor" systemColor="underPageBackgroundColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                             <variation key="heightClass=regular-widthClass=regular">
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                             </variation>
                                                                         </label>
                                                                     </subviews>
@@ -884,22 +905,22 @@ Daily Goal</string>
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eOZ-6T-AEN" userLabel="Bottom Stack Row">
-                                                            <rect key="frame" x="33" y="369.5" width="265" height="70"/>
+                                                            <rect key="frame" x="33" y="364.5" width="265" height="65"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OYK-Zq-SYs" userLabel="Stand Streak Stack">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="132.5" height="70"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="132.5" height="65"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="red-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="T4N-qA-SMZ">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="132.5" height="50"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="132.5" height="45"/>
                                                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="50" id="BdF-h0-v42">
+                                                                                <constraint firstAttribute="height" constant="45" id="BdF-h0-v42">
                                                                                     <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                                                                                 </constraint>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsJ-OX-CLu">
-                                                                            <rect key="frame" x="0.0" y="50" width="132.5" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="45" width="132.5" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="Knf-Xz-VSL">
                                                                                     <variation key="heightClass=regular-widthClass=regular" constant="30"/>
@@ -909,7 +930,7 @@ Daily Goal</string>
                                                                             <color key="textColor" systemColor="underPageBackgroundColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                             <variation key="heightClass=regular-widthClass=regular">
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                             </variation>
                                                                         </label>
                                                                     </subviews>
@@ -918,19 +939,19 @@ Daily Goal</string>
                                                                     </constraints>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rWW-fT-nPR" userLabel="Answer Streak Stack">
-                                                                    <rect key="frame" x="132.5" y="0.0" width="132.5" height="70"/>
+                                                                    <rect key="frame" x="132.5" y="0.0" width="132.5" height="65"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="cyan-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="0yc-hb-Ebc">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="132.5" height="50"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="132.5" height="45"/>
                                                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="50" id="hbk-Tt-gI8">
+                                                                                <constraint firstAttribute="height" constant="45" id="hbk-Tt-gI8">
                                                                                     <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                                                                                 </constraint>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ef-Hx-0MC">
-                                                                            <rect key="frame" x="0.0" y="50" width="132.5" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="45" width="132.5" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="H71-TQ-gTC">
                                                                                     <variation key="heightClass=regular-widthClass=regular" constant="30"/>
@@ -940,7 +961,7 @@ Daily Goal</string>
                                                                             <color key="textColor" systemColor="underPageBackgroundColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                             <variation key="heightClass=regular-widthClass=regular">
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                             </variation>
                                                                         </label>
                                                                     </subviews>
@@ -3223,7 +3244,7 @@ let's see if you can do it again!</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every day, at the selected time, you will receive a reminder to Stand for our country." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="MIs-iY-1xF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every day, at the selected time, you will receive a reminder to STAND for our country." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="MIs-iY-1xF">
                                 <rect key="frame" x="50" y="228.5" width="314" height="61"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3273,7 +3294,9 @@ let's see if you can do it again!</string>
                             <constraint firstItem="80h-ur-hxQ" firstAttribute="top" secondItem="Reu-49-wGs" secondAttribute="bottom" constant="45" id="WQz-zZ-5kg">
                                 <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                             </constraint>
-                            <constraint firstItem="MIs-iY-1xF" firstAttribute="leading" secondItem="UtS-xZ-bAC" secondAttribute="leading" constant="50" id="hpc-MZ-ufo"/>
+                            <constraint firstItem="MIs-iY-1xF" firstAttribute="leading" secondItem="UtS-xZ-bAC" secondAttribute="leading" constant="50" id="hpc-MZ-ufo">
+                                <variation key="heightClass=regular-widthClass=regular" constant="125"/>
+                            </constraint>
                             <constraint firstItem="MIs-iY-1xF" firstAttribute="centerX" secondItem="dtO-fd-5FY" secondAttribute="centerX" id="ijt-Hh-UjC"/>
                             <constraint firstItem="MIs-iY-1xF" firstAttribute="top" secondItem="80h-ur-hxQ" secondAttribute="bottom" constant="20" id="yLf-dD-qqy"/>
                             <constraint firstItem="80h-ur-hxQ" firstAttribute="centerX" secondItem="dtO-fd-5FY" secondAttribute="centerX" id="zo9-MB-thK"/>
@@ -3566,7 +3589,7 @@ let's see if you can do it again!</string>
 
 Our mission is to capture and share the true, unbiased visibility into the number of Americans standing.  
 
-Our hope is the visibility will ignite a spark to an unstoppable movement.</string>
+Our hope, with this visibility, is to ignite a spark to an unstoppable movement.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -3899,6 +3922,7 @@ Will you STAND with us?</string>
         <image name="person.3" catalog="system" width="128" height="66"/>
         <image name="person.3.fill" catalog="system" width="128" height="66"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="question-loading" width="2048" height="2048"/>
         <image name="questionmark.app" catalog="system" width="128" height="114"/>
         <image name="questionmark.app.fill" catalog="system" width="128" height="114"/>
         <image name="red-star-icon" width="480" height="440"/>
