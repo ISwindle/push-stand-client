@@ -193,7 +193,7 @@
                                 <rect key="frame" x="0.0" y="58" width="414" height="33.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                <color key="textColor" red="0.50196081400000003" green="0.77647060160000003" blue="0.93333333730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
@@ -716,10 +716,10 @@ let's see if you can do it again!</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleAspectFit" image="sweepstakes-fireworks" translatesAutoresizingMaskIntoConstraints="NO" id="fgB-Xs-BKw">
-                                <rect key="frame" x="-184" y="0.0" width="782" height="813"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" image="sweep-1" translatesAutoresizingMaskIntoConstraints="NO" id="fgB-Xs-BKw">
+                                <rect key="frame" x="-199.5" y="0.0" width="813" height="813"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="fgB-Xs-BKw" secondAttribute="height" multiplier="482:501" id="1E7-nq-Kwo"/>
+                                    <constraint firstAttribute="width" secondItem="fgB-Xs-BKw" secondAttribute="height" multiplier="1:1" id="1E7-nq-Kwo"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Sweepstakes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-ut-2Pg">
@@ -743,17 +743,20 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="0.0" y="501.5" width="414" height="311.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf8-tQ-SHg">
-                                        <rect key="frame" x="107" y="138.5" width="200" height="34.5"/>
+                                        <rect key="frame" x="103.5" y="139" width="207" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="Oxb-eh-zTQ"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Unlock Now">
+                                            <backgroundConfiguration key="background"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="baseBackgroundColor" red="0.61960786580000005" green="0.48627454040000001" blue="0.2941176593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="baseBackgroundColor" systemColor="tintColor"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="xf8-tQ-SHg" firstAttribute="width" secondItem="TAr-MU-caH" secondAttribute="width" multiplier="0.483092" id="I7p-zG-NKE"/>
                                     <constraint firstItem="xf8-tQ-SHg" firstAttribute="centerX" secondItem="TAr-MU-caH" secondAttribute="centerX" id="WOg-33-yZo"/>
                                     <constraint firstItem="xf8-tQ-SHg" firstAttribute="centerY" secondItem="TAr-MU-caH" secondAttribute="centerY" id="n0w-EE-5lA"/>
                                 </constraints>
@@ -768,7 +771,7 @@ let's see if you can do it again!</string>
                                             <rect key="frame" x="0.0" y="10" width="331" height="518"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDe-jD-HC2" userLabel="Content View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="590"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="570"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbc-gB-i0B">
                                                             <rect key="frame" x="124" y="35" width="83.5" height="24"/>
@@ -781,8 +784,8 @@ Daily Goal</string>
                                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="26"/>
                                                             </variation>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once this daily stand goal is achieved, you can use your points to enter our sweepstakes!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRq-e0-170">
-                                                            <rect key="frame" x="20" y="129.5" width="291" height="57.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once this daily stand goal is achieved, sweepstakes will be unlocked!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRq-e0-170">
+                                                            <rect key="frame" x="20" y="129.5" width="291" height="38.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -790,8 +793,8 @@ Daily Goal</string>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             </variation>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlike other sweepstakes where you can purchase entries, here, you have to earn them." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SD-5n-We4">
-                                                            <rect key="frame" x="20" y="207" width="291" height="57.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn your hard-earned points into entries for our exciting sweepstakes!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SD-5n-We4">
+                                                            <rect key="frame" x="20" y="188" width="291" height="38.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -800,7 +803,7 @@ Daily Goal</string>
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBn-qA-WW4">
-                                                            <rect key="frame" x="20" y="524" width="291" height="36"/>
+                                                            <rect key="frame" x="20" y="504" width="291" height="36"/>
                                                             <string key="text">While the Push Stand app is available on the app store, Apple Inc. (Apple) is not a sponsor or involved in the sweepstake activity in any manner.</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <color key="textColor" systemColor="underPageBackgroundColor"/>
@@ -809,14 +812,6 @@ Daily Goal</string>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             </variation>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hr8-nf-Xqn">
-                                                            <rect key="frame" x="82.5" y="459.5" width="166" height="34.5"/>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="gray" title="Got it!">
-                                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <color key="baseBackgroundColor" systemColor="linkColor"/>
-                                                            </buttonConfiguration>
-                                                        </button>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-za-M7p">
                                                             <rect key="frame" x="286" y="12" width="25" height="20.5"/>
                                                             <constraints>
@@ -843,7 +838,7 @@ Daily Goal</string>
                                                             </variation>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b9V-CQ-TLl" userLabel="Top Stack Row">
-                                                            <rect key="frame" x="33" y="284.5" width="265" height="65"/>
+                                                            <rect key="frame" x="33" y="324" width="265" height="65"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8g0-aq-UgL" userLabel="Stand Stack">
                                                                     <rect key="frame" x="0.0" y="0.0" width="132.5" height="65"/>
@@ -862,7 +857,7 @@ Daily Goal</string>
                                                                                 <constraint firstAttribute="height" constant="20" id="23D-Lv-fAZ"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                            <color key="textColor" systemColor="underPageBackgroundColor"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                             <variation key="heightClass=regular-widthClass=regular">
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -891,7 +886,7 @@ Daily Goal</string>
                                                                                 <constraint firstAttribute="height" constant="20" id="kxN-NN-0un"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                            <color key="textColor" systemColor="underPageBackgroundColor"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                             <variation key="heightClass=regular-widthClass=regular">
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -905,7 +900,7 @@ Daily Goal</string>
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eOZ-6T-AEN" userLabel="Bottom Stack Row">
-                                                            <rect key="frame" x="33" y="364.5" width="265" height="65"/>
+                                                            <rect key="frame" x="33" y="404" width="265" height="65"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OYK-Zq-SYs" userLabel="Stand Streak Stack">
                                                                     <rect key="frame" x="0.0" y="0.0" width="132.5" height="65"/>
@@ -927,7 +922,7 @@ Daily Goal</string>
                                                                                 </constraint>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                            <color key="textColor" systemColor="underPageBackgroundColor"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                             <variation key="heightClass=regular-widthClass=regular">
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -958,7 +953,7 @@ Daily Goal</string>
                                                                                 </constraint>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                            <color key="textColor" systemColor="underPageBackgroundColor"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                             <variation key="heightClass=regular-widthClass=regular">
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -968,6 +963,15 @@ Daily Goal</string>
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlike other sweepstakes where you can buy entries, here you must earn them." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvB-JR-0qK" userLabel="Unlike">
+                                                            <rect key="frame" x="20" y="246.5" width="291" height="57.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <variation key="heightClass=regular-widthClass=regular">
+                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            </variation>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -977,38 +981,36 @@ Daily Goal</string>
                                                             <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                                                         </constraint>
                                                         <constraint firstItem="4n8-RK-Vgf" firstAttribute="top" secondItem="xbc-gB-i0B" secondAttribute="bottom" id="7wP-So-gUv"/>
+                                                        <constraint firstItem="b9V-CQ-TLl" firstAttribute="top" secondItem="HvB-JR-0qK" secondAttribute="bottom" constant="20" id="8fe-Mm-eSg"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BgU-d8-NbN" secondAttribute="trailing" constant="20" symbolic="YES" id="9DG-dI-HwZ"/>
                                                         <constraint firstAttribute="bottom" secondItem="qBn-qA-WW4" secondAttribute="bottom" constant="30" id="9TI-lQ-Usm">
                                                             <variation key="heightClass=regular-widthClass=regular" constant="40"/>
                                                         </constraint>
                                                         <constraint firstAttribute="trailing" secondItem="Ryx-za-M7p" secondAttribute="trailing" constant="20" id="AB9-k9-Z5O"/>
-                                                        <constraint firstItem="Hr8-nf-Xqn" firstAttribute="centerX" secondItem="YDe-jD-HC2" secondAttribute="centerX" id="Age-nL-crJ"/>
                                                         <constraint firstItem="xbc-gB-i0B" firstAttribute="centerX" secondItem="YDe-jD-HC2" secondAttribute="centerX" id="BU3-AP-2WP"/>
+                                                        <constraint firstItem="HvB-JR-0qK" firstAttribute="top" secondItem="2SD-5n-We4" secondAttribute="bottom" constant="20" id="Bsr-eI-AiE"/>
                                                         <constraint firstItem="b9V-CQ-TLl" firstAttribute="centerX" secondItem="YDe-jD-HC2" secondAttribute="centerX" id="DJQ-VJ-lNY"/>
+                                                        <constraint firstItem="HvB-JR-0qK" firstAttribute="leading" secondItem="dRq-e0-170" secondAttribute="leading" id="IoW-DD-TSt"/>
                                                         <constraint firstItem="dRq-e0-170" firstAttribute="centerX" secondItem="YDe-jD-HC2" secondAttribute="centerX" id="Jhw-4u-AWr"/>
                                                         <constraint firstItem="BgU-d8-NbN" firstAttribute="top" secondItem="4n8-RK-Vgf" secondAttribute="bottom" constant="15" id="L2D-h7-Znp"/>
-                                                        <constraint firstItem="qBn-qA-WW4" firstAttribute="top" secondItem="Hr8-nf-Xqn" secondAttribute="bottom" constant="30" id="Ltb-Xf-zhK">
-                                                            <variation key="heightClass=regular-widthClass=regular" constant="40"/>
-                                                        </constraint>
                                                         <constraint firstItem="dRq-e0-170" firstAttribute="leading" secondItem="YDe-jD-HC2" secondAttribute="leading" constant="20" id="MnQ-R4-taW">
                                                             <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                                                         </constraint>
+                                                        <constraint firstItem="HvB-JR-0qK" firstAttribute="centerX" secondItem="YDe-jD-HC2" secondAttribute="centerX" id="P2r-14-WwH"/>
                                                         <constraint firstItem="eOZ-6T-AEN" firstAttribute="top" secondItem="b9V-CQ-TLl" secondAttribute="bottom" constant="15" id="PEd-Ox-Bdw">
                                                             <variation key="heightClass=regular-widthClass=regular" constant="25"/>
                                                         </constraint>
-                                                        <constraint firstItem="Hr8-nf-Xqn" firstAttribute="width" secondItem="YDe-jD-HC2" secondAttribute="width" multiplier="0.5" id="VL0-5v-LfC"/>
                                                         <constraint firstItem="2SD-5n-We4" firstAttribute="top" secondItem="dRq-e0-170" secondAttribute="bottom" constant="20" id="Yge-kn-Vor"/>
-                                                        <constraint firstItem="Hr8-nf-Xqn" firstAttribute="top" secondItem="eOZ-6T-AEN" secondAttribute="bottom" constant="30" id="ZKC-a6-pBu"/>
                                                         <constraint firstItem="2SD-5n-We4" firstAttribute="centerX" secondItem="YDe-jD-HC2" secondAttribute="centerX" id="adN-uq-Jvi"/>
                                                         <constraint firstItem="eOZ-6T-AEN" firstAttribute="centerX" secondItem="YDe-jD-HC2" secondAttribute="centerX" id="e66-DR-s3w"/>
                                                         <constraint firstItem="xbc-gB-i0B" firstAttribute="top" secondItem="Ryx-za-M7p" secondAttribute="bottom" id="eA8-H2-PhV"/>
                                                         <constraint firstItem="b9V-CQ-TLl" firstAttribute="width" secondItem="YDe-jD-HC2" secondAttribute="width" multiplier="0.8" id="gU9-2q-5Hx"/>
-                                                        <constraint firstItem="b9V-CQ-TLl" firstAttribute="top" secondItem="2SD-5n-We4" secondAttribute="bottom" constant="20" id="gzo-oe-wpc"/>
                                                         <constraint firstItem="dRq-e0-170" firstAttribute="top" secondItem="BgU-d8-NbN" secondAttribute="bottom" constant="10" id="iYy-pa-KMo"/>
                                                         <constraint firstItem="BgU-d8-NbN" firstAttribute="leading" secondItem="YDe-jD-HC2" secondAttribute="leading" constant="20" id="n8v-u5-Cl8">
                                                             <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                                                         </constraint>
                                                         <constraint firstItem="Ryx-za-M7p" firstAttribute="top" secondItem="YDe-jD-HC2" secondAttribute="top" constant="10" id="qJ7-Hm-P4Q"/>
+                                                        <constraint firstItem="qBn-qA-WW4" firstAttribute="top" secondItem="eOZ-6T-AEN" secondAttribute="bottom" constant="35" id="xzl-Dl-aza"/>
                                                         <constraint firstItem="4n8-RK-Vgf" firstAttribute="centerX" secondItem="YDe-jD-HC2" secondAttribute="centerX" id="yaJ-WW-m3r"/>
                                                         <constraint firstItem="2SD-5n-We4" firstAttribute="leading" secondItem="YDe-jD-HC2" secondAttribute="leading" constant="20" id="zO9-1V-eL2">
                                                             <variation key="heightClass=regular-widthClass=regular" constant="75"/>
@@ -1053,6 +1055,7 @@ Daily Goal</string>
                             <constraint firstItem="N6H-t4-fP6" firstAttribute="centerY" secondItem="Hre-0E-c4b" secondAttribute="centerY" constant="-50" id="gxt-dp-pgn"/>
                             <constraint firstItem="N6H-t4-fP6" firstAttribute="top" secondItem="eDK-ut-2Pg" secondAttribute="bottom" constant="20" id="kNQ-iz-rwV"/>
                             <constraint firstItem="Nfu-9g-DCt" firstAttribute="bottom" secondItem="TAr-MU-caH" secondAttribute="bottom" id="lmr-o7-nCw"/>
+                            <constraint firstItem="xf8-tQ-SHg" firstAttribute="leading" secondItem="N6H-t4-fP6" secondAttribute="leading" id="mco-i9-oie"/>
                             <constraint firstItem="fgB-Xs-BKw" firstAttribute="top" secondItem="Hre-0E-c4b" secondAttribute="top" id="oSm-zx-whT"/>
                             <constraint firstItem="TAr-MU-caH" firstAttribute="leading" secondItem="Nfu-9g-DCt" secondAttribute="leading" id="vOI-oZ-gdt"/>
                             <constraint firstItem="SQt-kJ-xri" firstAttribute="height" secondItem="Hre-0E-c4b" secondAttribute="height" multiplier="0.6" id="xdN-GN-N9Q"/>
@@ -1064,7 +1067,6 @@ Daily Goal</string>
                         <outlet property="backgroundView" destination="fgB-Xs-BKw" id="T9V-Pj-RSR"/>
                         <outlet property="blurView" destination="SQt-kJ-xri" id="RKs-lg-KMO"/>
                         <outlet property="exitView" destination="Ryx-za-M7p" id="0L8-FG-4BR"/>
-                        <outlet property="gotIt" destination="Hr8-nf-Xqn" id="A09-EJ-hLA"/>
                         <outlet property="scrollView" destination="P3g-7k-fbL" id="Gl6-oM-MgL"/>
                         <outlet property="unlockNow" destination="xf8-tQ-SHg" id="OIo-N7-2SW"/>
                     </connections>
@@ -1116,7 +1118,7 @@ Daily Goal</string>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Q7G-p0-aSC" userLabel="Home Stats Titles">
                                 <rect key="frame" x="0.0" y="758" width="414" height="35"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="cLP-iK-Scg" userLabel="My Current Streak">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="cLP-iK-Scg" userLabel="My Stand Streak">
                                         <rect key="frame" x="0.0" y="0.0" width="138" height="35"/>
                                         <string key="text">My Stand 
 Streak</string>
@@ -1370,19 +1372,19 @@ Stands</string>
                                         <rect key="frame" x="85" y="52.5" width="244" height="244"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eQv-5a-w5h">
-                                                <rect key="frame" x="42.5" y="94" width="159" height="56.5"/>
+                                                <rect key="frame" x="42.5" y="96" width="159" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FRt-ke-DPV" userLabel="Daily Goal Number">
-                                                        <rect key="frame" x="0.0" y="0.0" width="159" height="36"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="159" height="31.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="50"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLf-Z0-Q1m" userLabel="Daily Goal Title">
-                                                        <rect key="frame" x="0.0" y="36" width="159" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="31.5" width="159" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -1393,7 +1395,7 @@ Stands</string>
                                                 </subviews>
                                             </stackView>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="tId-zi-OB9">
-                                                <rect key="frame" x="102" y="90" width="40" height="40"/>
+                                                <rect key="frame" x="102" y="87.5" width="40" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="dku-0i-iXL"/>
@@ -1873,9 +1875,9 @@ let's see if you can do it again!</string>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBl-hR-no9">
-                                <rect key="frame" x="40" y="351" width="334" height="35"/>
+                                <rect key="frame" x="40" y="351" width="334" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="HSH-ut-Bqj"/>
+                                    <constraint firstAttribute="height" constant="34" id="HSH-ut-Bqj"/>
                                 </constraints>
                                 <color key="tintColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
@@ -1976,9 +1978,9 @@ let's see if you can do it again!</string>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyJ-1c-ih1">
-                                <rect key="frame" x="40" y="130" width="334" height="35"/>
+                                <rect key="frame" x="40" y="130" width="334" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="mAm-uW-Ipe"/>
+                                    <constraint firstAttribute="height" constant="34" id="mAm-uW-Ipe"/>
                                 </constraints>
                                 <color key="tintColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
@@ -2074,6 +2076,9 @@ let's see if you can do it again!</string>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hY-aX-YZ2">
                                 <rect key="frame" x="40" y="218" width="334" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="fbq-K3-dYl"/>
+                                </constraints>
                                 <color key="tintColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit"/>
@@ -2090,7 +2095,6 @@ let's see if you can do it again!</string>
                             <constraint firstItem="zsS-ME-Jyn" firstAttribute="centerX" secondItem="OKY-l6-Eix" secondAttribute="centerX" id="66h-0q-jAW"/>
                             <constraint firstItem="8Gz-lt-LoR" firstAttribute="leading" secondItem="zsS-ME-Jyn" secondAttribute="leading" id="7UT-aw-9w5"/>
                             <constraint firstItem="NSS-l4-lS1" firstAttribute="leading" secondItem="zsS-ME-Jyn" secondAttribute="leading" id="JLS-fN-WB5"/>
-                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="leading" secondItem="a93-w7-jLn" secondAttribute="leading" id="Lnx-NW-VLN"/>
                             <constraint firstItem="5hY-aX-YZ2" firstAttribute="leading" secondItem="zsS-ME-Jyn" secondAttribute="leading" id="NAF-vr-SE3"/>
                             <constraint firstItem="a93-w7-jLn" firstAttribute="top" secondItem="8Gz-lt-LoR" secondAttribute="bottom" constant="10" id="Ngf-mO-zeS"/>
                             <constraint firstItem="NSS-l4-lS1" firstAttribute="top" secondItem="zsS-ME-Jyn" secondAttribute="bottom" constant="10" id="WOQ-UM-Zk0"/>
@@ -2150,9 +2154,9 @@ let's see if you can do it again!</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToY-gD-ffS">
-                                        <rect key="frame" x="320" y="12.5" width="54" height="30"/>
+                                        <rect key="frame" x="320" y="10.5" width="54" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Qb1-LI-xUE"/>
+                                            <constraint firstAttribute="height" constant="34" id="Qb1-LI-xUE"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Edit"/>
@@ -2181,9 +2185,9 @@ let's see if you can do it again!</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0P-dA-JW1">
-                                        <rect key="frame" x="320" y="12.5" width="54" height="30"/>
+                                        <rect key="frame" x="320" y="10.5" width="54" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="yIM-gz-3HU"/>
+                                            <constraint firstAttribute="height" constant="34" id="yIM-gz-3HU"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Edit"/>
@@ -2209,9 +2213,9 @@ let's see if you can do it again!</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maZ-qb-rgK">
-                                        <rect key="frame" x="320" y="12.5" width="54" height="30"/>
+                                        <rect key="frame" x="320" y="10.5" width="54" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="DHM-hl-Bx4"/>
+                                            <constraint firstAttribute="height" constant="34" id="DHM-hl-Bx4"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Edit"/>
@@ -2299,9 +2303,9 @@ let's see if you can do it again!</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6n-yg-Uwg">
-                                <rect key="frame" x="40" y="782" width="334" height="35"/>
+                                <rect key="frame" x="40" y="783" width="334" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="1EM-BQ-Tcl"/>
+                                    <constraint firstAttribute="height" constant="34" id="1EM-BQ-Tcl"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Reset Today">
@@ -3930,7 +3934,7 @@ Will you STAND with us?</string>
         <image name="search-icon" width="50" height="50"/>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <image name="stand-btn" width="170.5" height="170.5"/>
-        <image name="sweepstakes-fireworks" width="964" height="1002"/>
+        <image name="sweep-1" width="2048" height="2048"/>
         <image name="ticket" catalog="system" width="128" height="86"/>
         <image name="ticket.fill" catalog="system" width="128" height="86"/>
         <image name="treasure-transparent" width="2048" height="2048"/>
@@ -3940,9 +3944,6 @@ Will you STAND with us?</string>
         </namedColor>
         <systemColor name="lightTextColor">
             <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
