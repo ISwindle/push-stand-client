@@ -421,7 +421,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
         postStand(queryParams: pushStandQueryParams) { result in
             self.postPoints(queryParams: postPointQueryParams) { result in
-                // Handle result if needed
+                print(result)
             }
         }
         

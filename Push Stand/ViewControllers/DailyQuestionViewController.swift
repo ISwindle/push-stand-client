@@ -292,7 +292,7 @@ class DailyQuestionViewController: UIViewController {
             
             // Notify the tab bar controller to update the badge
             if let tabBarController = self.tabBarController as? RootTabBarController {
-                tabBarController.updateBadge()
+                tabBarController.updateQuestionBadge()
             }
         }
         let unixTimestamp = Date().timeIntervalSince1970
