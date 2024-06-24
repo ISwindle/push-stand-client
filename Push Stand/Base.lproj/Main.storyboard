@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -601,6 +601,7 @@ let's see if you can do it again!</string>
                         <outlet property="flameSteakImage" destination="wX5-cT-NA4" id="0lE-dO-alG"/>
                         <outlet property="questionBot" destination="Dal-z9-6mu" id="ydP-Go-WF1"/>
                         <outlet property="questionLabel" destination="kEI-GT-CvW" id="Edo-Jk-xom"/>
+                        <outlet property="questionLoadingView" destination="nca-s3-GmW" id="Ywc-Cr-wc4"/>
                         <outlet property="streakFillButton" destination="YcM-2d-4wl" id="iGl-8I-DJH"/>
                         <outlet property="streakFillView" destination="wKn-5I-JNK" id="xnw-iy-DwD"/>
                         <outlet property="streakPointLabel" destination="6Ws-7v-mrs" id="y1k-vT-BMB"/>

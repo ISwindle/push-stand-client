@@ -21,6 +21,7 @@ class DailyQuestionViewController: UIViewController {
     @IBOutlet weak var thumbsUpAnswer: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
     
+    @IBOutlet weak var questionLoadingView: UIView!
     @IBOutlet weak var tabBarItemBadge: UITabBarItem!
     
     @IBOutlet weak var todaysQuestionView: UIView!
@@ -69,11 +70,11 @@ class DailyQuestionViewController: UIViewController {
         super.viewDidLoad()
         setupGestureRecognizers()
         let defaults = UserDefaults.standard
-            let dictionary = defaults.dictionaryRepresentation()
-            
-            for (key, value) in dictionary {
-                print("\(key): \(value)")
-            }
+        let dictionary = defaults.dictionaryRepresentation()
+        
+        for (key, value) in dictionary {
+            print("\(key): \(value)")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -145,6 +146,11 @@ class DailyQuestionViewController: UIViewController {
                     if let answer = json["UserAnswer"] as? String,
                        let question = json["Question"] as? String {
                         print(answer.isEmpty)
+                        UIView.animate(withDuration: 0.25, animations: {
+                            self.questionLoadingView.alpha = 0
+                        }) { _ in
+                            self.questionLoadingView.isHidden = true
+                        }
                         if !answer.isEmpty {
                             self.fetchYesterdaysQuestion()
                             self.saveQuestionAnswerToUserDefaults(for: self.getDateFormatted())
