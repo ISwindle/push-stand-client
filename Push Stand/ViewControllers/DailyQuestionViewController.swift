@@ -146,11 +146,6 @@ class DailyQuestionViewController: UIViewController {
                     if let answer = json["UserAnswer"] as? String,
                        let question = json["Question"] as? String {
                         print(answer.isEmpty)
-                        UIView.animate(withDuration: 0.25, animations: {
-                            self.questionLoadingView.alpha = 0
-                        }) { _ in
-                            self.questionLoadingView.isHidden = true
-                        }
                         if !answer.isEmpty {
                             self.fetchYesterdaysQuestion()
                             self.saveQuestionAnswerToUserDefaults(for: self.getDateFormatted())
@@ -178,6 +173,7 @@ class DailyQuestionViewController: UIViewController {
                     if let question = json["Question"] as? String,
                        let truePercentage = json["TruePercentage"] as? Double,
                        let falsePercentage = json["FalsePercentage"] as? Double {
+                        self.hideLoadingView()
                         let newQuestion = DailyQuestion(question: question, truePercentage: Int(truePercentage), falsePercentage: Int(falsePercentage))
                         self.updateUIWithQuestion(newQuestion)
                         self.cacheQuestion(newQuestion)
@@ -192,8 +188,17 @@ class DailyQuestionViewController: UIViewController {
         }
     }
     
+    private func hideLoadingView(){
+        UIView.animate(withDuration: 0.25, animations: {
+            self.questionLoadingView.alpha = 0
+        }) { _ in
+            self.questionLoadingView.isHidden = true
+        }
+    }
+    
     private func setupQuestionLabel(question: String) {
         DispatchQueue.main.async {
+            self.hideLoadingView()
             let finalPosition = self.questionLabel.frame.origin
             self.questionLabel.frame.origin.y += 30
             self.thumbsDownAnswer.image = UIImage(named: "grey-thumb-down")
