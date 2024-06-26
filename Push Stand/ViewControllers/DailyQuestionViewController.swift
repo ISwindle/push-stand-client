@@ -80,6 +80,12 @@ class DailyQuestionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         resetUI()
+        
+        //added so that questionLoadingView always appear first, no blank screen
+        //also acts as a way to reiterate why we are answering the question
+        self.questionLoadingView.alpha = 1.0
+        self.questionLoadingView.isHidden = false
+        
         if UserDefaults.standard.bool(forKey: "question-" + getDateFormatted()) {
             self.dailyQuestionTitle.alpha = 0.0
             self.yesterdaysResultsTitle.alpha = 1.0
