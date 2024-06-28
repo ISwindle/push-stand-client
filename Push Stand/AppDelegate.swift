@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             completionHandler: {_, _ in })
         application.registerForRemoteNotifications()
         
-        
+        UIApplication.shared.applicationIconBadgeNumber = 0
         return true
     }
     

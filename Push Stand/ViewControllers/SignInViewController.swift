@@ -65,20 +65,39 @@ class SignInViewController: UIViewController {
                 UserDefaults.standard.set(Auth.auth().currentUser?.email, forKey: "userEmail")
                 UserDefaults.standard.synchronize()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController") as? UITabBarController else { return }
-                
-                if #available(iOS 15, *) {
-                    // iOS 15 and later: Use UIWindowScene.windows
-                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                       let window = windowScene.windows.first {
-                        setRootViewController(window: window, with: tabBarController)
-                    }
-                } else {
-                    // Earlier iOS versions: Use UIApplication.shared.windows
-                    if let window = UIApplication.shared.windows.first {
-                        setRootViewController(window: window, with: tabBarController)
+                let dailyQuestionsQueryParams = ["userId": CurrentUser.shared.uid!, "Date": getDateFormatted()]
+                NetworkService.shared.request(endpoint: .questions, method: "GET", queryParams: dailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success(let json):
+                            if let answer = json["UserAnswer"] as? String,
+                               let question = json["Question"] as? String {
+                                UserDefaults.standard.set(true, forKey: "question-" + self.getDateFormatted())
+                                self.appDelegate.userDefault.set(true, forKey: "question-" + self.getDateFormatted())
+                                self.appDelegate.userDefault.synchronize()
+                                guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController") as? UITabBarController else { return }
+                                
+                                if #available(iOS 15, *) {
+                                    // iOS 15 and later: Use UIWindowScene.windows
+                                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                                       let window = windowScene.windows.first {
+                                        setRootViewController(window: window, with: tabBarController)
+                                    }
+                                } else {
+                                    // Earlier iOS versions: Use UIApplication.shared.windows
+                                    if let window = UIApplication.shared.windows.first {
+                                        setRootViewController(window: window, with: tabBarController)
+                                    }
+                                }
+                            } else {
+                                print("error setting up user")
+                            }
+                        case .failure(let error):
+                            print("Error: \(error.localizedDescription)")
+                        }
                     }
                 }
+                
                 
                 func setRootViewController(window: UIWindow, with viewController: UIViewController) {
                     window.rootViewController = viewController

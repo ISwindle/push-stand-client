@@ -420,9 +420,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
         
         postStand(queryParams: pushStandQueryParams) { result in
-            self.postPoints(queryParams: postPointQueryParams) { result in
-                print(result)
-            }
+
+        }
+        NetworkService.shared.request(endpoint: .points, method: "POST", data: postPointQueryParams) { result in
+
         }
         
         savePushStandToUserDefaults(for: dateString)
