@@ -403,8 +403,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     @IBAction private func acknowledgeStreakFilled(_ sender: Any) {
-        bonusStandView.isHidden = false
-        streakFillView.isHidden = false
+        bonusStandView.isHidden = true
+        streakFillView.isHidden = true
         segmentedStreakBar.value = 0
     }
     
@@ -537,7 +537,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         // Call the request method of NetworkService
         NetworkService.shared.request(endpoint: .stand, method: "POST", data: queryParams) {result in
             
-            print(result)
             self.updateStandCounts()
             self.updateUIForNewStand()
         }
