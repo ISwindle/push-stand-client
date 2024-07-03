@@ -160,7 +160,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ws-7v-mrs">
                                         <rect key="frame" x="173" y="5" width="68" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                        <color key="textColor" red="0.86274516580000005" green="0.74117648599999997" blue="0.49411764740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
@@ -199,7 +199,7 @@
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                 </variation>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="cyan-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="wX5-cT-NA4">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Blue-Star" translatesAutoresizingMaskIntoConstraints="NO" id="wX5-cT-NA4">
                                 <rect key="frame" x="364" y="116" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="e5K-bT-H64">
@@ -275,7 +275,7 @@
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="plus.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Dal-z9-6mu">
                                         <rect key="frame" x="344" y="605.5" width="45" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" red="0.55294120309999995" green="0.78431367870000002" blue="0.96078431610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.23921570180000001" green="0.49019610879999997" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="5bM-9K-jGj">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="65"/>
@@ -384,7 +384,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Submit">
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="baseBackgroundColor" red="0.54509806630000002" green="0.78039217000000005" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="baseBackgroundColor" red="0.24313727020000001" green="0.49411764740000003" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="submitAnswer:" destination="T6S-eC-0uj" eventType="touchUpInside" id="IWg-s9-Fr5"/>
@@ -443,7 +443,7 @@ let's see if you can do it again!</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                             </variation>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="cyan-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="wMj-n7-Ffj">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Blue-Star" translatesAutoresizingMaskIntoConstraints="NO" id="wMj-n7-Ffj">
                                             <rect key="frame" x="169.5" y="25" width="75" height="75"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="wMj-n7-Ffj" secondAttribute="height" multiplier="1:1" id="5rm-AX-tGG"/>
@@ -524,7 +524,7 @@ let's see if you can do it again!</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nca-s3-GmW" userLabel="Loading View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="question-loading-image" translatesAutoresizingMaskIntoConstraints="NO" id="Ycc-N2-nlt">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="question-loading" translatesAutoresizingMaskIntoConstraints="NO" id="Ycc-N2-nlt">
                                         <rect key="frame" x="187" y="266.5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ycc-N2-nlt" secondAttribute="height" multiplier="1:1" id="EYa-4f-GPf"/>
@@ -823,7 +823,7 @@ let's see if you can do it again!</string>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8g0-aq-UgL" userLabel="Stand Stack">
                                                                     <rect key="frame" x="0.0" y="0.0" width="132.5" height="65"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="e8n-HD-J57">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="e8n-HD-J57">
                                                                             <rect key="frame" x="0.0" y="0.0" width="132.5" height="45"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="45" id="fYF-mT-OOI">
@@ -853,7 +853,7 @@ let's see if you can do it again!</string>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" image="questionmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hbV-Sz-e6M">
                                                                             <rect key="frame" x="0.0" y="0.5" width="132.5" height="44"/>
-                                                                            <color key="tintColor" red="0.50196081400000003" green="0.81176471709999998" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                            <color key="tintColor" red="0.231372565" green="0.47843140360000003" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="45" id="5XH-n4-0uh">
                                                                                     <variation key="heightClass=regular-widthClass=regular" constant="70"/>
@@ -885,7 +885,7 @@ let's see if you can do it again!</string>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OYK-Zq-SYs" userLabel="Stand Streak Stack">
                                                                     <rect key="frame" x="0.0" y="0.0" width="132.5" height="65"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="red-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="T4N-qA-SMZ">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Red-Star" translatesAutoresizingMaskIntoConstraints="NO" id="T4N-qA-SMZ">
                                                                             <rect key="frame" x="0.0" y="0.0" width="132.5" height="45"/>
                                                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
@@ -916,7 +916,7 @@ let's see if you can do it again!</string>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rWW-fT-nPR" userLabel="Answer Streak Stack">
                                                                     <rect key="frame" x="132.5" y="0.0" width="132.5" height="65"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="cyan-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="0yc-hb-Ebc">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Blue-Star" translatesAutoresizingMaskIntoConstraints="NO" id="0yc-hb-Ebc">
                                                                             <rect key="frame" x="0.0" y="0.0" width="132.5" height="45"/>
                                                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
@@ -1207,13 +1207,13 @@ Stands</string>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-E1-3cg" userLabel="Top Icons">
                                 <rect key="frame" x="20" y="98" width="374" height="48"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="red-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-ah-BgZ" userLabel="Stand Streak Icon">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Red-Star" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-ah-BgZ" userLabel="Stand Streak Icon">
                                         <rect key="frame" x="0.0" y="0.0" width="124.5" height="48"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" image="cyan-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="O3e-xe-AEd">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" image="Blue-Star" translatesAutoresizingMaskIntoConstraints="NO" id="O3e-xe-AEd">
                                         <rect key="frame" x="124.5" y="0.0" width="125" height="48"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFit" image="gold-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="9tL-5f-BSN">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFit" image="White-Star" translatesAutoresizingMaskIntoConstraints="NO" id="9tL-5f-BSN">
                                         <rect key="frame" x="249.5" y="0.0" width="124.5" height="48"/>
                                     </imageView>
                                 </subviews>
@@ -1245,7 +1245,7 @@ Stands</string>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sle-yn-ue8">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earned Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sle-yn-ue8">
                                         <rect key="frame" x="249.5" y="0.0" width="124.5" height="25"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1280,7 +1280,7 @@ Stands</string>
                                         <rect key="frame" x="207" y="14.5" width="0.0" height="0.0"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                        <color key="textColor" red="0.85882353779999998" green="0.74209670577561493" blue="0.49274153061206338" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="textColor" red="0.86657591540404044" green="0.86657591540404044" blue="0.86657591540404044" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
@@ -1338,10 +1338,10 @@ Stands</string>
                                     </constraint>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwt-gq-ghg">
-                                <rect key="frame" x="179" y="174" width="56" height="21.5"/>
+                            <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwt-gq-ghg">
+                                <rect key="frame" x="165.5" y="174" width="83.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <color key="textColor" red="0.85882353779999998" green="0.74117648599999997" blue="0.49411764740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
@@ -1550,7 +1550,7 @@ let's see if you can do it again!</string>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="red-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="oYQ-HP-7t9">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Red-Star" translatesAutoresizingMaskIntoConstraints="NO" id="oYQ-HP-7t9">
                                             <rect key="frame" x="170" y="25" width="74" height="76.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="oYQ-HP-7t9" secondAttribute="height" multiplier="75:77" id="eGN-UP-Yvv"/>
@@ -3891,12 +3891,13 @@ Will you STAND with us?</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Blue-Star" width="480" height="440"/>
         <image name="LogoButton" width="81" height="80"/>
+        <image name="Red-Star" width="512" height="469"/>
+        <image name="White-Star" width="512" height="469"/>
         <image name="broken-button-error" width="720" height="720"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="cyan-star-icon" width="480" height="440"/>
         <image name="eagle-pic-bg" width="588" height="720"/>
-        <image name="gold-star-icon" width="480" height="440"/>
         <image name="green-thumb-up" width="160" height="159.66667175292969"/>
         <image name="grey-thumb-down" width="160" height="159.66667175292969"/>
         <image name="grey-thumb-up" width="160" height="159.66667175292969"/>
@@ -3908,7 +3909,7 @@ Will you STAND with us?</string>
         <image name="person.3" catalog="system" width="128" height="66"/>
         <image name="person.3.fill" catalog="system" width="128" height="66"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="question-loading-image" width="720" height="720"/>
+        <image name="question-loading" width="720" height="720"/>
         <image name="questionmark.circle" catalog="system" width="128" height="123"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="red-star-icon" width="480" height="440"/>

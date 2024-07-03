@@ -122,7 +122,7 @@ class DailyQuestionViewController: UIViewController {
         downPercentage.text = ""
         yesterdayQuestionLabel.text = ""
         thumbsUpAnswer.isUserInteractionEnabled = false
-        streakSegmentedBar.selectedColor = .systemCyan
+        streakSegmentedBar.selectedColor = .systemBlue
     }
     
     private func fetchQuestionStreak() {

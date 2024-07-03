@@ -236,7 +236,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
         yesterdayLabel.layer.cornerRadius = 16
         yesterdayLabel.layer.masksToBounds = true
-        yesterdayLabel.layer.borderColor = UIColor.systemRed.cgColor
+        yesterdayLabel.layer.borderColor = UIColor.white.cgColor
         yesterdayLabel.layer.borderWidth = 1.0
     }
     
@@ -368,7 +368,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @objc private func standStreakTapped() {
         updateStreakUI(
             selectedIcon: standStreakIcon,
-            selectedIconImage: "red-star-icon",
+            selectedIconImage: "Red-Star",
             selectedTitle: standStreakTitle,
             selectedColor: .systemRed,
             selectedStreakValue: standStreak % 10
@@ -378,9 +378,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @objc private func questionStreakTapped() {
         updateStreakUI(
             selectedIcon: questionStreakIcon,
-            selectedIconImage: "cyan-star-icon",
+            selectedIconImage: "Blue-Star",
             selectedTitle: questionStreakTitle,
-            selectedColor: .systemCyan,
+            selectedColor: .systemBlue,
             selectedStreakValue: questionAnswerStreak % 10
         )
     }
@@ -392,7 +392,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             standStreakFontWeight: .light,
             questionStreakColor: .white,
             questionStreakFontWeight: .light,
-            pointsColor: UIColor.systemBrown,
+            pointsColor: UIColor.white,
             pointsFontWeight: .bold
         )
         segmentedStreakBar.alpha = 0
@@ -499,10 +499,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         updateTitles(
             standStreakColor: selectedColor == .systemRed ? selectedColor : .white,
             standStreakFontWeight: selectedColor == .systemRed ? .bold : .light,
-            questionStreakColor: selectedColor == .systemCyan ? selectedColor : .white,
-            questionStreakFontWeight: selectedColor == .systemCyan ? .bold : .light,
-            pointsColor: selectedColor == .systemBrown ? selectedColor : .white,
-            pointsFontWeight: selectedColor == .systemBrown ? .bold : .light
+            questionStreakColor: selectedColor == .systemBlue ? selectedColor : .white,
+            questionStreakFontWeight: selectedColor == .systemBlue ? .bold : .light,
+            pointsColor: selectedColor == .white ? selectedColor : .white,
+            pointsFontWeight: selectedColor == .white ? .bold : .light
         )
         
         myPointsLabel.alpha = 0
@@ -525,11 +525,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     private func updateStreakIconsForPoints() {
-        standStreakIcon.image = UIImage(named: "red-star-icon")
+        standStreakIcon.image = UIImage(named: "Red-Star")
         standStreakIcon.alpha = 0.5
-        questionStreakIcon.image = UIImage(named: "cyan-star-icon")
+        questionStreakIcon.image = UIImage(named: "Blue-Star")
         questionStreakIcon.alpha = 0.5
-        pointsIcon.image = UIImage(named: "gold-star-icon")
+        pointsIcon.image = UIImage(named: "White-Star")
         pointsIcon.alpha = 1.0
     }
     
