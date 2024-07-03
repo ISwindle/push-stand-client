@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import Foundation
 import FirebaseCore
 import FirebaseMessaging
 
@@ -39,8 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             options: authOptions,
             completionHandler: {_, _ in })
         application.registerForRemoteNotifications()
-        
-        UIApplication.shared.applicationIconBadgeNumber = 0
+
+        scheduleMidnightReset()
         return true
     }
     
@@ -193,6 +194,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         // Handle the interaction
         completionHandler()
+    }
+    
+    func timeUntilNextMidnight() -> TimeInterval? {
+        let calendar = Calendar(identifier: .gregorian)
+        let now = Date()
+        let pacificTimeZone = TimeZone(identifier: "America/Los_Angeles")!
+        
+        // Get current date components in Pacific Time
+        var components = calendar.dateComponents(in: pacificTimeZone, from: now)
+        
+        // Create a new date components for the next midnight
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        components.nanosecond = 0
+        
+        // Calculate the next midnight
+        if let todayMidnight = calendar.date(from: components),
+           let nextMidnight = calendar.date(byAdding: .day, value: 1, to: todayMidnight) {
+            return nextMidnight.timeIntervalSince(now)
+        } else {
+            return nil
+        }
+    }
+
+    func scheduleMidnightReset() {
+        let timeInterval = timeUntilNextMidnight()
+        Timer.scheduledTimer(withTimeInterval: timeInterval!, repeats: false) { _ in
+            self.resetAppState()
+            self.scheduleMidnightReset()  // Schedule the next reset
+        }
+    }
+    
+    func resetAppState() {
+        // Reset your app's state here
+        // For example, clear user defaults, reset data models, etc.
+        UIApplication.shared.applicationIconBadgeNumber = 2
+        // Navigate to the initial view controller
+        DispatchQueue.main.async {
+            if let window = UIApplication.shared.windows.first {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = storyboard.instantiateInitialViewController()
+                window.rootViewController = initialViewController
+                window.makeKeyAndVisible()
+            }
+        }
     }
     
 }

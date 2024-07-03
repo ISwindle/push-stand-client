@@ -420,12 +420,12 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
         
         postStand(queryParams: pushStandQueryParams) { result in
-
+            
         }
         NetworkService.shared.request(endpoint: .points, method: "POST", data: postPointQueryParams) { result in
 
         }
-        
+        UIApplication.shared.applicationIconBadgeNumber =  UIApplication.shared.applicationIconBadgeNumber - 1
         savePushStandToUserDefaults(for: dateString)
         animatePushStandButtonFadeOut()
     }

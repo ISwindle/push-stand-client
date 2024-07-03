@@ -330,6 +330,7 @@ class DailyQuestionViewController: UIViewController {
             }
         }
         self.saveQuestionAnswerToUserDefaults(for: self.getDateFormatted())
+        UIApplication.shared.applicationIconBadgeNumber =  UIApplication.shared.applicationIconBadgeNumber - 1
         fetchYesterdaysQuestion()
     }
     
