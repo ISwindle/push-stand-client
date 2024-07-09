@@ -99,8 +99,21 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             .store(in: &cancellables)
         
         appDelegate.standModel.$yesterdaysStanding
-            .map {"      Yesterday: \($0)       "}
+            .map {"      Yesterday: \($0)      "}
             .assign(to: \.text, on: yesterdayLabel)
+            .store(in: &cancellables)
+        
+        // Custom binding for yesterday's standing with loading state
+        appDelegate.standModel.$yesterdaysStanding
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] standing in
+                guard let self = self else { return }
+                if standing != 0 { // Check if standing has a value
+                    self.yesterdayLabel.text = "      Yesterday: \(standing)      "
+                }
+                // else, display storyboard's initial text
+                // doing this to avoid yesterday displaying "0" when loading
+            }
             .store(in: &cancellables)
         
         // Bindings for aggregate stats
