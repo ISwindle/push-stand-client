@@ -6,19 +6,19 @@ class GroupsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var requests: UIImageView!
     @IBOutlet weak var searchUsers: UIImageView!
     
-    // Sample data
-    var users: [User] = [
-        User(username: "Alice", points: 120),
-        User(username: "Bob", points: 150),
-        User(username: "Charlie", points: 100),
-        // Add more users as needed
-    ]
+//    // Sample data
+//    var users: [User] = [
+//        User(username: "Alice", points: 120),
+//        User(username: "Bob", points: 150),
+//        User(username: "Charlie", points: 100),
+//        // Add more users as needed
+//    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Sort the users by points in descending order
-        users.sort { $0.points > $1.points }
+        //users.sort { $0.points > $1.points }
         
         setupGestures()
         
@@ -59,7 +59,7 @@ class GroupsViewController: UIViewController, UITableViewDataSource, UITableView
     // UITableViewDataSource methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return 5 //users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,7 +68,7 @@ class GroupsViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
         // Configure the cell...
-        let user = users[indexPath.row]
+        //let user = users[indexPath.row]
         //cell.textLabel?.text = "\(indexPath.row + 1). \(user.username) - \(user.points) points"
         
         return cell

@@ -19,7 +19,18 @@
 		222C4C422B14E391006FC90B /* DailyQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C4C412B14E391006FC90B /* DailyQuestionViewController.swift */; };
 		222C4C442B14E3B5006FC90B /* SweepstakesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C4C432B14E3B5006FC90B /* SweepstakesViewController.swift */; };
 		222C4C462B14E41F006FC90B /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C4C452B14E41F006FC90B /* ShopViewController.swift */; };
-		22359DD62B6C7B71003D3520 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22359DD52B6C7B71003D3520 /* User.swift */; };
+		223443302C39C93400FAF9AB /* StandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234432F2C39C93400FAF9AB /* StandModel.swift */; };
+		223443322C39D1BF00FAF9AB /* DailyQuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223443312C39D1BF00FAF9AB /* DailyQuestionModel.swift */; };
+		223443362C39E47400FAF9AB /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223443352C39E47400FAF9AB /* Time.swift */; };
+		223443382C3ACE9500FAF9AB /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223443372C3ACE9500FAF9AB /* Validator.swift */; };
+		2234433A2C3ACFDF00FAF9AB /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223443392C3ACFDF00FAF9AB /* Formatter.swift */; };
+		2234433C2C3AD1FB00FAF9AB /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234433B2C3AD1FB00FAF9AB /* Haptic.swift */; };
+		223443472C3AE64200FAF9AB /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223443462C3AE64200FAF9AB /* Networking.swift */; };
+		2234434B2C3AEBCE00FAF9AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234434A2C3AEBCE00FAF9AB /* Constants.swift */; };
+		2234434D2C3AF1FF00FAF9AB /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234434C2C3AF1FF00FAF9AB /* Defaults.swift */; };
+		2234434F2C3B15FC00FAF9AB /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234434E2C3B15FC00FAF9AB /* Segues.swift */; };
+		223443512C3B18EF00FAF9AB /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223443502C3B18EF00FAF9AB /* ViewControllers.swift */; };
+		223443532C3B19A700FAF9AB /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223443522C3B19A700FAF9AB /* Strings.swift */; };
 		22359DDB2B6C9BE3003D3520 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22359DDA2B6C9BE3003D3520 /* OnboardingManager.swift */; };
 		22359DDD2B6CB431003D3520 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22359DDC2B6CB431003D3520 /* OnboardingData.swift */; };
 		22359DE02B6E995C003D3520 /* GroupRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22359DDE2B6E995C003D3520 /* GroupRequestTableViewCell.swift */; };
@@ -34,8 +45,6 @@
 		223EA08A2AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */; };
 		224D9C962C022AE900655C67 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D9C952C022AE900655C67 /* UserDefaultsManager.swift */; };
 		224F249A2BF3CF190083FE09 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F24992BF3CF190083FE09 /* NetworkService.swift */; };
-		224F249C2BF3E3F10083FE09 /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F249B2BF3E3F10083FE09 /* Responses.swift */; };
-		224F249E2BF4404A0083FE09 /* DataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F249D2BF4404A0083FE09 /* DataObjects.swift */; };
 		224F24A22BF588BB0083FE09 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F24A12BF588BB0083FE09 /* NetworkMonitor.swift */; };
 		224F24A52BF905690083FE09 /* ExtUITapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F24A42BF905690083FE09 /* ExtUITapGestureRecognizer.swift */; };
 		224F24A72BF9099D0083FE09 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 224F24A62BF9099D0083FE09 /* Configuration.plist */; };
@@ -43,7 +52,7 @@
 		2263D2102AF8A11200D2E136 /* LandingRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */; };
 		2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */; };
 		2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */; };
-		2263D2162AF91D8400D2E136 /* SignupBirthdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2152AF91D8400D2E136 /* SignupBirthdateViewController.swift */; };
+		2263D2162AF91D8400D2E136 /* SignUpBirthdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2152AF91D8400D2E136 /* SignUpBirthdateViewController.swift */; };
 		2263D2182AF91E6900D2E136 /* SignUpReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2172AF91E6900D2E136 /* SignUpReminderViewController.swift */; };
 		2263D21A2AF91FEB00D2E136 /* SignUpVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */; };
 		2263D21C2AF926CB00D2E136 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */; };
@@ -62,7 +71,6 @@
 		22AD2D482ADF583400B3B1A8 /* Push_StandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D472ADF583400B3B1A8 /* Push_StandTests.swift */; };
 		22AD2D522ADF583400B3B1A8 /* Push_StandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D512ADF583400B3B1A8 /* Push_StandUITests.swift */; };
 		22AD2D542ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D532ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift */; };
-		22B8D2222B5C117000448D01 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8D2212B5C117000448D01 /* ExtUIViewController.swift */; };
 		22B8EA1A2B3CD8C100FC9257 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8EA192B3CD8C100FC9257 /* AccountViewController.swift */; };
 		22B8EA1D2B3DD53300FC9257 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B8EA1C2B3DD53300FC9257 /* CurrentUser.swift */; };
 		22C7F3D22BAFC2B400F5BE9A /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C7F3D12BAFC2B400F5BE9A /* TermsOfServiceViewController.swift */; };
@@ -104,7 +112,18 @@
 		222C4C412B14E391006FC90B /* DailyQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuestionViewController.swift; sourceTree = "<group>"; };
 		222C4C432B14E3B5006FC90B /* SweepstakesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweepstakesViewController.swift; sourceTree = "<group>"; };
 		222C4C452B14E41F006FC90B /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
-		22359DD52B6C7B71003D3520 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2234432F2C39C93400FAF9AB /* StandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandModel.swift; sourceTree = "<group>"; };
+		223443312C39D1BF00FAF9AB /* DailyQuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuestionModel.swift; sourceTree = "<group>"; };
+		223443352C39E47400FAF9AB /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		223443372C3ACE9500FAF9AB /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		223443392C3ACFDF00FAF9AB /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		2234433B2C3AD1FB00FAF9AB /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
+		223443462C3AE64200FAF9AB /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		2234434A2C3AEBCE00FAF9AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2234434C2C3AF1FF00FAF9AB /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		2234434E2C3B15FC00FAF9AB /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
+		223443502C3B18EF00FAF9AB /* ViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllers.swift; sourceTree = "<group>"; };
+		223443522C3B19A700FAF9AB /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		22359DDA2B6C9BE3003D3520 /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
 		22359DDC2B6CB431003D3520 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
 		22359DDE2B6E995C003D3520 /* GroupRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRequestTableViewCell.swift; sourceTree = "<group>"; };
@@ -119,8 +138,6 @@
 		223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInitialPhoneViewController.swift; sourceTree = "<group>"; };
 		224D9C952C022AE900655C67 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		224F24992BF3CF190083FE09 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = "Push Stand/NetworkService.swift"; sourceTree = SOURCE_ROOT; };
-		224F249B2BF3E3F10083FE09 /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
-		224F249D2BF4404A0083FE09 /* DataObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataObjects.swift; sourceTree = "<group>"; };
 		224F24A12BF588BB0083FE09 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkMonitor.swift; path = "Push Stand/Extensions/NetworkMonitor.swift"; sourceTree = SOURCE_ROOT; };
 		224F24A32BF8E97F0083FE09 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		224F24A42BF905690083FE09 /* ExtUITapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUITapGestureRecognizer.swift; sourceTree = "<group>"; };
@@ -129,7 +146,7 @@
 		2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingRootViewController.swift; sourceTree = "<group>"; };
 		2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneViewController.swift; sourceTree = "<group>"; };
 		2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUsernamePasswordViewController.swift; sourceTree = "<group>"; };
-		2263D2152AF91D8400D2E136 /* SignupBirthdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupBirthdateViewController.swift; sourceTree = "<group>"; };
+		2263D2152AF91D8400D2E136 /* SignUpBirthdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBirthdateViewController.swift; sourceTree = "<group>"; };
 		2263D2172AF91E6900D2E136 /* SignUpReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReminderViewController.swift; sourceTree = "<group>"; };
 		2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVerificationViewController.swift; sourceTree = "<group>"; };
 		2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
@@ -152,7 +169,6 @@
 		22AD2D4D2ADF583400B3B1A8 /* Push StandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Push StandUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AD2D512ADF583400B3B1A8 /* Push_StandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push_StandUITests.swift; sourceTree = "<group>"; };
 		22AD2D532ADF583400B3B1A8 /* Push_StandUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push_StandUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		22B8D2212B5C117000448D01 /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		22B8EA192B3CD8C100FC9257 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		22B8EA1C2B3DD53300FC9257 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		22B8EA1E2B3DF30000FC9257 /* Push Stand.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Push Stand.entitlements"; sourceTree = "<group>"; };
@@ -204,6 +220,111 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		223443342C39E44200FAF9AB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				223443352C39E47400FAF9AB /* Time.swift */,
+				223443372C3ACE9500FAF9AB /* Validator.swift */,
+				223443392C3ACFDF00FAF9AB /* Formatter.swift */,
+				2234433B2C3AD1FB00FAF9AB /* Haptic.swift */,
+				223443462C3AE64200FAF9AB /* Networking.swift */,
+				2234434A2C3AEBCE00FAF9AB /* Constants.swift */,
+				2234434C2C3AF1FF00FAF9AB /* Defaults.swift */,
+				2234434E2C3B15FC00FAF9AB /* Segues.swift */,
+				223443502C3B18EF00FAF9AB /* ViewControllers.swift */,
+				223443522C3B19A700FAF9AB /* Strings.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		2234433D2C3ADD7B00FAF9AB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */,
+				2263D2152AF91D8400D2E136 /* SignUpBirthdateViewController.swift */,
+				2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */,
+				2263D2172AF91E6900D2E136 /* SignUpReminderViewController.swift */,
+				2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */,
+				223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		2234433E2C3ADDCF00FAF9AB /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				22B8EA192B3CD8C100FC9257 /* AccountViewController.swift */,
+				22DB7CE82B93886300581C10 /* AccountSettingsViewController.swift */,
+				22DB7CEA2B93895B00581C10 /* AccountDeletionViewController.swift */,
+				22C7F3D52BC58F0500F5BE9A /* AccountEmailViewController.swift */,
+				22C7F3D72BC58F3000F5BE9A /* AccountPasswordViewController.swift */,
+				22C7F3D92BC58F5000F5BE9A /* AccountPhoneNumberViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		2234433F2C3ADE3A00FAF9AB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				22D12AA52B3C93D2004880B6 /* SignInViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		223443402C3ADE5B00FAF9AB /* Sweepstakes */ = {
+			isa = PBXGroup;
+			children = (
+				222C4C432B14E3B5006FC90B /* SweepstakesViewController.swift */,
+			);
+			path = Sweepstakes;
+			sourceTree = "<group>";
+		};
+		223443412C3ADE7800FAF9AB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				22AD2D312ADF583000B3B1A8 /* PushStandViewController.swift */,
+				229C49F92B14E0D100C8E065 /* HomeStatsViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		223443422C3ADECE00FAF9AB /* ViewControllerManagement */ = {
+			isa = PBXGroup;
+			children = (
+				2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */,
+				2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */,
+			);
+			path = ViewControllerManagement;
+			sourceTree = "<group>";
+		};
+		223443432C3ADEED00FAF9AB /* Questions */ = {
+			isa = PBXGroup;
+			children = (
+				229BB4952B8177FF00959B3F /* SubmitQuestionViewController.swift */,
+				222C4C412B14E391006FC90B /* DailyQuestionViewController.swift */,
+				227D0F9E2B1E17890001E568 /* DailyQuestionContainerViewController.swift */,
+			);
+			path = Questions;
+			sourceTree = "<group>";
+		};
+		223443442C3ADF1600FAF9AB /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				222C4C3F2B14E342006FC90B /* GroupsViewController.swift */,
+				22359DE22B6E9C8D003D3520 /* GroupRequestsViewController.swift */,
+				22359DE82B6EA132003D3520 /* ContactsViewController.swift */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		223443452C3ADF9300FAF9AB /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				222C4C452B14E41F006FC90B /* ShopViewController.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
 		22359DD92B6C9BD0003D3520 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,34 +353,18 @@
 		223EA0842AEED7D00055F94B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				22AD2D312ADF583000B3B1A8 /* PushStandViewController.swift */,
-				223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */,
-				2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */,
-				2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */,
-				2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */,
-				2263D2152AF91D8400D2E136 /* SignupBirthdateViewController.swift */,
-				2263D2172AF91E6900D2E136 /* SignUpReminderViewController.swift */,
-				2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */,
-				2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */,
-				229C49F92B14E0D100C8E065 /* HomeStatsViewController.swift */,
-				222C4C3F2B14E342006FC90B /* GroupsViewController.swift */,
-				222C4C412B14E391006FC90B /* DailyQuestionViewController.swift */,
-				222C4C432B14E3B5006FC90B /* SweepstakesViewController.swift */,
-				222C4C452B14E41F006FC90B /* ShopViewController.swift */,
-				227D0F9E2B1E17890001E568 /* DailyQuestionContainerViewController.swift */,
-				22D12AA52B3C93D2004880B6 /* SignInViewController.swift */,
-				22B8EA192B3CD8C100FC9257 /* AccountViewController.swift */,
-				22359DE22B6E9C8D003D3520 /* GroupRequestsViewController.swift */,
-				22359DE82B6EA132003D3520 /* ContactsViewController.swift */,
-				229BB4952B8177FF00959B3F /* SubmitQuestionViewController.swift */,
+				223443452C3ADF9300FAF9AB /* Shop */,
+				223443442C3ADF1600FAF9AB /* Groups */,
+				223443432C3ADEED00FAF9AB /* Questions */,
+				223443422C3ADECE00FAF9AB /* ViewControllerManagement */,
+				223443412C3ADE7800FAF9AB /* Home */,
+				223443402C3ADE5B00FAF9AB /* Sweepstakes */,
+				2234433F2C3ADE3A00FAF9AB /* Login */,
+				2234433E2C3ADDCF00FAF9AB /* Account */,
+				2234433D2C3ADD7B00FAF9AB /* Onboarding */,
 				22DB7CE62B93864A00581C10 /* HelpCenterViewController.swift */,
-				22DB7CE82B93886300581C10 /* AccountSettingsViewController.swift */,
-				22DB7CEA2B93895B00581C10 /* AccountDeletionViewController.swift */,
 				22C7F3D12BAFC2B400F5BE9A /* TermsOfServiceViewController.swift */,
 				22C7F3D32BAFC34800F5BE9A /* PrivacyPolicyViewController.swift */,
-				22C7F3D52BC58F0500F5BE9A /* AccountEmailViewController.swift */,
-				22C7F3D72BC58F3000F5BE9A /* AccountPasswordViewController.swift */,
-				22C7F3D92BC58F5000F5BE9A /* AccountPhoneNumberViewController.swift */,
 				8E52407F2BD9631D00A9989A /* LearnMoreViewController.swift */,
 				226D35152BE04F2C0092592B /* NetworkErrorViewController.swift */,
 			);
@@ -280,7 +385,6 @@
 			isa = PBXGroup;
 			children = (
 				229C49FC2B14E11800C8E065 /* ExtUITabBarController.swift */,
-				22B8D2212B5C117000448D01 /* ExtUIViewController.swift */,
 				22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */,
 				224F24A42BF905690083FE09 /* ExtUITapGestureRecognizer.swift */,
 			);
@@ -310,6 +414,7 @@
 		22AD2D2C2ADF583000B3B1A8 /* Push Stand */ = {
 			isa = PBXGroup;
 			children = (
+				223443342C39E44200FAF9AB /* Shared */,
 				229BB4972B84437900959B3F /* Services */,
 				22359DD92B6C9BD0003D3520 /* Managers */,
 				22B8EA1E2B3DF30000FC9257 /* Push Stand.entitlements */,
@@ -352,10 +457,9 @@
 			isa = PBXGroup;
 			children = (
 				22B8EA1C2B3DD53300FC9257 /* CurrentUser.swift */,
-				22359DD52B6C7B71003D3520 /* User.swift */,
 				22359DDC2B6CB431003D3520 /* OnboardingData.swift */,
-				224F249B2BF3E3F10083FE09 /* Responses.swift */,
-				224F249D2BF4404A0083FE09 /* DataObjects.swift */,
+				2234432F2C39C93400FAF9AB /* StandModel.swift */,
+				223443312C39D1BF00FAF9AB /* DailyQuestionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -514,42 +618,49 @@
 				22359DE02B6E995C003D3520 /* GroupRequestTableViewCell.swift in Sources */,
 				223EA0862AEEDB290055F94B /* IconWithTextView.swift in Sources */,
 				22B8EA1A2B3CD8C100FC9257 /* AccountViewController.swift in Sources */,
+				2234434B2C3AEBCE00FAF9AB /* Constants.swift in Sources */,
 				2263D21C2AF926CB00D2E136 /* RootTabBarController.swift in Sources */,
+				2234434F2C3B15FC00FAF9AB /* Segues.swift in Sources */,
 				2263D2182AF91E6900D2E136 /* SignUpReminderViewController.swift in Sources */,
 				22359DDD2B6CB431003D3520 /* OnboardingData.swift in Sources */,
 				22B8EA1D2B3DD53300FC9257 /* CurrentUser.swift in Sources */,
 				22C7F3D22BAFC2B400F5BE9A /* TermsOfServiceViewController.swift in Sources */,
+				223443302C39C93400FAF9AB /* StandModel.swift in Sources */,
 				22DB7CE92B93886300581C10 /* AccountSettingsViewController.swift in Sources */,
 				227D0F9F2B1E17890001E568 /* DailyQuestionContainerViewController.swift in Sources */,
-				224F249C2BF3E3F10083FE09 /* Responses.swift in Sources */,
 				22DB7CE72B93864A00581C10 /* HelpCenterViewController.swift in Sources */,
 				224F249A2BF3CF190083FE09 /* NetworkService.swift in Sources */,
 				8E52D97D2B732DE100C84468 /* GroupsTableViewCell.swift in Sources */,
 				222C4C402B14E342006FC90B /* GroupsViewController.swift in Sources */,
 				22359DE62B6E9F09003D3520 /* ContactsTableViewCell.swift in Sources */,
+				223443512C3B18EF00FAF9AB /* ViewControllers.swift in Sources */,
 				2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */,
-				224F249E2BF4404A0083FE09 /* DataObjects.swift in Sources */,
 				22359DE32B6E9C8D003D3520 /* GroupRequestsViewController.swift in Sources */,
 				2263D21A2AF91FEB00D2E136 /* SignUpVerificationViewController.swift in Sources */,
 				22359DDB2B6C9BE3003D3520 /* OnboardingManager.swift in Sources */,
+				223443322C39D1BF00FAF9AB /* DailyQuestionModel.swift in Sources */,
 				22AD2D382ADF583000B3B1A8 /* Push_Stand.xcdatamodeld in Sources */,
 				224D9C962C022AE900655C67 /* UserDefaultsManager.swift in Sources */,
 				223EA08A2AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift in Sources */,
 				2263D2102AF8A11200D2E136 /* LandingRootViewController.swift in Sources */,
+				223443472C3AE64200FAF9AB /* Networking.swift in Sources */,
 				229C49FA2B14E0D100C8E065 /* HomeStatsViewController.swift in Sources */,
 				22C7F3D82BC58F3000F5BE9A /* AccountPasswordViewController.swift in Sources */,
+				223443382C3ACE9500FAF9AB /* Validator.swift in Sources */,
 				22AD2D322ADF583000B3B1A8 /* PushStandViewController.swift in Sources */,
 				22359DE92B6EA132003D3520 /* ContactsViewController.swift in Sources */,
 				22C7F3D62BC58F0500F5BE9A /* AccountEmailViewController.swift in Sources */,
 				22C7F3DA2BC58F5000F5BE9A /* AccountPhoneNumberViewController.swift in Sources */,
-				2263D2162AF91D8400D2E136 /* SignupBirthdateViewController.swift in Sources */,
+				2263D2162AF91D8400D2E136 /* SignUpBirthdateViewController.swift in Sources */,
 				229BB4962B8177FF00959B3F /* SubmitQuestionViewController.swift in Sources */,
 				224F24A92BF909D60083FE09 /* ConfigurationService.swift in Sources */,
 				22AD2D2E2ADF583000B3B1A8 /* AppDelegate.swift in Sources */,
+				223443532C3B19A700FAF9AB /* Strings.swift in Sources */,
+				2234433A2C3ACFDF00FAF9AB /* Formatter.swift in Sources */,
 				222C4C442B14E3B5006FC90B /* SweepstakesViewController.swift in Sources */,
-				22B8D2222B5C117000448D01 /* ExtUIViewController.swift in Sources */,
+				2234434D2C3AF1FF00FAF9AB /* Defaults.swift in Sources */,
 				224F24A22BF588BB0083FE09 /* NetworkMonitor.swift in Sources */,
-				22359DD62B6C7B71003D3520 /* User.swift in Sources */,
+				2234433C2C3AD1FB00FAF9AB /* Haptic.swift in Sources */,
 				229C49FD2B14E11800C8E065 /* ExtUITabBarController.swift in Sources */,
 				22DB7CEB2B93895B00581C10 /* AccountDeletionViewController.swift in Sources */,
 				8E5240802BD9631D00A9989A /* LearnMoreViewController.swift in Sources */,
@@ -561,6 +672,7 @@
 				222C4C462B14E41F006FC90B /* ShopViewController.swift in Sources */,
 				22D12AA62B3C93D2004880B6 /* SignInViewController.swift in Sources */,
 				226D35162BE04F2C0092592B /* NetworkErrorViewController.swift in Sources */,
+				223443362C39E47400FAF9AB /* Time.swift in Sources */,
 				223EA0882AEEDCA60055F94B /* SegmentedProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

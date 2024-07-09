@@ -17,18 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     
     
     var currentUser = CurrentUser.shared
+    let standModel = StandModel.shared
+    let dailyQuestionModel = DailyQuestionModel.shared
     let userDefault = UserDefaults.standard
-    let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
+    let launchedBefore = UserDefaults.standard.bool(forKey: Constants.UserDefaultsKeys.userSignedIn)
+    
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions:
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // Configure Firebase
         FirebaseApp.configure()
         
-        currentUser.uid = UserDefaults.standard.string(forKey: "userId")
+        currentUser.uid = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.userId)
         
-
         // Set UNUserNotificationCenter delegate
         UNUserNotificationCenter.current().delegate = self
         
@@ -40,13 +43,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             options: authOptions,
             completionHandler: {_, _ in })
         application.registerForRemoteNotifications()
-
-        scheduleMidnightReset()
+        
         return true
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        
+        scheduleMidnightReset()
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -124,10 +126,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             print("FCM token is null or empty.")
             return
         }
-        if let userId = UserDefaults.standard.string(forKey: "userId") {
+        if let userId = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.userId) {
             print("in")
             let queryParams = ["userId": userId]
-            NetworkService.shared.request(endpoint: .updateUser, method: "GET", queryParams: queryParams) { result in
+            NetworkService.shared.request(endpoint: .updateUser, method: HTTPVerbs.get.rawValue, queryParams: queryParams) { result in
                 //defer { semaphore.signal() }
                 switch result {
                 case .success(let jsonResponse):
@@ -141,7 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
                     var request = URLRequest(url: url)
                     request.httpMethod = "PUT"
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-
+                    
                     let payload: [String: Any] = [
                         "UserId": self.currentUser.uid,
                         "Birthdate": self.currentUser.birthdate,
@@ -178,15 +180,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
                     task.resume()
                 case .failure(let error):
                     print("Error during the network request: \(error.localizedDescription)")
-
+                    
                 }
             }
-
-
         }
-        
-            
-        
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -205,10 +202,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         var components = calendar.dateComponents(in: pacificTimeZone, from: now)
         
         // Create a new date components for the next midnight
-        components.hour = 0
-        components.minute = 0
-        components.second = 0
-        components.nanosecond = 0
+        components.hour = Defaults.int
+        components.minute = Defaults.int
+        components.second = Defaults.int
+        components.nanosecond = Defaults.int
         
         // Calculate the next midnight
         if let todayMidnight = calendar.date(from: components),
@@ -218,7 +215,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             return nil
         }
     }
-
+    
     func scheduleMidnightReset() {
         let timeInterval = timeUntilNextMidnight()
         Timer.scheduledTimer(withTimeInterval: timeInterval!, repeats: false) { _ in
@@ -234,7 +231,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // Navigate to the initial view controller
         DispatchQueue.main.async {
             if let window = UIApplication.shared.windows.first {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let storyboard = UIStoryboard(name: Constants.mainStoryboard, bundle: nil)
                 let initialViewController = storyboard.instantiateInitialViewController()
                 window.rootViewController = initialViewController
                 window.makeKeyAndVisible()

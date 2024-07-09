@@ -27,9 +27,7 @@ class PushStandViewController: UIViewController {
     }
 
     @objc private func pushStand(_ sender: UITapGestureRecognizer) {
-        let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
-        feedbackGenerator.prepare()
-        feedbackGenerator.impactOccurred()
+        Haptic.heavyTap()
         
         self.tabBarController?.tabBar.isHidden = false
         

@@ -1,4 +1,5 @@
 import UIKit
+import Combine
 import MessageUI
 
 class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerDelegate {
@@ -39,13 +40,13 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBOutlet weak var myTotalStandsLoading: UIActivityIndicatorView!
     @IBOutlet weak var usaTotalStandsLoading: UIActivityIndicatorView!
     @IBOutlet weak var globalStandingTodayLoading: UIActivityIndicatorView!
-    
     @IBOutlet weak var standingTodayView: UIStackView!
-    private var goal: Float = 0.0
-    private var current: Float = 0.0
-    private var questionAnswerStreak: Int = 0
-    private var standStreak = 0
-    private var pointsCount = 0
+    
+    private var goal: Float = Defaults.zeroFloat
+    private var current: Float = Defaults.zeroFloat
+    private var questionAnswerStreak: Int = Defaults.int
+    private var standStreak = Defaults.int
+    private var pointsCount = Defaults.int
     
     let dailyGoalsEndpoint = NetworkService.Endpoint.dailyGoals.rawValue
     let userTotalStandsEndpoint = NetworkService.Endpoint.userStands.rawValue
@@ -58,30 +59,76 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     let userDefault = UserDefaults.standard
     var initial_rev = false
     
+    var cancellables: Set<AnyCancellable> = []
+    
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewComponents()
         setupGestureRecognizers()
-        let dateString = getDateFormatted()
+        let dateString = Time.getDateFormatted()
         if !UserDefaults.standard.bool(forKey: dateString) {
             loadHome()
         }
         
+        presentLoadingIcons()
+        bindUI()
+        
+    }
+    
+    func presentLoadingIcons(){
         // loading false or true test
         dailyGoalLoading.isHidden = false
         myCurrentStreakLoading.isHidden = false
         myTotalStandsLoading.isHidden = false
         usaTotalStandsLoading.isHidden = false
         globalStandingTodayLoading.isHidden = false
+    }
+    
+    func bindUI() {
+        // Bindings for daily data
+        appDelegate.standModel.$dailyGoal
+            .map { "\($0)" }
+            .assign(to: \.text, on: dailyGoalCount)
+            .store(in: &cancellables)
         
+        appDelegate.standModel.$americansStandingToday
+            .map { "\($0)" }
+            .assign(to: \.text, on: globalStandCount)
+            .store(in: &cancellables)
+        
+        appDelegate.standModel.$yesterdaysStanding
+            .map {"      Yesterday: \($0)       "}
+            .assign(to: \.text, on: yesterdayLabel)
+            .store(in: &cancellables)
+        
+        // Bindings for aggregate stats
+        appDelegate.standModel.$myStandStreak
+            .map { "\($0)" }
+            .assign(to: \.text, on: myCurrentStreakLabel)
+            .store(in: &cancellables)
+        
+        appDelegate.standModel.$myTotalStands
+            .map { "\($0)" }
+            .assign(to: \.text, on: myTotalStandsLabel)
+            .store(in: &cancellables)
+        
+        appDelegate.standModel.$usaTotalStands
+            .map { "\(Formatter.formatLargeNumber($0))" }
+            .assign(to: \.text, on: usaTotalStandsLabel)
+            .store(in: &cancellables)
+        
+        appDelegate.standModel.$myPoints
+            .map { "\($0) Points" }
+            .assign(to: \.text, on: myPointsLabel)
+            .store(in: &cancellables)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.alpha = 0
-        let dateString = getDateFormatted()
+        let dateString = Time.getDateFormatted()
         if UserDefaults.standard.bool(forKey: dateString) {
             updateUIForPushStand()
         } else {
@@ -96,42 +143,42 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         super.viewDidAppear(animated)
         
     }
-
+    
     func loadHome() {
-        NetworkService.shared.request(endpoint: .stand, method: "GET", queryParams: ["user_id": CurrentUser.shared.uid!]) { (result: Result<[String: Any], Error>) in
+        NetworkService.shared.request(endpoint: .stand, method: HTTPVerbs.get.rawValue, queryParams: ["user_id": CurrentUser.shared.uid!]) { (result: Result<[String: Any], Error>) in
             DispatchQueue.main.async {
                 self.fetchDataAndUpdateUI()
             }
         }
     }
-
+    
     // MARK: - Data Fetching and UI Update
-
+    
     private func fetchDataAndUpdateUI() {
-        let dateString = getCurrentDateFormatted()
-        let yesterdayString = getYesterdayDateFormatted()
+        let dateString = Time.getCurrentDateFormatted()
+        let yesterdayString = Time.getPreviousDateFormatted()
         
         let queryParams = [
             "userId": CurrentUser.shared.uid!,
         ]
         
-        NetworkService.shared.request(endpoint: .home, method: "GET", queryParams: queryParams) { result in
+        NetworkService.shared.request(endpoint: .home, method: HTTPVerbs.get.rawValue, queryParams: queryParams) { result in
             DispatchQueue.main.async {
                 self.handleAPIResponse(result, handler: self.handleUnifiedResponse)
             }
         }
     }
-
+    
     // MARK: - API Response Handlers
-
+    
     private func handleAPIResponse(_ result: Result<[String: Any], Error>, handler: @escaping (Result<[String: Any], Error>) -> Void) {
         DispatchQueue.main.async {
             handler(result)
         }
     }
-
+    
     // MARK: - Unified API Response Handler
-
+    
     private func handleUnifiedResponse(_ result: Result<[String: Any], Error>) {
         switch result {
         case .success(let json):
@@ -166,65 +213,61 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             // Handle the error appropriately
         }
     }
-
+    
     // MARK: - Specific Response Handlers
-
+    
     private func handleDailyGoals(_ goals: [String: Any]) {
         self.dailyGoalLoading.isHidden = true
         self.globalStandingTodayLoading.isHidden = true
         
         if let goalValue = goals["Goal"] as? String, let goalInt = Int(goalValue) {
-            let formattedGoal = formatLargeNumber(goalInt)
-            let attributedString = NSMutableAttributedString(string: "\(formattedGoal)")
-            //let fontSize: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 30 : 18
-            //attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSRange(location: attributedString.length - 10, length: 10))
+            let formattedGoal = Formatter.formatLargeNumber(goalInt)
+            let attributedString = NSMutableAttributedString(string: "\(goalInt)")
             dailyGoalCount.attributedText = attributedString
         } else {
-            dailyGoalCount.text = "0"
+            dailyGoalCount.text = Defaults.zeroString
         }
         if let currentValue = goals["Current"] as? String {
             globalStandCount.text = "\(currentValue)"
         } else {
-            globalStandCount.text = "0"
+            globalStandCount.text = Defaults.zeroString
         }
-        goal = Float(goals["Goal"] as? String ?? "0")!
-        current = Float(goals["Current"] as? String ?? "0")!
+        goal = Float(goals["Goal"] as? String ?? Defaults.zeroString)!
+        current = Float(goals["Current"] as? String ?? Defaults.zeroString)!
     }
-
+    
     private func handleYesterdayGoals(_ goals: [String: Any]) {
         if let currentValue = goals["Current"] as? String {
-            yesterdayLabel.text = "      Yesterday: \(currentValue)      "
-        } else {
-            yesterdayLabel.text = "      N/A      "
+            appDelegate.standModel.yesterdaysStanding = Int(currentValue)!
         }
     }
-
+    
     private func handleDailyStandsCount(_ count: Int) {
         self.usaTotalStandsLoading.isHidden = true
-        usaTotalStandsLabel.text = "\(count)"
+        appDelegate.standModel.usaTotalStands = count
     }
-
+    
     private func handleDailyStandsUserCount(_ count: Int) {
         self.myTotalStandsLoading.isHidden = true
-        myTotalStandsLabel.text = "\(count)"
+        appDelegate.standModel.myTotalStands =  count
     }
-
+    
     private func handleStandStreak(_ streak: Int) {
         self.myCurrentStreakLoading.isHidden = true
         myCurrentStreakLabel.text = "\(streak)"
-        segmentedStreakBar.value = streak % 10
+        segmentedStreakBar.value = streak % Constants.streakBarMax
         standStreak = streak
     }
-
+    
     private func handleAnswerStreak(_ streak: Int) {
         questionAnswerStreak = streak
     }
-
+    
     private func handleUserPoints(_ points: Int) {
-        print(points)
         myPointsLabel.isHidden = false
-        myPointsLabel.text = "\(points) Points"
+        appDelegate.standModel.myPoints = points
     }
+    
     // MARK: - View Configuration
     
     private func configureViewComponents() {
@@ -257,33 +300,18 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         addTapGestureRecognizer(to: shareIcon, action: #selector(sendMessage))
     }
     
-    private func addTapGestureRecognizer(to view: UIView?, action: Selector) {
+    func addTapGestureRecognizer(to view: UIView?, action: Selector) {
         let tapGesture = UITapGestureRecognizer(target: self, action: action)
         view?.addGestureRecognizer(tapGesture)
     }
     
+    
     // MARK: - Helper Methods
     
-    private func getCurrentDateFormatted() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.string(from: Date())
-    }
-    
-    private func getYesterdayDateFormatted() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        if let date = dateFormatter.date(from: getCurrentDateFormatted()),
-           let newDate = Calendar.current.date(byAdding: .day, value: -1, to: date) {
-            return dateFormatter.string(from: newDate)
-        }
-        return ""
-    }
-    
     private func checkStandToday() {
-        currentUser.uid = UserDefaults.standard.string(forKey: "userId")
+        currentUser.uid = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.userId)
         let queryParams = ["user_id": currentUser.uid!]
-        NetworkService.shared.request(endpoint: .stand, method: "GET", queryParams: queryParams) { result in
+        NetworkService.shared.request(endpoint: .stand, method: HTTPVerbs.get.rawValue, queryParams: queryParams) { result in
             switch result {
             case .success(let json):
                 if let hasTakenAction = json["has_taken_action"] as? Bool {
@@ -344,7 +372,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     @objc private func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
-        print("handleLongPress")
         if gesture.state == .began {
             UIView.animate(withDuration: 0.1) {
                 self.pushStandButton.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
@@ -355,33 +382,32 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                 self.pushStandButton.transform = .identity
                 self.pushStandButton.alpha = 1.0
             }
-            tapHaptic()
-            print("ended")
+            Haptic.heavyTap()
             pushStand(gesture)
         }
     }
     
     @objc private func accountsTapped() {
-        performSegue(withIdentifier: "account", sender: self)
+        performSegue(withIdentifier: Segues.account, sender: self)
     }
     
     @objc private func standStreakTapped() {
         updateStreakUI(
             selectedIcon: standStreakIcon,
-            selectedIconImage: "Red-Star",
+            selectedIconImage: Constants.redStarImg,
             selectedTitle: standStreakTitle,
             selectedColor: .systemRed,
-            selectedStreakValue: standStreak % 10
+            selectedStreakValue: standStreak % Constants.standStreakMax
         )
     }
     
     @objc private func questionStreakTapped() {
         updateStreakUI(
             selectedIcon: questionStreakIcon,
-            selectedIconImage: "Blue-Star",
+            selectedIconImage: Constants.blueStarImg,
             selectedTitle: questionStreakTitle,
             selectedColor: .systemBlue,
-            selectedStreakValue: questionAnswerStreak % 10
+            selectedStreakValue: questionAnswerStreak % Constants.questionStreakMax
         )
     }
     
@@ -395,35 +421,35 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             pointsColor: UIColor.white,
             pointsFontWeight: .bold
         )
-        segmentedStreakBar.alpha = 0
-        streakImage.alpha = 0
+        segmentedStreakBar.alpha = Constants.zeroAlpha
+        streakImage.alpha = Constants.zeroAlpha
         UIView.animate(withDuration: 0.5) {
-            self.myPointsLabel.alpha = 1
+            self.myPointsLabel.alpha = Constants.fullAlpha
         }
     }
     
     @IBAction private func acknowledgeStreakFilled(_ sender: Any) {
         bonusStandView.isHidden = true
         streakFillView.isHidden = true
-        segmentedStreakBar.value = 0
+        segmentedStreakBar.value = Constants.streakBarMin
     }
     
     @IBAction private func pushStand(_ sender: UILongPressGestureRecognizer?) {
         let uuidString = UUID().uuidString
-        let dateString = getDateFormatted()
+        let dateString = Time.getDateFormatted()
         tabBarController?.tabBar.isHidden = false
-        tapHaptic()
+        Haptic.heavyTap()
         
         let pushStandQueryParams = ["UserId": CurrentUser.shared.uid!, "Date": dateString]
         let unixTimestamp = Date().timeIntervalSince1970
-        let pointsAwarded = (questionAnswerStreak % 10 == 0) ? "5" : "1"
+        let pointsAwarded = (standStreak % 10 == 0) ? Constants.standStreakHitPoints : Constants.standPoints
         let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
         
         postStand(queryParams: pushStandQueryParams) { result in
             
         }
-        NetworkService.shared.request(endpoint: .points, method: "POST", data: postPointQueryParams) { result in
-
+        NetworkService.shared.request(endpoint: .points, method: HTTPVerbs.post.rawValue, data: postPointQueryParams) { result in
+            
         }
         UIApplication.shared.applicationIconBadgeNumber =  UIApplication.shared.applicationIconBadgeNumber - 1
         savePushStandToUserDefaults(for: dateString)
@@ -438,7 +464,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     private func animatePushStandButtonFadeOut() {
         UIView.animate(withDuration: 0.0, delay: 0.2, animations: {
-            self.pushStandButton.alpha = 0
+            self.pushStandButton.alpha = Constants.zeroAlpha
         }) { _ in
             self.animateLandingViewsFadeOut()
         }
@@ -446,10 +472,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     private func animateLandingViewsFadeOut() {
         UIView.animate(withDuration: 1.0, delay: 1.5, animations: {
-            self.landingViewWithPicture.alpha = 0
-            self.pushStandTitle.alpha = 0
-            self.landingViewWithButton.alpha = 0
-            self.tabBarController?.tabBar.alpha = 1
+            self.landingViewWithPicture.alpha = Constants.zeroAlpha
+            self.pushStandTitle.alpha = Constants.zeroAlpha
+            self.landingViewWithButton.alpha = Constants.zeroAlpha
+            self.tabBarController?.tabBar.alpha = Constants.fullAlpha
         }) { finished in
             if finished {
                 self.landingViewWithButton.isHidden = true
@@ -470,8 +496,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     private func animateStandStreakLabel() {
         UIView.animate(withDuration: 1.0, animations: {
-            if self.standStreak > 0 && self.standStreak % 10 == 0 {
-                self.standStreakLabel.text = "5 Points"
+            if self.standStreak > 0 && self.standStreak % Constants.standStreakMax == Constants.streakBarMin {
+                self.standStreakLabel.text = Constants.fivePoints
             }
             self.standStreakLabel.alpha = 1.0
         }) { finished in
@@ -493,7 +519,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let icons = [standStreakIcon, questionStreakIcon, pointsIcon]
         
         icons.forEach { $0?.alpha = 0.5 }
-        selectedIcon.alpha = 1.0
+        selectedIcon.alpha = Constants.fullAlpha
         selectedIcon.image = UIImage(named: selectedIconImage)
         
         updateTitles(
@@ -525,17 +551,17 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     private func updateStreakIconsForPoints() {
-        standStreakIcon.image = UIImage(named: "Red-Star")
+        standStreakIcon.image = UIImage(named: Constants.redStarImg)
         standStreakIcon.alpha = 0.5
-        questionStreakIcon.image = UIImage(named: "Blue-Star")
+        questionStreakIcon.image = UIImage(named: Constants.blueStarImg)
         questionStreakIcon.alpha = 0.5
-        pointsIcon.image = UIImage(named: "White-Star")
+        pointsIcon.image = UIImage(named: Constants.whiteStarImg)
         pointsIcon.alpha = 1.0
     }
     
     private func postStand(queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
         // Call the request method of NetworkService
-        NetworkService.shared.request(endpoint: .stand, method: "POST", data: queryParams) {result in
+        NetworkService.shared.request(endpoint: .stand, method: HTTPVerbs.post.rawValue, data: queryParams) {result in
             
             self.updateStandCounts()
             self.updateUIForNewStand()
@@ -547,7 +573,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let labels = [globalStandCount, myCurrentStreakLabel, myTotalStandsLabel, usaTotalStandsLabel]
         
         labels.forEach { label in
-            if let currentCount = Int(label?.text ?? "0") {
+            if let currentCount = Int(label?.text ?? Defaults.zeroString) {
                 label?.text = String(currentCount + 1)
             }
         }
@@ -557,23 +583,23 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         current += 1
         standStreak += 1
         
-        if standStreak > 0 && standStreak % 10 == 0 {
-            segmentedStreakBar.value = 10
+        if standStreak > Constants.standStreakMin && standStreak % Constants.standStreakMax == Constants.streakBarMin {
+            segmentedStreakBar.value = Constants.standStreakMax
             bonusStandView.isHidden = false
             streakFillView.isHidden = false
         } else {
-            segmentedStreakBar.value = standStreak % 10
+            segmentedStreakBar.value = standStreak % Constants.standStreakMax
         }
         
         pointsCount += 1
-        myPointsLabel.text = "\(pointsCount) Points"
+        appDelegate.standModel.myPoints = pointsCount
     }
     
     @objc private func sendMessage() {
         if MFMessageComposeViewController.canSendText() {
             let messageVC = MFMessageComposeViewController()
             messageVC.body = "Join me on the app that is uniting Americans one STAND at a time! \n\n Follow us! \n Insta: pushstand_now \n X: @pushstand_now \n\n https://pushstand.com/"
-            messageVC.recipients = [] // Enter the phone number here
+            messageVC.recipients = []
             messageVC.messageComposeDelegate = self
             present(messageVC, animated: true, completion: nil)
         }

@@ -7,7 +7,7 @@ class AccountEmailViewController: UIViewController {
     @IBOutlet weak var confirmationEmailButton: UIButton!
     
     @IBAction func updateEmail(_ sender: Any) {
-        guard let email = emailText.text, isValidEmail(email) else {
+        guard let email = emailText.text, Validator.isValidEmail(email) else {
             showAlert(title: "Invalid Email", message: "The entered email is invalid. Please try again.")
             return
         }
@@ -31,7 +31,7 @@ class AccountEmailViewController: UIViewController {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        confirmationEmailButton.isEnabled = isValidEmail(textField.text ?? "")
+        confirmationEmailButton.isEnabled = Validator.isValidEmail(textField.text ?? "")
     }
     
     func showAlert(title: String, message: String) {

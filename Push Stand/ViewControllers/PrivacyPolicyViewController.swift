@@ -29,7 +29,7 @@ class PrivacyPolicyViewController: UIViewController, WKNavigationDelegate {
     }
     
     private func loadPrivacyPolicy() {
-        guard let url = URL(string: "https://pushstand.com/privacy.html") else {
+        guard let url = URL(string: Constants.URL.privacy) else {
             showErrorAlert()
             return
         }
@@ -41,14 +41,6 @@ class PrivacyPolicyViewController: UIViewController, WKNavigationDelegate {
         let alert = UIAlertController(title: "Error", message: "Unable to load Privacy Policy.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
-    }
-    
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("Started loading")
-    }
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("Finished loading")
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {

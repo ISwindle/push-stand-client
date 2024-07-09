@@ -12,23 +12,20 @@ class LandingRootViewController: UIViewController {
     }
     
     @IBAction func joinNow(_ sender: Any) {
-        navigateToViewController(withIdentifier: "SignUpInitialPhoneViewController")
+        navigateToViewController(withIdentifier: ViewControllers.signUpInitialPhoneViewController)
     }
     
     @IBAction func learnMore(_ sender: Any) {
-        performSegue(withIdentifier: "learnMoreSegue", sender: self)
+        performSegue(withIdentifier: Segues.learnMore, sender: self)
     }
     
     @IBAction func login(_ sender: Any) {
-        navigateToViewController(withIdentifier: "SignInViewController")
+        navigateToViewController(withIdentifier: ViewControllers.signInViewController)
     }
     
     private func navigateToViewController(withIdentifier identifier: String) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let nextViewController = storyboard.instantiateViewController(withIdentifier: identifier) as? UIViewController else {
-            print("ViewController with identifier \(identifier) not found.")
-            return
-        }
+        let storyboard = UIStoryboard(name: Constants.mainStoryboard, bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: identifier)
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

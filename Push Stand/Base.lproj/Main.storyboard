@@ -611,7 +611,6 @@ let's see if you can do it again!</string>
                         <outlet property="questionLabel" destination="kEI-GT-CvW" id="Edo-Jk-xom"/>
                         <outlet property="questionLoadingView" destination="nca-s3-GmW" id="Ywc-Cr-wc4"/>
                         <outlet property="streakFillButton" destination="YcM-2d-4wl" id="iGl-8I-DJH"/>
-                        <outlet property="streakFillView" destination="wKn-5I-JNK" id="xnw-iy-DwD"/>
                         <outlet property="streakPointLabel" destination="6Ws-7v-mrs" id="y1k-vT-BMB"/>
                         <outlet property="streakSegmentedBar" destination="GUd-Wy-Mru" id="KyC-Oe-qWN"/>
                         <outlet property="submitAfterSelection" destination="xP8-dz-DLW" id="wea-tg-7QJ"/>

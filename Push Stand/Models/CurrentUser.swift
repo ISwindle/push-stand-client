@@ -1,20 +1,15 @@
-//
-//  CurrentUser.swift
-//  Push Stand
-//
-//  Created by Isaac Swindle on 12/28/23.
-//
-
 import Foundation
+import Combine
 
-class CurrentUser {
-    var email: String?
-    var uid: String?
-    var reminderTime: String?
-    var birthdate: String?
-    var firebaseAuthToken: String?
-    var phoneNumber: String?
-
+class CurrentUser: ObservableObject {
+    @Published var email: String?
+    @Published var uid: String?
+    @Published var reminderTime: String?
+    @Published var birthdate: String?
+    @Published var firebaseAuthToken: String?
+    @Published var phoneNumber: String?
+    @Published var lastStandDate: Date?
+    @Published var lastQuestionAnsweredDate: Date?
     static let shared = CurrentUser()
 
     private init() {
@@ -24,5 +19,7 @@ class CurrentUser {
         birthdate = ""
         firebaseAuthToken = ""
         phoneNumber = ""
+        lastStandDate = nil
+        lastQuestionAnsweredDate = nil
     }
 }

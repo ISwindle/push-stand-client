@@ -36,7 +36,7 @@ class AccountDeletionViewController: UIViewController {
     }
     
     private func validateForm() {
-        guard let password = passwordTextField.text, isValidPassword(password) else {
+        guard let password = passwordTextField.text, Validator.isValidPassword(password) else {
             deleteAccountButton.isEnabled = false
             return
         }

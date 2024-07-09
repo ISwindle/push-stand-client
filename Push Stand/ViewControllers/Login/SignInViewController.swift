@@ -65,15 +65,15 @@ class SignInViewController: UIViewController {
                 UserDefaults.standard.set(Auth.auth().currentUser?.email, forKey: "userEmail")
                 UserDefaults.standard.synchronize()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let dailyQuestionsQueryParams = ["userId": CurrentUser.shared.uid!, "Date": getDateFormatted()]
+                let dailyQuestionsQueryParams = ["userId": CurrentUser.shared.uid!, "Date": Time.getDateFormatted()]
                 NetworkService.shared.request(endpoint: .questions, method: "GET", queryParams: dailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
                     DispatchQueue.main.async {
                         switch result {
                         case .success(let json):
                             if let answer = json["UserAnswer"] as? String,
                                let question = json["Question"] as? String {
-                                UserDefaults.standard.set(true, forKey: "question-" + self.getDateFormatted())
-                                self.appDelegate.userDefault.set(true, forKey: "question-" + self.getDateFormatted())
+                                UserDefaults.standard.set(true, forKey: "question-" + Time.getDateFormatted())
+                                self.appDelegate.userDefault.set(true, forKey: "question-" + Time.getDateFormatted())
                                 self.appDelegate.userDefault.synchronize()
                                 guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController") as? UITabBarController else { return }
                                 

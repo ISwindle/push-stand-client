@@ -38,10 +38,9 @@ class DailyQuestionViewController: UIViewController {
     @IBOutlet weak var submitAfterSelection: UIView!
     
     @IBOutlet weak var bonusAnswerView: UIVisualEffectView!
-    @IBOutlet weak var streakFillView: UIVisualEffectView!
     @IBOutlet weak var streakFillButton: UIButton!
     
-    var answerStreak = 0
+    var answerStreak = Defaults.int
     var activeAnswer: Bool = false
     
     struct DailyQuestion: Codable {
@@ -83,16 +82,16 @@ class DailyQuestionViewController: UIViewController {
         
         //added so that questionLoadingView always appear first, no blank screen
         //also acts as a way to reiterate why we are answering the question
-        self.questionLoadingView.alpha = 1.0
+        self.questionLoadingView.alpha = Constants.fullAlpha
         self.questionLoadingView.isHidden = false
         
-        if UserDefaults.standard.bool(forKey: "question-" + getDateFormatted()) {
-            self.dailyQuestionTitle.alpha = 0.0
-            self.yesterdaysResultsTitle.alpha = 1.0
+        if UserDefaults.standard.bool(forKey: "question-" + Time.getDateFormatted()) {
+            self.dailyQuestionTitle.alpha = Constants.zeroAlpha
+            self.yesterdaysResultsTitle.alpha = Constants.fullAlpha
             fetchYesterdaysQuestion()
         } else {
-            self.dailyQuestionTitle.alpha = 1.0
-            self.yesterdaysResultsTitle.alpha = 0.0
+            self.dailyQuestionTitle.alpha = Constants.fullAlpha
+            self.yesterdaysResultsTitle.alpha = Constants.fullAlpha
             fetchDailyQuestion()
         }
         
@@ -127,7 +126,7 @@ class DailyQuestionViewController: UIViewController {
     
     private func fetchQuestionStreak() {
         let answerStreakQueryParams = ["userId": CurrentUser.shared.uid!]
-        NetworkService.shared.request(endpoint: .streaksAnswers, method: "GET", queryParams: answerStreakQueryParams) { (result: Result<[String: Any], Error>) in
+        NetworkService.shared.request(endpoint: .streaksAnswers, method: HTTPVerbs.get.rawValue, queryParams: answerStreakQueryParams) { (result: Result<[String: Any], Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
@@ -143,9 +142,9 @@ class DailyQuestionViewController: UIViewController {
     }
     
     private func fetchDailyQuestion() {
-        let dailyQuestionsQueryParams = ["userId": CurrentUser.shared.uid!, "Date": getDateFormatted()]
+        let dailyQuestionsQueryParams = ["userId": CurrentUser.shared.uid!, "Date": Time.getDateFormatted()]
         print("Question")
-        NetworkService.shared.request(endpoint: .questions, method: "GET", queryParams: dailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
+        NetworkService.shared.request(endpoint: .questions, method: HTTPVerbs.get.rawValue, queryParams: dailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
@@ -154,7 +153,7 @@ class DailyQuestionViewController: UIViewController {
                         print(answer.isEmpty)
                         if !answer.isEmpty {
                             self.fetchYesterdaysQuestion()
-                            self.saveQuestionAnswerToUserDefaults(for: self.getDateFormatted())
+                            self.saveQuestionAnswerToUserDefaults(for: Time.getDateFormatted())
                             return
                         }
                         self.setupQuestionLabel(question: question)
@@ -171,8 +170,8 @@ class DailyQuestionViewController: UIViewController {
     }
     
     private func fetchYesterdaysQuestion() {
-        let previousDailyQuestionsQueryParams = ["Date": getPreviousDateFormatted()]
-        NetworkService.shared.request(endpoint: .questionsAnswers, method: "GET", queryParams: previousDailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
+        let previousDailyQuestionsQueryParams = ["Date": Time.getPreviousDateFormatted()]
+        NetworkService.shared.request(endpoint: .questionsAnswers, method: HTTPVerbs.get.rawValue, queryParams: previousDailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
@@ -196,7 +195,7 @@ class DailyQuestionViewController: UIViewController {
     
     private func hideLoadingView(){
         UIView.animate(withDuration: 0.25, animations: {
-            self.questionLoadingView.alpha = 0
+            self.questionLoadingView.alpha = Constants.zeroAlpha
         }) { _ in
             self.questionLoadingView.isHidden = true
         }
@@ -209,18 +208,18 @@ class DailyQuestionViewController: UIViewController {
             self.questionLabel.frame.origin.y += 30
             self.thumbsDownAnswer.image = UIImage(named: "grey-thumb-down")
             self.thumbsUpAnswer.image = UIImage(named: "grey-thumb-up")
-            self.todaysQuestionView.alpha = 1.0
-            self.dailyQuestionTitle.alpha = 1.0
+            self.todaysQuestionView.alpha = Constants.fullAlpha
+            self.dailyQuestionTitle.alpha = Constants.fullAlpha
             self.questionLabel.text = question
             self.submitButton.isHidden = true
-            self.submitButton.alpha = 1.0
+            self.submitButton.alpha = Constants.fullAlpha
             self.thumbsDownAnswer.isUserInteractionEnabled = true
             self.thumbsUpAnswer.isUserInteractionEnabled = true
             UIView.animate(withDuration: 2.0, delay: 0, options: [.curveEaseOut]) {
                 self.questionLabel.frame.origin = finalPosition
-                self.questionLabel.alpha = 1
-                self.thumbsDownAnswer.alpha = 1
-                self.thumbsUpAnswer.alpha = 1
+                self.questionLabel.alpha = Constants.fullAlpha
+                self.thumbsDownAnswer.alpha = Constants.fullAlpha
+                self.thumbsUpAnswer.alpha = Constants.fullAlpha
             }
         }
     }
@@ -231,33 +230,33 @@ class DailyQuestionViewController: UIViewController {
             self.questionLabel.frame.origin.y += 30
             self.thumbsDownAnswer.image = UIImage(named: "grey-thumb-down")
             self.thumbsUpAnswer.image = UIImage(named: "grey-thumb-up")
-            self.todaysQuestionView.alpha = 1.0
-            self.dailyQuestionTitle.alpha = 1.0
+            self.todaysQuestionView.alpha = Constants.fullAlpha
+            self.dailyQuestionTitle.alpha = Constants.fullAlpha
             self.questionLabel.text = question
             self.submitButton.isHidden = true
-            self.submitButton.alpha = 1.0
+            self.submitButton.alpha = Constants.fullAlpha
             self.thumbsDownAnswer.isUserInteractionEnabled = true
             self.thumbsUpAnswer.isUserInteractionEnabled = true
             UIView.animate(withDuration: 2.0, delay: 0, options: [.curveEaseOut]) {
                 self.questionLabel.frame.origin = finalPosition
-                self.questionLabel.alpha = 1
-                self.thumbsDownAnswer.alpha = 1
-                self.thumbsUpAnswer.alpha = 1
+                self.questionLabel.alpha = Constants.fullAlpha
+                self.thumbsDownAnswer.alpha = Constants.fullAlpha
+                self.thumbsUpAnswer.alpha = Constants.fullAlpha
             }
         }
     }
     
     private func updateUIWithQuestion(_ question: DailyQuestion) {
         DispatchQueue.main.async {
-            self.yesterdaysResultsView.alpha = 1.0
+            self.yesterdaysResultsView.alpha = Constants.fullAlpha
             self.yesterdayQuestionLabel.text = question.question
             self.downPercentage.text = "\(question.falsePercentage)%"
             self.upPercentage.text = "\(question.truePercentage)%"
             UIView.animate(withDuration: 1.0) {
-                self.yesterdaysResultsTitle.alpha = 1.0
-                self.yesterdayQuestionLabel.alpha = 1.0
-                self.downPercentage.alpha = 1.0
-                self.upPercentage.alpha = 1.0
+                self.yesterdaysResultsTitle.alpha = Constants.fullAlpha
+                self.yesterdayQuestionLabel.alpha = Constants.fullAlpha
+                self.downPercentage.alpha = Constants.fullAlpha
+                self.upPercentage.alpha = Constants.fullAlpha
             }
         }
     }
@@ -284,14 +283,14 @@ class DailyQuestionViewController: UIViewController {
         self.answerStreak += 1
         
         UIView.animate(withDuration: 1.0) {
-            self.streakSegmentedBar.value = self.answerStreak % 10
-            if self.answerStreak > 0 && self.answerStreak % 10 == 0 {
+            self.streakSegmentedBar.value = self.answerStreak % Constants.questionStreakMax
+            if self.answerStreak > 0 && self.answerStreak % Constants.questionStreakMax == 0 {
                 self.streakPointLabel.text = "10 Points"
             }
             self.streakPointLabel.alpha = 1.0
         } completion: { _ in
             UIView.animate(withDuration: 1.0, delay: 1.0) {
-                self.streakPointLabel.alpha = 0.0 // Make the label fully transparent
+                self.streakPointLabel.alpha = Constants.zeroAlpha
             }
         }
         
@@ -299,11 +298,11 @@ class DailyQuestionViewController: UIViewController {
         self.submitButton.isHidden = true
         let queryParams = [
             "UserId": CurrentUser.shared.uid!,
-            "Date": getDateFormatted(),
+            "Date": Time.getDateFormatted(),
             "QuestionId": "DEFAULT",
             "Answer": activeAnswer ? "true" : "false"
         ]
-        NetworkService.shared.request(endpoint: .questionsAnswers, method: "POST", data: queryParams) { result in
+        NetworkService.shared.request(endpoint: .questionsAnswers, method: HTTPVerbs.post.rawValue, data: queryParams) { result in
             // Update the UserDefaults value
             UserDefaultsManager.shared.setQuestionAnswered(true)
             
@@ -313,9 +312,9 @@ class DailyQuestionViewController: UIViewController {
             }
         }
         let unixTimestamp = Date().timeIntervalSince1970
-        let pointsAwarded = (answerStreak % 10 == 0) ? "10" : "2"
+        let pointsAwarded = (answerStreak % Constants.questionStreakMax == 0) ? Constants.questionStreakHitPoints : Constants.questionPoints
         let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
-        NetworkService.shared.request(endpoint: .points, method: "POST", data: postPointQueryParams) { result in
+        NetworkService.shared.request(endpoint: .points, method: HTTPVerbs.post.rawValue, data: postPointQueryParams) { result in
             self.updateQuestionBadge()
         }
         UIView.animate(withDuration: 1.0) {
@@ -329,7 +328,10 @@ class DailyQuestionViewController: UIViewController {
                 self.yesterdaysResultsTitle.alpha = 1.0 // Yesterday's Results fading in
             }
         }
-        self.saveQuestionAnswerToUserDefaults(for: self.getDateFormatted())
+        
+        // TODO: Add Bonus Answer View
+        
+        self.saveQuestionAnswerToUserDefaults(for: Time.getDateFormatted())
         UIApplication.shared.applicationIconBadgeNumber =  UIApplication.shared.applicationIconBadgeNumber - 1
         fetchYesterdaysQuestion()
     }
@@ -341,7 +343,7 @@ class DailyQuestionViewController: UIViewController {
     }
     
     @objc func thumbsDownTapped() {
-        tapHaptic()
+        Haptic.heavyTap()
         self.submitButton.isHidden = false
         self.thumbsDownAnswer.image = UIImage(named: "red-thumb-down")
         self.thumbsUpAnswer.image = UIImage(named: "grey-thumb-up")
@@ -350,7 +352,7 @@ class DailyQuestionViewController: UIViewController {
     }
     
     @objc func thumbsUpTapped() {
-        tapHaptic()
+        Haptic.heavyTap()
         self.submitButton.isHidden = false
         self.thumbsDownAnswer.image = UIImage(named: "grey-thumb-down")
         self.thumbsUpAnswer.image = UIImage(named: "green-thumb-up")
@@ -364,7 +366,6 @@ class DailyQuestionViewController: UIViewController {
     
     @IBAction func acknowledgeStreakFill(_ sender: Any) {
         bonusAnswerView.isHidden = true
-        streakFillView.isHidden = true
         self.streakSegmentedBar.value = 0
     }
     
