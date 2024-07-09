@@ -286,6 +286,7 @@ class DailyQuestionViewController: UIViewController {
             self.streakSegmentedBar.value = self.answerStreak % Constants.questionStreakMax
             if self.answerStreak > 0 && self.answerStreak % Constants.questionStreakMax == 0 {
                 self.streakPointLabel.text = "10 Points"
+                self.bonusAnswerView.isHidden = false // Show the bonus answer view
             }
             self.streakPointLabel.alpha = 1.0
         } completion: { _ in

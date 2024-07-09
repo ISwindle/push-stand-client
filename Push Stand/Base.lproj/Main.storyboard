@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -383,7 +383,7 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Submit">
-                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="baseBackgroundColor" red="0.24313727020000001" green="0.49411764740000003" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -1177,29 +1177,26 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ss1-3H-smd">
-                                <rect key="frame" x="54" y="725.5" width="30" height="30"/>
+                                <rect key="frame" x="51.5" y="723" width="35" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="8mg-Rw-pVU"/>
-                                    <constraint firstAttribute="height" constant="30" id="DiP-JB-sKM"/>
+                                    <constraint firstAttribute="width" secondItem="ss1-3H-smd" secondAttribute="height" multiplier="1:1" id="8yv-wG-ZtK"/>
                                 </constraints>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="CWh-KK-Eye" userLabel="My Total Stands Loading">
-                                <rect key="frame" x="192" y="725.5" width="30" height="30"/>
+                                <rect key="frame" x="189.5" y="723" width="35" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="SNR-ju-bgM"/>
-                                    <constraint firstAttribute="height" constant="30" id="smz-Yx-66T"/>
+                                    <constraint firstAttribute="width" secondItem="CWh-KK-Eye" secondAttribute="height" multiplier="1:1" id="bUA-P8-R3A"/>
                                 </constraints>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="NqF-dE-EOi" userLabel="USA Total Stands Loading">
-                                <rect key="frame" x="330" y="725.5" width="30" height="30"/>
+                                <rect key="frame" x="327.5" y="723" width="35" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Adu-w4-sIY"/>
-                                    <constraint firstAttribute="width" constant="30" id="bGm-aS-vr8"/>
+                                    <constraint firstAttribute="width" secondItem="NqF-dE-EOi" secondAttribute="height" multiplier="1:1" id="Wdd-ne-qlk"/>
                                 </constraints>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
@@ -1337,8 +1334,8 @@ Stands</string>
                                     </constraint>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwt-gq-ghg">
-                                <rect key="frame" x="165.5" y="174" width="83.5" height="21.5"/>
+                            <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1 Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwt-gq-ghg">
+                                <rect key="frame" x="173.5" y="174" width="67.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1355,7 +1352,7 @@ Stands</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eQv-5a-w5h">
                                                 <rect key="frame" x="42.5" y="96" width="159" height="52"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FRt-ke-DPV" userLabel="Daily Goal Number">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FRt-ke-DPV" userLabel="Daily Goal Number">
                                                         <rect key="frame" x="0.0" y="0.0" width="159" height="31.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1487,11 +1484,10 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-MC-Zfc" userLabel="Global Standing Today">
-                                <rect key="frame" x="192" y="581.5" width="30" height="30"/>
+                                <rect key="frame" x="180.5" y="570" width="53" height="53"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="KFw-4u-0N9"/>
-                                    <constraint firstAttribute="width" constant="30" id="Na9-u7-mAI"/>
+                                    <constraint firstAttribute="width" secondItem="fv2-MC-Zfc" secondAttribute="height" multiplier="1:1" id="T9c-N2-bMj"/>
                                 </constraints>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
@@ -1636,12 +1632,14 @@ let's see if you can do it again!</string>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="bottom" secondItem="37R-ty-kPb" secondAttribute="bottom" id="6Nb-Gi-M6A"/>
                             <constraint firstItem="ss1-3H-smd" firstAttribute="centerY" secondItem="mIy-hv-gIg" secondAttribute="centerY" id="80c-vF-sn6"/>
                             <constraint firstItem="R9l-Tj-CeX" firstAttribute="top" secondItem="lRz-Qw-Pnj" secondAttribute="bottom" id="9Tc-eY-2hJ"/>
+                            <constraint firstItem="CWh-KK-Eye" firstAttribute="height" secondItem="z9d-tv-roT" secondAttribute="height" id="AbQ-wI-ELX"/>
                             <constraint firstItem="CWh-KK-Eye" firstAttribute="centerX" secondItem="z9d-tv-roT" secondAttribute="centerX" id="AcY-kJ-HNu"/>
                             <constraint firstItem="YvP-FP-E9c" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="C1j-Nw-ZXi"/>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="trailing" secondItem="3bp-ZZ-nZs" secondAttribute="trailing" constant="20" id="CAs-Sz-1uQ">
                                 <variation key="heightClass=regular-widthClass=regular" constant="80"/>
                             </constraint>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="trailing" secondItem="KpS-l5-xEw" secondAttribute="trailing" id="CKJ-hZ-Dhd"/>
+                            <constraint firstItem="fv2-MC-Zfc" firstAttribute="height" secondItem="WKY-V7-7fx" secondAttribute="height" id="Dw4-wl-Ja5"/>
                             <constraint firstItem="YvP-FP-E9c" firstAttribute="top" secondItem="3bp-ZZ-nZs" secondAttribute="bottom" constant="21" id="EzT-ws-gEw">
                                 <variation key="heightClass=regular-widthClass=regular" constant="42"/>
                             </constraint>
@@ -1676,6 +1674,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="trailing" secondItem="37R-ty-kPb" secondAttribute="trailing" id="XBc-mZ-5d5"/>
                             <constraint firstItem="WKY-V7-7fx" firstAttribute="top" secondItem="Wlz-PA-Rkk" secondAttribute="bottom" id="Yz1-7x-tV9"/>
                             <constraint firstItem="N5a-E1-3cg" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="bWZ-7h-xuX"/>
+                            <constraint firstItem="NqF-dE-EOi" firstAttribute="height" secondItem="BmD-Tr-TJg" secondAttribute="height" id="cL6-qv-PPM"/>
                             <constraint firstItem="2z3-0T-A7t" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="ccK-DC-PaA"/>
                             <constraint firstItem="N5a-E1-3cg" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" constant="20" id="cwr-eo-msV">
                                 <variation key="heightClass=regular-widthClass=regular" constant="80"/>
@@ -1702,6 +1701,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="Q7G-p0-aSC" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="vTp-cV-dOt"/>
                             <constraint firstItem="fv2-MC-Zfc" firstAttribute="centerY" secondItem="WKY-V7-7fx" secondAttribute="centerY" id="wHU-4a-zmG"/>
                             <constraint firstItem="KpS-l5-xEw" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="wrJ-gd-XsQ"/>
+                            <constraint firstItem="ss1-3H-smd" firstAttribute="height" secondItem="mIy-hv-gIg" secondAttribute="height" id="xmh-7Q-axt"/>
                             <constraint firstItem="NqF-dE-EOi" firstAttribute="centerX" secondItem="BmD-Tr-TJg" secondAttribute="centerX" id="yCR-ac-dTu"/>
                             <constraint firstItem="Iwt-gq-ghg" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="yKH-FP-ktr"/>
                         </constraints>
