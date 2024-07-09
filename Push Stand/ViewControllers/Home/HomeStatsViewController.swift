@@ -98,10 +98,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             .assign(to: \.text, on: globalStandCount)
             .store(in: &cancellables)
         
-        appDelegate.standModel.$yesterdaysStanding
-            .map {"      Yesterday: \($0)      "}
-            .assign(to: \.text, on: yesterdayLabel)
-            .store(in: &cancellables)
+        //appDelegate.standModel.$yesterdaysStanding
+        //    .map {"      Yesterday: \($0)      "}
+        //    .assign(to: \.text, on: yesterdayLabel)
+        //    .store(in: &cancellables)
         
         // Custom binding for yesterday's standing with loading state
         appDelegate.standModel.$yesterdaysStanding
