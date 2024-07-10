@@ -75,6 +75,20 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         presentLoadingIcons()
         bindUI()
         
+        // Add tap gesture recognizer to standProgressBar
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(standProgressBarTapped))
+        standProgressBar.addGestureRecognizer(tapGesture)
+        standProgressBar.isUserInteractionEnabled = true
+        
+    }
+    
+    @objc func standProgressBarTapped() {
+        // Handle tap action here
+        print("standProgressBar tapped!")
+        
+        standProgressBar.animateQuickColorChange()
+        viewDidLoad()
+        fetchDataAndUpdateUI()
     }
     
     func presentLoadingIcons(){
@@ -98,22 +112,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             .assign(to: \.text, on: globalStandCount)
             .store(in: &cancellables)
         
-        //appDelegate.standModel.$yesterdaysStanding
-        //    .map {"      Yesterday: \($0)      "}
-        //    .assign(to: \.text, on: yesterdayLabel)
-        //    .store(in: &cancellables)
-        
-        // Custom binding for yesterday's standing with loading state
         appDelegate.standModel.$yesterdaysStanding
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] standing in
-                guard let self = self else { return }
-                if standing != 0 { // Check if standing has a value
-                    self.yesterdayLabel.text = "      Yesterday: \(standing)      "
-                }
-                // else, display storyboard's initial text
-                // doing this to avoid yesterday displaying "0" when loading
-            }
+            .map {"      Yesterday: \($0)      "}
+            .assign(to: \.text, on: yesterdayLabel)
             .store(in: &cancellables)
         
         // Bindings for aggregate stats
@@ -292,7 +293,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
         yesterdayLabel.layer.cornerRadius = 16
         yesterdayLabel.layer.masksToBounds = true
-        yesterdayLabel.layer.borderColor = UIColor.white.cgColor
+        yesterdayLabel.layer.borderColor = UIColor.darkGray.cgColor
         yesterdayLabel.layer.borderWidth = 1.0
     }
     

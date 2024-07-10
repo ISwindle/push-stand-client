@@ -19,4 +19,6 @@ class StandModel: ObservableObject {
     
     // Private initializer to ensure only one instance is created
     private init() {}
+    
+    
 }

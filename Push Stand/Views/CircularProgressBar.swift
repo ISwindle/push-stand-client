@@ -104,4 +104,37 @@ class CircularProgressBar: UIView {
             progressLayer.add(animationGroup, forKey: "progressAnimationGroup")
         }
     }
+    // Method to animate quick color change when refreshing
+    func animateQuickColorChange() {
+        // Immediately hide the progress layer
+        progressLayer.isHidden = true
+        
+        // Create a new layer for the inside white fade
+        let insideLayer = CAShapeLayer()
+        insideLayer.path = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.height / 2.0) - progressLayer.lineWidth / 2, startAngle: -CGFloat.pi / 2, endAngle: 1.5 * CGFloat.pi, clockwise: true).cgPath
+        insideLayer.fillColor = UIColor.clear.cgColor
+        insideLayer.strokeColor = UIColor.clear.cgColor
+        insideLayer.lineWidth = 0
+        layer.addSublayer(insideLayer)
+        
+        // Animate the fill color of the inside layer to white with 0.5 alpha and then back to clear
+        let fillColorAnimation = CAKeyframeAnimation(keyPath: "fillColor")
+        fillColorAnimation.values = [UIColor.clear.cgColor, UIColor.systemRed.withAlphaComponent(0.4).cgColor, UIColor.clear.cgColor]
+        fillColorAnimation.keyTimes = [0, NSNumber(value: 0.05 / 0.8), 0.85] // Adjust timing to achieve 0.2s appearance and 1s fade out
+        fillColorAnimation.duration = 0.85
+        fillColorAnimation.fillMode = .forwards
+        fillColorAnimation.isRemovedOnCompletion = false
+        insideLayer.add(fillColorAnimation, forKey: "fillColorAnimation")
+        
+        // Remove the inside layer after the animation is complete
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.85) {
+            insideLayer.removeFromSuperlayer()
+            
+            // Ensure progressLayer is visible before starting the progress animation
+            self.progressLayer.isHidden = false
+            
+            // Trigger animateProgress after quick color change animation is complete
+            self.animateProgress(to: self.progress)
+        }
+    }
 }
