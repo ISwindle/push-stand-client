@@ -87,6 +87,7 @@
 		8E5240802BD9631D00A9989A /* LearnMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E52407F2BD9631D00A9989A /* LearnMoreViewController.swift */; };
 		8E52D97D2B732DE100C84468 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E52D97B2B732DE100C84468 /* GroupsTableViewCell.swift */; };
 		8E52D97E2B732DE100C84468 /* GroupsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E52D97C2B732DE100C84468 /* GroupsTableViewCell.xib */; };
+		8EAF89992C417337005DD926 /* SweepstakesUnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF89982C417337005DD926 /* SweepstakesUnlockViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +186,7 @@
 		8E52407F2BD9631D00A9989A /* LearnMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnMoreViewController.swift; sourceTree = "<group>"; };
 		8E52D97B2B732DE100C84468 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		8E52D97C2B732DE100C84468 /* GroupsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsTableViewCell.xib; sourceTree = "<group>"; };
+		8EAF89982C417337005DD926 /* SweepstakesUnlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweepstakesUnlockViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				222C4C432B14E3B5006FC90B /* SweepstakesViewController.swift */,
+				8EAF89982C417337005DD926 /* SweepstakesUnlockViewController.swift */,
 			);
 			path = Sweepstakes;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */,
 				22359DE32B6E9C8D003D3520 /* GroupRequestsViewController.swift in Sources */,
 				2263D21A2AF91FEB00D2E136 /* SignUpVerificationViewController.swift in Sources */,
+				8EAF89992C417337005DD926 /* SweepstakesUnlockViewController.swift in Sources */,
 				22359DDB2B6C9BE3003D3520 /* OnboardingManager.swift in Sources */,
 				223443322C39D1BF00FAF9AB /* DailyQuestionModel.swift in Sources */,
 				22AD2D382ADF583000B3B1A8 /* Push_Stand.xcdatamodeld in Sources */,
