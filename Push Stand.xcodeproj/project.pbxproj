@@ -564,6 +564,7 @@
 			mainGroup = 22AD2D212ADF583000B3B1A8;
 			packageReferences = (
 				220976EB2B2764450027E6C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				22FAD9512C40C33B00BD094C /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
 			);
 			productRefGroup = 22AD2D2B2ADF583000B3B1A8 /* Products */;
 			projectDirPath = "";
@@ -1042,6 +1043,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 10.19.0;
+			};
+		};
+		22FAD9512C40C33B00BD094C /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.55.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
