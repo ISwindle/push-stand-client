@@ -206,8 +206,8 @@ class DailyQuestionViewController: UIViewController {
             self.hideLoadingView()
             let finalPosition = self.questionLabel.frame.origin
             self.questionLabel.frame.origin.y += 30
-            self.thumbsDownAnswer.image = UIImage(named: "grey-thumb-down")
-            self.thumbsUpAnswer.image = UIImage(named: "grey-thumb-up")
+            self.thumbsDownAnswer.image = UIImage(named: "nay-unselected")
+            self.thumbsUpAnswer.image = UIImage(named: "yea-unselected")
             self.todaysQuestionView.alpha = Constants.fullAlpha
             self.dailyQuestionTitle.alpha = Constants.fullAlpha
             self.questionLabel.text = question
@@ -223,28 +223,29 @@ class DailyQuestionViewController: UIViewController {
             }
         }
     }
-    
-    private func setupQNouestionLabel(question: String) {
-        DispatchQueue.main.async {
-            let finalPosition = self.questionLabel.frame.origin
-            self.questionLabel.frame.origin.y += 30
-            self.thumbsDownAnswer.image = UIImage(named: "grey-thumb-down")
-            self.thumbsUpAnswer.image = UIImage(named: "grey-thumb-up")
-            self.todaysQuestionView.alpha = Constants.fullAlpha
-            self.dailyQuestionTitle.alpha = Constants.fullAlpha
-            self.questionLabel.text = question
-            self.submitButton.isHidden = true
-            self.submitButton.alpha = Constants.fullAlpha
-            self.thumbsDownAnswer.isUserInteractionEnabled = true
-            self.thumbsUpAnswer.isUserInteractionEnabled = true
-            UIView.animate(withDuration: 2.0, delay: 0, options: [.curveEaseOut]) {
-                self.questionLabel.frame.origin = finalPosition
-                self.questionLabel.alpha = Constants.fullAlpha
-                self.thumbsDownAnswer.alpha = Constants.fullAlpha
-                self.thumbsUpAnswer.alpha = Constants.fullAlpha
-            }
-        }
-    }
+   
+    // I believe this is a accidental duplication
+//    private func setupQNouestionLabel(question: String) {
+//        DispatchQueue.main.async {
+//            let finalPosition = self.questionLabel.frame.origin
+//            self.questionLabel.frame.origin.y += 30
+//            self.thumbsDownAnswer.image = UIImage(named: "nay-unselected")
+//            self.thumbsUpAnswer.image = UIImage(named: "yea-unselected")
+//            self.todaysQuestionView.alpha = Constants.fullAlpha
+//            self.dailyQuestionTitle.alpha = Constants.fullAlpha
+//            self.questionLabel.text = question
+//            self.submitButton.isHidden = true
+//            self.submitButton.alpha = Constants.fullAlpha
+//            self.thumbsDownAnswer.isUserInteractionEnabled = true
+//            self.thumbsUpAnswer.isUserInteractionEnabled = true
+//            UIView.animate(withDuration: 2.0, delay: 0, options: [.curveEaseOut]) {
+//                self.questionLabel.frame.origin = finalPosition
+//                self.questionLabel.alpha = Constants.fullAlpha
+//                self.thumbsDownAnswer.alpha = Constants.fullAlpha
+//                self.thumbsUpAnswer.alpha = Constants.fullAlpha
+//            }
+//        }
+//    }
     
     private func updateUIWithQuestion(_ question: DailyQuestion) {
         DispatchQueue.main.async {
@@ -274,11 +275,11 @@ class DailyQuestionViewController: UIViewController {
     
     @IBAction func submitAnswer(_ sender: Any) {
         if activeAnswer {
-            self.thumbsDownAnswer.image = UIImage(named: "thumbDownEmpty")
-            self.thumbsUpAnswer.image = UIImage(named: "thumb-up")
+            self.thumbsDownAnswer.image = UIImage(named: "nay-unselected")
+            self.thumbsUpAnswer.image = UIImage(named: "yea-selected")
         } else {
-            self.thumbsDownAnswer.image = UIImage(named: "thumb-down")
-            self.thumbsUpAnswer.image = UIImage(named: "thumbUpEmpty")
+            self.thumbsDownAnswer.image = UIImage(named: "nay-selected")
+            self.thumbsUpAnswer.image = UIImage(named: "yea-unselected")
         }
         self.answerStreak += 1
         
@@ -346,8 +347,8 @@ class DailyQuestionViewController: UIViewController {
     @objc func thumbsDownTapped() {
         Haptic.heavyTap()
         self.submitButton.isHidden = false
-        self.thumbsDownAnswer.image = UIImage(named: "red-thumb-down")
-        self.thumbsUpAnswer.image = UIImage(named: "grey-thumb-up")
+        self.thumbsDownAnswer.image = UIImage(named: "nay-selected")
+        self.thumbsUpAnswer.image = UIImage(named: "yea-unselected")
         self.submitButton.isUserInteractionEnabled = true
         activeAnswer = false
     }
@@ -355,8 +356,8 @@ class DailyQuestionViewController: UIViewController {
     @objc func thumbsUpTapped() {
         Haptic.heavyTap()
         self.submitButton.isHidden = false
-        self.thumbsDownAnswer.image = UIImage(named: "grey-thumb-down")
-        self.thumbsUpAnswer.image = UIImage(named: "green-thumb-up")
+        self.thumbsDownAnswer.image = UIImage(named: "nay-unselected")
+        self.thumbsUpAnswer.image = UIImage(named: "yea-selected")
         self.submitButton.isUserInteractionEnabled = true
         activeAnswer = true
     }
