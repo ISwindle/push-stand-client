@@ -471,8 +471,8 @@ let's see if you can do it again!</string>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="filled" title="Got it">
-                                                        <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="baseBackgroundColor" red="0.54901963470000004" green="0.78039217000000005" blue="0.96078431610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="baseBackgroundColor" red="0.231372565" green="0.4196078479" blue="0.80392158030000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="acknowledgeStreakFill:" destination="T6S-eC-0uj" eventType="touchUpInside" id="4EV-bh-C7H"/>
@@ -759,7 +759,7 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yZo-3D-XVP" userLabel="Top Stack Row">
-                                <rect key="frame" x="50" y="364" width="314" height="87"/>
+                                <rect key="frame" x="50" y="354" width="314" height="87"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yo3-Wc-DmT" userLabel="Stand Stack">
                                         <rect key="frame" x="0.0" y="0.0" width="157" height="87"/>
@@ -814,7 +814,7 @@ let's see if you can do it again!</string>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NH6-uE-uQ0" userLabel="Bottom Stack Row">
-                                <rect key="frame" x="50" y="481" width="314" height="87"/>
+                                <rect key="frame" x="50" y="471" width="314" height="87"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Iul-my-QsZ" userLabel="Stand Streak Stack">
                                         <rect key="frame" x="0.0" y="0.0" width="157" height="87"/>
@@ -874,7 +874,7 @@ let's see if you can do it again!</string>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ean-ve-xiZ">
-                                <rect key="frame" x="50" y="598" width="314" height="36"/>
+                                <rect key="frame" x="50" y="583" width="314" height="36"/>
                                 <string key="text">While the Push Stand app is available on the app store, Apple Inc. (Apple) is not a sponsor or involved in the sweepstake activity in any manner.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" systemColor="underPageBackgroundColor"/>
@@ -904,8 +904,8 @@ let's see if you can do it again!</string>
                                 <variation key="heightClass=regular-widthClass=regular" constant="150"/>
                             </constraint>
                             <constraint firstItem="mTv-1j-uJg" firstAttribute="top" secondItem="n7T-YI-ypp" secondAttribute="bottom" constant="25" id="LRW-jO-Cwd"/>
-                            <constraint firstItem="ean-ve-xiZ" firstAttribute="top" secondItem="NH6-uE-uQ0" secondAttribute="bottom" constant="30" id="NQ1-ZR-RzX"/>
-                            <constraint firstItem="yZo-3D-XVP" firstAttribute="top" secondItem="cPH-pV-QBc" secondAttribute="bottom" constant="30" id="RSc-cN-ufU"/>
+                            <constraint firstItem="ean-ve-xiZ" firstAttribute="top" secondItem="NH6-uE-uQ0" secondAttribute="bottom" constant="25" id="NQ1-ZR-RzX"/>
+                            <constraint firstItem="yZo-3D-XVP" firstAttribute="top" secondItem="cPH-pV-QBc" secondAttribute="bottom" constant="20" id="RSc-cN-ufU"/>
                             <constraint firstItem="ean-ve-xiZ" firstAttribute="leading" secondItem="6Tk-IM-aga" secondAttribute="leading" constant="50" id="Wi9-hb-lVC">
                                 <variation key="heightClass=regular-widthClass=regular" constant="125"/>
                             </constraint>
@@ -1220,7 +1220,7 @@ Stands</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YvP-FP-E9c" userLabel="Icon Change View">
                                 <rect key="frame" x="0.0" y="192" width="414" height="29"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="red-star-icon" translatesAutoresizingMaskIntoConstraints="NO" id="poi-qy-dAp">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Red-Star" translatesAutoresizingMaskIntoConstraints="NO" id="poi-qy-dAp">
                                         <rect key="frame" x="364" y="1.5" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="aEK-iD-XiJ">
@@ -1407,7 +1407,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="570" width="414" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="WKY-V7-7fx">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1418,7 +1418,7 @@ Stands</string>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Americans Standing Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="6cQ-TE-pqg">
-                                        <rect key="frame" x="0.0" y="62" width="414" height="26"/>
+                                        <rect key="frame" x="0.0" y="51.5" width="414" height="36.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1436,7 +1436,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-MC-Zfc" userLabel="Global Standing Today">
-                                <rect key="frame" x="176" y="570" width="62" height="62"/>
+                                <rect key="frame" x="181" y="570" width="52" height="51.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fv2-MC-Zfc" secondAttribute="height" multiplier="1:1" id="T9c-N2-bMj"/>
@@ -1447,7 +1447,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="658" width="414" height="238"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="sMR-kY-hS2">
-                                        <rect key="frame" x="113" y="25" width="188" height="188"/>
+                                        <rect key="frame" x="118" y="30" width="178.5" height="178.5"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="sMR-kY-hS2" secondAttribute="height" multiplier="1:1" id="QED-7K-MXh"/>
@@ -1458,7 +1458,7 @@ Stands</string>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="sMR-kY-hS2" firstAttribute="centerY" secondItem="R9l-Tj-CeX" secondAttribute="centerY" id="6yt-hh-p9I"/>
-                                    <constraint firstItem="sMR-kY-hS2" firstAttribute="height" secondItem="R9l-Tj-CeX" secondAttribute="height" multiplier="0.789916" id="Oc1-MJ-WsM"/>
+                                    <constraint firstItem="sMR-kY-hS2" firstAttribute="height" secondItem="R9l-Tj-CeX" secondAttribute="height" multiplier="0.75" id="Oc1-MJ-WsM"/>
                                     <constraint firstItem="sMR-kY-hS2" firstAttribute="centerX" secondItem="R9l-Tj-CeX" secondAttribute="centerX" id="xy3-zS-lw4"/>
                                 </constraints>
                                 <connections>
@@ -1513,16 +1513,16 @@ let's see if you can do it again!</string>
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-AV-dXn" userLabel="Got it button view">
-                                            <rect key="frame" x="0.0" y="308.5" width="414" height="284"/>
+                                            <rect key="frame" x="0.0" y="308.5" width="414" height="283.5"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-r3J">
-                                                    <rect key="frame" x="122" y="125" width="170" height="34"/>
+                                                    <rect key="frame" x="122" y="124.5" width="170" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="1JK-4E-gIk"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="filled" title="Got it">
-                                                        <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                                     </buttonConfiguration>
                                                     <connections>
@@ -3865,7 +3865,6 @@ Will you STAND with us?</string>
         <image name="question-loading" width="720" height="720"/>
         <image name="questionmark.circle" catalog="system" width="128" height="123"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="red-star-icon" width="480" height="440"/>
         <image name="search-icon" width="50" height="50"/>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <image name="stand-100k-goal" width="1500" height="700"/>
