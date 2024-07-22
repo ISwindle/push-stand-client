@@ -266,9 +266,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     private func handleDailyStandsCount(_ count: Int) {
         self.usaTotalStandsLoading.isHidden = true
         if !UserDefaults.standard.bool(forKey: Time.getDateFormatted()) {
-            self.globalStandCount.isHidden = false
             self.pushStandButton.isHidden = false
         }
+        self.globalStandCount.isHidden = false
         SessionViewModel.shared.standModel.usaTotalStands = count
     }
     
@@ -357,6 +357,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         standingTodayView.isHidden = false
         landingViewWithPicture.isHidden = true
         accountButton.isHidden = false
+        self.globalStandCount.isHidden = true
         tabBarController?.tabBar.alpha = 1
         
     }
