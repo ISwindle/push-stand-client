@@ -1,54 +1,64 @@
-//
-//  AppDelegate.swift
-//  Push Stand
-//
-//  Created by Isaac Swindle on 10/17/23.
-//
-
 import UIKit
 import CoreData
 import Foundation
+import Combine
 import FirebaseCore
 import FirebaseMessaging
-
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     
-    
     var currentUser = CurrentUser.shared
-    let standModel = StandModel.shared
-    let dailyQuestionModel = DailyQuestionModel.shared
     let userDefault = UserDefaults.standard
     let launchedBefore = UserDefaults.standard.bool(forKey: Constants.UserDefaultsKeys.userSignedIn)
-    
+    var sessionViewModel: SessionViewModel!
+    var appStateViewModel: AppStateViewModel!
+    private var cancellables = Set<AnyCancellable>()
     
     func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions:
-                     [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Configure Firebase
         FirebaseApp.configure()
         
+        // Initialize user manager, session view model, and app state view model
+        let userManager = UserManager()
+        sessionViewModel = SessionViewModel(userManager: userManager)
+        appStateViewModel = AppStateViewModel()
+        
+        // Set current user UID from user defaults
         currentUser.uid = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.userId)
         
+        // Observe changes in badge count
+        observeBadgeCount()
+        
         // Set UNUserNotificationCenter delegate
-        UNUserNotificationCenter.current().delegate = self
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.delegate = self
         
         // Set up Firebase messaging delegate
         Messaging.messaging().delegate = self
-        UNUserNotificationCenter.current().delegate = self
+        
+        // Request authorization for notifications
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions,
-            completionHandler: {_, _ in })
+        notificationCenter.requestAuthorization(options: authOptions) { _, _ in }
+        
+        // Register for remote notifications
         application.registerForRemoteNotifications()
         
         return true
     }
     
+    func observeBadgeCount() {
+        appStateViewModel.$badgeCount
+            .receive(on: DispatchQueue.main)
+            .sink { newBadgeCount in
+                UIApplication.shared.applicationIconBadgeNumber = newBadgeCount
+            }
+            .store(in: &cancellables)
+    }
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
-        scheduleMidnightReset()
+        // No need to call scheduleMidnightReset() here since it's handled in AppStateViewModel
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -62,190 +72,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     // MARK: UISceneSession Lifecycle
     
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
     
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-    
-    // MARK: - Core Data stack
-    
-    lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-         */
-        let container = NSPersistentContainer(name: "Push_Stand")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-    
-    // MARK: - Core Data Saving support
-    
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
+        // Handle discarded scene sessions if necessary
     }
     
     // Receive FCM token
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("Firebase registration token: \(String(describing: fcmToken))")
-        
+
         guard let fcmToken = fcmToken, !fcmToken.isEmpty else {
             print("FCM token is null or empty.")
             return
         }
-        if let userId = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.userId) {
-            print("in")
-            let queryParams = ["userId": userId]
-            NetworkService.shared.request(endpoint: .updateUser, method: HTTPVerbs.get.rawValue, queryParams: queryParams) { result in
-                //defer { semaphore.signal() }
-                switch result {
-                case .success(let jsonResponse):
-                    self.currentUser.reminderTime = jsonResponse["ReminderTime"] as? String ?? ""
-                    self.currentUser.birthdate = jsonResponse["Birthdate"] as? String ?? ""
-                    self.currentUser.phoneNumber = jsonResponse["PhoneNumber"] as? String ?? ""
-                    self.currentUser.email = jsonResponse["Email"] as? String ?? ""
-                    self.currentUser.firebaseAuthToken = jsonResponse["FirebaseAuthToken"] as? String ?? ""
-                    
-                    let url = URL(string: "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users")!
-                    var request = URLRequest(url: url)
-                    request.httpMethod = "PUT"
-                    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-                    
-                    let payload: [String: Any] = [
-                        "UserId": self.currentUser.uid,
-                        "Birthdate": self.currentUser.birthdate,
-                        "Email": self.currentUser.email,
-                        "PhoneNumber": self.currentUser.phoneNumber,
-                        "ReminderTime": self.currentUser.reminderTime,
-                        "FirebaseAuthToken": fcmToken,
-                    ]
-                    
-                    do {
-                        let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])
-                        request.httpBody = jsonData
-                    } catch {
-                        print("Error encoding JSON: \(error)")
-                        return
-                    }
-                    
-                    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                        if let error = error {
-                            print("Error making PUT request: \(error)")
-                            return
-                        }
-                        guard let data = data, let response = response as? HTTPURLResponse,
-                              (200...299).contains(response.statusCode) else {
-                            print("Server error or invalid response")
-                            return
-                        }
-                        
-                        if let responseString = String(data: data, encoding: .utf8) {
-                            print("Response from the server: \(responseString)")
-                        }
-                    }
-                    
-                    task.resume()
-                case .failure(let error):
-                    print("Error during the network request: \(error.localizedDescription)")
-                    
-                }
+
+        SessionViewModel.shared.userManager.updateFirebaseToken(fcmToken: fcmToken) { result in
+            switch result {
+            case .success:
+                print("Firebase token updated successfully.")
+            case .failure(let error):
+                print("Failed to update Firebase token: \(error.localizedDescription)")
             }
         }
     }
-    
+
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        // Handle the interaction
         completionHandler()
     }
     
-    func timeUntilNextMidnight() -> TimeInterval? {
-        let calendar = Calendar(identifier: .gregorian)
-        let now = Date()
-        let pacificTimeZone = TimeZone(identifier: "America/Los_Angeles")!
+    // MARK: - Core Data stack
         
-        // Get current date components in Pacific Time
-        var components = calendar.dateComponents(in: pacificTimeZone, from: now)
+        lazy var persistentContainer: NSPersistentContainer = {
+            let container = NSPersistentContainer(name: "Push_Stand")
+            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+                if let error = error as NSError? {
+                    fatalError("Unresolved error \(error), \(error.userInfo)")
+                }
+            })
+            return container
+        }()
         
-        // Create a new date components for the next midnight
-        components.hour = Defaults.int
-        components.minute = Defaults.int
-        components.second = Defaults.int
-        components.nanosecond = Defaults.int
+        // MARK: - Core Data Saving support
         
-        // Calculate the next midnight
-        if let todayMidnight = calendar.date(from: components),
-           let nextMidnight = calendar.date(byAdding: .day, value: 1, to: todayMidnight) {
-            return nextMidnight.timeIntervalSince(now)
-        } else {
-            return nil
-        }
-    }
-    
-    func scheduleMidnightReset() {
-        let timeInterval = timeUntilNextMidnight()
-        Timer.scheduledTimer(withTimeInterval: timeInterval!, repeats: false) { _ in
-            self.resetAppState()
-            self.scheduleMidnightReset()  // Schedule the next reset
-        }
-    }
-    
-    func resetAppState() {
-        // Reset your app's state here
-        // For example, clear user defaults, reset data models, etc.
-        UIApplication.shared.applicationIconBadgeNumber = 2
-        // Navigate to the initial view controller
-        DispatchQueue.main.async {
-            if let window = UIApplication.shared.windows.first {
-                let storyboard = UIStoryboard(name: Constants.mainStoryboard, bundle: nil)
-                let initialViewController = storyboard.instantiateInitialViewController()
-                window.rootViewController = initialViewController
-                window.makeKeyAndVisible()
+        func saveContext() {
+            let context = persistentContainer.viewContext
+            if context.hasChanges {
+                do {
+                    try context.save()
+                } catch {
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                }
             }
         }
-    }
-    
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        // Handle notification when app is in foreground
-        // ...
         completionHandler([.alert, .badge, .sound])
     }
 }
-

@@ -7,6 +7,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     // MARK: - Properties
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var sessionViewModel: SessionViewModel!
     
     @IBOutlet weak var accountButton: UIImageView!
     @IBOutlet weak var pushStandButton: UIImageView!
@@ -48,13 +49,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     private var standStreak = Defaults.int
     private var pointsCount = Defaults.int
     
-    let dailyGoalsEndpoint = NetworkService.Endpoint.dailyGoals.rawValue
-    let userTotalStandsEndpoint = NetworkService.Endpoint.userStands.rawValue
-    let usTotalStandsEndpoint = NetworkService.Endpoint.stands.rawValue
-    let currentStandStreakEndpoint = NetworkService.Endpoint.streaks.rawValue
-    let currentAnswerStreakEndpoint = NetworkService.Endpoint.streaksAnswers.rawValue
-    let userPointsEndpoint = NetworkService.Endpoint.points.rawValue
-    let pushStandEndpoint = NetworkService.Endpoint.stand.rawValue
+    // MARK: - Dependencies
+    let gestureHandler = GestureHandler() // 
+    //private var userManager: UserManager
+
     var currentUser = CurrentUser.shared
     let userDefault = UserDefaults.standard
     var initial_rev = false
@@ -66,7 +64,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewComponents()
-        setupGestureRecognizers()
+        setupGestures()
         let dateString = Time.getDateFormatted()
         if !UserDefaults.standard.bool(forKey: dateString) {
             loadHome()
@@ -79,15 +77,14 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(standProgressBarTapped))
         standProgressBar.addGestureRecognizer(tapGesture)
         standProgressBar.isUserInteractionEnabled = true
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     @objc func standProgressBarTapped() {
-        // Handle tap action here
-        print("standProgressBar tapped!")
-        
         standProgressBar.animateQuickColorChange()
-        viewDidLoad()
         fetchDataAndUpdateUI()
     }
     
@@ -100,44 +97,44 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         globalStandingTodayLoading.isHidden = false
     }
     
-    func bindUI() {
-        // Bindings for daily data
-        appDelegate.standModel.$dailyGoal
-            .map { "\($0)" }
-            .assign(to: \.text, on: dailyGoalCount)
-            .store(in: &cancellables)
-        
-        appDelegate.standModel.$americansStandingToday
-            .map { "\($0)" }
-            .assign(to: \.text, on: globalStandCount)
-            .store(in: &cancellables)
-        
-        appDelegate.standModel.$yesterdaysStanding
-            .map {"      Yesterday: \($0)      "}
-            .assign(to: \.text, on: yesterdayLabel)
-            .store(in: &cancellables)
-        
-        // Bindings for aggregate stats
-        appDelegate.standModel.$myStandStreak
-            .map { "\($0)" }
-            .assign(to: \.text, on: myCurrentStreakLabel)
-            .store(in: &cancellables)
-        
-        appDelegate.standModel.$myTotalStands
-            .map { "\($0)" }
-            .assign(to: \.text, on: myTotalStandsLabel)
-            .store(in: &cancellables)
-        
-        appDelegate.standModel.$usaTotalStands
-            .map { "\(Formatter.formatLargeNumber($0))" }
-            .assign(to: \.text, on: usaTotalStandsLabel)
-            .store(in: &cancellables)
-        
-        appDelegate.standModel.$myPoints
-            .map { "\($0) Points" }
-            .assign(to: \.text, on: myPointsLabel)
-            .store(in: &cancellables)
-    }
+    private func bindUI() {
+            // Bindings for daily data
+        SessionViewModel.shared.standModel.$dailyGoal
+                .map { "\($0)" }
+                .assign(to: \.text, on: dailyGoalCount)
+                .store(in: &cancellables)
+            
+        SessionViewModel.shared.standModel.$americansStandingToday
+                .map { "\($0)" }
+                .assign(to: \.text, on: globalStandCount)
+                .store(in: &cancellables)
+            
+        SessionViewModel.shared.standModel.$yesterdaysStanding
+                .map {"      Yesterday: \($0)      "}
+                .assign(to: \.text, on: yesterdayLabel)
+                .store(in: &cancellables)
+            
+            // Bindings for aggregate stats
+        SessionViewModel.shared.standModel.$myStandStreak
+                .map { "\($0)" }
+                .assign(to: \.text, on: myCurrentStreakLabel)
+                .store(in: &cancellables)
+            
+        SessionViewModel.shared.standModel.$myTotalStands
+                .map { "\($0)" }
+                .assign(to: \.text, on: myTotalStandsLabel)
+                .store(in: &cancellables)
+            
+        SessionViewModel.shared.standModel.$usaTotalStands
+                .map { "\(Formatter.formatLargeNumber($0))" }
+                .assign(to: \.text, on: usaTotalStandsLabel)
+                .store(in: &cancellables)
+            
+        SessionViewModel.shared.standModel.$myPoints
+                .map { "\($0) Points" }
+                .assign(to: \.text, on: myPointsLabel)
+                .store(in: &cancellables)
+        }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -153,10 +150,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
     
     func loadHome() {
         NetworkService.shared.request(endpoint: .stand, method: HTTPVerbs.get.rawValue, queryParams: ["user_id": CurrentUser.shared.uid!]) { (result: Result<[String: Any], Error>) in
@@ -164,6 +157,20 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                 self.fetchDataAndUpdateUI()
             }
         }
+    }
+    
+    // MARK: - Interactions
+    
+    private func setupGestures() {
+        gestureHandler.addLongPressGesture(to: pushStandButton, target: self, action: #selector(handleLongPress(_:)), minimumPressDuration: 0.0)
+        gestureHandler.addTapGesture(to: standStreakIcon, target: self, action: #selector(standStreakTapped))
+        gestureHandler.addTapGesture(to: standStreakTitle, target: self, action: #selector(standStreakTapped))
+        gestureHandler.addTapGesture(to: questionStreakIcon, target: self, action: #selector(questionStreakTapped))
+        gestureHandler.addTapGesture(to: questionStreakTitle, target: self, action: #selector(questionStreakTapped))
+        gestureHandler.addTapGesture(to: pointsIcon, target: self, action: #selector(pointsTapped))
+        gestureHandler.addTapGesture(to: pointsTitle, target: self, action: #selector(pointsTapped))
+        gestureHandler.addTapGesture(to: accountButton, target: self, action: #selector(accountsTapped))
+        gestureHandler.addTapGesture(to: shareIcon, target: self, action: #selector(sendMessage))
     }
     
     // MARK: - Data Fetching and UI Update
@@ -252,18 +259,22 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     private func handleYesterdayGoals(_ goals: [String: Any]) {
         if let currentValue = goals["Current"] as? String {
-            appDelegate.standModel.yesterdaysStanding = Int(currentValue)!
+            SessionViewModel.shared.standModel.yesterdaysStanding = Int(currentValue)!
         }
     }
     
     private func handleDailyStandsCount(_ count: Int) {
         self.usaTotalStandsLoading.isHidden = true
-        appDelegate.standModel.usaTotalStands = count
+        if !UserDefaults.standard.bool(forKey: Time.getDateFormatted()) {
+            self.globalStandCount.isHidden = false
+            self.pushStandButton.isHidden = false
+        }
+        SessionViewModel.shared.standModel.usaTotalStands = count
     }
     
     private func handleDailyStandsUserCount(_ count: Int) {
         self.myTotalStandsLoading.isHidden = true
-        appDelegate.standModel.myTotalStands =  count
+        SessionViewModel.shared.standModel.myTotalStands =  count
     }
     
     private func handleStandStreak(_ streak: Int) {
@@ -279,7 +290,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     private func handleUserPoints(_ points: Int) {
         myPointsLabel.isHidden = false
-        appDelegate.standModel.myPoints = points
+        SessionViewModel.shared.standModel.myPoints = points
     }
     
     // MARK: - View Configuration
@@ -296,29 +307,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         yesterdayLabel.layer.borderColor = UIColor.darkGray.cgColor
         yesterdayLabel.layer.borderWidth = 1.0
     }
-    
-    // MARK: - Gesture Setup
-    
-    private func setupGestureRecognizers() {
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
-        longPressGesture.minimumPressDuration = 0.0
-        pushStandButton.addGestureRecognizer(longPressGesture)
-        
-        addTapGestureRecognizer(to: standStreakIcon, action: #selector(standStreakTapped))
-        addTapGestureRecognizer(to: standStreakTitle, action: #selector(standStreakTapped))
-        addTapGestureRecognizer(to: questionStreakIcon, action: #selector(questionStreakTapped))
-        addTapGestureRecognizer(to: questionStreakTitle, action: #selector(questionStreakTapped))
-        addTapGestureRecognizer(to: pointsIcon, action: #selector(pointsTapped))
-        addTapGestureRecognizer(to: pointsTitle, action: #selector(pointsTapped))
-        addTapGestureRecognizer(to: accountButton, action: #selector(accountsTapped))
-        addTapGestureRecognizer(to: shareIcon, action: #selector(sendMessage))
-    }
-    
-    func addTapGestureRecognizer(to view: UIView?, action: Selector) {
-        let tapGesture = UITapGestureRecognizer(target: self, action: action)
-        view?.addGestureRecognizer(tapGesture)
-    }
-    
     
     // MARK: - Helper Methods
     
@@ -377,8 +365,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         landingViewWithButton.isHidden = false
         standingTodayView.isHidden = false
         pushStandTitle.isHidden = false
-        pushStandButton.isHidden = false
+        pushStandButton.isHidden = true
         dailyGoalLoading.isHidden = true
+        globalStandCount.isHidden = true
         globalStandingTodayLoading.isHidden = false
         landingViewWithPicture.isHidden = false
         accountButton.isHidden = true
@@ -606,7 +595,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         }
         
         pointsCount += 1
-        appDelegate.standModel.myPoints = pointsCount
+        SessionViewModel.shared.standModel.myPoints = pointsCount
     }
     
     @objc private func sendMessage() {

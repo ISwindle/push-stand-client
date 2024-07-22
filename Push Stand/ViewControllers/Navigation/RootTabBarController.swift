@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class RootTabBarController: UITabBarController {
     
@@ -13,10 +14,12 @@ class RootTabBarController: UITabBarController {
     private let userDefaults = UserDefaults.standard
     private let questionTabBarIndex = 1
     private let minimumTabBarItems = 2
+    private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateQuestionBadge()
+        observeTabBarItemBadgeCount()
     }
     
     func updateQuestionBadge() {
@@ -31,5 +34,19 @@ class RootTabBarController: UITabBarController {
            Time.isDatePriorToToday(lastAnsweredDate) {
             tabBarItem.badgeValue = ""
         }
+    }
+    
+    private func observeTabBarItemBadgeCount() {
+        SessionViewModel.shared.$questionItemBadgeCount
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] newBadgeCount in
+                guard let self = self else { return }
+                guard let tabBarItems = self.tabBar.items, tabBarItems.count >= self.minimumTabBarItems else {
+                    return
+                }
+                let tabBarItem = tabBarItems[self.questionTabBarIndex]
+                tabBarItem.badgeValue = newBadgeCount! > 0 ? "\(newBadgeCount)" : nil
+            }
+            .store(in: &cancellables)
     }
 }

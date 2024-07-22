@@ -91,7 +91,7 @@ class DailyQuestionViewController: UIViewController {
             fetchYesterdaysQuestion()
         } else {
             self.dailyQuestionTitle.alpha = Constants.fullAlpha
-            self.yesterdaysResultsTitle.alpha = Constants.fullAlpha
+            self.yesterdaysResultsTitle.alpha = Constants.zeroAlpha
             fetchDailyQuestion()
         }
         
