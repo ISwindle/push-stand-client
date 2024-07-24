@@ -55,7 +55,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
 
     var currentUser = CurrentUser.shared
     let userDefault = UserDefaults.standard
-    var initial_rev = false
+    var should_not_rev = false
     
     var cancellables: Set<AnyCancellable> = []
     
@@ -85,6 +85,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     @objc func standProgressBarTapped() {
         standProgressBar.animateQuickColorChange()
+        should_not_rev = false
         fetchDataAndUpdateUI()
     }
     
@@ -226,7 +227,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             if let userPoints = json["user_points"] as? Int {
                 self.handleUserPoints(userPoints)
             }
-            if !initial_rev {
+            if !should_not_rev { 
                 updateProgressBar()
             }
         case .failure(let error):
@@ -268,7 +269,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         if !UserDefaults.standard.bool(forKey: Time.getDateFormatted()) {
             self.pushStandButton.isHidden = false
         }
-        self.globalStandCount.isHidden = false
+        self.globalStandCount.alpha = 1
         SessionViewModel.shared.standModel.usaTotalStands = count
     }
     
@@ -357,7 +358,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         standingTodayView.isHidden = false
         landingViewWithPicture.isHidden = true
         accountButton.isHidden = false
-        self.globalStandCount.isHidden = true
+        globalStandCount.alpha = 0
         tabBarController?.tabBar.alpha = 1
         
     }
@@ -368,7 +369,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         pushStandTitle.isHidden = false
         pushStandButton.isHidden = true
         dailyGoalLoading.isHidden = true
-        globalStandCount.isHidden = true
+        globalStandCount.alpha = 0
         globalStandingTodayLoading.isHidden = false
         landingViewWithPicture.isHidden = false
         accountButton.isHidden = true
@@ -516,7 +517,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     private func updateProgressBar() {
         let progressAmount = current / goal
         standProgressBar.progress = CGFloat(progressAmount)
-        initial_rev = true
+        should_not_rev = true
     }
     
     private func updateStreakUI(selectedIcon: UIImageView, selectedIconImage: String, selectedTitle: UILabel, selectedColor: UIColor, selectedStreakValue: Int) {
