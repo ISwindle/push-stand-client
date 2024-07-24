@@ -305,16 +305,20 @@
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstItem="1sS-nB-69v" firstAttribute="leading" secondItem="Oop-dg-hza" secondAttribute="leading" constant="30" id="4UY-rB-rnr">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="125"/>
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="nsU-lL-TDH" secondAttribute="trailing" id="Bxd-af-sen"/>
-                                    <constraint firstAttribute="trailing" secondItem="Dal-z9-6mu" secondAttribute="trailing" constant="25" id="Ikp-a1-0zq"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dal-z9-6mu" secondAttribute="trailing" constant="25" id="Ikp-a1-0zq">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                    </constraint>
                                     <constraint firstItem="nsU-lL-TDH" firstAttribute="leading" secondItem="Oop-dg-hza" secondAttribute="leading" id="b44-T6-olX"/>
                                     <constraint firstItem="nsU-lL-TDH" firstAttribute="top" secondItem="Oop-dg-hza" secondAttribute="top" id="b46-39-NNF"/>
                                     <constraint firstItem="Lcs-yk-UA3" firstAttribute="centerX" secondItem="k3z-5l-LUk" secondAttribute="centerX" id="bP1-Tl-1JT"/>
                                     <constraint firstItem="Lcs-yk-UA3" firstAttribute="top" secondItem="k3z-5l-LUk" secondAttribute="bottom" constant="8" symbolic="YES" id="cZP-ce-PpH"/>
                                     <constraint firstItem="1sS-nB-69v" firstAttribute="top" secondItem="nsU-lL-TDH" secondAttribute="bottom" id="dt0-9z-YiT"/>
-                                    <constraint firstAttribute="bottom" secondItem="Dal-z9-6mu" secondAttribute="bottom" constant="25" id="fKD-3Y-lab"/>
+                                    <constraint firstAttribute="bottom" secondItem="Dal-z9-6mu" secondAttribute="bottom" constant="25" id="fKD-3Y-lab">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                    </constraint>
                                     <constraint firstItem="iru-Bw-zal" firstAttribute="top" secondItem="Yhh-Gl-C39" secondAttribute="bottom" constant="8" symbolic="YES" id="iV1-mq-3Dv">
                                         <variation key="heightClass=regular-widthClass=regular" constant="10"/>
                                     </constraint>
@@ -522,7 +526,9 @@ let's see if you can do it again!</string>
                                         <rect key="frame" x="187" y="266.5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ycc-N2-nlt" secondAttribute="height" multiplier="1:1" id="EYa-4f-GPf"/>
-                                            <constraint firstAttribute="height" constant="40" id="eYZ-fW-cKy"/>
+                                            <constraint firstAttribute="height" constant="40" id="eYZ-fW-cKy">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                            </constraint>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="America's Voice... Amplified" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZV-bS-VjI">
@@ -530,6 +536,9 @@ let's see if you can do it again!</string>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -537,7 +546,9 @@ let's see if you can do it again!</string>
                                     <constraint firstItem="RZV-bS-VjI" firstAttribute="centerX" secondItem="nca-s3-GmW" secondAttribute="centerX" id="E5W-GQ-kv0"/>
                                     <constraint firstItem="Ycc-N2-nlt" firstAttribute="centerX" secondItem="nca-s3-GmW" secondAttribute="centerX" id="FCb-1h-paF"/>
                                     <constraint firstItem="RZV-bS-VjI" firstAttribute="centerY" secondItem="nca-s3-GmW" secondAttribute="centerY" id="iU8-1F-KaT"/>
-                                    <constraint firstItem="RZV-bS-VjI" firstAttribute="top" secondItem="Ycc-N2-nlt" secondAttribute="bottom" constant="10" id="zVF-KM-xyO"/>
+                                    <constraint firstItem="RZV-bS-VjI" firstAttribute="top" secondItem="Ycc-N2-nlt" secondAttribute="bottom" constant="10" id="zVF-KM-xyO">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="25"/>
+                                    </constraint>
                                 </constraints>
                             </view>
                         </subviews>
@@ -718,10 +729,10 @@ let's see if you can do it again!</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="stand-100k-goal" translatesAutoresizingMaskIntoConstraints="NO" id="n7T-YI-ypp">
-                                <rect key="frame" x="90" y="40" width="234" height="110"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="100k-sweepstakes" translatesAutoresizingMaskIntoConstraints="NO" id="n7T-YI-ypp">
+                                <rect key="frame" x="70" y="40" width="274" height="110"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="n7T-YI-ypp" secondAttribute="height" multiplier="117:55" id="zm8-So-i5r"/>
+                                    <constraint firstAttribute="width" secondItem="n7T-YI-ypp" secondAttribute="height" multiplier="117:47" id="H8C-YA-8qs"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KXW-Jh-deP">
@@ -731,18 +742,18 @@ let's see if you can do it again!</string>
                                     <constraint firstAttribute="width" constant="25" id="v3S-UU-uLt"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once we achieve our 100k daily stand goal, sweepstakes will be unlocked!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTv-1j-uJg">
-                                <rect key="frame" x="20" y="175" width="374" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once we achieve our 100,000 daily stand goal, sweepstakes will be open!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTv-1j-uJg">
+                                <rect key="frame" x="40" y="175" width="334" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn your hard-earned points into entries for our exciting sweepstakes!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IsL-Bj-OEk">
-                                <rect key="frame" x="40" y="233" width="334" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Then you can turn your hard-earned points into entries!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IsL-Bj-OEk">
+                                <rect key="frame" x="40" y="231" width="334" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
@@ -750,8 +761,8 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlike other sweepstakes where you can buy entries, here you must earn them." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPH-pV-QBc" userLabel="Unlike">
-                                <rect key="frame" x="40" y="291" width="334" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <rect key="frame" x="40" y="287" width="334" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
@@ -759,16 +770,16 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yZo-3D-XVP" userLabel="Top Stack Row">
-                                <rect key="frame" x="50" y="354" width="314" height="87"/>
+                                <rect key="frame" x="50" y="353" width="314" height="82"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yo3-Wc-DmT" userLabel="Stand Stack">
-                                        <rect key="frame" x="0.0" y="0.0" width="157" height="87"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="157" height="82"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFit" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="Uxn-3D-Oo2">
-                                                <rect key="frame" x="0.0" y="0.0" width="157" height="67"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157" height="62"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Point" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHR-A6-p2P">
-                                                <rect key="frame" x="0.0" y="67" width="157" height="20"/>
+                                                <rect key="frame" x="0.0" y="62" width="157" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="bLy-XU-Y82"/>
                                                 </constraints>
@@ -785,14 +796,14 @@ let's see if you can do it again!</string>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lXx-7s-fM8" userLabel="Question Stack">
-                                        <rect key="frame" x="157" y="0.0" width="157" height="87"/>
+                                        <rect key="frame" x="157" y="0.0" width="157" height="82"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFit" image="questionmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mHb-eY-0ar">
-                                                <rect key="frame" x="0.0" y="0.5" width="157" height="66"/>
+                                                <rect key="frame" x="0.0" y="0.5" width="157" height="61"/>
                                                 <color key="tintColor" red="0.231372565" green="0.47843140360000003" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHJ-Zc-YB9">
-                                                <rect key="frame" x="0.0" y="67" width="157" height="20"/>
+                                                <rect key="frame" x="0.0" y="62" width="157" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="dDc-37-rnb"/>
                                                 </constraints>
@@ -810,21 +821,21 @@ let's see if you can do it again!</string>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="yZo-3D-XVP" secondAttribute="height" multiplier="325:90" id="uD6-Ip-aSJ"/>
+                                    <constraint firstAttribute="width" secondItem="yZo-3D-XVP" secondAttribute="height" multiplier="325:85" id="uD6-Ip-aSJ"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NH6-uE-uQ0" userLabel="Bottom Stack Row">
-                                <rect key="frame" x="50" y="471" width="314" height="87"/>
+                                <rect key="frame" x="50" y="465" width="314" height="82.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Iul-my-QsZ" userLabel="Stand Streak Stack">
-                                        <rect key="frame" x="0.0" y="0.0" width="157" height="87"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="157" height="82.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Red-Star" translatesAutoresizingMaskIntoConstraints="NO" id="c0N-ke-ihh">
-                                                <rect key="frame" x="0.0" y="0.0" width="157" height="67"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157" height="62.5"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sly-wE-eRK">
-                                                <rect key="frame" x="0.0" y="67" width="157" height="20"/>
+                                                <rect key="frame" x="0.0" y="62.5" width="157" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="OpA-tQ-mc9">
                                                         <variation key="heightClass=regular-widthClass=regular" constant="30"/>
@@ -843,14 +854,14 @@ let's see if you can do it again!</string>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CHh-En-BlK" userLabel="Answer Streak Stack">
-                                        <rect key="frame" x="157" y="0.0" width="157" height="87"/>
+                                        <rect key="frame" x="157" y="0.0" width="157" height="82.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Blue-Star" translatesAutoresizingMaskIntoConstraints="NO" id="85N-2l-Om0">
-                                                <rect key="frame" x="0.0" y="0.0" width="157" height="67"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157" height="62.5"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DL7-5v-wvl">
-                                                <rect key="frame" x="0.0" y="67" width="157" height="20"/>
+                                                <rect key="frame" x="0.0" y="62.5" width="157" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="DKP-4h-2XB">
                                                         <variation key="heightClass=regular-widthClass=regular" constant="30"/>
@@ -870,11 +881,11 @@ let's see if you can do it again!</string>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="NH6-uE-uQ0" secondAttribute="height" multiplier="325:90" id="Re7-AA-8rt"/>
+                                    <constraint firstAttribute="width" secondItem="NH6-uE-uQ0" secondAttribute="height" multiplier="325:85" id="Re7-AA-8rt"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ean-ve-xiZ">
-                                <rect key="frame" x="50" y="583" width="314" height="36"/>
+                                <rect key="frame" x="50" y="572.5" width="314" height="36"/>
                                 <string key="text">While the Push Stand app is available on the app store, Apple Inc. (Apple) is not a sponsor or involved in the sweepstake activity in any manner.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" systemColor="underPageBackgroundColor"/>
@@ -887,16 +898,16 @@ let's see if you can do it again!</string>
                         <viewLayoutGuide key="safeArea" id="6Tk-IM-aga"/>
                         <color key="backgroundColor" red="0.082352943720000002" green="0.082352943720000002" blue="0.082352943720000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="cPH-pV-QBc" firstAttribute="leading" secondItem="6Tk-IM-aga" secondAttribute="leading" constant="40" id="30H-ie-E7K">
-                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
-                            </constraint>
                             <constraint firstItem="IsL-Bj-OEk" firstAttribute="centerX" secondItem="dnx-xC-vkF" secondAttribute="centerX" id="3hu-5A-WuI"/>
-                            <constraint firstItem="n7T-YI-ypp" firstAttribute="leading" secondItem="dnx-xC-vkF" secondAttribute="leading" constant="90" id="8JN-II-5MK">
+                            <constraint firstItem="n7T-YI-ypp" firstAttribute="leading" secondItem="dnx-xC-vkF" secondAttribute="leading" constant="70" id="8JN-II-5MK">
                                 <variation key="heightClass=regular-widthClass=regular" constant="175"/>
                             </constraint>
                             <constraint firstItem="yZo-3D-XVP" firstAttribute="centerX" secondItem="dnx-xC-vkF" secondAttribute="centerX" id="AcO-fe-CAy"/>
                             <constraint firstItem="n7T-YI-ypp" firstAttribute="top" secondItem="6Tk-IM-aga" secondAttribute="top" constant="40" id="E3g-0w-Vu6"/>
                             <constraint firstItem="NH6-uE-uQ0" firstAttribute="top" secondItem="yZo-3D-XVP" secondAttribute="bottom" constant="30" id="GS0-UL-XxW"/>
+                            <constraint firstItem="mTv-1j-uJg" firstAttribute="leading" secondItem="dnx-xC-vkF" secondAttribute="leading" constant="40" id="IAu-hZ-SD6">
+                                <variation key="heightClass=regular-widthClass=regular" constant="125"/>
+                            </constraint>
                             <constraint firstItem="cPH-pV-QBc" firstAttribute="top" secondItem="IsL-Bj-OEk" secondAttribute="bottom" constant="15" id="JtS-7j-Ur5">
                                 <variation key="heightClass=regular-widthClass=regular" constant="30"/>
                             </constraint>
@@ -905,26 +916,22 @@ let's see if you can do it again!</string>
                             </constraint>
                             <constraint firstItem="mTv-1j-uJg" firstAttribute="top" secondItem="n7T-YI-ypp" secondAttribute="bottom" constant="25" id="LRW-jO-Cwd"/>
                             <constraint firstItem="ean-ve-xiZ" firstAttribute="top" secondItem="NH6-uE-uQ0" secondAttribute="bottom" constant="25" id="NQ1-ZR-RzX"/>
-                            <constraint firstItem="yZo-3D-XVP" firstAttribute="top" secondItem="cPH-pV-QBc" secondAttribute="bottom" constant="20" id="RSc-cN-ufU"/>
+                            <constraint firstItem="yZo-3D-XVP" firstAttribute="top" secondItem="cPH-pV-QBc" secondAttribute="bottom" constant="25" id="RSc-cN-ufU"/>
                             <constraint firstItem="ean-ve-xiZ" firstAttribute="leading" secondItem="6Tk-IM-aga" secondAttribute="leading" constant="50" id="Wi9-hb-lVC">
                                 <variation key="heightClass=regular-widthClass=regular" constant="125"/>
                             </constraint>
                             <constraint firstItem="6Tk-IM-aga" firstAttribute="trailing" secondItem="KXW-Jh-deP" secondAttribute="trailing" constant="30" id="Xs9-3A-VOF"/>
+                            <constraint firstItem="IsL-Bj-OEk" firstAttribute="leading" secondItem="mTv-1j-uJg" secondAttribute="leading" id="YF6-3H-wbR"/>
                             <constraint firstItem="ean-ve-xiZ" firstAttribute="centerX" secondItem="dnx-xC-vkF" secondAttribute="centerX" id="ZHp-Z0-eZe"/>
                             <constraint firstItem="NH6-uE-uQ0" firstAttribute="centerX" secondItem="dnx-xC-vkF" secondAttribute="centerX" id="cUH-YG-p22"/>
+                            <constraint firstItem="cPH-pV-QBc" firstAttribute="leading" secondItem="mTv-1j-uJg" secondAttribute="leading" id="ctV-xV-nDj"/>
                             <constraint firstItem="cPH-pV-QBc" firstAttribute="centerX" secondItem="dnx-xC-vkF" secondAttribute="centerX" id="hB3-Jc-aTm"/>
                             <constraint firstItem="yZo-3D-XVP" firstAttribute="leading" secondItem="6Tk-IM-aga" secondAttribute="leading" constant="50" id="hMF-8b-mX5">
                                 <variation key="heightClass=regular-widthClass=regular" constant="150"/>
                             </constraint>
-                            <constraint firstItem="mTv-1j-uJg" firstAttribute="leading" secondItem="dnx-xC-vkF" secondAttribute="leading" constant="20" symbolic="YES" id="iiZ-O7-O9R">
-                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
-                            </constraint>
                             <constraint firstItem="mTv-1j-uJg" firstAttribute="centerX" secondItem="dnx-xC-vkF" secondAttribute="centerX" id="jmr-DK-NSO"/>
                             <constraint firstItem="n7T-YI-ypp" firstAttribute="centerX" secondItem="dnx-xC-vkF" secondAttribute="centerX" id="t5M-MI-j36"/>
                             <constraint firstItem="KXW-Jh-deP" firstAttribute="top" secondItem="6Tk-IM-aga" secondAttribute="top" constant="15" id="vC2-MF-8Sg"/>
-                            <constraint firstItem="IsL-Bj-OEk" firstAttribute="leading" secondItem="dnx-xC-vkF" secondAttribute="leading" constant="40" id="vzS-oS-C3J">
-                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
-                            </constraint>
                             <constraint firstItem="IsL-Bj-OEk" firstAttribute="top" secondItem="mTv-1j-uJg" secondAttribute="bottom" constant="15" id="ynD-QR-co1">
                                 <variation key="heightClass=regular-widthClass=regular" constant="30"/>
                             </constraint>
@@ -936,7 +943,7 @@ let's see if you can do it again!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zro-4z-kPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3063.28125" y="1359.8828696925329"/>
+            <point key="canvasLocation" x="3062.3188405797105" y="1359.375"/>
         </scene>
         <!--Sweepstakes-->
         <scene sceneID="cGT-eK-Szo">
@@ -952,33 +959,22 @@ let's see if you can do it again!</string>
                                     <constraint firstAttribute="width" secondItem="fgB-Xs-BKw" secondAttribute="height" multiplier="1:1" id="1E7-nq-Kwo"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Sweepstakes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-ut-2Pg">
-                                <rect key="frame" x="0.0" y="241" width="414" height="33.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                </variation>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="treasure-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="N6H-t4-fP6">
-                                <rect key="frame" x="103.5" y="294.5" width="207" height="207"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="parachute-crate" translatesAutoresizingMaskIntoConstraints="NO" id="N6H-t4-fP6">
+                                <rect key="frame" x="62" y="253" width="290" height="290"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="N6H-t4-fP6" secondAttribute="height" multiplier="1:1" id="3RH-hE-tlC">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="125"/>
-                                    </constraint>
+                                    <constraint firstAttribute="width" secondItem="N6H-t4-fP6" secondAttribute="height" multiplier="1:1" id="EIj-bH-5JH"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAr-MU-caH">
-                                <rect key="frame" x="0.0" y="501.5" width="414" height="311.5"/>
+                                <rect key="frame" x="0.0" y="543" width="414" height="270"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf8-tQ-SHg">
-                                        <rect key="frame" x="103.5" y="139" width="207" height="34"/>
+                                        <rect key="frame" x="83" y="118" width="248" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="Oxb-eh-zTQ"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Unlock Now">
+                                        <buttonConfiguration key="configuration" style="filled" title="Open Now">
                                             <backgroundConfiguration key="background"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="baseBackgroundColor" systemColor="tintColor"/>
@@ -990,25 +986,45 @@ let's see if you can do it again!</string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="xf8-tQ-SHg" firstAttribute="width" secondItem="TAr-MU-caH" secondAttribute="width" multiplier="0.6" id="Vve-K5-XEx"/>
                                     <constraint firstItem="xf8-tQ-SHg" firstAttribute="centerX" secondItem="TAr-MU-caH" secondAttribute="centerX" id="WOg-33-yZo"/>
                                     <constraint firstItem="xf8-tQ-SHg" firstAttribute="centerY" secondItem="TAr-MU-caH" secondAttribute="centerY" id="n0w-EE-5lA"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zg-cO-NTS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="253"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Sweepstakes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-ut-2Pg">
+                                        <rect key="frame" x="119.5" y="110" width="175.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="eDK-ut-2Pg" firstAttribute="centerY" secondItem="2zg-cO-NTS" secondAttribute="centerY" id="20K-OA-gcX"/>
+                                    <constraint firstItem="eDK-ut-2Pg" firstAttribute="centerX" secondItem="2zg-cO-NTS" secondAttribute="centerX" id="D3K-fJ-LCM"/>
+                                    <constraint firstItem="eDK-ut-2Pg" firstAttribute="centerX" secondItem="2zg-cO-NTS" secondAttribute="centerX" id="kUT-6Y-VQf"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Nfu-9g-DCt"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Nfu-9g-DCt" firstAttribute="trailing" secondItem="eDK-ut-2Pg" secondAttribute="trailing" id="AtH-kE-Xgf"/>
-                            <constraint firstItem="eDK-ut-2Pg" firstAttribute="centerX" secondItem="Hre-0E-c4b" secondAttribute="centerX" id="EMF-3z-KTx"/>
+                            <constraint firstItem="2zg-cO-NTS" firstAttribute="top" secondItem="Hre-0E-c4b" secondAttribute="top" id="8Cw-oP-fsB"/>
+                            <constraint firstItem="2zg-cO-NTS" firstAttribute="leading" secondItem="Nfu-9g-DCt" secondAttribute="leading" id="EcH-FP-zkv"/>
                             <constraint firstItem="Nfu-9g-DCt" firstAttribute="trailing" secondItem="TAr-MU-caH" secondAttribute="trailing" id="GQo-kC-Zse"/>
-                            <constraint firstItem="N6H-t4-fP6" firstAttribute="width" secondItem="Hre-0E-c4b" secondAttribute="width" multiplier="0.5" id="Y7N-0S-J5U"/>
+                            <constraint firstItem="Nfu-9g-DCt" firstAttribute="trailing" secondItem="2zg-cO-NTS" secondAttribute="trailing" id="O8Y-Xj-uz5"/>
+                            <constraint firstItem="N6H-t4-fP6" firstAttribute="width" secondItem="Hre-0E-c4b" secondAttribute="width" multiplier="0.7" id="Y7N-0S-J5U"/>
                             <constraint firstItem="fgB-Xs-BKw" firstAttribute="centerX" secondItem="Hre-0E-c4b" secondAttribute="centerX" id="ZGC-l7-Cse"/>
+                            <constraint firstItem="N6H-t4-fP6" firstAttribute="top" secondItem="2zg-cO-NTS" secondAttribute="bottom" id="ajm-ob-xAP"/>
                             <constraint firstItem="TAr-MU-caH" firstAttribute="top" secondItem="N6H-t4-fP6" secondAttribute="bottom" id="d1D-0o-FIw"/>
                             <constraint firstItem="Nfu-9g-DCt" firstAttribute="bottom" secondItem="fgB-Xs-BKw" secondAttribute="bottom" id="fNv-07-jvs"/>
                             <constraint firstItem="N6H-t4-fP6" firstAttribute="centerY" secondItem="Hre-0E-c4b" secondAttribute="centerY" constant="-50" id="gxt-dp-pgn"/>
-                            <constraint firstItem="N6H-t4-fP6" firstAttribute="top" secondItem="eDK-ut-2Pg" secondAttribute="bottom" constant="20" id="kNQ-iz-rwV"/>
                             <constraint firstItem="Nfu-9g-DCt" firstAttribute="bottom" secondItem="TAr-MU-caH" secondAttribute="bottom" id="lmr-o7-nCw"/>
-                            <constraint firstItem="xf8-tQ-SHg" firstAttribute="leading" secondItem="N6H-t4-fP6" secondAttribute="leading" id="mco-i9-oie"/>
                             <constraint firstItem="fgB-Xs-BKw" firstAttribute="top" secondItem="Hre-0E-c4b" secondAttribute="top" id="oSm-zx-whT"/>
                             <constraint firstItem="TAr-MU-caH" firstAttribute="leading" secondItem="Nfu-9g-DCt" secondAttribute="leading" id="vOI-oZ-gdt"/>
                             <constraint firstItem="N6H-t4-fP6" firstAttribute="centerX" secondItem="Hre-0E-c4b" secondAttribute="centerX" id="y4E-67-RSG"/>
@@ -1054,7 +1070,7 @@ let's see if you can do it again!</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VYG-r6-mrQ">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="45"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -1335,7 +1351,9 @@ Stands</string>
                                                 <rect key="frame" x="42.5" y="97" width="159" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="hcD-gP-fUg"/>
+                                                    <constraint firstAttribute="height" constant="40" id="hcD-gP-fUg">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </activityIndicatorView>
@@ -1407,7 +1425,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="570" width="414" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="WKY-V7-7fx">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1418,7 +1436,7 @@ Stands</string>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Americans Standing Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="6cQ-TE-pqg">
-                                        <rect key="frame" x="0.0" y="51.5" width="414" height="36.5"/>
+                                        <rect key="frame" x="0.0" y="60" width="414" height="28"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1436,7 +1454,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-MC-Zfc" userLabel="Global Standing Today">
-                                <rect key="frame" x="181" y="570" width="52" height="51.5"/>
+                                <rect key="frame" x="177" y="570" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fv2-MC-Zfc" secondAttribute="height" multiplier="1:1" id="T9c-N2-bMj"/>
@@ -3845,6 +3863,7 @@ Will you STAND with us?</string>
         </scene>
     </scenes>
     <resources>
+        <image name="100k-sweepstakes" width="1500" height="600"/>
         <image name="Blue-Star" width="480" height="440"/>
         <image name="LogoButton" width="81" height="80"/>
         <image name="Red-Star" width="512" height="469"/>
@@ -3858,6 +3877,7 @@ Will you STAND with us?</string>
         <image name="line.3.horizontal.decrease.circle.fill" catalog="system" width="128" height="123"/>
         <image name="nay-selected" width="570" height="396"/>
         <image name="nay-unselected" width="570" height="396"/>
+        <image name="parachute-crate" width="2048" height="2048"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.3" catalog="system" width="128" height="66"/>
         <image name="person.3.fill" catalog="system" width="128" height="66"/>
@@ -3867,12 +3887,10 @@ Will you STAND with us?</string>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="search-icon" width="50" height="50"/>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
-        <image name="stand-100k-goal" width="1500" height="700"/>
         <image name="stand-btn" width="170.5" height="170.5"/>
         <image name="sweep-1" width="2048" height="2048"/>
         <image name="ticket" catalog="system" width="128" height="86"/>
         <image name="ticket.fill" catalog="system" width="128" height="86"/>
-        <image name="treasure-transparent" width="2048" height="2048"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <image name="yea-selected" width="570" height="396"/>
         <image name="yea-unselected" width="570" height="396"/>
