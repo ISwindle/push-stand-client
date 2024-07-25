@@ -1033,6 +1033,7 @@ let's see if you can do it again!</string>
                     <tabBarItem key="tabBarItem" title="Sweepstakes" image="ticket" catalog="system" selectedImage="ticket.fill" id="bAJ-ZV-IuY"/>
                     <connections>
                         <outlet property="backgroundView" destination="fgB-Xs-BKw" id="T9V-Pj-RSR"/>
+                        <outlet property="sweepstakesImage" destination="N6H-t4-fP6" id="J3m-Y1-bGE"/>
                         <outlet property="unlockNow" destination="xf8-tQ-SHg" id="OIo-N7-2SW"/>
                     </connections>
                 </viewController>
