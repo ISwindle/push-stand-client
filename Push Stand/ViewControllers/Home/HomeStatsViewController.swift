@@ -227,7 +227,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             if let userPoints = json["user_points"] as? Int {
                 self.handleUserPoints(userPoints)
             }
-            if !should_not_rev { 
+            if !should_not_rev {
                 updateProgressBar()
             }
         case .failure(let error):
@@ -358,7 +358,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         standingTodayView.isHidden = false
         landingViewWithPicture.isHidden = true
         accountButton.isHidden = false
-        globalStandCount.alpha = 0
         tabBarController?.tabBar.alpha = 1
         
     }
