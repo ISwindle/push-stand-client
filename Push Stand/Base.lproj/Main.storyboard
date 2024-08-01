@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -375,12 +375,13 @@
                                         <rect key="frame" x="0.0" y="499" width="414" height="176"/>
                                         <subviews>
                                             <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hp-Xe-5f3">
-                                                <rect key="frame" x="60" y="71" width="294" height="34"/>
+                                                <rect key="frame" x="60" y="68" width="294" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="34" id="1gu-LT-bZa"/>
+                                                    <constraint firstAttribute="height" constant="40" id="1gu-LT-bZa"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="baseBackgroundColor" red="0.24313727020000001" green="0.49411764740000003" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
@@ -418,7 +419,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -469,12 +470,13 @@ let's see if you can do it again!</string>
                                             <rect key="frame" x="0.0" y="298.5" width="414" height="358"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcM-2d-4wl">
-                                                    <rect key="frame" x="122" y="162" width="170" height="34"/>
+                                                    <rect key="frame" x="122" y="159" width="170" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="I04-tc-nH4"/>
+                                                        <constraint firstAttribute="height" constant="40" id="I04-tc-nH4"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="filled" title="Got it">
+                                                    <buttonConfiguration key="configuration" style="filled" title="Got it" cornerStyle="capsule">
+                                                        <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="baseBackgroundColor" red="0.231372565" green="0.4196078479" blue="0.80392158030000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </buttonConfiguration>
@@ -662,22 +664,23 @@ let's see if you can do it again!</string>
                                     <constraint firstAttribute="height" constant="230" id="CmE-op-gLP"/>
                                 </constraints>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gv-fj-SVr">
-                                <rect key="frame" x="40" y="375.5" width="334" height="34"/>
+                                <rect key="frame" x="40" y="350.5" width="334" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="2Rc-au-1El"/>
+                                    <constraint firstAttribute="height" constant="40" id="2Rc-au-1El"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" systemColor="tintColor"/>
                                 </buttonConfiguration>
@@ -707,7 +710,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="XgK-So-uNv" firstAttribute="centerX" secondItem="WaS-LZ-SGf" secondAttribute="centerX" id="e8P-Io-47T"/>
                             <constraint firstItem="1Gv-fj-SVr" firstAttribute="centerX" secondItem="WaS-LZ-SGf" secondAttribute="centerX" id="l52-yf-5gY"/>
                             <constraint firstItem="kSl-c6-SXg" firstAttribute="centerX" secondItem="WaS-LZ-SGf" secondAttribute="centerX" id="o5q-Qh-Vg9"/>
-                            <constraint firstItem="1Gv-fj-SVr" firstAttribute="top" secondItem="XgK-So-uNv" secondAttribute="bottom" constant="55" id="vYh-0I-343"/>
+                            <constraint firstItem="1Gv-fj-SVr" firstAttribute="top" secondItem="XgK-So-uNv" secondAttribute="bottom" constant="30" id="vYh-0I-343"/>
                             <constraint firstItem="g53-uz-MM1" firstAttribute="trailing" secondItem="47M-Yz-poq" secondAttribute="trailing" constant="30" id="zUk-AL-Ew9"/>
                         </constraints>
                     </view>
@@ -959,7 +962,7 @@ let's see if you can do it again!</string>
                                     <constraint firstAttribute="width" secondItem="fgB-Xs-BKw" secondAttribute="height" multiplier="1:1" id="1E7-nq-Kwo"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="parachute-crate" translatesAutoresizingMaskIntoConstraints="NO" id="N6H-t4-fP6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="parachute-crate-2" translatesAutoresizingMaskIntoConstraints="NO" id="N6H-t4-fP6">
                                 <rect key="frame" x="62" y="253" width="290" height="290"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="N6H-t4-fP6" secondAttribute="height" multiplier="1:1" id="EIj-bH-5JH"/>
@@ -969,13 +972,14 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="0.0" y="543" width="414" height="270"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf8-tQ-SHg">
-                                        <rect key="frame" x="83" y="118" width="248" height="34"/>
+                                        <rect key="frame" x="83" y="115" width="248" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="Oxb-eh-zTQ"/>
+                                            <constraint firstAttribute="height" constant="40" id="Oxb-eh-zTQ"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Open Now">
+                                        <buttonConfiguration key="configuration" style="filled" title="Open Now" cornerStyle="capsule">
                                             <backgroundConfiguration key="background"/>
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="baseBackgroundColor" systemColor="tintColor"/>
                                         </buttonConfiguration>
@@ -1426,7 +1430,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="570" width="414" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="WKY-V7-7fx">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1437,7 +1441,7 @@ Stands</string>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Americans Standing Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="6cQ-TE-pqg">
-                                        <rect key="frame" x="0.0" y="52" width="414" height="36"/>
+                                        <rect key="frame" x="0.0" y="51.5" width="414" height="36.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1455,7 +1459,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-MC-Zfc" userLabel="Global Standing Today">
-                                <rect key="frame" x="181" y="570" width="52" height="52"/>
+                                <rect key="frame" x="181" y="570" width="52" height="51.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fv2-MC-Zfc" secondAttribute="height" multiplier="1:1" id="T9c-N2-bMj"/>
@@ -1535,12 +1539,13 @@ let's see if you can do it again!</string>
                                             <rect key="frame" x="0.0" y="308.5" width="414" height="283.5"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-r3J">
-                                                    <rect key="frame" x="122" y="124.5" width="170" height="34"/>
+                                                    <rect key="frame" x="122" y="121.5" width="170" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="1JK-4E-gIk"/>
+                                                        <constraint firstAttribute="height" constant="40" id="1JK-4E-gIk"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="filled" title="Got it">
+                                                    <buttonConfiguration key="configuration" style="filled" title="Got it" cornerStyle="capsule">
+                                                        <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                                     </buttonConfiguration>
@@ -1735,11 +1740,10 @@ let's see if you can do it again!</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewm-hU-R96">
-                                <rect key="frame" x="0.0" y="56" width="414" height="300"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewm-hU-R96">
+                                <rect key="frame" x="0.0" y="56" width="414" height="220"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="iuT-mR-GDe"/>
+                                    <constraint firstAttribute="height" constant="220" id="iuT-mR-GDe"/>
                                 </constraints>
                                 <color key="separatorColor" systemColor="separatorColor"/>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1803,52 +1807,56 @@ let's see if you can do it again!</string>
                                     <constraint firstAttribute="height" constant="44" id="4pa-D0-cZv"/>
                                 </constraints>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" background="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7bk-XS-j1L">
                                 <rect key="frame" x="40" y="172" width="334" height="44"/>
                                 <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" textContentType="new-password"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tFs-bR-GsJ">
                                 <rect key="frame" x="40" y="262" width="334" height="44"/>
                                 <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" textContentType="new-password"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBl-hR-no9">
-                                <rect key="frame" x="40" y="351" width="334" height="34"/>
+                                <rect key="frame" x="40" y="336" width="334" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="HSH-ut-Bqj"/>
+                                    <constraint firstAttribute="height" constant="40" id="HSH-ut-Bqj"/>
                                 </constraints>
                                 <color key="tintColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Submit"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="changePassword:" destination="WYf-Vs-Zqd" eventType="touchUpInside" id="2FD-sX-F8o"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F78-zW-OUq">
-                                <rect key="frame" x="40" y="90" width="160" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F78-zW-OUq">
+                                <rect key="frame" x="40" y="90" width="163" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="3bG-ip-Lpk"/>
                                     <constraint firstAttribute="height" constant="35" id="ICs-Cm-jw8"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Forgot Password?"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Forgot Password?">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                </buttonConfiguration>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cEa-7g-RcQ"/>
@@ -1872,7 +1880,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="cEa-7g-RcQ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Oi1-G0-FuZ" secondAttribute="trailing" symbolic="YES" id="d7f-l8-Rso"/>
                             <constraint firstItem="7bk-XS-j1L" firstAttribute="top" secondItem="p21-NT-SL9" secondAttribute="bottom" constant="10" id="eEg-cd-tAO"/>
                             <constraint firstItem="tFs-bR-GsJ" firstAttribute="centerX" secondItem="gws-56-G0O" secondAttribute="centerX" id="fC8-DH-9ZS"/>
-                            <constraint firstItem="DBl-hR-no9" firstAttribute="top" secondItem="tFs-bR-GsJ" secondAttribute="bottom" constant="45" id="g1m-uz-yGa"/>
+                            <constraint firstItem="DBl-hR-no9" firstAttribute="top" secondItem="tFs-bR-GsJ" secondAttribute="bottom" constant="30" id="g1m-uz-yGa"/>
                             <constraint firstItem="cEa-7g-RcQ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1XD-hx-WRY" secondAttribute="trailing" symbolic="YES" id="i7v-3e-H4C"/>
                             <constraint firstItem="7bk-XS-j1L" firstAttribute="leading" secondItem="Oi1-G0-FuZ" secondAttribute="leading" id="iRx-aa-542"/>
                             <constraint firstItem="tFs-bR-GsJ" firstAttribute="top" secondItem="1XD-hx-WRY" secondAttribute="bottom" constant="5" id="ldV-s2-CGt"/>
@@ -1926,20 +1934,22 @@ let's see if you can do it again!</string>
                                     <constraint firstAttribute="height" constant="44" id="1JE-dm-hdp"/>
                                 </constraints>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyJ-1c-ih1">
-                                <rect key="frame" x="40" y="130" width="334" height="34"/>
+                                <rect key="frame" x="40" y="115" width="334" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="mAm-uW-Ipe"/>
+                                    <constraint firstAttribute="height" constant="40" id="mAm-uW-Ipe"/>
                                 </constraints>
                                 <color key="tintColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Submit"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="changePhoneNumber:" destination="4Pp-SF-Dyh" eventType="touchUpInside" id="pbb-iV-0Qj"/>
                                 </connections>
@@ -1955,7 +1965,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="HZq-sZ-F7j" firstAttribute="top" secondItem="m73-3X-IRO" secondAttribute="top" constant="10" id="4Sz-N2-KZg"/>
                             <constraint firstItem="dyJ-1c-ih1" firstAttribute="centerX" secondItem="pYs-jE-Sd5" secondAttribute="centerX" id="HVi-eX-S4C"/>
                             <constraint firstItem="aph-xT-Tx0" firstAttribute="leading" secondItem="HZq-sZ-F7j" secondAttribute="leading" id="UgD-H9-Kwo"/>
-                            <constraint firstItem="dyJ-1c-ih1" firstAttribute="top" secondItem="aph-xT-Tx0" secondAttribute="bottom" constant="45" id="VQH-Dv-kEj"/>
+                            <constraint firstItem="dyJ-1c-ih1" firstAttribute="top" secondItem="aph-xT-Tx0" secondAttribute="bottom" constant="30" id="VQH-Dv-kEj"/>
                             <constraint firstItem="HZq-sZ-F7j" firstAttribute="leading" secondItem="m73-3X-IRO" secondAttribute="leading" constant="40" id="sYC-NC-kks">
                                 <variation key="heightClass=regular-widthClass=regular" constant="150"/>
                             </constraint>
@@ -2001,10 +2011,10 @@ let's see if you can do it again!</string>
                                     <constraint firstAttribute="height" constant="44" id="6dw-Fi-SGE"/>
                                 </constraints>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gz-lt-LoR">
@@ -2023,20 +2033,22 @@ let's see if you can do it again!</string>
                                     <constraint firstAttribute="height" constant="44" id="5wF-a0-eT6"/>
                                 </constraints>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hY-aX-YZ2">
-                                <rect key="frame" x="40" y="218" width="334" height="34"/>
+                                <rect key="frame" x="40" y="203" width="334" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="fbq-K3-dYl"/>
+                                    <constraint firstAttribute="height" constant="40" id="fbq-K3-dYl"/>
                                 </constraints>
                                 <color key="tintColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Submit"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="updateEmail:" destination="3Uk-oz-HBZ" eventType="touchUpInside" id="qDH-5a-n9C"/>
                                 </connections>
@@ -2060,7 +2072,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="5hY-aX-YZ2" firstAttribute="centerX" secondItem="OKY-l6-Eix" secondAttribute="centerX" id="ghe-AN-bYp"/>
                             <constraint firstItem="a93-w7-jLn" firstAttribute="leading" secondItem="zsS-ME-Jyn" secondAttribute="leading" id="l1P-gM-0dS"/>
                             <constraint firstItem="b7j-rl-LQ4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Gz-lt-LoR" secondAttribute="trailing" symbolic="YES" id="qLQ-u2-xmy"/>
-                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="top" secondItem="a93-w7-jLn" secondAttribute="bottom" constant="45" id="svx-zU-zDi"/>
+                            <constraint firstItem="5hY-aX-YZ2" firstAttribute="top" secondItem="a93-w7-jLn" secondAttribute="bottom" constant="30" id="svx-zU-zDi"/>
                             <constraint firstItem="zsS-ME-Jyn" firstAttribute="top" secondItem="b7j-rl-LQ4" secondAttribute="top" constant="10" id="zFO-d4-eje"/>
                             <constraint firstItem="a93-w7-jLn" firstAttribute="centerX" secondItem="OKY-l6-Eix" secondAttribute="centerX" id="zay-ey-6Cy"/>
                         </constraints>
@@ -2103,18 +2115,20 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="0.0" y="49" width="414" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4U-Dd-E5t">
-                                        <rect key="frame" x="25" y="17" width="41" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="25" y="15.5" width="47" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToY-gD-ffS">
-                                        <rect key="frame" x="320" y="10.5" width="54" height="34"/>
+                                        <rect key="frame" x="318.5" y="10.5" width="55.5" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="Qb1-LI-xUE"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Edit"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Edit">
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <segue destination="3Uk-oz-HBZ" kind="show" id="Jcm-Ti-m66"/>
                                         </connections>
@@ -2134,18 +2148,20 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="0.0" y="105" width="414" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYV-WQ-Ilv">
-                                        <rect key="frame" x="25" y="17" width="73.5" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="25" y="15.5" width="85" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0P-dA-JW1">
-                                        <rect key="frame" x="320" y="10.5" width="54" height="34"/>
+                                        <rect key="frame" x="318.5" y="10.5" width="55.5" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="yIM-gz-3HU"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Edit"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Edit">
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <segue destination="WYf-Vs-Zqd" kind="show" id="Ss0-vg-1fX"/>
                                         </connections>
@@ -2162,18 +2178,20 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="0.0" y="161" width="414" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqe-Uc-a3S">
-                                        <rect key="frame" x="25" y="17" width="48.5" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="25" y="15.5" width="56" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maZ-qb-rgK">
-                                        <rect key="frame" x="320" y="10.5" width="54" height="34"/>
+                                        <rect key="frame" x="318.5" y="10.5" width="55.5" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="DHM-hl-Bx4"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Edit"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Edit">
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <segue destination="4Pp-SF-Dyh" kind="show" id="Uxj-tD-wYi"/>
                                         </connections>
@@ -2190,23 +2208,25 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="0.0" y="217" width="414" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCv-Py-RrC">
-                                        <rect key="frame" x="25" y="17" width="76.5" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="25" y="15.5" width="88" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="88" id="St2-WO-d6I"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="dRe-f1-NOI">
-                                        <rect key="frame" x="249" y="10.5" width="125" height="34.5"/>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="dRe-f1-NOI">
+                                        <rect key="frame" x="249" y="10" width="125" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="125" id="G8A-XG-k1N"/>
-                                            <constraint firstAttribute="height" constant="34.5" id="fWn-6K-o8Q"/>
+                                            <constraint firstAttribute="width" constant="125" id="aaX-bP-aJF"/>
+                                            <constraint firstAttribute="height" constant="35" id="fWn-6K-o8Q"/>
                                         </constraints>
                                     </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="pCv-Py-RrC" firstAttribute="centerY" secondItem="uGg-yl-nPk" secondAttribute="centerY" id="Fbw-0A-930"/>
-                                    <constraint firstItem="dRe-f1-NOI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pCv-Py-RrC" secondAttribute="trailing" constant="8" symbolic="YES" id="oaZ-sO-fDM"/>
                                     <constraint firstItem="dRe-f1-NOI" firstAttribute="centerY" secondItem="uGg-yl-nPk" secondAttribute="centerY" id="pd1-Od-rm8"/>
                                 </constraints>
                             </view>
@@ -2214,16 +2234,19 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="0.0" y="273" width="414" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F19-4O-Dfk">
-                                        <rect key="frame" x="25" y="17" width="115" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="25" y="15.5" width="132" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="132" id="WYO-Yu-feX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="K5O-ZN-4dA">
-                                        <rect key="frame" x="254" y="9.5" width="120" height="36"/>
+                                    <datePicker autoresizesSubviews="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="K5O-ZN-4dA">
+                                        <rect key="frame" x="249" y="10" width="125" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="Hka-ze-a0F"/>
-                                            <constraint firstAttribute="height" constant="36" id="qd0-1j-D5p"/>
+                                            <constraint firstAttribute="width" constant="125" id="OGN-fV-xmU"/>
+                                            <constraint firstAttribute="height" constant="35" id="qd0-1j-D5p"/>
                                         </constraints>
                                     </datePicker>
                                 </subviews>
@@ -2231,13 +2254,13 @@ let's see if you can do it again!</string>
                                 <constraints>
                                     <constraint firstItem="K5O-ZN-4dA" firstAttribute="centerY" secondItem="Ban-MT-yE6" secondAttribute="centerY" id="FnW-4P-KHY"/>
                                     <constraint firstItem="F19-4O-Dfk" firstAttribute="centerY" secondItem="Ban-MT-yE6" secondAttribute="centerY" id="dWY-PP-c79"/>
-                                    <constraint firstItem="K5O-ZN-4dA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F19-4O-Dfk" secondAttribute="trailing" constant="8" symbolic="YES" id="fTG-Pn-axY"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWQ-Iu-213">
-                                <rect key="frame" x="40" y="437" width="334" height="34"/>
+                                <rect key="frame" x="40" y="443" width="334" height="40"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log Out">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                     <color key="baseBackgroundColor" red="0.17964804292929293" green="0.17964804292929293" blue="0.17964804292929293" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -2245,12 +2268,13 @@ let's see if you can do it again!</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0I-cU-N5g">
-                                <rect key="frame" x="40" y="373" width="334" height="34"/>
+                                <rect key="frame" x="40" y="373" width="334" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="cpx-0K-8zp"/>
+                                    <constraint firstAttribute="height" constant="40" id="cpx-0K-8zp"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Update">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                     <color key="baseBackgroundColor" systemColor="tableCellBlueTextColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -2350,14 +2374,14 @@ let's see if you can do it again!</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="support@pushstand.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYg-5B-XAS">
-                                <rect key="frame" x="111" y="174.5" width="192" height="20.5"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="support@pushstand.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYg-5B-XAS">
+                                <rect key="frame" x="105.5" y="169.5" width="203" height="21.5"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                 <color key="textColor" red="0.36473633837561459" green="0.62227856874657406" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Should you want to delete your account, tap the button below to begin that process." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0R-b5-T14">
-                                <rect key="frame" x="40" y="245" width="334" height="41"/>
+                                <rect key="frame" x="40" y="241" width="334" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2366,13 +2390,15 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rth-5r-YoZ">
-                                <rect key="frame" x="40" y="331" width="334" height="34"/>
+                                <rect key="frame" x="40" y="327" width="334" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="enF-iH-47M"/>
+                                    <constraint firstAttribute="height" constant="40" id="enF-iH-47M"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Begin Deletion Process"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Begin Deletion Process">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="beginAccountDeletion:" destination="maM-AB-keT" eventType="touchUpInside" id="Rt0-Tc-dux"/>
                                     <segue destination="X5p-Ox-8EO" kind="show" id="TNx-aU-A65"/>
@@ -2388,7 +2414,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="q0R-b5-T14" firstAttribute="leading" secondItem="F9R-ED-813" secondAttribute="leading" id="EfO-h7-oZj"/>
                             <constraint firstItem="rth-5r-YoZ" firstAttribute="top" secondItem="q0R-b5-T14" secondAttribute="bottom" constant="45" id="Kxf-s8-UnG"/>
                             <constraint firstItem="q0R-b5-T14" firstAttribute="centerX" secondItem="8d1-sY-982" secondAttribute="centerX" id="RH1-U5-awm"/>
-                            <constraint firstItem="YYg-5B-XAS" firstAttribute="top" secondItem="F9R-ED-813" secondAttribute="bottom" constant="25" id="dDS-Be-yab"/>
+                            <constraint firstItem="YYg-5B-XAS" firstAttribute="top" secondItem="F9R-ED-813" secondAttribute="bottom" constant="20" id="dDS-Be-yab"/>
                             <constraint firstItem="rth-5r-YoZ" firstAttribute="centerX" secondItem="8d1-sY-982" secondAttribute="centerX" id="l04-ZV-vPb"/>
                             <constraint firstItem="YYg-5B-XAS" firstAttribute="centerX" secondItem="8d1-sY-982" secondAttribute="centerX" id="lDV-jp-OmB"/>
                             <constraint firstItem="F9R-ED-813" firstAttribute="leading" secondItem="geM-F7-1bF" secondAttribute="leading" constant="40" id="t7p-TS-x4R">
@@ -2423,19 +2449,21 @@ let's see if you can do it again!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRb-hQ-MHW">
-                                <rect key="frame" x="40" y="267" width="334" height="34"/>
+                                <rect key="frame" x="40" y="267" width="334" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="yH0-da-juI"/>
+                                    <constraint firstAttribute="height" constant="40" id="yH0-da-juI"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Delete Account"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Delete Account">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="deleteAccount:" destination="X5p-Ox-8EO" eventType="touchUpInside" id="EZ9-Vv-3P7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isz-NL-ddh">
-                                <rect key="frame" x="40" y="331" width="334" height="72"/>
+                                <rect key="frame" x="40" y="337" width="334" height="72"/>
                                 <string key="text">We retain account information as necessary for certain purposes, such as fulfilling our legal obligations.  We delete this account information once our internal hold period expires.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2457,10 +2485,10 @@ let's see if you can do it again!</string>
                                     <constraint firstAttribute="height" constant="44" id="eS2-YM-W0J"/>
                                 </constraints>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </textField>
                         </subviews>
@@ -2652,17 +2680,18 @@ let's see if you can do it again!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRp-AU-nEc">
-                                <rect key="frame" x="50" y="690" width="314" height="34"/>
+                                <rect key="frame" x="50" y="672" width="314" height="40"/>
                                 <color key="backgroundColor" systemColor="tintColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="XTf-4T-V5G">
+                                    <constraint firstAttribute="height" constant="40" id="XTf-4T-V5G">
                                         <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                     </constraint>
                                 </constraints>
                                 <color key="tintColor" systemColor="tintColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Join Now"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Join Now">
+                                <buttonConfiguration key="configuration" style="filled" title="Join Now" cornerStyle="dynamic">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" systemColor="tableCellBlueTextColor"/>
                                 </buttonConfiguration>
@@ -2691,9 +2720,10 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNJ-a0-hU2">
-                                <rect key="frame" x="50" y="803" width="314" height="34"/>
+                                <rect key="frame" x="50" y="797" width="314" height="40"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Learn More">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -2701,10 +2731,11 @@ let's see if you can do it again!</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5L-hr-I1R">
-                                <rect key="frame" x="50" y="749" width="314" height="34"/>
+                                <rect key="frame" x="50" y="737" width="314" height="40"/>
                                 <color key="tintColor" systemColor="tableCellBlueTextColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log In">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.48606632266604155" green="0.49134010658286448" blue="0.50716145833333326" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
@@ -2769,15 +2800,16 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiH-gK-CbQ">
-                                <rect key="frame" x="50" y="197" width="314" height="34"/>
+                                <rect key="frame" x="50" y="197" width="314" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="P9u-ru-gpb">
+                                    <constraint firstAttribute="height" constant="40" id="P9u-ru-gpb">
                                         <variation key="heightClass=regular-widthClass=regular" constant="44"/>
                                     </constraint>
                                 </constraints>
                                 <color key="tintColor" red="0.25190125373181854" green="0.76942896842956543" blue="0.55306429305408356" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign in with phone #">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.35294118520000001" green="0.76862752440000004" blue="0.55294120309999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
@@ -2786,7 +2818,7 @@ let's see if you can do it again!</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Service and Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8R-9A-RLh">
-                                <rect key="frame" x="0.0" y="353" width="414" height="17"/>
+                                <rect key="frame" x="0.0" y="359" width="414" height="17"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2796,7 +2828,7 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up, you agree to Push Stand's" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNc-0f-Wh3">
-                                <rect key="frame" x="0.0" y="331" width="414" height="17"/>
+                                <rect key="frame" x="0.0" y="337" width="414" height="17"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2854,7 +2886,7 @@ let's see if you can do it again!</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 </variation>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdB-kZ-Nbd">
@@ -2864,10 +2896,10 @@ let's see if you can do it again!</string>
                                     <constraint firstAttribute="height" constant="44" id="iBl-q9-zUf"/>
                                 </constraints>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" textContentType="tel"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuU-kF-WiP">
@@ -2982,24 +3014,24 @@ let's see if you can do it again!</string>
                                     <constraint firstAttribute="height" constant="44" id="OLe-nk-1Ee"/>
                                 </constraints>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ua5-RS-02y">
-                                <rect key="frame" x="50" y="267" width="314" height="44"/>
+                                <rect key="frame" x="50" y="252" width="314" height="44"/>
                                 <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gps-OO-LZD">
-                                <rect key="frame" x="164.5" y="386" width="85" height="50"/>
+                                <rect key="frame" x="164.5" y="371" width="85" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tSu-xl-nJ9"/>
                                 </constraints>
@@ -3019,7 +3051,7 @@ let's see if you can do it again!</string>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gps-OO-LZD" firstAttribute="centerX" secondItem="eCe-T2-UoY" secondAttribute="centerX" id="04V-GJ-ylo"/>
-                            <constraint firstItem="ua5-RS-02y" firstAttribute="top" secondItem="4tG-eD-CTi" secondAttribute="bottom" constant="35" id="2as-BO-AMJ">
+                            <constraint firstItem="ua5-RS-02y" firstAttribute="top" secondItem="4tG-eD-CTi" secondAttribute="bottom" constant="20" id="2as-BO-AMJ">
                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                             </constraint>
                             <constraint firstItem="4tG-eD-CTi" firstAttribute="top" secondItem="6GF-aZ-4ur" secondAttribute="bottom" constant="45" id="73b-vA-n2w">
@@ -3390,30 +3422,31 @@ let's see if you can do it again!</string>
                                     <constraint firstAttribute="height" constant="44" id="wSB-1w-DwD"/>
                                 </constraints>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AhX-R1-G3Q">
-                                <rect key="frame" x="50" y="276" width="314" height="44"/>
+                                <rect key="frame" x="50" y="261" width="314" height="44"/>
                                 <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" systemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08Z-7A-qLS">
-                                <rect key="frame" x="50" y="390" width="314" height="34"/>
+                                <rect key="frame" x="50" y="375" width="314" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="mRd-Pu-vpK"/>
+                                    <constraint firstAttribute="height" constant="40" id="mRd-Pu-vpK"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="tintColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" systemColor="tintColor"/>
                                 </buttonConfiguration>
@@ -3422,12 +3455,13 @@ let's see if you can do it again!</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAx-y4-SUf">
-                                <rect key="frame" x="199.5" y="330" width="164.5" height="34"/>
+                                <rect key="frame" x="196" y="315" width="168" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="Snb-2Q-GgJ"/>
+                                    <constraint firstAttribute="height" constant="35" id="Snb-2Q-GgJ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Forgot Password ?">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -3455,7 +3489,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="AhX-R1-G3Q" firstAttribute="leading" secondItem="5IE-qf-vpx" secondAttribute="leading" id="abm-2h-7bm"/>
                             <constraint firstItem="08Z-7A-qLS" firstAttribute="centerX" secondItem="7RU-68-8z4" secondAttribute="centerX" id="hKl-Fp-QZr"/>
                             <constraint firstItem="AhX-R1-G3Q" firstAttribute="height" secondItem="5IE-qf-vpx" secondAttribute="height" id="lNg-uj-EW2"/>
-                            <constraint firstItem="AhX-R1-G3Q" firstAttribute="top" secondItem="5IE-qf-vpx" secondAttribute="bottom" constant="35" id="m2A-bR-PKF">
+                            <constraint firstItem="AhX-R1-G3Q" firstAttribute="top" secondItem="5IE-qf-vpx" secondAttribute="bottom" constant="20" id="m2A-bR-PKF">
                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                             </constraint>
                             <constraint firstItem="c1F-Ai-BbO" firstAttribute="centerX" secondItem="7RU-68-8z4" secondAttribute="centerX" id="vhg-t8-Uka"/>
@@ -3760,12 +3794,14 @@ Will you STAND with us?</string>
                                 <rect key="frame" x="0.0" y="579" width="414" height="317"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZW-C5-Yyi">
-                                        <rect key="frame" x="50" y="141.5" width="314" height="34"/>
+                                        <rect key="frame" x="50" y="138.5" width="314" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="BHg-CJ-op9"/>
+                                            <constraint firstAttribute="height" constant="40" id="BHg-CJ-op9"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Refresh"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Refresh">
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                        </buttonConfiguration>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3878,7 +3914,7 @@ Will you STAND with us?</string>
         <image name="line.3.horizontal.decrease.circle.fill" catalog="system" width="128" height="123"/>
         <image name="nay-selected" width="570" height="396"/>
         <image name="nay-unselected" width="570" height="396"/>
-        <image name="parachute-crate" width="2048" height="2048"/>
+        <image name="parachute-crate-2" width="2048" height="2048"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.3" catalog="system" width="128" height="66"/>
         <image name="person.3.fill" catalog="system" width="128" height="66"/>

@@ -13,22 +13,27 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+ 
         switch indexPath.row {
         case 0:
             let cell = settingsTableView.dequeueReusableCell(withIdentifier: "settings", for: indexPath)
             cell.textLabel?.text = "Settings"
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
             return cell
         case 1:
             let cell = settingsTableView.dequeueReusableCell(withIdentifier: "terms", for: indexPath)
             cell.textLabel?.text = "Terms of Service"
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
             return cell
         case 2:
             let cell = settingsTableView.dequeueReusableCell(withIdentifier: "privacy", for: indexPath)
             cell.textLabel?.text = "Privacy Policy"
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
             return cell
         case 3:
             let cell = settingsTableView.dequeueReusableCell(withIdentifier: "help", for: indexPath)
             cell.textLabel?.text = "Help Center"
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
             return cell
         default:
             fatalError("Unexpected indexPath")

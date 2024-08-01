@@ -32,33 +32,67 @@ class CircularProgressBar: UIView {
         // THIS FIXED THE ISSUE WE'VE BEEN HAVING!
         createCircularPath()
     }
-    
+//  Old code for dash and gap aesthetics
+//    private func createCircularPath() {
+//
+//        self.backgroundColor = .clear
+//        // This will adjust how long each dash (lineWidth) is depending on circle dimensions
+//        // So smaller phones should have shorter lineWidth
+//        let lineWidth = min(bounds.width, bounds.height) * 0.1
+//        let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.height / 2.0), startAngle: -CGFloat.pi / 2, endAngle: 1.5 * CGFloat.pi, clockwise: true)
+//        
+//        // Track layer
+//        trackLayer.path = circlePath.cgPath
+//        trackLayer.fillColor = UIColor.clear.cgColor
+//        trackLayer.strokeColor = UIColor.darkGray.cgColor
+//        trackLayer.lineWidth = lineWidth
+//        trackLayer.lineDashPattern = [3.0,4.0]
+//        trackLayer.strokeEnd = 1.0
+//        layer.addSublayer(trackLayer)
+//        
+//        // Progress layer
+//        progressLayer.path = circlePath.cgPath
+//        progressLayer.fillColor = UIColor.clear.cgColor
+//        progressLayer.strokeColor = UIColor.white.cgColor
+//        progressLayer.lineWidth = lineWidth
+//        progressLayer.lineDashPattern = [3.0,4.0]
+//        progressLayer.strokeEnd = 0.0 // Initially set to 0
+//        layer.addSublayer(progressLayer)
+//        
+//    }
+   //   new code for dash and gap aesthetics
     private func createCircularPath() {
-
         self.backgroundColor = .clear
-        // This will adjust how long each dash (lineWidth) is depending on circle dimensions
-        // So smaller phones should have shorter lineWidth
-        let lineWidth = min(bounds.width, bounds.height) * 0.1
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.height / 2.0), startAngle: -CGFloat.pi / 2, endAngle: 1.5 * CGFloat.pi, clockwise: true)
+        let radius = min(bounds.width, bounds.height) / 2.0
+        let circumference = 2 * CGFloat.pi * radius
+        let totalDashPatternLength = circumference / 100
+        let dashLength = totalDashPatternLength * 0.3 // 30% dash, 70% gap
+        let gapLength = totalDashPatternLength - dashLength
+
+        let circlePath = UIBezierPath(
+            arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0),
+            radius: radius,
+            startAngle: -CGFloat.pi / 2,
+            endAngle: 1.5 * CGFloat.pi,
+            clockwise: true
+        )
         
-        // Track layer
+        let lineWidth = min(bounds.width, bounds.height) * 0.1
         trackLayer.path = circlePath.cgPath
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.strokeColor = UIColor.darkGray.cgColor
         trackLayer.lineWidth = lineWidth
-        trackLayer.lineDashPattern = [3.0,4.0]
+        trackLayer.lineDashPattern = [dashLength as NSNumber, gapLength as NSNumber]
         trackLayer.strokeEnd = 1.0
         layer.addSublayer(trackLayer)
         
-        // Progress layer
         progressLayer.path = circlePath.cgPath
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.strokeColor = UIColor.white.cgColor
         progressLayer.lineWidth = lineWidth
-        progressLayer.lineDashPattern = [3.0,4.0]
+        progressLayer.lineDashPattern = [dashLength as NSNumber, gapLength as NSNumber]
         progressLayer.strokeEnd = 0.0 // Initially set to 0
         layer.addSublayer(progressLayer)
-        
     }
     
     private func animateProgress(to value: CGFloat) {
