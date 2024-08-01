@@ -72,9 +72,11 @@ class SignInViewController: UIViewController {
                         case .success(let json):
                             if let answer = json["UserAnswer"] as? String,
                                let question = json["Question"] as? String {
-                                UserDefaults.standard.set(true, forKey: "question-" + Time.getDateFormatted())
-                                self.appDelegate.userDefault.set(true, forKey: "question-" + Time.getDateFormatted())
-                                self.appDelegate.userDefault.synchronize()
+                                if !answer.isEmpty {
+                                    UserDefaults.standard.set(true, forKey: "question-" + Time.getDateFormatted())
+                                    self.appDelegate.userDefault.set(true, forKey: "question-" + Time.getDateFormatted())
+                                    self.appDelegate.userDefault.synchronize()
+                                }
                                 guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController") as? UITabBarController else { return }
                                 
                                 if #available(iOS 15, *) {
