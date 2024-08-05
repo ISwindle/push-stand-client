@@ -419,7 +419,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -1430,7 +1430,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="570" width="414" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="WKY-V7-7fx">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1441,7 +1441,7 @@ Stands</string>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Americans Standing Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="6cQ-TE-pqg">
-                                        <rect key="frame" x="0.0" y="51.5" width="414" height="36.5"/>
+                                        <rect key="frame" x="0.0" y="52" width="414" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1459,7 +1459,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-MC-Zfc" userLabel="Global Standing Today">
-                                <rect key="frame" x="181" y="570" width="52" height="51.5"/>
+                                <rect key="frame" x="181" y="570" width="52" height="52"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fv2-MC-Zfc" secondAttribute="height" multiplier="1:1" id="T9c-N2-bMj"/>
@@ -2400,7 +2400,6 @@ let's see if you can do it again!</string>
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="beginAccountDeletion:" destination="maM-AB-keT" eventType="touchUpInside" id="Rt0-Tc-dux"/>
                                     <segue destination="X5p-Ox-8EO" kind="show" id="TNx-aU-A65"/>
                                 </connections>
                             </button>
@@ -2425,9 +2424,6 @@ let's see if you can do it again!</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Help Center" id="riF-Dz-02M"/>
-                    <connections>
-                        <outlet property="accountDeletionButton" destination="rth-5r-YoZ" id="sXV-5S-tL8"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6k4-mL-Lsl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

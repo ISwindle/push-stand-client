@@ -138,7 +138,7 @@ class AccountEmailViewController: UIViewController {
                     }
                 }
             } else {
-                self.showAlert(title: "Error", message: "Re-authentication failed: \(error?.localizedDescription ?? "Unknown error")")
+                self.showAlert(title: "Incorrect Password", message: "The password you entered is incorrect.  Please try again.")
             }
         }
         

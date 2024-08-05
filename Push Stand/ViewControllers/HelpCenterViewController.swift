@@ -14,12 +14,13 @@ class HelpCenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    }
-    
-    @IBAction func beginAccountDeletion(_ sender: Any) {
-        if let viewController = storyboard?.instantiateViewController(withIdentifier: ViewControllers.accountDeletionViewController) as? AccountDeletionViewController {
-            navigationController?.pushViewController(viewController, animated: true)
-        }
-    }
+//    }
+//    Don't need this because segue was created on storyboard, was making next controller to appear x2
+        
+//    @IBAction func beginAccountDeletion(_ sender: Any) {
+//        if let viewController = storyboard?.instantiateViewController(withIdentifier: ViewControllers.accountDeletionViewController) as? AccountDeletionViewController {
+//            navigationController?.pushViewController(viewController, animated: true)
+//        }
+      }
 
 }

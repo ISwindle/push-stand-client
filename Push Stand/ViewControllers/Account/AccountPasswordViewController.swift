@@ -30,7 +30,7 @@ class AccountPasswordViewController: UIViewController {
         currentUser.reauthenticate(with: credential) { [weak self] authResult, error in
             guard let self = self else { return }
             if let error = error {
-                self.showAlert(title: "Error", message: error.localizedDescription)
+                self.showAlert(title: "Incorrect Password", message: "The password you entered is incorrect.  Please try again.")
                 return
             }
             

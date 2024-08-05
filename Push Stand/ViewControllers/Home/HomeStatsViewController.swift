@@ -84,9 +84,15 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     @objc func standProgressBarTapped() {
+        standProgressBar.isUserInteractionEnabled = false
         standProgressBar.animateQuickColorChange()
         should_not_rev = false
         fetchDataAndUpdateUI()
+        
+        //Timed delay where user interaction is NOT enabled
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.standProgressBar.isUserInteractionEnabled = true
+        }
     }
     
     func presentLoadingIcons(){
