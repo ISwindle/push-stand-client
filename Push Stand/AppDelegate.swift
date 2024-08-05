@@ -28,8 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // Set current user UID from user defaults
         currentUser.uid = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.userId)
         
+        // Set badge if user is signed in
+        if isUserSignedIn() {
+            appStateViewModel.setAppBadgeCount(to: 2)
+        }
+        
         // Observe changes in badge count
-        observeBadgeCount()
+        //observeBadgeCount()
         
         // Set UNUserNotificationCenter delegate
         let notificationCenter = UNUserNotificationCenter.current()
@@ -48,13 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         return true
     }
     
-    func observeBadgeCount() {
-        appStateViewModel.$badgeCount
-            .receive(on: DispatchQueue.main)
-            .sink { newBadgeCount in
-                UIApplication.shared.applicationIconBadgeNumber = newBadgeCount
-            }
-            .store(in: &cancellables)
+    func isUserSignedIn() -> Bool {
+        return currentUser.uid != nil
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {

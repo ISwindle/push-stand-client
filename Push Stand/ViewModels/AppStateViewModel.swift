@@ -1,9 +1,9 @@
 import Foundation
+import UIKit
 import Combine
 
 class AppStateViewModel: ObservableObject {
     @Published var currentDay: Date = Date()
-    @Published var badgeCount: Int = 0
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -40,6 +40,9 @@ class AppStateViewModel: ObservableObject {
     private func resetAppState() {
         // Reset your app's state here
         currentDay = Date()
-        badgeCount = 2
+    }
+    
+    public func setAppBadgeCount(to count: Int) {
+        UIApplication.shared.applicationIconBadgeNumber = count
     }
 }

@@ -11,6 +11,7 @@ class DailyQuestionViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    // MARK: - Outlets
     @IBOutlet weak var dailyQuestionTitle: UILabel!
     @IBOutlet weak var yesterdaysResultsTitle: UILabel!
     @IBOutlet weak var flameSteakImage: UIImageView!
@@ -20,10 +21,8 @@ class DailyQuestionViewController: UIViewController {
     @IBOutlet weak var thumbsDownAnswer: UIImageView!
     @IBOutlet weak var thumbsUpAnswer: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
-    
     @IBOutlet weak var questionLoadingView: UIView!
     @IBOutlet weak var tabBarItemBadge: UITabBarItem!
-    
     @IBOutlet weak var todaysQuestionView: UIView!
     @IBOutlet weak var yesterdaysResultsView: UIView!
     @IBOutlet weak var yesterdaysQuestion: UIView!
@@ -34,69 +33,39 @@ class DailyQuestionViewController: UIViewController {
     @IBOutlet weak var yesterdayThumbsDown: UIImageView!
     @IBOutlet weak var yesterdayThumbsUp: UIImageView!
     @IBOutlet weak var questionBot: UIImageView!
-    
     @IBOutlet weak var submitAfterSelection: UIView!
-    
     @IBOutlet weak var bonusAnswerView: UIVisualEffectView!
     @IBOutlet weak var streakFillButton: UIButton!
     
+    // MARK: - Properties
     var answerStreak = Defaults.int
     var activeAnswer: Bool = false
     
+    // MARK: - Structs
     struct DailyQuestion: Codable {
         let question: String
         let truePercentage: Int
         let falsePercentage: Int
     }
     
-    fileprivate func updateQuestionBadge() {
-        if let tabBarController = self.tabBarController {
-            // Access the tab bar items
-            if let tabBarItems = tabBarController.tabBar.items {
-                // Ensure there are enough tab bar items
-                if tabBarItems.count > 1 {
-                    // Access the tab bar item at the specified index (e.g., index 1)
-                    let tabBarItem = tabBarItems[1]
-                    
-                    // Set a new image for the tab bar item
-                    tabBarItem.badgeValue = nil
-                }
-            }
-        }
-    }
-    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGestureRecognizers()
-        let defaults = UserDefaults.standard
-        let dictionary = defaults.dictionaryRepresentation()
-        
-        for (key, value) in dictionary {
-            print("\(key): \(value)")
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        resetUI()
-        
-        //added so that questionLoadingView always appear first, no blank screen
-        //also acts as a way to reiterate why we are answering the question
-        self.questionLoadingView.alpha = Constants.fullAlpha
-        self.questionLoadingView.isHidden = false
-        
-        if UserDefaults.standard.bool(forKey: "question-" + Time.getDateFormatted()) {
-            self.dailyQuestionTitle.alpha = Constants.zeroAlpha
-            self.yesterdaysResultsTitle.alpha = Constants.fullAlpha
-            fetchYesterdaysQuestion()
-        } else {
-            self.dailyQuestionTitle.alpha = Constants.fullAlpha
-            self.yesterdaysResultsTitle.alpha = Constants.zeroAlpha
-            fetchDailyQuestion()
-        }
-        
+        setupInitialView()
+        selectQuestionView()
         fetchQuestionStreak()
-        
+    }
+    
+    // MARK: - Setup Methods
+    private func setupInitialView() {
+        resetUI()
+        questionLoadingView.alpha = Constants.fullAlpha
+        questionLoadingView.isHidden = false
     }
     
     private func setupGestureRecognizers() {
@@ -124,33 +93,47 @@ class DailyQuestionViewController: UIViewController {
         streakSegmentedBar.selectedColor = .systemBlue
     }
     
+    // MARK: - Fetch Methods
     private func fetchQuestionStreak() {
-        let answerStreakQueryParams = ["userId": CurrentUser.shared.uid!]
-        NetworkService.shared.request(endpoint: .streaksAnswers, method: HTTPVerbs.get.rawValue, queryParams: answerStreakQueryParams) { (result: Result<[String: Any], Error>) in
+        guard let userId = CurrentUser.shared.uid else {
+            print("Error: User ID is nil")
+            return
+        }
+
+        let queryParams = [Constants.UserDefaultsKeys.userId: userId]
+        fetchStreakData(with: queryParams) { result in
             DispatchQueue.main.async {
-                switch result {
-                case .success(let json):
-                    if let streaks = json["streak_count"] as? Int {
-                        self.answerStreak = streaks
-                        self.streakSegmentedBar.value = self.answerStreak % 10
-                    }
-                case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
-                }
+                self.handleFetchResult(result)
             }
+        }
+    }
+
+    private func fetchStreakData(with queryParams: [String: String], completion: @escaping (Result<[String: Any], Error>) -> Void) {
+        NetworkService.shared.request(endpoint: .streaksAnswers, method: HTTPVerbs.get.rawValue, queryParams: queryParams, completion: completion)
+    }
+
+    private func handleFetchResult(_ result: Result<[String: Any], Error>) {
+        switch result {
+        case .success(let json):
+            if let streaks = json["streak_count"] as? Int {
+                self.answerStreak = streaks
+                self.streakSegmentedBar.value = streaks % 10
+            } else {
+                print("Error: Invalid response format")
+            }
+        case .failure(let error):
+            print("Error fetching streak: \(error.localizedDescription)")
         }
     }
     
     private func fetchDailyQuestion() {
-        let dailyQuestionsQueryParams = ["userId": CurrentUser.shared.uid!, "Date": Time.getDateFormatted()]
-        print("Question")
+        let dailyQuestionsQueryParams = [Constants.UserDefaultsKeys.userId: CurrentUser.shared.uid!, "Date": Time.getDateFormatted()]
         NetworkService.shared.request(endpoint: .questions, method: HTTPVerbs.get.rawValue, queryParams: dailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
                     if let answer = json["UserAnswer"] as? String,
                        let question = json["Question"] as? String {
-                        print(answer.isEmpty)
                         if !answer.isEmpty {
                             self.fetchYesterdaysQuestion()
                             self.saveQuestionAnswerToUserDefaults(for: Time.getDateFormatted())
@@ -166,7 +149,6 @@ class DailyQuestionViewController: UIViewController {
                 }
             }
         }
-        print("Question After")
     }
     
     private func fetchYesterdaysQuestion() {
@@ -181,6 +163,7 @@ class DailyQuestionViewController: UIViewController {
                         self.hideLoadingView()
                         let newQuestion = DailyQuestion(question: question, truePercentage: Int(truePercentage), falsePercentage: Int(falsePercentage))
                         self.updateUIWithQuestion(newQuestion)
+                        self.appDelegate.appStateViewModel.setAppBadgeCount(to: 0)
                         self.cacheQuestion(newQuestion)
                     } else {
                         self.yesterdayQuestionLabel.text = "No Question Available"
@@ -193,7 +176,8 @@ class DailyQuestionViewController: UIViewController {
         }
     }
     
-    private func hideLoadingView(){
+    // MARK: - UI Methods
+    private func hideLoadingView() {
         UIView.animate(withDuration: 0.25, animations: {
             self.questionLoadingView.alpha = Constants.zeroAlpha
         }) { _ in
@@ -223,29 +207,6 @@ class DailyQuestionViewController: UIViewController {
             }
         }
     }
-   
-    // I believe this is a accidental duplication
-//    private func setupQNouestionLabel(question: String) {
-//        DispatchQueue.main.async {
-//            let finalPosition = self.questionLabel.frame.origin
-//            self.questionLabel.frame.origin.y += 30
-//            self.thumbsDownAnswer.image = UIImage(named: "nay-unselected")
-//            self.thumbsUpAnswer.image = UIImage(named: "yea-unselected")
-//            self.todaysQuestionView.alpha = Constants.fullAlpha
-//            self.dailyQuestionTitle.alpha = Constants.fullAlpha
-//            self.questionLabel.text = question
-//            self.submitButton.isHidden = true
-//            self.submitButton.alpha = Constants.fullAlpha
-//            self.thumbsDownAnswer.isUserInteractionEnabled = true
-//            self.thumbsUpAnswer.isUserInteractionEnabled = true
-//            UIView.animate(withDuration: 2.0, delay: 0, options: [.curveEaseOut]) {
-//                self.questionLabel.frame.origin = finalPosition
-//                self.questionLabel.alpha = Constants.fullAlpha
-//                self.thumbsDownAnswer.alpha = Constants.fullAlpha
-//                self.thumbsUpAnswer.alpha = Constants.fullAlpha
-//            }
-//        }
-//    }
     
     private func updateUIWithQuestion(_ question: DailyQuestion) {
         DispatchQueue.main.async {
@@ -262,6 +223,22 @@ class DailyQuestionViewController: UIViewController {
         }
     }
     
+    fileprivate func updateQuestionBadge() {
+        if let tabBarController = self.tabBarController {
+            // Access the tab bar items
+            if let tabBarItems = tabBarController.tabBar.items {
+                // Ensure there are enough tab bar items
+                if tabBarItems.count > 1 {
+                    // Access the tab bar item at the specified index (e.g., index 1)
+                    let tabBarItem = tabBarItems[1]
+                    
+                    // Set a new image for the tab bar item
+                    tabBarItem.badgeValue = nil
+                }
+            }
+        }
+    }
+    
     private func cacheQuestion(_ question: DailyQuestion) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -273,13 +250,34 @@ class DailyQuestionViewController: UIViewController {
         }
     }
     
+    private func selectQuestionView() {
+        if UserDefaults.standard.bool(forKey: Constants.questionUserDefaultsKey) {
+            showYesterdaysResults()
+        } else {
+            showDailyQuestion()
+        }
+    }
+
+    private func showYesterdaysResults() {
+        dailyQuestionTitle.alpha = Constants.zeroAlpha
+        yesterdaysResultsTitle.alpha = Constants.fullAlpha
+        fetchYesterdaysQuestion()
+    }
+
+    private func showDailyQuestion() {
+        dailyQuestionTitle.alpha = Constants.fullAlpha
+        yesterdaysResultsTitle.alpha = Constants.zeroAlpha
+        fetchDailyQuestion()
+    }
+    
+    // MARK: - Actions
     @IBAction func submitAnswer(_ sender: Any) {
         if activeAnswer {
-            self.thumbsDownAnswer.image = UIImage(named: "nay-unselected")
-            self.thumbsUpAnswer.image = UIImage(named: "yea-selected")
+            self.thumbsDownAnswer.image = UIImage(named: Constants.Images.nayUnselected)
+            self.thumbsUpAnswer.image = UIImage(named: Constants.Images.yeaSelected)
         } else {
-            self.thumbsDownAnswer.image = UIImage(named: "nay-selected")
-            self.thumbsUpAnswer.image = UIImage(named: "yea-unselected")
+            self.thumbsDownAnswer.image = UIImage(named: Constants.Images.naySelected)
+            self.thumbsUpAnswer.image = UIImage(named: Constants.Images.yeaUnselected)
         }
         self.answerStreak += 1
         
@@ -310,8 +308,10 @@ class DailyQuestionViewController: UIViewController {
             
             // Notify the tab bar controller to update the badge
             if let tabBarController = self.tabBarController as? RootTabBarController {
-                tabBarController.updateQuestionBadge()
+                tabBarController.updateQuestionBadge(addBadge: false)
+                
             }
+            self.appDelegate.appStateViewModel.setAppBadgeCount(to: 0)
         }
         let unixTimestamp = Date().timeIntervalSince1970
         let pointsAwarded = (answerStreak % Constants.questionStreakMax == 0) ? Constants.questionStreakHitPoints : Constants.questionPoints
@@ -334,8 +334,13 @@ class DailyQuestionViewController: UIViewController {
         // TODO: Add Bonus Answer View
         
         self.saveQuestionAnswerToUserDefaults(for: Time.getDateFormatted())
-        UIApplication.shared.applicationIconBadgeNumber =  UIApplication.shared.applicationIconBadgeNumber - 1
+        UIApplication.shared.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber - 1
         fetchYesterdaysQuestion()
+    }
+    
+    @IBAction func acknowledgeStreakFill(_ sender: Any) {
+        bonusAnswerView.isHidden = true
+        self.streakSegmentedBar.value = 0
     }
     
     private func saveQuestionAnswerToUserDefaults(for dateString: String) {
@@ -344,6 +349,7 @@ class DailyQuestionViewController: UIViewController {
         appDelegate.userDefault.synchronize()
     }
     
+    // MARK: - Gesture Recognizer Actions
     @objc func thumbsDownTapped() {
         Haptic.heavyTap()
         self.submitButton.isHidden = false
@@ -366,16 +372,11 @@ class DailyQuestionViewController: UIViewController {
         performSegue(withIdentifier: "submitQuestionSegue", sender: self)
     }
     
-    @IBAction func acknowledgeStreakFill(_ sender: Any) {
-        bonusAnswerView.isHidden = true
-        self.streakSegmentedBar.value = 0
-    }
-    
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "submitQuestionSegue" {
             if let destinationVC = segue.destination as? SubmitQuestionViewController {
-                // Pass data to destinationVC
-                // destinationVC.someProperty = someValue
+                // Include Setup for Submit Question
             }
         }
     }

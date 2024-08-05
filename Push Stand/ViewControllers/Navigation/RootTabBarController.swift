@@ -18,35 +18,22 @@ class RootTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateQuestionBadge()
-        observeTabBarItemBadgeCount()
     }
-    
-    func updateQuestionBadge() {
+}
+
+extension RootTabBarController {
+    public func updateQuestionBadge(addBadge: Bool) {
         guard let tabBarItems = tabBar.items, tabBarItems.count >= minimumTabBarItems else {
             return
         }
         
         let tabBarItem = tabBarItems[questionTabBarIndex]
-        tabBarItem.badgeValue = nil
         
-        if let lastAnsweredDate = currentUser.lastQuestionAnsweredDate,
-           Time.isDatePriorToToday(lastAnsweredDate) {
+        
+        if addBadge {
             tabBarItem.badgeValue = ""
+        } else {
+            tabBarItem.badgeValue = nil
         }
-    }
-    
-    private func observeTabBarItemBadgeCount() {
-        SessionViewModel.shared.$questionItemBadgeCount
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] newBadgeCount in
-                guard let self = self else { return }
-                guard let tabBarItems = self.tabBar.items, tabBarItems.count >= self.minimumTabBarItems else {
-                    return
-                }
-                let tabBarItem = tabBarItems[self.questionTabBarIndex]
-                tabBarItem.badgeValue = newBadgeCount! > 0 ? "\(newBadgeCount)" : nil
-            }
-            .store(in: &cancellables)
     }
 }

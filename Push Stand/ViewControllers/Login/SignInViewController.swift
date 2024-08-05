@@ -72,10 +72,13 @@ class SignInViewController: UIViewController {
                         case .success(let json):
                             if let answer = json["UserAnswer"] as? String,
                                let question = json["Question"] as? String {
+                                appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
                                 if !answer.isEmpty {
                                     UserDefaults.standard.set(true, forKey: "question-" + Time.getDateFormatted())
                                     self.appDelegate.userDefault.set(true, forKey: "question-" + Time.getDateFormatted())
                                     self.appDelegate.userDefault.synchronize()
+                                    //If you have have answered the question, you have stood
+                                    appDelegate.appStateViewModel.setAppBadgeCount(to: 0)
                                 }
                                 guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "RootTabBarController") as? UITabBarController else { return }
                                 

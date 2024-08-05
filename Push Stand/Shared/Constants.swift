@@ -26,10 +26,18 @@ class Constants {
     static let standStreakHitPoints = "5"
     static let questionPoints = "2"
     static let questionStreakHitPoints = "10"
+    static let questionUserDefaultsKey = "question-" + Time.getDateFormatted()
     
     class UserDefaultsKeys {
         static let userSignedIn = "usersignedin"
         static let userId = "userId"
+    }
+    
+    class Images {
+        static let yeaSelected = "yea-selected"
+        static let naySelected = "nay-selected"
+        static let yeaUnselected = "yea-unselected"
+        static let nayUnselected = "nay-unselected"
     }
     
     class URL {

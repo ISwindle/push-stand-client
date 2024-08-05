@@ -142,13 +142,43 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         tabBarController?.tabBar.alpha = 0
         let dateString = Time.getDateFormatted()
         if UserDefaults.standard.bool(forKey: dateString) {
-            updateUIForPushStand()
+            updateForStandStats()
+            appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
         } else {
+            appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
             updateUIForLoad()
             checkStandToday()
         }
         loadHome()
+        fetchDailyQuestion()
         
+    }
+    
+    private func fetchDailyQuestion() {
+        let dailyQuestionsQueryParams = [Constants.UserDefaultsKeys.userId: CurrentUser.shared.uid!, "Date": Time.getDateFormatted()]
+        NetworkService.shared.request(endpoint: .questions, method: HTTPVerbs.get.rawValue, queryParams: dailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let json):
+                    if let answer = json["UserAnswer"] as? String,
+                       let question = json["Question"] as? String {
+                        if !answer.isEmpty {
+                            self.appDelegate.appStateViewModel.setAppBadgeCount(to: 0)
+                            if let tabBarController = self.tabBarController as? RootTabBarController {
+                                tabBarController.updateQuestionBadge(addBadge: false)
+                            }
+                            return
+                        } else {
+                            if let tabBarController = self.tabBarController as? RootTabBarController {
+                                tabBarController.updateQuestionBadge(addBadge: true)
+                            }
+                        }
+                    }
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+        }
     }
     
     
@@ -325,7 +355,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                         UserDefaults.standard.set(true, forKey: dateString)
                         self.userDefault.set(true, forKey: dateString)
                         self.userDefault.synchronize()
-                        self.updateUIForPushStand()
+                        self.appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
+                        self.updateForStandStats()
                     } else {
                         self.updateUIForPushStandButton()
                     }
@@ -352,7 +383,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         tabBarController?.tabBar.alpha = 0
     }
     
-    private func updateUIForPushStand() {
+    private func updateForStandStats() {
         landingViewWithButton.isHidden = true
         pushStandTitle.isHidden = true
         standingTodayView.isHidden = false
@@ -455,7 +486,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         NetworkService.shared.request(endpoint: .points, method: HTTPVerbs.post.rawValue, data: postPointQueryParams) { result in
             
         }
-        UIApplication.shared.applicationIconBadgeNumber =  UIApplication.shared.applicationIconBadgeNumber - 1
+        appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
         savePushStandToUserDefaults(for: dateString)
         animatePushStandButtonFadeOut()
     }
@@ -591,12 +622,12 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             segmentedStreakBar.value = Constants.standStreakMax
             bonusStandView.isHidden = false
             streakFillView.isHidden = false
+            SessionViewModel.shared.standModel.myPoints += 10
         } else {
             segmentedStreakBar.value = standStreak % Constants.standStreakMax
+            SessionViewModel.shared.standModel.myPoints += 1
         }
         
-        pointsCount += 1
-        SessionViewModel.shared.standModel.myPoints = pointsCount
     }
     
     @objc private func sendMessage() {

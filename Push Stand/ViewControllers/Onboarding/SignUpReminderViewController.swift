@@ -90,6 +90,7 @@ class SignUpReminderViewController: UIViewController {
                 UserDefaults.standard.set(currentUser.uid, forKey: "userId")
                 UserDefaults.standard.set(currentUser.email, forKey: "userEmail")
                 UserDefaults.standard.synchronize()
+                appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
                 self.transitionToMainApp()
             case .failure(let error):
                 self.presentAlert(title: "Error", message: error.localizedDescription)
