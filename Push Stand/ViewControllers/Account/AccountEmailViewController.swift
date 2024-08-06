@@ -28,10 +28,18 @@ class AccountEmailViewController: UIViewController {
         
         confirmationEmailButton.isEnabled = false
         emailText.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
+        // Add tap gesture recognizer to dismiss keyboard when tapping outside text fields
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         confirmationEmailButton.isEnabled = Validator.isValidEmail(textField.text ?? "")
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func showAlert(title: String, message: String) {
