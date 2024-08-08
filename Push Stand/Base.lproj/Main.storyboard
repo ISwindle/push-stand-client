@@ -419,7 +419,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -1430,7 +1430,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="570" width="414" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="WKY-V7-7fx">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1441,7 +1441,7 @@ Stands</string>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Americans Standing Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="6cQ-TE-pqg">
-                                        <rect key="frame" x="0.0" y="52" width="414" height="36"/>
+                                        <rect key="frame" x="0.0" y="51" width="414" height="37"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1459,7 +1459,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-MC-Zfc" userLabel="Global Standing Today">
-                                <rect key="frame" x="181" y="570" width="52" height="52"/>
+                                <rect key="frame" x="181.5" y="570" width="51" height="51"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fv2-MC-Zfc" secondAttribute="height" multiplier="1:1" id="T9c-N2-bMj"/>
@@ -2281,7 +2281,7 @@ let's see if you can do it again!</string>
                                     <action selector="updateAccount:" destination="1GW-8L-r8b" eventType="touchUpInside" id="ppg-Fq-b2G"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6n-yg-Uwg">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6n-yg-Uwg">
                                 <rect key="frame" x="40" y="783" width="334" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="1EM-BQ-Tcl"/>
@@ -2445,7 +2445,7 @@ let's see if you can do it again!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRb-hQ-MHW">
-                                <rect key="frame" x="40" y="267" width="334" height="40"/>
+                                <rect key="frame" x="40" y="362" width="334" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="yH0-da-juI"/>
                                 </constraints>
@@ -2459,14 +2459,14 @@ let's see if you can do it again!</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isz-NL-ddh">
-                                <rect key="frame" x="40" y="337" width="334" height="72"/>
+                                <rect key="frame" x="40" y="432" width="334" height="72"/>
                                 <string key="text">We retain account information as necessary for certain purposes, such as fulfilling our legal obligations.  We delete this account information once our internal hold period expires.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcJ-eo-yEq">
-                                <rect key="frame" x="40" y="147" width="180" height="21"/>
+                                <rect key="frame" x="40" y="242" width="180" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="CsG-sQ-wYl"/>
                                 </constraints>
@@ -2474,11 +2474,33 @@ let's see if you can do it again!</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Current Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGn-6S-wAw">
+                                <rect key="frame" x="40" y="147" width="148" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="t1Y-gC-8Fb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U16-Ao-qdZ">
-                                <rect key="frame" x="40" y="178" width="334" height="44"/>
+                                <rect key="frame" x="40" y="273" width="334" height="44"/>
                                 <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="eS2-YM-W0J"/>
+                                </constraints>
+                                <color key="textColor" systemColor="lightTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ne-sk-kTY">
+                                <rect key="frame" x="40" y="178" width="334" height="44"/>
+                                <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="zQh-0H-yEn"/>
                                 </constraints>
                                 <color key="textColor" systemColor="lightTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -2495,18 +2517,23 @@ let's see if you can do it again!</string>
                             <constraint firstItem="csH-zM-mQ4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QcJ-eo-yEq" secondAttribute="trailing" symbolic="YES" id="1jy-rV-rId"/>
                             <constraint firstItem="hRb-hQ-MHW" firstAttribute="leading" secondItem="QcJ-eo-yEq" secondAttribute="leading" id="2y2-5L-X3p"/>
                             <constraint firstItem="6dG-Wn-80u" firstAttribute="centerX" secondItem="ZBg-5L-4ZE" secondAttribute="centerX" id="7WF-gc-yN1"/>
+                            <constraint firstItem="QcJ-eo-yEq" firstAttribute="top" secondItem="6ne-sk-kTY" secondAttribute="bottom" constant="20" id="9Dp-CE-woO"/>
+                            <constraint firstItem="KGn-6S-wAw" firstAttribute="leading" secondItem="QcJ-eo-yEq" secondAttribute="leading" id="F3G-xu-Iqa"/>
                             <constraint firstItem="6dG-Wn-80u" firstAttribute="leading" secondItem="csH-zM-mQ4" secondAttribute="leading" constant="40" id="Ifj-TV-iXX">
                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
+                            <constraint firstItem="6ne-sk-kTY" firstAttribute="leading" secondItem="QcJ-eo-yEq" secondAttribute="leading" id="Iud-eE-kYG"/>
+                            <constraint firstItem="6ne-sk-kTY" firstAttribute="centerX" secondItem="ZBg-5L-4ZE" secondAttribute="centerX" id="LPV-0d-esx"/>
+                            <constraint firstItem="6ne-sk-kTY" firstAttribute="top" secondItem="KGn-6S-wAw" secondAttribute="bottom" constant="10" id="QSz-Cv-G0N"/>
                             <constraint firstItem="U16-Ao-qdZ" firstAttribute="top" secondItem="QcJ-eo-yEq" secondAttribute="bottom" constant="10" id="XLH-q6-WbA"/>
                             <constraint firstItem="Isz-NL-ddh" firstAttribute="leading" secondItem="U16-Ao-qdZ" secondAttribute="leading" id="XqT-f6-M6x"/>
-                            <constraint firstItem="QcJ-eo-yEq" firstAttribute="top" secondItem="6dG-Wn-80u" secondAttribute="bottom" constant="25.5" id="aHF-9B-W6A"/>
                             <constraint firstItem="QcJ-eo-yEq" firstAttribute="leading" secondItem="6dG-Wn-80u" secondAttribute="leading" id="b19-Zl-I56"/>
                             <constraint firstItem="6dG-Wn-80u" firstAttribute="top" secondItem="csH-zM-mQ4" secondAttribute="top" constant="20" id="cy3-9f-hJJ"/>
                             <constraint firstItem="hRb-hQ-MHW" firstAttribute="top" secondItem="U16-Ao-qdZ" secondAttribute="bottom" constant="45" id="faN-MI-DLu"/>
                             <constraint firstItem="Isz-NL-ddh" firstAttribute="centerX" secondItem="ZBg-5L-4ZE" secondAttribute="centerX" id="u4c-iK-ZiW"/>
                             <constraint firstItem="U16-Ao-qdZ" firstAttribute="centerX" secondItem="ZBg-5L-4ZE" secondAttribute="centerX" id="vym-qT-wsq"/>
                             <constraint firstItem="hRb-hQ-MHW" firstAttribute="centerX" secondItem="U16-Ao-qdZ" secondAttribute="centerX" id="xac-7a-dV9"/>
+                            <constraint firstItem="KGn-6S-wAw" firstAttribute="top" secondItem="6dG-Wn-80u" secondAttribute="bottom" constant="25.5" id="znt-vN-7lg"/>
                             <constraint firstItem="U16-Ao-qdZ" firstAttribute="leading" secondItem="QcJ-eo-yEq" secondAttribute="leading" id="zyv-Pz-g2L"/>
                         </constraints>
                     </view>
