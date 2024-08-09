@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="Fph-D9-rfg">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LogoButton" translatesAutoresizingMaskIntoConstraints="NO" id="Fph-D9-rfg">
                                 <rect key="frame" x="175" y="386" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="BJO-iX-Tsc">
@@ -55,6 +55,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="stand-btn" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="LogoButton" width="81" height="80"/>
     </resources>
 </document>

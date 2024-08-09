@@ -1432,7 +1432,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="570" width="414" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="WKY-V7-7fx">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1443,7 +1443,7 @@ Stands</string>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Americans Standing Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="6cQ-TE-pqg">
-                                        <rect key="frame" x="0.0" y="51.5" width="414" height="36.5"/>
+                                        <rect key="frame" x="0.0" y="51" width="414" height="37"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1461,7 +1461,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-MC-Zfc" userLabel="Global Standing Today">
-                                <rect key="frame" x="181" y="570" width="52" height="51.5"/>
+                                <rect key="frame" x="181.5" y="570" width="51" height="51"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fv2-MC-Zfc" secondAttribute="height" multiplier="1:1" id="T9c-N2-bMj"/>
@@ -2384,13 +2384,13 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="support@pushstand.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYg-5B-XAS">
-                                <rect key="frame" x="105.5" y="169.5" width="203" height="21.5"/>
+                                <rect key="frame" x="105.5" y="194.5" width="203" height="21.5"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                 <color key="textColor" red="0.36473633837561459" green="0.62227856874657406" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Should you want to delete your account, tap the button below to begin that process." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0R-b5-T14">
-                                <rect key="frame" x="40" y="241" width="334" height="41"/>
+                                <rect key="frame" x="40" y="261" width="334" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2399,7 +2399,7 @@ let's see if you can do it again!</string>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rth-5r-YoZ">
-                                <rect key="frame" x="40" y="327" width="334" height="40"/>
+                                <rect key="frame" x="40" y="347" width="334" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="enF-iH-47M"/>
                                 </constraints>
@@ -2418,11 +2418,11 @@ let's see if you can do it again!</string>
                         <color key="tintColor" systemColor="tintColor"/>
                         <constraints>
                             <constraint firstItem="F9R-ED-813" firstAttribute="centerX" secondItem="8d1-sY-982" secondAttribute="centerX" id="4QG-r0-7L9"/>
-                            <constraint firstItem="q0R-b5-T14" firstAttribute="top" secondItem="YYg-5B-XAS" secondAttribute="bottom" constant="50" id="69x-DZ-xGJ"/>
+                            <constraint firstItem="q0R-b5-T14" firstAttribute="top" secondItem="YYg-5B-XAS" secondAttribute="bottom" constant="45" id="69x-DZ-xGJ"/>
                             <constraint firstItem="q0R-b5-T14" firstAttribute="leading" secondItem="F9R-ED-813" secondAttribute="leading" id="EfO-h7-oZj"/>
                             <constraint firstItem="rth-5r-YoZ" firstAttribute="top" secondItem="q0R-b5-T14" secondAttribute="bottom" constant="45" id="Kxf-s8-UnG"/>
                             <constraint firstItem="q0R-b5-T14" firstAttribute="centerX" secondItem="8d1-sY-982" secondAttribute="centerX" id="RH1-U5-awm"/>
-                            <constraint firstItem="YYg-5B-XAS" firstAttribute="top" secondItem="F9R-ED-813" secondAttribute="bottom" constant="20" id="dDS-Be-yab"/>
+                            <constraint firstItem="YYg-5B-XAS" firstAttribute="top" secondItem="F9R-ED-813" secondAttribute="bottom" constant="45" id="dDS-Be-yab"/>
                             <constraint firstItem="rth-5r-YoZ" firstAttribute="centerX" secondItem="8d1-sY-982" secondAttribute="centerX" id="l04-ZV-vPb"/>
                             <constraint firstItem="YYg-5B-XAS" firstAttribute="centerX" secondItem="8d1-sY-982" secondAttribute="centerX" id="lDV-jp-OmB"/>
                             <constraint firstItem="F9R-ED-813" firstAttribute="leading" secondItem="geM-F7-1bF" secondAttribute="leading" constant="40" id="t7p-TS-x4R">
@@ -2454,7 +2454,7 @@ let's see if you can do it again!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRb-hQ-MHW">
-                                <rect key="frame" x="40" y="362" width="334" height="40"/>
+                                <rect key="frame" x="40" y="357" width="334" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="yH0-da-juI"/>
                                 </constraints>
@@ -2468,7 +2468,7 @@ let's see if you can do it again!</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isz-NL-ddh">
-                                <rect key="frame" x="40" y="432" width="334" height="72"/>
+                                <rect key="frame" x="40" y="427" width="334" height="72"/>
                                 <string key="text">We retain account information as necessary for certain purposes, such as fulfilling our legal obligations.  We delete this account information once our internal hold period expires.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2538,7 +2538,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="Isz-NL-ddh" firstAttribute="leading" secondItem="U16-Ao-qdZ" secondAttribute="leading" id="XqT-f6-M6x"/>
                             <constraint firstItem="QcJ-eo-yEq" firstAttribute="leading" secondItem="6dG-Wn-80u" secondAttribute="leading" id="b19-Zl-I56"/>
                             <constraint firstItem="6dG-Wn-80u" firstAttribute="top" secondItem="csH-zM-mQ4" secondAttribute="top" constant="20" id="cy3-9f-hJJ"/>
-                            <constraint firstItem="hRb-hQ-MHW" firstAttribute="top" secondItem="U16-Ao-qdZ" secondAttribute="bottom" constant="45" id="faN-MI-DLu"/>
+                            <constraint firstItem="hRb-hQ-MHW" firstAttribute="top" secondItem="U16-Ao-qdZ" secondAttribute="bottom" constant="40" id="faN-MI-DLu"/>
                             <constraint firstItem="Isz-NL-ddh" firstAttribute="centerX" secondItem="ZBg-5L-4ZE" secondAttribute="centerX" id="u4c-iK-ZiW"/>
                             <constraint firstItem="U16-Ao-qdZ" firstAttribute="centerX" secondItem="ZBg-5L-4ZE" secondAttribute="centerX" id="vym-qT-wsq"/>
                             <constraint firstItem="hRb-hQ-MHW" firstAttribute="centerX" secondItem="U16-Ao-qdZ" secondAttribute="centerX" id="xac-7a-dV9"/>
@@ -2731,7 +2731,7 @@ let's see if you can do it again!</string>
                                     <action selector="joinNow:" destination="YXV-jZ-k7a" eventType="touchUpInside" id="y1B-ZD-X6W"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="2KS-AB-Teh">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LogoButton" translatesAutoresizingMaskIntoConstraints="NO" id="2KS-AB-Teh">
                                 <rect key="frame" x="167" y="368" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Jb1-bo-Fnb">
@@ -3934,6 +3934,7 @@ Will you STAND with us?</string>
     <resources>
         <image name="100k-sweepstakes" width="1500" height="600"/>
         <image name="Blue-Star" width="480" height="440"/>
+        <image name="LogoButton" width="81" height="80"/>
         <image name="Red-Star" width="512" height="469"/>
         <image name="White-Star" width="512" height="469"/>
         <image name="broken-button-error" width="720" height="720"/>
