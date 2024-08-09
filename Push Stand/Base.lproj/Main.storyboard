@@ -425,7 +425,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
-                                            <rect key="frame" x="86.333333333333343" y="117.66666666666664" width="257.33333333333326" height="38.333333333333329"/>
+                                            <rect key="frame" x="86.333333333333343" y="117.99999999999996" width="257.33333333333326" height="38.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -445,13 +445,13 @@ let's see if you can do it again!</string>
                                             </variation>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Blue-Star" translatesAutoresizingMaskIntoConstraints="NO" id="wMj-n7-Ffj">
-                                            <rect key="frame" x="176.33333333333334" y="25" width="77.333333333333343" height="77.666666666666671"/>
+                                            <rect key="frame" x="176" y="25" width="78" height="78"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="wMj-n7-Ffj" secondAttribute="height" multiplier="1:1" id="5rm-AX-tGG"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57i-ha-DjR">
-                                            <rect key="frame" x="138.33333333333331" y="175.99999999999997" width="153.33333333333331" height="24"/>
+                                            <rect key="frame" x="138.33333333333331" y="176.33333333333334" width="153.33333333333331" height="24"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -472,7 +472,7 @@ let's see if you can do it again!</string>
                                             <rect key="frame" x="0.0" y="301" width="430" height="379.66666666666674"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcM-2d-4wl">
-                                                    <rect key="frame" x="126.66666666666667" y="169.66666666666669" width="176.66666666666663" height="40"/>
+                                                    <rect key="frame" x="126.66666666666667" y="170.00000000000006" width="176.66666666666663" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="I04-tc-nH4"/>
                                                     </constraints>
@@ -1329,7 +1329,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="255" width="430" height="345"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ov3-1B-ftm" customClass="CircularProgressBar" customModule="Push_Stand" customModuleProvider="target">
-                                        <rect key="frame" x="94.333333333333329" y="51.6666666666667" width="241.33333333333337" height="241.33333333333331"/>
+                                        <rect key="frame" x="94.333333333333329" y="51.6666666666667" width="241.33333333333337" height="241.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eQv-5a-w5h">
                                                 <rect key="frame" x="42.333333333333329" y="85.666666666666629" width="156.66666666666669" height="70.333333333333314"/>
@@ -1432,7 +1432,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="600" width="430" height="91.333333333333371"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="WKY-V7-7fx">
-                                        <rect key="frame" x="0.0" y="0.0" width="430" height="53.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="430" height="54.333333333333336"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1443,7 +1443,7 @@ Stands</string>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Americans Standing Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="6cQ-TE-pqg">
-                                        <rect key="frame" x="0.0" y="53.333333333333371" width="430" height="38"/>
+                                        <rect key="frame" x="0.0" y="54.333333333333371" width="430" height="37"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1461,7 +1461,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-MC-Zfc" userLabel="Global Standing Today">
-                                <rect key="frame" x="188.33333333333334" y="600" width="53.333333333333343" height="53.333333333333371"/>
+                                <rect key="frame" x="187.66666666666666" y="600" width="54.666666666666657" height="54.333333333333371"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fv2-MC-Zfc" secondAttribute="height" multiplier="1:1" id="T9c-N2-bMj"/>
@@ -1472,7 +1472,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="691.33333333333337" width="430" height="240.66666666666663"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="sMR-kY-hS2">
-                                        <rect key="frame" x="124.66666666666667" y="30" width="180.66666666666657" height="180.66666666666666"/>
+                                        <rect key="frame" x="124.66666666666667" y="30" width="180.66666666666663" height="180.66666666666666"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="sMR-kY-hS2" secondAttribute="height" multiplier="1:1" id="QED-7K-MXh"/>
@@ -2447,7 +2447,7 @@ let's see if you can do it again!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dG-Wn-80u">
-                                <rect key="frame" x="40" y="20" width="350" height="81.333333333333314"/>
+                                <rect key="frame" x="40" y="20" width="350" height="81.333333333333329"/>
                                 <string key="text">Tap the button below to delete your account.  Your account information will be placed into our internal deletion process.  You will not longer be able to log into your account.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
