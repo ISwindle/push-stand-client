@@ -421,7 +421,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -1203,7 +1203,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3bp-ZZ-nZs" userLabel="Top Icon Titles">
-                                <rect key="frame" x="20" y="166" width="374" height="25"/>
+                                <rect key="frame" x="20" y="146" width="374" height="25"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stand Streak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrV-CV-p34">
                                         <rect key="frame" x="0.0" y="0.0" width="124.5" height="25"/>
@@ -1241,7 +1241,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YvP-FP-E9c" userLabel="Icon Change View">
-                                <rect key="frame" x="0.0" y="212" width="414" height="29"/>
+                                <rect key="frame" x="0.0" y="192" width="414" height="29"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Red-Star" translatesAutoresizingMaskIntoConstraints="NO" id="poi-qy-dAp">
                                         <rect key="frame" x="364" y="1.5" width="22" height="22"/>
@@ -1317,7 +1317,7 @@ Stands</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1 Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwt-gq-ghg">
-                                <rect key="frame" x="173.5" y="194" width="67.5" height="21.5"/>
+                                <rect key="frame" x="173.5" y="174" width="67.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1326,16 +1326,16 @@ Stands</string>
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wlz-PA-Rkk" userLabel="Circular View">
-                                <rect key="frame" x="0.0" y="241" width="414" height="329"/>
+                                <rect key="frame" x="0.0" y="221" width="414" height="349"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ov3-1B-ftm" customClass="CircularProgressBar" customModule="Push_Stand" customModuleProvider="target">
-                                        <rect key="frame" x="92" y="49.5" width="230" height="230"/>
+                                        <rect key="frame" x="85" y="52.5" width="244" height="244"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eQv-5a-w5h">
-                                                <rect key="frame" x="40" y="80" width="150" height="70.5"/>
+                                                <rect key="frame" x="42.5" y="87" width="159" height="70.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FRt-ke-DPV" userLabel="Daily Goal Number">
-                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="159" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -1344,7 +1344,7 @@ Stands</string>
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLf-Z0-Q1m" userLabel="Daily Goal Title">
-                                                        <rect key="frame" x="0.0" y="50" width="150" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="50" width="159" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -1355,7 +1355,7 @@ Stands</string>
                                                 </subviews>
                                             </stackView>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="tId-zi-OB9">
-                                                <rect key="frame" x="40" y="90" width="150" height="40"/>
+                                                <rect key="frame" x="42.5" y="97" width="159" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="hcD-gP-fUg">
@@ -1384,10 +1384,10 @@ Stands</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KpS-l5-xEw" userLabel="Push Stand Title">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="212"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="192"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH STAND" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="SA6-Vp-XW0">
-                                        <rect key="frame" x="75" y="112" width="264" height="48"/>
+                                        <rect key="frame" x="75" y="102" width="264" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SA6-Vp-XW0" secondAttribute="height" multiplier="11:2" id="KAU-3d-81x"/>
                                         </constraints>
@@ -1413,10 +1413,10 @@ Stands</string>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRz-Qw-Pnj" userLabel="Home Pic View">
-                                <rect key="frame" x="0.0" y="160" width="414" height="498"/>
+                                <rect key="frame" x="0.0" y="150" width="414" height="508"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="eagle-pic-bg" translatesAutoresizingMaskIntoConstraints="NO" id="qy0-r9-aID">
-                                        <rect key="frame" x="-42" y="0.0" width="498" height="498"/>
+                                        <rect key="frame" x="-47" y="0.0" width="508" height="508"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qy0-r9-aID" secondAttribute="height" multiplier="1:1" id="cIr-e1-3GE"/>
                                         </constraints>
@@ -1432,7 +1432,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="570" width="414" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="WKY-V7-7fx">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1443,7 +1443,7 @@ Stands</string>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Americans Standing Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="6cQ-TE-pqg">
-                                        <rect key="frame" x="0.0" y="51" width="414" height="37"/>
+                                        <rect key="frame" x="0.0" y="51.5" width="414" height="36.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1461,7 +1461,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-MC-Zfc" userLabel="Global Standing Today">
-                                <rect key="frame" x="181.5" y="570" width="51" height="51"/>
+                                <rect key="frame" x="181" y="570" width="52" height="51.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fv2-MC-Zfc" secondAttribute="height" multiplier="1:1" id="T9c-N2-bMj"/>
@@ -1491,13 +1491,13 @@ Stands</string>
                                 </connections>
                             </view>
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37R-ty-kPb" userLabel="Bonus Stand View">
-                                <rect key="frame" x="0.0" y="241" width="414" height="572"/>
+                                <rect key="frame" x="0.0" y="221" width="414" height="592"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hbI-xq-uiL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="572"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="592"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 Bonus Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-0Y-yxE">
-                                            <rect key="frame" x="0.0" y="114" width="414" height="38.5"/>
+                                            <rect key="frame" x="0.0" y="116.5" width="414" height="38.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -1506,7 +1506,7 @@ Stands</string>
                                             </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-VC-SL4">
-                                            <rect key="frame" x="30" y="205" width="354" height="43"/>
+                                            <rect key="frame" x="30" y="207.5" width="354" height="43"/>
                                             <string key="text">You filled your stand streak,
 let's see if you can do it again!</string>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
@@ -1517,19 +1517,19 @@ let's see if you can do it again!</string>
                                             </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 1 Stand = 1 Point *" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Niw-l7-dfg">
-                                            <rect key="frame" x="135.5" y="278" width="143" height="19.5"/>
+                                            <rect key="frame" x="135.5" y="280.5" width="143" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Red-Star" translatesAutoresizingMaskIntoConstraints="NO" id="oYQ-HP-7t9">
-                                            <rect key="frame" x="171" y="25" width="72" height="74"/>
+                                            <rect key="frame" x="170" y="25" width="74" height="76.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="oYQ-HP-7t9" secondAttribute="height" multiplier="75:77" id="eGN-UP-Yvv"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3x3-1v-SJS">
-                                            <rect key="frame" x="130.5" y="172.5" width="153.5" height="24"/>
+                                            <rect key="frame" x="130.5" y="175" width="153.5" height="24"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -1538,10 +1538,10 @@ let's see if you can do it again!</string>
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2a-AV-dXn" userLabel="Got it button view">
-                                            <rect key="frame" x="0.0" y="306" width="414" height="266"/>
+                                            <rect key="frame" x="0.0" y="308.5" width="414" height="283.5"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-wd-r3J">
-                                                    <rect key="frame" x="122" y="113" width="170" height="40"/>
+                                                    <rect key="frame" x="122" y="121.5" width="170" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="1JK-4E-gIk"/>
                                                     </constraints>
@@ -1622,7 +1622,7 @@ let's see if you can do it again!</string>
                                 <variation key="heightClass=regular-widthClass=regular" constant="42"/>
                             </constraint>
                             <constraint firstItem="7Dy-dL-GMi" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="FE7-z1-Bq8"/>
-                            <constraint firstItem="3bp-ZZ-nZs" firstAttribute="top" secondItem="N5a-E1-3cg" secondAttribute="bottom" constant="20" id="FWC-hn-w3h"/>
+                            <constraint firstItem="3bp-ZZ-nZs" firstAttribute="top" secondItem="N5a-E1-3cg" secondAttribute="bottom" id="FWC-hn-w3h"/>
                             <constraint firstItem="3bp-ZZ-nZs" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" constant="20" id="GlD-5s-W5Z">
                                 <variation key="heightClass=regular-widthClass=regular" constant="80"/>
                             </constraint>
