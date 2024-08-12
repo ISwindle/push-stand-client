@@ -384,6 +384,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
         performSegue(withIdentifier: "submitQuestionSegue", sender: self)
     }
     
+    // utilized this code from Home Screen share icon logic
     @objc private func shareResultsTapped() {
         if MFMessageComposeViewController.canSendText() && MFMessageComposeViewController.canSendAttachments() {
             // Capture the screenshot
@@ -412,6 +413,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
         }
     }
     
+    // Screenshot of Yesterday's Results for sharing
     private func takeScreenshot() -> UIImage {
         let window = UIApplication.shared.windows.first { $0.isKeyWindow }
         let renderer = UIGraphicsImageRenderer(size: window?.bounds.size ?? CGSize.zero)
@@ -420,6 +422,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
         }
     }
     
+    // utilized this code from Home Screen share icon logic
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: nil)
     }
