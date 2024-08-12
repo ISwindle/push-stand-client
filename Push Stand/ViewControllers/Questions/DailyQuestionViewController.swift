@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class DailyQuestionViewController: UIViewController {
+class DailyQuestionViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -33,9 +34,13 @@ class DailyQuestionViewController: UIViewController {
     @IBOutlet weak var yesterdayThumbsDown: UIImageView!
     @IBOutlet weak var yesterdayThumbsUp: UIImageView!
     @IBOutlet weak var questionBot: UIImageView!
+    @IBOutlet weak var shareAskStackView: UIStackView!
+    @IBOutlet weak var shareResults: UIButton!
+    @IBOutlet weak var askQuestion: UIButton!
     @IBOutlet weak var submitAfterSelection: UIView!
     @IBOutlet weak var bonusAnswerView: UIVisualEffectView!
     @IBOutlet weak var streakFillButton: UIButton!
+
     
     // MARK: - Properties
     var answerStreak = Defaults.int
@@ -75,8 +80,15 @@ class DailyQuestionViewController: UIViewController {
         let thumbsUpGesture = UITapGestureRecognizer(target: self, action: #selector(thumbsUpTapped))
         thumbsUpAnswer.addGestureRecognizer(thumbsUpGesture)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        questionBot.addGestureRecognizer(tapGesture)
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+//        questionBot.addGestureRecognizer(tapGesture)
+        
+        let shareGesture = UITapGestureRecognizer(target: self, action: #selector(shareResultsTapped))
+        shareResults.addGestureRecognizer(shareGesture)
+        
+        let askGesture = UITapGestureRecognizer(target: self, action: #selector(askQuestionTapped))
+        askQuestion.addGestureRecognizer(askGesture)
+              
     }
     
     private func resetUI() {
@@ -368,8 +380,48 @@ class DailyQuestionViewController: UIViewController {
         activeAnswer = true
     }
     
-    @objc func handleTap() {
+    @objc func askQuestionTapped() {
         performSegue(withIdentifier: "submitQuestionSegue", sender: self)
+    }
+    
+    @objc private func shareResultsTapped() {
+        if MFMessageComposeViewController.canSendText() && MFMessageComposeViewController.canSendAttachments() {
+            // Capture the screenshot
+            let screenshot = takeScreenshot()
+            
+            // Create the message compose view controller
+            let messageVC = MFMessageComposeViewController()
+            messageVC.body = """
+            Join me on the app that is amplifying the voices of Standing Americans!
+            
+            Follow us!
+            Insta: pushstand_now
+            X: @pushstand_now
+            
+            https://pushstand.com/
+            """
+            
+            // Attach the screenshot to the message
+            if let screenshotData = screenshot.pngData() {
+                messageVC.addAttachmentData(screenshotData, typeIdentifier: "public.data", filename: "screenshot.png")
+            }
+            
+            messageVC.recipients = [] // Add default recipients if needed
+            messageVC.messageComposeDelegate = self
+            present(messageVC, animated: true, completion: nil)
+        }
+    }
+    
+    private func takeScreenshot() -> UIImage {
+        let window = UIApplication.shared.windows.first { $0.isKeyWindow }
+        let renderer = UIGraphicsImageRenderer(size: window?.bounds.size ?? CGSize.zero)
+        return renderer.image { _ in
+            window?.drawHierarchy(in: window?.bounds ?? CGRect.zero, afterScreenUpdates: true)
+        }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Navigation

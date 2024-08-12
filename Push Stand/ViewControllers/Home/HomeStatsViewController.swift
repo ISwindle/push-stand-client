@@ -28,6 +28,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBOutlet weak var questionStreakIcon: UIImageView!
     @IBOutlet weak var pointsIcon: UIImageView!
     @IBOutlet weak var shareIcon: UIImageView!
+    ///Added for Daily Goal Achieved
+    @IBOutlet weak var shareNow: UIButton! //action already linked, but still needs to dismiss view once done
+    @IBOutlet weak var skipSharing: UIButton! //action not linked, if tapped, should dismiss dailyGoalAchievedView
+    @IBOutlet weak var dailyGoalAchievedView: UIVisualEffectView! //hidden, also behind bonus standing view so if we have a day where both happens, bonus stand view shows first then dailygoalachieved view
+    
     @IBOutlet weak var segmentedStreakBar: SegmentedBar!
     @IBOutlet weak var streakImage: UIImageView!
     @IBOutlet weak var myCurrentStreakLabel: UILabel!
@@ -208,6 +213,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         gestureHandler.addTapGesture(to: pointsTitle, target: self, action: #selector(pointsTapped))
         gestureHandler.addTapGesture(to: accountButton, target: self, action: #selector(accountsTapped))
         gestureHandler.addTapGesture(to: shareIcon, target: self, action: #selector(sendMessage))
+        gestureHandler.addTapGesture(to: shareNow, target: self, action: #selector(sendMessage))
     }
     
     // MARK: - Data Fetching and UI Update
