@@ -42,7 +42,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox9-yz-Zd6">
-                                <rect key="frame" x="123" y="198" width="39.333333333333314" height="14.333333333333343"/>
+                                <rect key="frame" x="122.99999999999999" y="198" width="39.333333333333329" height="14.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -975,7 +975,7 @@ let's see if you can do it again!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" image="sweep-1" translatesAutoresizingMaskIntoConstraints="NO" id="fgB-Xs-BKw">
-                                <rect key="frame" x="-209.66666666666666" y="0.0" width="849.33333333333337" height="849"/>
+                                <rect key="frame" x="-234" y="0.0" width="898" height="898"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fgB-Xs-BKw" secondAttribute="height" multiplier="1:1" id="1E7-nq-Kwo"/>
                                 </constraints>
@@ -987,10 +987,10 @@ let's see if you can do it again!</string>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAr-MU-caH">
-                                <rect key="frame" x="0.0" y="566.66666666666663" width="430" height="282.33333333333337"/>
+                                <rect key="frame" x="0.0" y="566.66666666666663" width="430" height="331.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf8-tQ-SHg">
-                                        <rect key="frame" x="118.33333333333333" y="121" width="193.33333333333337" height="40"/>
+                                        <rect key="frame" x="118.33333333333333" y="145.66666666666674" width="193.33333333333337" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Oxb-eh-zTQ"/>
                                         </constraints>
@@ -1345,7 +1345,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="235" width="430" height="365"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ov3-1B-ftm" customClass="CircularProgressBar" customModule="Push_Stand" customModuleProvider="target">
-                                        <rect key="frame" x="87.333333333333314" y="54.6666666666667" width="255.33333333333337" height="255.33333333333337"/>
+                                        <rect key="frame" x="87.333333333333329" y="54.6666666666667" width="255.33333333333337" height="255.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eQv-5a-w5h">
                                                 <rect key="frame" x="44.666666666666671" y="92.666666666666629" width="166" height="70.333333333333314"/>
@@ -1448,7 +1448,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="600" width="430" height="91.333333333333371"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="WKY-V7-7fx">
-                                        <rect key="frame" x="0.0" y="0.0" width="430" height="62.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="430" height="58"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1459,7 +1459,7 @@ Stands</string>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Americans Standing Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="6cQ-TE-pqg">
-                                        <rect key="frame" x="0.0" y="62.333333333333371" width="430" height="29"/>
+                                        <rect key="frame" x="0.0" y="58" width="430" height="33.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1477,7 +1477,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-MC-Zfc" userLabel="Global Standing Today">
-                                <rect key="frame" x="183.66666666666666" y="600" width="62.666666666666657" height="62.333333333333371"/>
+                                <rect key="frame" x="186" y="600" width="58" height="58"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fv2-MC-Zfc" secondAttribute="height" multiplier="1:1" id="T9c-N2-bMj"/>
@@ -1488,7 +1488,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="691.33333333333337" width="430" height="240.66666666666663"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stand-btn" translatesAutoresizingMaskIntoConstraints="NO" id="sMR-kY-hS2">
-                                        <rect key="frame" x="124.66666666666669" y="30" width="180.66666666666663" height="180.66666666666666"/>
+                                        <rect key="frame" x="124.66666666666667" y="30" width="180.66666666666663" height="180.66666666666666"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="sMR-kY-hS2" secondAttribute="height" multiplier="1:1" id="QED-7K-MXh"/>
@@ -2822,7 +2822,6 @@ let's see if you can do it again!</string>
                     <connections>
                         <segue destination="HDi-mI-K2g" kind="relationship" relationship="viewControllers" id="Jmg-ss-09h"/>
                         <segue destination="T6S-eC-0uj" kind="relationship" relationship="viewControllers" id="0t1-4l-Xou"/>
-                        <segue destination="KAI-wO-NJp" kind="relationship" relationship="viewControllers" id="YgS-Np-ASc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FTn-7N-pAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
