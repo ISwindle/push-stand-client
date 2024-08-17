@@ -622,7 +622,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     private func updateStandCounts() {
-        let labels = [globalStandCount, myCurrentStreakLabel, myTotalStandsLabel, usaTotalStandsLabel]
+        let labels = [myCurrentStreakLabel, myTotalStandsLabel, usaTotalStandsLabel]
         
         labels.forEach { label in
             if let currentCount = Int(label?.text ?? Defaults.zeroString) {
