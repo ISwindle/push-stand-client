@@ -18,6 +18,11 @@ class RootTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.bool(forKey: Constants.questionUserDefaultsKey) {
+            updateQuestionBadge(addBadge: false)
+        } else {
+            updateQuestionBadge(addBadge: true)
+        }
     }
 }
 

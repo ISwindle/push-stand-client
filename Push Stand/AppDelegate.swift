@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             }
             appStateViewModel.setAppBadgeCount(to: badgeCount)
         }
+
         
         // Observe changes in badge count
         //observeBadgeCount()
