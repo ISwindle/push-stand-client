@@ -30,7 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
         // Set badge if user is signed in
         if isUserSignedIn() {
-            appStateViewModel.setAppBadgeCount(to: 2)
+            var badgeCount = 0
+            if !UserDefaults.standard.bool(forKey: Time.getDateFormatted()) {
+                badgeCount += 1
+            }
+            if !UserDefaults.standard.bool(forKey: Constants.questionUserDefaultsKey) {
+                badgeCount += 1
+            }
+            appStateViewModel.setAppBadgeCount(to: badgeCount)
         }
         
         // Observe changes in badge count
