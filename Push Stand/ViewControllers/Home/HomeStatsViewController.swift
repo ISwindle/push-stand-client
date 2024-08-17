@@ -487,6 +487,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         tabBarController?.tabBar.isHidden = false
         Haptic.heavyTap()
         
+        current += 1
+        standStreak += 1
         let pushStandQueryParams = ["UserId": CurrentUser.shared.uid!, "Date": dateString]
         let unixTimestamp = Date().timeIntervalSince1970
         let pointsAwarded = (standStreak % 10 == 0) ? Constants.standStreakHitPoints : Constants.standPoints
@@ -627,9 +629,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     private func updateUIForNewStand() {
-        current += 1
-        standStreak += 1
-        
         if standStreak > Constants.standStreakMin && standStreak % Constants.standStreakMax == Constants.streakBarMin {
             segmentedStreakBar.value = Constants.standStreakMax
             bonusStandView.isHidden = false
