@@ -32,7 +32,7 @@ class SignInViewController: UIViewController {
             } else {
                 // Successfully sent password reset email
                 print("Password reset email sent successfully")
-                self.showAlert(title: "Password Reset", message: "Password reset email sent successfully")
+                self.showAlert(title: "Password Reset", message: "If your login exists, we will send a password reset email to \(self.userNameTextField!)")
             }
         }
         
