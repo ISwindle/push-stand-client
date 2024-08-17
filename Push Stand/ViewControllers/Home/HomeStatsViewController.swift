@@ -489,6 +489,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         
         current += 1
         standStreak += 1
+        SessionViewModel.shared.standModel.americansStandingToday += 1
         let pushStandQueryParams = ["UserId": CurrentUser.shared.uid!, "Date": dateString]
         let unixTimestamp = Date().timeIntervalSince1970
         let pointsAwarded = (standStreak % 10 == 0) ? Constants.standStreakHitPoints : Constants.standPoints
