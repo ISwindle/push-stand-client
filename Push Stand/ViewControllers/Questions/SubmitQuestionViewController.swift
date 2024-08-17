@@ -47,7 +47,7 @@ class SubmitQuestionViewController: UIViewController, UITextViewDelegate {
         let dateString = dateFormatter.string(from: Date())
         
         let payload: [String: Any] = [
-            "email": CurrentUser.shared.uid!,
+            "email": CurrentUser.shared.email!,
             "timestamp": dateString,
             "questionText": questionText
         ]
