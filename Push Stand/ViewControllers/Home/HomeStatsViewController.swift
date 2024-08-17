@@ -293,8 +293,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         }
         if let currentValue = goals["Current"] as? String {
             globalStandCount.text = "\(currentValue)"
+            SessionViewModel.shared.standModel.americansStandingToday = Int(currentValue)!
         } else {
             globalStandCount.text = Defaults.zeroString
+            SessionViewModel.shared.standModel.americansStandingToday = 0
         }
         goal = Float(goals["Goal"] as? String ?? Defaults.zeroString)!
         current = Float(goals["Current"] as? String ?? Defaults.zeroString)!
