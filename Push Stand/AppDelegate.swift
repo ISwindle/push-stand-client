@@ -136,7 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        handleNotification(userInfo: userInfo)
+        //handleNotification(userInfo: userInfo)
         
         completionHandler(.newData)
     }
