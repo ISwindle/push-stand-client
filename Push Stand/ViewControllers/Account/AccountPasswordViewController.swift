@@ -12,6 +12,27 @@ class AccountPasswordViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @IBAction func forgetPassword(_ sender: Any) {
+        guard let email = CurrentUser.shared.email, !email.isEmpty else {
+            print("Error: Email field is empty")
+            self.showAlert(title: "Enter Email", message: "Please enter your account's email first")
+            return
+        }
+        
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                // Handle errors
+                print("Error sending password reset email: \(error.localizedDescription)")
+                self.showAlert(title: "Error", message: "Password reset email unsuccessful")
+            } else {
+                // Successfully sent password reset email
+                print("Password reset email sent successfully")
+                self.showAlert(title: "Password Reset", message: "If your login exists, we will send a password reset email to \(CurrentUser.shared.email!)")
+            }
+        }
+    }
+    
+    
     @IBAction func changePassword(_ sender: Any) {
         guard let currentUser = Auth.auth().currentUser,
               let currentPassword = currentPassword.text,

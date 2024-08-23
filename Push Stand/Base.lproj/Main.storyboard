@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -435,7 +435,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="168.33333333333331" width="430" height="680.66666666666674"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="430" height="680.66666666666674"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="681"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -1448,7 +1448,7 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="600" width="430" height="91.333333333333371"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="WKY-V7-7fx">
-                                        <rect key="frame" x="0.0" y="0.0" width="430" height="58"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="430" height="55.333333333333336"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1459,7 +1459,7 @@ Stands</string>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Americans Standing Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="6cQ-TE-pqg">
-                                        <rect key="frame" x="0.0" y="58" width="430" height="33.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="55.333333333333371" width="430" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1477,7 +1477,7 @@ Stands</string>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-MC-Zfc" userLabel="Global Standing Today">
-                                <rect key="frame" x="186" y="600" width="58" height="58"/>
+                                <rect key="frame" x="187.33333333333334" y="600" width="55.333333333333343" height="55.333333333333371"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fv2-MC-Zfc" secondAttribute="height" multiplier="1:1" id="T9c-N2-bMj"/>
@@ -1994,6 +1994,9 @@ let's see if you can do it again!</string>
                                 <buttonConfiguration key="configuration" style="plain" title="Forgot Password?">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="forgetPassword:" destination="WYf-Vs-Zqd" eventType="touchUpInside" id="fnX-tO-i7p"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cEa-7g-RcQ"/>
@@ -2675,6 +2678,7 @@ let's see if you can do it again!</string>
                     <navigationItem key="navigationItem" title="Account Deletion" id="mg0-Ir-rER"/>
                     <connections>
                         <outlet property="deleteAccountButton" destination="hRb-hQ-MHW" id="wJ3-RT-dvo"/>
+                        <outlet property="emailTextField" destination="6ne-sk-kTY" id="oIw-hv-PJ5"/>
                         <outlet property="passwordTextField" destination="U16-Ao-qdZ" id="rDS-6K-SXk"/>
                     </connections>
                 </viewController>
@@ -4069,7 +4073,7 @@ Will you STAND with us?</string>
         <image name="group-request" width="50" height="50"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
-        <image name="line.3.horizontal.decrease.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="line.3.horizontal.decrease.circle.fill" catalog="system" width="32" height="32"/>
         <image name="nay-selected" width="570" height="396"/>
         <image name="nay-unselected" width="570" height="396"/>
         <image name="parachute-crate-2" width="2048" height="2048"/>
@@ -4077,8 +4081,8 @@ Will you STAND with us?</string>
         <image name="person.3" catalog="system" width="128" height="66"/>
         <image name="person.3.fill" catalog="system" width="128" height="66"/>
         <image name="question-loading" width="720" height="720"/>
-        <image name="questionmark.circle" catalog="system" width="128" height="123"/>
-        <image name="questionmark.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="questionmark.circle" catalog="system" width="32" height="32"/>
+        <image name="questionmark.circle.fill" catalog="system" width="32" height="32"/>
         <image name="search-icon" width="50" height="50"/>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <image name="stand-btn" width="170.66667175292969" height="170.66667175292969"/>

@@ -12,6 +12,7 @@ class AccountDeletionViewController: UIViewController {
     
     @IBOutlet weak var deleteAccountButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     
     private func setupUI() {
         deleteAccountButton.isEnabled = false

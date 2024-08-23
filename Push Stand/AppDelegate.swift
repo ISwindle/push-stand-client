@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             }
             appStateViewModel.setAppBadgeCount(to: badgeCount)
         }
-
+        
         
         // Observe changes in badge count
         //observeBadgeCount()
@@ -90,12 +90,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     // Receive FCM token
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("Firebase registration token: \(String(describing: fcmToken))")
-
+        
         guard let fcmToken = fcmToken, !fcmToken.isEmpty else {
             print("FCM token is null or empty.")
             return
         }
-
+        
         SessionViewModel.shared.userManager.updateFirebaseToken(fcmToken: fcmToken) { result in
             switch result {
             case .success:
@@ -105,42 +105,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             }
         }
     }
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
-        completionHandler()
-    }
     
     // MARK: - Core Data stack
-        
-        lazy var persistentContainer: NSPersistentContainer = {
-            let container = NSPersistentContainer(name: "Push_Stand")
-            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-                if let error = error as NSError? {
-                    fatalError("Unresolved error \(error), \(error.userInfo)")
-                }
-            })
-            return container
-        }()
-        
-        // MARK: - Core Data Saving support
-        
-        func saveContext() {
-            let context = persistentContainer.viewContext
-            if context.hasChanges {
-                do {
-                    try context.save()
-                } catch {
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                }
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Push_Stand")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+    
+    // MARK: - Core Data Saving support
+    
+    func saveContext() {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        handleNotification(userInfo: userInfo)
+        
+        completionHandler(.newData)
+    }
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .badge, .sound])
+    }
+    
+    // Custom function to handle and parse the notification payload
+    private func handleNotification(userInfo: [AnyHashable: Any]) {
+        if let userId = userInfo["userId"] as? String, let action = userInfo["action"] as? String {
+            if userId == CurrentUser.shared.uid {
+                print("Received notification with userId: \(userId) and action: \(action)")
+            }
+            // Add any additional handling here, such as updating the UI or processing the background task
+        } else {
+            print("Invalid data payload")
+        }
     }
 }
