@@ -61,9 +61,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     private var pointsCount = Defaults.int
     
     // MARK: - Dependencies
-    let gestureHandler = GestureHandler() // 
+    let gestureHandler = GestureHandler() //
     //private var userManager: UserManager
-
+    
     var currentUser = CurrentUser.shared
     let userDefault = UserDefaults.standard
     var should_not_rev = false
@@ -73,14 +73,14 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
         configureViewComponents()
         setupGestures()
         let dateString = Time.getDateFormatted()
         if !UserDefaults.standard.bool(forKey: dateString) {
             loadHome()
             
-
+            
         }
         
         presentLoadingIcons()
@@ -98,52 +98,52 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     
     func startCountdownTimer() {
-            // Update the label immediately with the time remaining
-            updateLabelWithTimeRemaining()
-            
-            // Start the timer to update every second
-            countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateLabelWithTimeRemaining), userInfo: nil, repeats: true)
-        }
+        // Update the label immediately with the time remaining
+        updateLabelWithTimeRemaining()
         
-    @objc func updateLabelWithTimeRemaining() {
-            let now = Date()
-            let calendar = Calendar.current
-            
-            // Define the next midnight in the local time zone
-            var midnightComponents = calendar.dateComponents([.year, .month, .day], from: now)
-            midnightComponents.day! += 1
-            midnightComponents.hour = 0
-            midnightComponents.minute = 0
-            midnightComponents.second = 0
-            
-            guard let midnight = calendar.date(from: midnightComponents) else { return }
-            
-            // Calculate time difference
-            let remainingTime = midnight.timeIntervalSince(now)
-            
-            if remainingTime > 0 {
-                let hours = Int(remainingTime) / 3600
-                let minutes = Int(remainingTime) % 3600 / 60
-                let seconds = Int(remainingTime) % 60
-                
-                // Update label with formatted time
-                pushStandTimer.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-            } else {
-                // Stop the timer when midnight is reached
-                countdownTimer?.invalidate()
-                countdownTimer = nil
-                pushStandTimer.text = "00:00:00"
-            }
-        }
-        
+        // Start the timer to update every second
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateLabelWithTimeRemaining), userInfo: nil, repeats: true)
+    }
     
-    override func viewWillDisappear(_ animated: Bool) {
-            super.viewWillDisappear(animated)
+    @objc func updateLabelWithTimeRemaining() {
+        let now = Date()
+        let calendar = Calendar.current
+        
+        // Define the next midnight in the local time zone
+        var midnightComponents = calendar.dateComponents([.year, .month, .day], from: now)
+        midnightComponents.day! += 1
+        midnightComponents.hour = 0
+        midnightComponents.minute = 0
+        midnightComponents.second = 0
+        
+        guard let midnight = calendar.date(from: midnightComponents) else { return }
+        
+        // Calculate time difference
+        let remainingTime = midnight.timeIntervalSince(now)
+        
+        if remainingTime > 0 {
+            let hours = Int(remainingTime) / 3600
+            let minutes = Int(remainingTime) % 3600 / 60
+            let seconds = Int(remainingTime) % 60
             
-            // Invalidate the timer if the view disappears
+            // Update label with formatted time
+            pushStandTimer.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        } else {
+            // Stop the timer when midnight is reached
             countdownTimer?.invalidate()
             countdownTimer = nil
+            pushStandTimer.text = "00:00:00"
         }
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Invalidate the timer if the view disappears
+        countdownTimer?.invalidate()
+        countdownTimer = nil
+    }
     
     @objc func standProgressBarTapped() {
         standProgressBar.isUserInteractionEnabled = false
@@ -167,43 +167,43 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     private func bindUI() {
-            // Bindings for daily data
+        // Bindings for daily data
         SessionViewModel.shared.standModel.$dailyGoal
-                .map { "\($0)" }
-                .assign(to: \.text, on: dailyGoalCount)
-                .store(in: &cancellables)
-            
+            .map { "\($0)" }
+            .assign(to: \.text, on: dailyGoalCount)
+            .store(in: &cancellables)
+        
         SessionViewModel.shared.standModel.$americansStandingToday
-                .map { "\($0)" }
-                .assign(to: \.text, on: globalStandCount)
-                .store(in: &cancellables)
-            
+            .map { "\($0)" }
+            .assign(to: \.text, on: globalStandCount)
+            .store(in: &cancellables)
+        
         SessionViewModel.shared.standModel.$yesterdaysStanding
-                .map {"      Yesterday: \($0)      "}
-                .assign(to: \.text, on: yesterdayLabel)
-                .store(in: &cancellables)
-            
-            // Bindings for aggregate stats
+            .map {"      Yesterday: \($0)      "}
+            .assign(to: \.text, on: yesterdayLabel)
+            .store(in: &cancellables)
+        
+        // Bindings for aggregate stats
         SessionViewModel.shared.standModel.$myStandStreak
-                .map { "\($0)" }
-                .assign(to: \.text, on: myCurrentStreakLabel)
-                .store(in: &cancellables)
-            
+            .map { "\($0)" }
+            .assign(to: \.text, on: myCurrentStreakLabel)
+            .store(in: &cancellables)
+        
         SessionViewModel.shared.standModel.$myTotalStands
-                .map { "\($0)" }
-                .assign(to: \.text, on: myTotalStandsLabel)
-                .store(in: &cancellables)
-            
+            .map { "\($0)" }
+            .assign(to: \.text, on: myTotalStandsLabel)
+            .store(in: &cancellables)
+        
         SessionViewModel.shared.standModel.$usaTotalStands
-                .map { "\(Formatter.formatLargeNumber($0))" }
-                .assign(to: \.text, on: usaTotalStandsLabel)
-                .store(in: &cancellables)
-            
+            .map { "\(Formatter.formatLargeNumber($0))" }
+            .assign(to: \.text, on: usaTotalStandsLabel)
+            .store(in: &cancellables)
+        
         SessionViewModel.shared.standModel.$myPoints
-                .map { "\($0) Points" }
-                .assign(to: \.text, on: myPointsLabel)
-                .store(in: &cancellables)
-        }
+            .map { "\($0) Points" }
+            .assign(to: \.text, on: myPointsLabel)
+            .store(in: &cancellables)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -220,14 +220,32 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         loadHome()
         fetchDailyQuestion()
         // Initially set the label to "Push Stand"
-        pushStandTimer.text = "Push Stand"
+        pushStandTimer.text = "PUSH STAND"
         
-        // Animate transition after 2 seconds
+        // Animate transition after 2 seconds with a fade effect
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.startCountdownTimer()
+            self.fadeOutLabel {
+                self.startCountdownTimer()
+                self.fadeInLabel()
+            }
         }
         
     }
+    
+    // Helper functions to handle fade in and fade out effects
+        func fadeOutLabel(completion: @escaping () -> Void) {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.pushStandTimer.alpha = 0.0
+            }) { _ in
+                completion()
+            }
+        }
+        
+        func fadeInLabel() {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.pushStandTimer.alpha = 1.0
+            })
+        }
     
     private func fetchDailyQuestion() {
         let dailyQuestionsQueryParams = [Constants.UserDefaultsKeys.userId: CurrentUser.shared.uid!, "Date": Time.getDateFormatted()]
