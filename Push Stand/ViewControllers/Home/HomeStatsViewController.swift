@@ -51,6 +51,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     // To hold StandBonusView, DailyGoalAchievedView, BuildUpPointsView
     @IBOutlet weak var popupContainerView: UIView!
     
+    @IBOutlet weak var pushStandTimer: UILabel!
+    var countdownTimer: Timer?
     
     private var goal: Float = Defaults.zeroFloat
     private var current: Float = Defaults.zeroFloat
@@ -93,6 +95,55 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
+    
+    
+    func startCountdownTimer() {
+            // Update the label immediately with the time remaining
+            updateLabelWithTimeRemaining()
+            
+            // Start the timer to update every second
+            countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateLabelWithTimeRemaining), userInfo: nil, repeats: true)
+        }
+        
+    @objc func updateLabelWithTimeRemaining() {
+            let now = Date()
+            let calendar = Calendar.current
+            
+            // Define the next midnight in the local time zone
+            var midnightComponents = calendar.dateComponents([.year, .month, .day], from: now)
+            midnightComponents.day! += 1
+            midnightComponents.hour = 0
+            midnightComponents.minute = 0
+            midnightComponents.second = 0
+            
+            guard let midnight = calendar.date(from: midnightComponents) else { return }
+            
+            // Calculate time difference
+            let remainingTime = midnight.timeIntervalSince(now)
+            
+            if remainingTime > 0 {
+                let hours = Int(remainingTime) / 3600
+                let minutes = Int(remainingTime) % 3600 / 60
+                let seconds = Int(remainingTime) % 60
+                
+                // Update label with formatted time
+                pushStandTimer.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+            } else {
+                // Stop the timer when midnight is reached
+                countdownTimer?.invalidate()
+                countdownTimer = nil
+                pushStandTimer.text = "00:00:00"
+            }
+        }
+        
+    
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            
+            // Invalidate the timer if the view disappears
+            countdownTimer?.invalidate()
+            countdownTimer = nil
+        }
     
     @objc func standProgressBarTapped() {
         standProgressBar.isUserInteractionEnabled = false
@@ -168,6 +219,13 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         }
         loadHome()
         fetchDailyQuestion()
+        // Initially set the label to "Push Stand"
+        pushStandTimer.text = "Push Stand"
+        
+        // Animate transition after 2 seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.startCountdownTimer()
+        }
         
     }
     

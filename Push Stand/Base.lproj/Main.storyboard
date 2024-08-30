@@ -435,7 +435,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="168.33333333333331" width="430" height="680.66666666666674"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="430" height="680.66666666666674"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="681"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -1852,6 +1852,7 @@ let's see if you can do it again!</string>
                         <outlet property="popupContainerView" destination="JtV-VT-AgP" id="A0B-M4-dV9"/>
                         <outlet property="pushStandButton" destination="sMR-kY-hS2" id="xrQ-Bl-Hf8"/>
                         <outlet property="pushStandLongPressGesture" destination="BBj-fo-GNU" id="PrS-vI-1YT"/>
+                        <outlet property="pushStandTimer" destination="2z3-0T-A7t" id="Am5-p2-mqI"/>
                         <outlet property="pushStandTitle" destination="KpS-l5-xEw" id="wlG-iQ-rQP"/>
                         <outlet property="questionStreakIcon" destination="O3e-xe-AEd" id="87x-Dt-bR7"/>
                         <outlet property="questionStreakTitle" destination="FgB-z7-uba" id="PDk-0k-ief"/>
