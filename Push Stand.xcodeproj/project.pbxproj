@@ -92,7 +92,15 @@
 		8E5240802BD9631D00A9989A /* LearnMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E52407F2BD9631D00A9989A /* LearnMoreViewController.swift */; };
 		8E52D97D2B732DE100C84468 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E52D97B2B732DE100C84468 /* GroupsTableViewCell.swift */; };
 		8E52D97E2B732DE100C84468 /* GroupsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E52D97C2B732DE100C84468 /* GroupsTableViewCell.xib */; };
+		8E6FF59B2C7BE1E800A95C3B /* DailyGoalAchievedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6FF59A2C7BE1E800A95C3B /* DailyGoalAchievedView.xib */; };
+		8E6FF59D2C7BE21500A95C3B /* BuildUpPointsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6FF59C2C7BE21500A95C3B /* BuildUpPointsView.xib */; };
+		8E6FF59F2C7BE23700A95C3B /* AnswerBonusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6FF59E2C7BE23700A95C3B /* AnswerBonusView.xib */; };
+		8E6FF5A12C7BE2F300A95C3B /* StandBonusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FF5A02C7BE2F300A95C3B /* StandBonusView.swift */; };
+		8E6FF5A32C7BE31400A95C3B /* DailyGoalAchievedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FF5A22C7BE31400A95C3B /* DailyGoalAchievedView.swift */; };
+		8E6FF5A52C7BE32400A95C3B /* BuildUpPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FF5A42C7BE32400A95C3B /* BuildUpPointsView.swift */; };
+		8E6FF5A72C7BE33300A95C3B /* AnswerBonusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6FF5A62C7BE33300A95C3B /* AnswerBonusView.swift */; };
 		8EAF89992C417337005DD926 /* SweepstakesUnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF89982C417337005DD926 /* SweepstakesUnlockViewController.swift */; };
+		8EF6D1512C7BD04200978F3D /* StandBonusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EF6D1502C7BD04200978F3D /* StandBonusView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,7 +204,15 @@
 		8E52407F2BD9631D00A9989A /* LearnMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnMoreViewController.swift; sourceTree = "<group>"; };
 		8E52D97B2B732DE100C84468 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		8E52D97C2B732DE100C84468 /* GroupsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsTableViewCell.xib; sourceTree = "<group>"; };
+		8E6FF59A2C7BE1E800A95C3B /* DailyGoalAchievedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyGoalAchievedView.xib; sourceTree = "<group>"; };
+		8E6FF59C2C7BE21500A95C3B /* BuildUpPointsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuildUpPointsView.xib; sourceTree = "<group>"; };
+		8E6FF59E2C7BE23700A95C3B /* AnswerBonusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerBonusView.xib; sourceTree = "<group>"; };
+		8E6FF5A02C7BE2F300A95C3B /* StandBonusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandBonusView.swift; sourceTree = "<group>"; };
+		8E6FF5A22C7BE31400A95C3B /* DailyGoalAchievedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGoalAchievedView.swift; sourceTree = "<group>"; };
+		8E6FF5A42C7BE32400A95C3B /* BuildUpPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildUpPointsView.swift; sourceTree = "<group>"; };
+		8E6FF5A62C7BE33300A95C3B /* AnswerBonusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerBonusView.swift; sourceTree = "<group>"; };
 		8EAF89982C417337005DD926 /* SweepstakesUnlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweepstakesUnlockViewController.swift; sourceTree = "<group>"; };
+		8EF6D1502C7BD04200978F3D /* StandBonusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StandBonusView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -429,6 +445,7 @@
 		22AD2D2C2ADF583000B3B1A8 /* Push Stand */ = {
 			isa = PBXGroup;
 			children = (
+				8EF6D12E2C7BB93600978F3D /* Xib Files */,
 				223443342C39E44200FAF9AB /* Shared */,
 				229BB4972B84437900959B3F /* Services */,
 				22359DD92B6C9BD0003D3520 /* Managers */,
@@ -496,6 +513,29 @@
 				22E024F62C42ECDF005D00C5 /* GestureHandler.swift */,
 			);
 			path = Handlers;
+			sourceTree = "<group>";
+		};
+		8EF6D12E2C7BB93600978F3D /* Xib Files */ = {
+			isa = PBXGroup;
+			children = (
+				8EF6D1372C7BC72000978F3D /* Popups */,
+			);
+			path = "Xib Files";
+			sourceTree = "<group>";
+		};
+		8EF6D1372C7BC72000978F3D /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				8EF6D1502C7BD04200978F3D /* StandBonusView.xib */,
+				8E6FF5A02C7BE2F300A95C3B /* StandBonusView.swift */,
+				8E6FF59A2C7BE1E800A95C3B /* DailyGoalAchievedView.xib */,
+				8E6FF5A22C7BE31400A95C3B /* DailyGoalAchievedView.swift */,
+				8E6FF59C2C7BE21500A95C3B /* BuildUpPointsView.xib */,
+				8E6FF5A42C7BE32400A95C3B /* BuildUpPointsView.swift */,
+				8E6FF59E2C7BE23700A95C3B /* AnswerBonusView.xib */,
+				8E6FF5A62C7BE33300A95C3B /* AnswerBonusView.swift */,
+			);
+			path = Popups;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -616,11 +656,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E6FF59D2C7BE21500A95C3B /* BuildUpPointsView.xib in Resources */,
 				8E52D97E2B732DE100C84468 /* GroupsTableViewCell.xib in Resources */,
 				22AD2D3D2ADF583300B3B1A8 /* LaunchScreen.storyboard in Resources */,
+				8E6FF59B2C7BE1E800A95C3B /* DailyGoalAchievedView.xib in Resources */,
 				22AD2D3A2ADF583300B3B1A8 /* Assets.xcassets in Resources */,
+				8E6FF59F2C7BE23700A95C3B /* AnswerBonusView.xib in Resources */,
 				22359DE12B6E995C003D3520 /* GroupRequestTableViewCell.xib in Resources */,
 				22AD2D352ADF583000B3B1A8 /* Main.storyboard in Resources */,
+				8EF6D1512C7BD04200978F3D /* StandBonusView.xib in Resources */,
 				224F24A72BF9099D0083FE09 /* Configuration.plist in Resources */,
 				22359DE72B6E9F09003D3520 /* ContactsTableViewCell.xib in Resources */,
 				220976EA2B27630D0027E6C6 /* GoogleService-Info.plist in Resources */,
@@ -687,10 +731,12 @@
 				229C49FA2B14E0D100C8E065 /* HomeStatsViewController.swift in Sources */,
 				22FC2F7A2C44929600A32B5D /* UIApplication.swift in Sources */,
 				22C7F3D82BC58F3000F5BE9A /* AccountPasswordViewController.swift in Sources */,
+				8E6FF5A12C7BE2F300A95C3B /* StandBonusView.swift in Sources */,
 				223443382C3ACE9500FAF9AB /* Validator.swift in Sources */,
 				22AD2D322ADF583000B3B1A8 /* PushStandViewController.swift in Sources */,
 				22359DE92B6EA132003D3520 /* ContactsViewController.swift in Sources */,
 				22C7F3D62BC58F0500F5BE9A /* AccountEmailViewController.swift in Sources */,
+				8E6FF5A32C7BE31400A95C3B /* DailyGoalAchievedView.swift in Sources */,
 				22C7F3DA2BC58F5000F5BE9A /* AccountPhoneNumberViewController.swift in Sources */,
 				2263D2162AF91D8400D2E136 /* SignUpBirthdateViewController.swift in Sources */,
 				229BB4962B8177FF00959B3F /* SubmitQuestionViewController.swift in Sources */,
@@ -705,8 +751,10 @@
 				229C49FD2B14E11800C8E065 /* ExtUITabBarController.swift in Sources */,
 				22DB7CEB2B93895B00581C10 /* AccountDeletionViewController.swift in Sources */,
 				8E5240802BD9631D00A9989A /* LearnMoreViewController.swift in Sources */,
+				8E6FF5A72C7BE33300A95C3B /* AnswerBonusView.swift in Sources */,
 				224F24A52BF905690083FE09 /* ExtUITapGestureRecognizer.swift in Sources */,
 				22C7F3D42BAFC34800F5BE9A /* PrivacyPolicyViewController.swift in Sources */,
+				8E6FF5A52C7BE32400A95C3B /* BuildUpPointsView.swift in Sources */,
 				223EA0832AEED76F0055F94B /* CircularProgressBar.swift in Sources */,
 				2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */,
 				22AD2D302ADF583000B3B1A8 /* SceneDelegate.swift in Sources */,

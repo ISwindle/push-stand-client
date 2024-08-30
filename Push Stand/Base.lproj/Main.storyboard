@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -435,7 +435,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="168.33333333333331" width="430" height="680.66666666666674"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="430" height="681"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="680.66666666666674"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -1718,6 +1718,10 @@ let's see if you can do it again!</string>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JtV-VT-AgP" userLabel="Popup Container">
+                                <rect key="frame" x="0.0" y="235" width="430" height="614"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FPa-gG-5KV"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1734,6 +1738,7 @@ let's see if you can do it again!</string>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="bottom" secondItem="37R-ty-kPb" secondAttribute="bottom" id="6Nb-Gi-M6A"/>
                             <constraint firstItem="ss1-3H-smd" firstAttribute="centerY" secondItem="mIy-hv-gIg" secondAttribute="centerY" id="80c-vF-sn6"/>
                             <constraint firstItem="R9l-Tj-CeX" firstAttribute="top" secondItem="lRz-Qw-Pnj" secondAttribute="bottom" id="9Tc-eY-2hJ"/>
+                            <constraint firstItem="FPa-gG-5KV" firstAttribute="trailing" secondItem="JtV-VT-AgP" secondAttribute="trailing" id="9bb-Bv-GJd"/>
                             <constraint firstItem="CWh-KK-Eye" firstAttribute="height" secondItem="z9d-tv-roT" secondAttribute="height" id="AbQ-wI-ELX"/>
                             <constraint firstItem="CWh-KK-Eye" firstAttribute="centerX" secondItem="z9d-tv-roT" secondAttribute="centerX" id="AcY-kJ-HNu"/>
                             <constraint firstItem="YvP-FP-E9c" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="C1j-Nw-ZXi"/>
@@ -1778,6 +1783,7 @@ let's see if you can do it again!</string>
                             </constraint>
                             <constraint firstItem="acv-Tq-RD4" firstAttribute="top" secondItem="YvP-FP-E9c" secondAttribute="bottom" id="VaU-v5-4ke"/>
                             <constraint firstItem="37R-ty-kPb" firstAttribute="top" secondItem="YvP-FP-E9c" secondAttribute="bottom" id="Ve7-uF-O50"/>
+                            <constraint firstItem="JtV-VT-AgP" firstAttribute="top" secondItem="YvP-FP-E9c" secondAttribute="bottom" id="WkK-ph-tSS"/>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="trailing" secondItem="37R-ty-kPb" secondAttribute="trailing" id="XBc-mZ-5d5"/>
                             <constraint firstItem="WKY-V7-7fx" firstAttribute="top" secondItem="Wlz-PA-Rkk" secondAttribute="bottom" id="Yz1-7x-tV9"/>
                             <constraint firstItem="acv-Tq-RD4" firstAttribute="trailing" secondItem="FPa-gG-5KV" secondAttribute="trailing" id="bDO-3x-M5A"/>
@@ -1802,11 +1808,13 @@ let's see if you can do it again!</string>
                                 <variation key="heightClass=regular-widthClass=regular" constant="35"/>
                             </constraint>
                             <constraint firstItem="YvP-FP-E9c" firstAttribute="trailing" secondItem="FPa-gG-5KV" secondAttribute="trailing" id="kSv-JU-2gx"/>
+                            <constraint firstItem="JtV-VT-AgP" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="kmK-Nk-Jci"/>
                             <constraint firstItem="UBD-tg-X7g" firstAttribute="top" secondItem="Iwt-gq-ghg" secondAttribute="bottom" constant="3.5" id="lWu-PK-tJ4"/>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="bottom" secondItem="acv-Tq-RD4" secondAttribute="bottom" id="nYl-AB-mI4"/>
                             <constraint firstItem="ss1-3H-smd" firstAttribute="width" secondItem="mIy-hv-gIg" secondAttribute="width" id="q7b-zK-Adc"/>
                             <constraint firstItem="acv-Tq-RD4" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" id="qjo-Lj-kmL"/>
                             <constraint firstItem="NqF-dE-EOi" firstAttribute="width" secondItem="BmD-Tr-TJg" secondAttribute="width" id="sfg-bt-RI1"/>
+                            <constraint firstItem="FPa-gG-5KV" firstAttribute="bottom" secondItem="JtV-VT-AgP" secondAttribute="bottom" id="tL0-R0-uwp"/>
                             <constraint firstItem="lRz-Qw-Pnj" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="uaZ-5v-tU3"/>
                             <constraint firstItem="3iR-fP-Osy" firstAttribute="leading" secondItem="FPa-gG-5KV" secondAttribute="leading" constant="30" id="uj3-Tx-jk0">
                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
@@ -1841,6 +1849,7 @@ let's see if you can do it again!</string>
                         <outlet property="myTotalStandsLoading" destination="CWh-KK-Eye" id="d5u-MG-afO"/>
                         <outlet property="pointsIcon" destination="9tL-5f-BSN" id="If8-HE-9RP"/>
                         <outlet property="pointsTitle" destination="sle-yn-ue8" id="I9V-2r-BSK"/>
+                        <outlet property="popupContainerView" destination="JtV-VT-AgP" id="A0B-M4-dV9"/>
                         <outlet property="pushStandButton" destination="sMR-kY-hS2" id="xrQ-Bl-Hf8"/>
                         <outlet property="pushStandLongPressGesture" destination="BBj-fo-GNU" id="PrS-vI-1YT"/>
                         <outlet property="pushStandTitle" destination="KpS-l5-xEw" id="wlG-iQ-rQP"/>
@@ -4073,7 +4082,7 @@ Will you STAND with us?</string>
         <image name="group-request" width="50" height="50"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
-        <image name="line.3.horizontal.decrease.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="line.3.horizontal.decrease.circle.fill" catalog="system" width="128" height="123"/>
         <image name="nay-selected" width="570" height="396"/>
         <image name="nay-unselected" width="570" height="396"/>
         <image name="parachute-crate-2" width="2048" height="2048"/>
@@ -4081,8 +4090,8 @@ Will you STAND with us?</string>
         <image name="person.3" catalog="system" width="128" height="66"/>
         <image name="person.3.fill" catalog="system" width="128" height="66"/>
         <image name="question-loading" width="720" height="720"/>
-        <image name="questionmark.circle" catalog="system" width="32" height="32"/>
-        <image name="questionmark.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="questionmark.circle" catalog="system" width="128" height="123"/>
+        <image name="questionmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="search-icon" width="50" height="50"/>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <image name="stand-btn" width="170.66667175292969" height="170.66667175292969"/>
@@ -4099,22 +4108,22 @@ Will you STAND with us?</string>
             <color white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="separatorColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tableCellBlueTextColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="underPageBackgroundColor">
             <color red="0.70980392156862748" green="0.71764705882352942" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

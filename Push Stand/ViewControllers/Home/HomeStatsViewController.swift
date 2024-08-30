@@ -48,6 +48,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBOutlet weak var globalStandingTodayLoading: UIActivityIndicatorView!
     @IBOutlet weak var standingTodayView: UIStackView!
     
+    // To hold StandBonusView, DailyGoalAchievedView, BuildUpPointsView
+    @IBOutlet weak var popupContainerView: UIView!
+    
+    
     private var goal: Float = Defaults.zeroFloat
     private var current: Float = Defaults.zeroFloat
     private var questionAnswerStreak: Int = Defaults.int
@@ -67,12 +71,14 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
         configureViewComponents()
         setupGestures()
         let dateString = Time.getDateFormatted()
         if !UserDefaults.standard.bool(forKey: dateString) {
             loadHome()
+            
+
         }
         
         presentLoadingIcons()
