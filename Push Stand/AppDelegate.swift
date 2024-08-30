@@ -141,17 +141,28 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         completionHandler(.newData)
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .badge, .sound])
+        let userInfo = notification.request.content.userInfo
+        
+        if let userId = userInfo["userId"] as? String, userId == CurrentUser.shared.uid {
+            // If the userId in the notification matches the current user, present the notification
+            completionHandler([.alert, .badge, .sound])
+        } else {
+            // Otherwise, don't present the notification
+            completionHandler([])
+        }
     }
+    
     
     // Custom function to handle and parse the notification payload
     private func handleNotification(userInfo: [AnyHashable: Any]) {
         if let userId = userInfo["userId"] as? String, let action = userInfo["action"] as? String {
-            if userId == CurrentUser.shared.uid {
-                appStateViewModel.setAppBadgeCount(to: 10)
+            if userId == CurrentUser.shared.uid && action == "new_day" {
+                appStateViewModel.setAppBadgeCount(to: 2)
                 print("Received notification with userId: \(userId) and action: \(action)")
             }
-            // Add any additional handling here, such as updating the UI or processing the background task
+            if userId == CurrentUser.shared.uid && action == "stand_reminder" {
+                print("Received notification with userId: \(userId) and action: \(action)")
+            }
         } else {
             print("Invalid data payload")
         }
