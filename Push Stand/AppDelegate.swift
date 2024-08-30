@@ -136,7 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        //handleNotification(userInfo: userInfo)
+        handleNotification(userInfo: userInfo)
         
         completionHandler(.newData)
     }
@@ -148,6 +148,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     private func handleNotification(userInfo: [AnyHashable: Any]) {
         if let userId = userInfo["userId"] as? String, let action = userInfo["action"] as? String {
             if userId == CurrentUser.shared.uid {
+                appStateViewModel.setAppBadgeCount(to: 10)
                 print("Received notification with userId: \(userId) and action: \(action)")
             }
             // Add any additional handling here, such as updating the UI or processing the background task
