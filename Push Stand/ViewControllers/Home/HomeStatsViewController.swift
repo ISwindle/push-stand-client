@@ -107,10 +107,13 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     @objc func updateLabelWithTimeRemaining() {
         let now = Date()
+        
+        // PST timezone
+        let timeZone = TimeZone(identifier: "America/Los_Angeles")!
         let calendar = Calendar.current
         
-        // Define the next midnight in the local time zone
-        var midnightComponents = calendar.dateComponents([.year, .month, .day], from: now)
+        // Define the next midnight in PST timezone
+        var midnightComponents = calendar.dateComponents(in: timeZone, from: now)
         midnightComponents.day! += 1
         midnightComponents.hour = 0
         midnightComponents.minute = 0
@@ -135,6 +138,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             pushStandTimer.text = "00:00:00"
         }
     }
+
     
     
     override func viewWillDisappear(_ animated: Bool) {

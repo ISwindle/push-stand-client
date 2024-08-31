@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     let launchedBefore = UserDefaults.standard.bool(forKey: Constants.UserDefaultsKeys.userSignedIn)
     var sessionViewModel: SessionViewModel!
     var appStateViewModel: AppStateViewModel!
+    var window: UIWindow?
     private var cancellables = Set<AnyCancellable>()
     
     func application(_ application: UIApplication,
@@ -68,6 +69,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // No need to call scheduleMidnightReset() here since it's handled in AppStateViewModel
     }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        let dateString = Time.getDateFormatted()
+        if launchedBefore && !UserDefaults.standard.bool(forKey: dateString) {
+            resetToEntryPoint()
+        }
+    }
+    
+    // Function to reset the app to its entry point
+        func resetToEntryPoint() {
+            // Assuming 'MainViewController' is your entry point view controller
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: ViewControllers.rootTabBarController)
+            let defaultBadgeeCount = 2
+            appStateViewModel.setAppBadgeCount(to: defaultBadgeeCount)
+            
+            // Optionally, add an animation for a smooth transition
+            UIView.transition(with: window!, duration: 0.5, options: .transitionFlipFromRight, animations: {
+                self.window?.rootViewController = initialViewController
+            }, completion: nil)
+        }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
