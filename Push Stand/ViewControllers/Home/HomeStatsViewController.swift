@@ -77,10 +77,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         configureViewComponents()
         setupGestures()
         let dateString = Time.getDateFormatted()
-        if !UserDefaults.standard.bool(forKey: dateString) {
-            loadHome()
-            
-            
+        if !UserDefaults.standard.bool(forKey: dateString) && appDelegate.appStateViewModel.isTomorrow {
+            loadHome()            
         }
         
         presentLoadingIcons()
@@ -90,10 +88,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(standProgressBarTapped))
         standProgressBar.addGestureRecognizer(tapGesture)
         standProgressBar.isUserInteractionEnabled = true
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     

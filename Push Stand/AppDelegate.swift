@@ -71,25 +71,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-        let dateString = Time.getDateFormatted()
-        if launchedBefore && !UserDefaults.standard.bool(forKey: dateString) {
-            resetToEntryPoint()
-        }
+        
     }
     
-    // Function to reset the app to its entry point
-        func resetToEntryPoint() {
-            // Assuming 'MainViewController' is your entry point view controller
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: ViewControllers.rootTabBarController)
-            let defaultBadgeeCount = 2
-            appStateViewModel.setAppBadgeCount(to: defaultBadgeeCount)
-            
-            // Optionally, add an animation for a smooth transition
-            UIView.transition(with: window!, duration: 0.5, options: .transitionFlipFromRight, animations: {
-                self.window?.rootViewController = initialViewController
-            }, completion: nil)
-        }
+    
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
@@ -165,8 +150,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         
-        if let userId = userInfo["userId"] as? String, userId == CurrentUser.shared.uid {
-            // If the userId in the notification matches the current user, present the notification
+       if let userId = userInfo["userId"] as? String, userId == CurrentUser.shared.uid {
+            //If the userId in the notification matches the current user, present the notification
             completionHandler([.alert, .badge, .sound])
         } else {
             // Otherwise, don't present the notification

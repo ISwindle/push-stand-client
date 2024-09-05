@@ -22,10 +22,37 @@ class Time {
         }
     }
     
+    static func getPacificDateFormatted(daysOffset: Int = 0, dateFormat: String = defaultDateFormat) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        
+        // Set the time zone to Pacific Time (PST/PDT)
+        dateFormatter.timeZone = TimeZone(identifier: "America/Los_Angeles")
+        
+        // Ensure the calendar is using Pacific Time as well
+        var pacificCalendar = Calendar.current
+        pacificCalendar.timeZone = TimeZone(identifier: "America/Los_Angeles")!
+
+        // Calculate the date with the days offset
+        if let date = pacificCalendar.date(byAdding: .day, value: daysOffset, to: Date()) {
+            return dateFormatter.string(from: date)
+        } else {
+            // Handle the case where the date calculation fails
+            return "Error calculating the date"
+        }
+    }
+
+    
     // Convenience methods for specific use cases
     static func getCurrentDateFormatted() -> String {
         return getDateFormatted(daysOffset: 0)
     }
+    
+    // Convenience methods for specific use cases
+    static func getPacificCurrentDateFormatted() -> String {
+        return getPacificDateFormatted(daysOffset: 0)
+    }
+    
     
     static func getPreviousDateFormatted() -> String {
         return getDateFormatted(daysOffset: -1)
