@@ -77,7 +77,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         configureViewComponents()
         setupGestures()
         let dateString = Time.getDateFormatted()
-        if !UserDefaults.standard.bool(forKey: dateString) && appDelegate.appStateViewModel.isTomorrow {
+        if !UserDefaults.standard.bool(forKey: dateString){
             loadHome()            
         }
         
