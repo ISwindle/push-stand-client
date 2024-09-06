@@ -432,6 +432,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
         if segue.identifier == "submitQuestionSegue" {
             if let destinationVC = segue.destination as? SubmitQuestionViewController {
                 // Include Setup for Submit Question
+                appDelegate.appStateViewModel.newDay = true
             }
         }
     }

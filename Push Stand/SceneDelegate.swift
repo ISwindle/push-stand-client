@@ -20,6 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         // guard let _ = (scene as? UIWindowScene) else { return }
         
+        // Observe the CountdownReachedZero notification
+        NotificationCenter.default.addObserver(self, selector: #selector(handleCountdownZero), name: Notification.Name("CountdownReachedZero"), object: nil)
         
         let storyboard = UIStoryboard(name: Constants.mainStoryboard, bundle: nil)
         
@@ -35,11 +37,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
+    // Handle the countdown reaching zero
+    @objc func handleCountdownZero() {
+        // This will trigger when the countdown hits zero
+        print("Countdown reached zero in SceneDelegate. Perform global actions.")
+        resetApp()
+        
+        // You can perform global actions here like updating app-wide UI, resetting the app state, etc.
+        // Example: Change the root view controller or update user defaults, etc.
+    }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        // Remove observer when the scene disconnects
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("CountdownReachedZero"), object: nil)
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -65,7 +79,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
- 
+        
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
@@ -86,7 +100,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func resetApp() {
-        
+        appDelegate.appStateViewModel.newDay = false
         appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
         // Reset the app by setting the root view controller as if the app just opened
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -102,6 +116,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         transition.type = .fade
         transition.duration = 0.5
         window?.layer.add(transition, forKey: kCATransition)
+        
     }
     
 }

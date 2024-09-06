@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 class CountdownTimerManager {
     static let shared = CountdownTimerManager()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     private var countdownTimer: Timer?
     var remainingTime: TimeInterval = 0
@@ -42,12 +44,21 @@ class CountdownTimerManager {
         // Calculate time difference
         remainingTime = midnight.timeIntervalSince(now)
         
+        if appDelegate.appStateViewModel.newDay {
+            // Post a notification when the countdown reaches zero
+            NotificationCenter.default.post(name: Notification.Name("CountdownReachedZero"), object: nil)
+        }
+        
         // Notify observers
         if remainingTime <= 0 {
             countdownTimer?.invalidate()
             countdownTimer = nil
+            
+            // Post a notification when the countdown reaches zero
+            NotificationCenter.default.post(name: Notification.Name("CountdownReachedZero"), object: nil)
         }
     }
+    
     
     func stopCountdown() {
         countdownTimer?.invalidate()
