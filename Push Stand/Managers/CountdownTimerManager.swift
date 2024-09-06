@@ -44,11 +44,6 @@ class CountdownTimerManager {
         // Calculate time difference
         remainingTime = midnight.timeIntervalSince(now)
         
-        if appDelegate.appStateViewModel.newDay {
-            // Post a notification when the countdown reaches zero
-            NotificationCenter.default.post(name: Notification.Name("CountdownReachedZero"), object: nil)
-        }
-        
         // Notify observers
         if remainingTime <= 0 {
             countdownTimer?.invalidate()

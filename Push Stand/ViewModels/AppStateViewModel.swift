@@ -4,7 +4,6 @@ import Combine
 
 class AppStateViewModel: ObservableObject {
     @Published var currentDay: Date = Date()
-    var newDay: Bool = false
 
     private var cancellables = Set<AnyCancellable>()
 
