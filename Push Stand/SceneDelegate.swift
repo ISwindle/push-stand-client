@@ -85,6 +85,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func resetApp() {
+        
+        appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
         // Reset the app by setting the root view controller as if the app just opened
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         

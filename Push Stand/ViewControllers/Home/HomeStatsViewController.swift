@@ -75,6 +75,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewComponents()
+        // Update the UI every second
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
         setupGestures()
         let dateString = Time.getDateFormatted()
         if !UserDefaults.standard.bool(forKey: dateString){
@@ -91,46 +93,18 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     
-    func startCountdownTimer() {
-        // Update the label immediately with the time remaining
-        updateLabelWithTimeRemaining()
-        
-        // Start the timer to update every second
-        countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateLabelWithTimeRemaining), userInfo: nil, repeats: true)
-    }
-    
-    @objc func updateLabelWithTimeRemaining() {
-        let now = Date()
-        
-        // PST timezone
-        let timeZone = TimeZone(identifier: "America/Los_Angeles")!
-        let calendar = Calendar.current
-        
-        // Define the next midnight in PST timezone
-        var midnightComponents = calendar.dateComponents(in: timeZone, from: now)
-        midnightComponents.day! += 1
-        midnightComponents.hour = 0
-        midnightComponents.minute = 0
-        midnightComponents.second = 0
-        
-        guard let midnight = calendar.date(from: midnightComponents) else { return }
-        
-        // Calculate time difference
-        let remainingTime = midnight.timeIntervalSince(now)
-        
-        if remainingTime > 0 {
-            let hours = Int(remainingTime) / 3600
-            let minutes = Int(remainingTime) % 3600 / 60
-            let seconds = Int(remainingTime) % 60
-            
-            // Update label with formatted time
-            pushStandTimer.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-        } else {
-            // Stop the timer when midnight is reached
-            countdownTimer?.invalidate()
-            countdownTimer = nil
-            pushStandTimer.text = "00:00:00"
-        }
+    @objc func updateTimerLabel() {
+            let remainingTime = CountdownTimerManager.shared.remainingTime
+            if remainingTime > 0 {
+                let hours = Int(remainingTime) / 3600
+                let minutes = Int(remainingTime) % 3600 / 60
+                let seconds = Int(remainingTime) % 60
+                
+                // Update the label
+                pushStandTimer.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+            } else {
+                pushStandTimer.text = "00:00:00"
+            }
     }
 
     
@@ -223,7 +197,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         // Animate transition after 2 seconds with a fade effect
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.fadeOutLabel {
-                self.startCountdownTimer()
+                CountdownTimerManager.shared.startCountdown()
                 self.fadeInLabel()
             }
         }
