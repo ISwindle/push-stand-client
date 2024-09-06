@@ -51,7 +51,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     // To hold StandBonusView, DailyGoalAchievedView, BuildUpPointsView
     @IBOutlet weak var popupContainerView: UIView!
     
+    @IBOutlet weak var popUpContainer: UIView!
+    
     @IBOutlet weak var pushStandTimer: UILabel!
+    var standBonusView: StandBonusView? // Reference to the loaded XIB view
     var countdownTimer: Timer?
     
     private var goal: Float = Defaults.zeroFloat
@@ -266,7 +269,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         gestureHandler.addTapGesture(to: pointsTitle, target: self, action: #selector(pointsTapped))
         gestureHandler.addTapGesture(to: accountButton, target: self, action: #selector(accountsTapped))
         gestureHandler.addTapGesture(to: shareIcon, target: self, action: #selector(sendMessage))
-        gestureHandler.addTapGesture(to: shareNow, target: self, action: #selector(sendMessage))
     }
     
     // MARK: - Data Fetching and UI Update
@@ -501,6 +503,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             selectedColor: .systemRed,
             selectedStreakValue: standStreak % Constants.standStreakMax
         )
+        //loadStandBonusViewIntoContainer()
     }
     
     @objc private func questionStreakTapped() {
@@ -710,4 +713,32 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: nil)
     }
+    
+    func loadStandBonusViewIntoContainer() {
+            // Load the XIB
+            let standBonusView = Bundle.main.loadNibNamed("StandBonusView", owner: self, options: nil)?.first as! StandBonusView
+            
+            // Set the frame or constraints
+            standBonusView.frame = popUpContainer.bounds
+            
+            // Define the closure for the dismiss action
+            standBonusView.onDismiss = {
+                self.removeStandBonusView()
+            }
+            
+            // Add the view to the parent container
+            popUpContainer.addSubview(standBonusView)
+            
+            // Keep a reference to the loaded view for future removal
+            self.standBonusView = standBonusView
+        }
+
+        // Remove the loaded XIB from its parent container
+        func removeStandBonusView() {
+            // Remove the XIB view from the parent container
+            standBonusView?.removeFromSuperview()
+            
+            // Optionally, set the reference to nil
+            standBonusView = nil
+        }
 }

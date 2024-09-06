@@ -14,4 +14,11 @@ class DailyGoalAchievedView: UIView {
     // after sharing, dailyGoalAchievedView should disappear after
     @IBOutlet weak var skipButton: UIButton!
     
+    @IBAction func shareNow(_ sender: Any) {
+    }
+    
+    @IBAction func skipButton(_ sender: Any) {
+    }
+    
+    
 }

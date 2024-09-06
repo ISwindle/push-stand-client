@@ -9,7 +9,11 @@ import UIKit
 
 class StandBonusView: UIView {
 
-
-    @IBOutlet var standBonusView: UIVisualEffectView!
-    @IBOutlet weak var dismissView: UIButton!
+    // Add a closure that allows communication with the parent view controller
+    var onDismiss: (() -> Void)?
+    
+    @IBAction func tapConfirm(_ sender: Any) {
+        onDismiss?()
+    }
+    
 }
