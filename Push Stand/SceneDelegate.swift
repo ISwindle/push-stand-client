@@ -55,6 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        CountdownTimerManager.shared.startCountdown()
         if launchedBefore && !UserDefaults.standard.bool(forKey: Time.getPacificCurrentDateFormatted()) {
             resetApp()
         }

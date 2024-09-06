@@ -197,7 +197,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         // Animate transition after 2 seconds with a fade effect
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.fadeOutLabel {
-                CountdownTimerManager.shared.startCountdown()
                 self.fadeInLabel()
             }
         }
