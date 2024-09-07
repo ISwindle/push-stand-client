@@ -11,8 +11,9 @@ class StandBonusView: UIView {
 
     // Add a closure that allows communication with the parent view controller
     var onDismiss: (() -> Void)?
+
     
-    @IBAction func tapConfirm(_ sender: Any) {
+    @IBAction func gotItTapped(_ sender: Any) {
         onDismiss?()
     }
     

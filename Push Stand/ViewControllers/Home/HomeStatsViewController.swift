@@ -503,7 +503,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             selectedColor: .systemRed,
             selectedStreakValue: standStreak % Constants.standStreakMax
         )
-        //loadStandBonusViewIntoContainer()
+        
     }
     
     @objc private func questionStreakTapped() {
@@ -606,6 +606,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         UIView.animate(withDuration: 1.0, animations: {
             if self.standStreak > 0 && self.standStreak % Constants.standStreakMax == Constants.streakBarMin {
                 self.standStreakLabel.text = Constants.fivePoints
+                self.loadStandBonusViewIntoContainer()
             }
             self.standStreakLabel.alpha = 1.0
         }) { finished in
@@ -728,7 +729,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             
             // Add the view to the parent container
             popUpContainer.addSubview(standBonusView)
-            
+            popUpContainer.isUserInteractionEnabled = true
             // Keep a reference to the loaded view for future removal
             self.standBonusView = standBonusView
         }
@@ -740,5 +741,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             
             // Optionally, set the reference to nil
             standBonusView = nil
+            popUpContainer.isUserInteractionEnabled = false
         }
 }

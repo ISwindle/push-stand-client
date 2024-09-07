@@ -12,7 +12,11 @@ class AnswerBonusView: UIView {
     @IBOutlet var answerBonusView: UIVisualEffectView!
     @IBOutlet weak var dismissView: UIButton!
     
-    @IBAction func tapConfirm(_ sender: Any) {
+   
+    var onDismiss: (() -> Void)?
+    
+    @IBAction func gotIt(_ sender: Any) {
+        onDismiss?()
     }
     
 }

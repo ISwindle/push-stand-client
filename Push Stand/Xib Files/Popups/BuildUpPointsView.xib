@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,11 +16,11 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="q4Y-nz-tdO" userLabel="Build Up Points View">
+        <view contentMode="scaleToFill" id="q4Y-nz-tdO" userLabel="Build Up Points View" customClass="BuildUpPointsView" customModule="Push_Stand" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="393" height="723"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" id="7Xd-Fb-O1X" userLabel="Build Up Points View">
+                <visualEffectView opaque="NO" contentMode="scaleToFill" id="7Xd-Fb-O1X" userLabel="Build Up Points View">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="723"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sZX-nW-ykv">
@@ -84,7 +84,7 @@
                                             <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="tapConfirm:" destination="-1" eventType="touchUpInside" id="dWR-A1-FSj"/>
+                                            <action selector="gotIt:" destination="q4Y-nz-tdO" eventType="touchUpInside" id="0ah-fJ-Z2U"/>
                                         </connections>
                                     </button>
                                 </subviews>
