@@ -7,10 +7,7 @@
 
 import UIKit
 
-class BuildUpPointsView: UIView {
-
-    @IBOutlet var buildUpPointsView: UIVisualEffectView!
-    @IBOutlet weak var dismissView: UIButton!
+class BuildUpPointsView: UIView, DismissableView {
     
     var onDismiss: (() -> Void)?
     

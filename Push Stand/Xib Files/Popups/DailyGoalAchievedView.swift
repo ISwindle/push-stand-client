@@ -7,16 +7,11 @@
 
 import UIKit
 
-class DailyGoalAchievedView: UIView {
+class DailyGoalAchievedView: UIView, DismissableView {
 
-    @IBOutlet var dailyGoalAchievedView: UIVisualEffectView!
-    @IBOutlet weak var shareNowButton: UIButton!
-    // after sharing, dailyGoalAchievedView should disappear after
-    @IBOutlet weak var skipButton: UIButton!
+
     // Add a closure that allows communication with the parent view controller
     var onDismiss: (() -> Void)?
-
-    
    
     @IBAction func shareNow(_ sender: Any) {
         

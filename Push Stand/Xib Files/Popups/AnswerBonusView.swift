@@ -7,11 +7,7 @@
 
 import UIKit
 
-class AnswerBonusView: UIView {
-
-    @IBOutlet var answerBonusView: UIVisualEffectView!
-    @IBOutlet weak var dismissView: UIButton!
-    
+class AnswerBonusView: UIView, DismissableView {
    
     var onDismiss: (() -> Void)?
     

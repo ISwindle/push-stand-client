@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StandBonusView: UIView {
+class StandBonusView: UIView, DismissableView {
 
     // Add a closure that allows communication with the parent view controller
     var onDismiss: (() -> Void)?

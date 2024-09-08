@@ -58,6 +58,7 @@
 		2263D21C2AF926CB00D2E136 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */; };
 		226D35162BE04F2C0092592B /* NetworkErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D35152BE04F2C0092592B /* NetworkErrorViewController.swift */; };
 		227701EC2C8B85C600F256C6 /* CountdownTimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227701EB2C8B85C600F256C6 /* CountdownTimerManager.swift */; };
+		227701F62C8E5E5600F256C6 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227701F52C8E5E5600F256C6 /* ExtUIView.swift */; };
 		227D0F9F2B1E17890001E568 /* DailyQuestionContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227D0F9E2B1E17890001E568 /* DailyQuestionContainerViewController.swift */; };
 		229BB4962B8177FF00959B3F /* SubmitQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229BB4952B8177FF00959B3F /* SubmitQuestionViewController.swift */; };
 		229C49FA2B14E0D100C8E065 /* HomeStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C49F92B14E0D100C8E065 /* HomeStatsViewController.swift */; };
@@ -167,6 +168,7 @@
 		2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		226D35152BE04F2C0092592B /* NetworkErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorViewController.swift; sourceTree = "<group>"; };
 		227701EB2C8B85C600F256C6 /* CountdownTimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimerManager.swift; sourceTree = "<group>"; };
+		227701F52C8E5E5600F256C6 /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		227D0F9E2B1E17890001E568 /* DailyQuestionContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuestionContainerViewController.swift; sourceTree = "<group>"; };
 		229BB4952B8177FF00959B3F /* SubmitQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitQuestionViewController.swift; sourceTree = "<group>"; };
 		229C49F92B14E0D100C8E065 /* HomeStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsViewController.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */,
 				224F24A42BF905690083FE09 /* ExtUITapGestureRecognizer.swift */,
 				22FC2F792C44929600A32B5D /* UIApplication.swift */,
+				227701F52C8E5E5600F256C6 /* ExtUIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				223EA08A2AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift in Sources */,
 				22FC2F7C2C44A66900A32B5D /* AppStateViewModel.swift in Sources */,
 				2263D2102AF8A11200D2E136 /* LandingRootViewController.swift in Sources */,
+				227701F62C8E5E5600F256C6 /* ExtUIView.swift in Sources */,
 				223443472C3AE64200FAF9AB /* Networking.swift in Sources */,
 				229C49FA2B14E0D100C8E065 /* HomeStatsViewController.swift in Sources */,
 				22FC2F7A2C44929600A32B5D /* UIApplication.swift in Sources */,

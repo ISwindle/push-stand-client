@@ -31,7 +31,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     ///Added for Daily Goal Achieved
     @IBOutlet weak var shareNow: UIButton! //action already linked, but still needs to dismiss view once done
     @IBOutlet weak var skipSharing: UIButton! //action not linked, if tapped, should dismiss dailyGoalAchievedView
-    @IBOutlet weak var dailyGoalAchievedView: UIVisualEffectView! //hidden, also behind bonus standing view so if we have a day where both happens, bonus stand view shows first then dailygoalachieved view
     
     @IBOutlet weak var segmentedStreakBar: SegmentedBar!
     @IBOutlet weak var streakImage: UIImageView!
@@ -55,6 +54,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     @IBOutlet weak var pushStandTimer: UILabel!
     var standBonusView: StandBonusView? // Reference to the loaded XIB view
+    var dailyGoalAchievedView: DailyGoalAchievedView?
+    var buildsUpPointView: BuildUpPointsView?
+    var answerBonusView: AnswerBonusView?
     var countdownTimer: Timer?
     
     private var goal: Float = Defaults.zeroFloat
@@ -503,7 +505,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             selectedColor: .systemRed,
             selectedStreakValue: standStreak % Constants.standStreakMax
         )
-        
     }
     
     @objc private func questionStreakTapped() {
@@ -729,6 +730,20 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             
             // Add the view to the parent container
             popUpContainer.addSubview(standBonusView)
+        
+        // Disable autoresizing mask translation so we can use Auto Layout
+            standBonusView.translatesAutoresizingMaskIntoConstraints = false
+            
+            // Set up Auto Layout constraints to center the view in the container
+        NSLayoutConstraint.activate([
+            standBonusView.centerXAnchor.constraint(equalTo: popUpContainer.centerXAnchor),
+            standBonusView.centerYAnchor.constraint(equalTo: popUpContainer.centerYAnchor),
+            
+            // Width and height proportional to the parent container (e.g., 90% of popUpContainer's width and height)
+            standBonusView.widthAnchor.constraint(equalTo: popUpContainer.widthAnchor, multiplier: 0.925),
+            standBonusView.heightAnchor.constraint(equalTo: popUpContainer.heightAnchor, multiplier: 1.0)
+        ])
+        
             popUpContainer.isUserInteractionEnabled = true
             // Keep a reference to the loaded view for future removal
             self.standBonusView = standBonusView
@@ -738,9 +753,63 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         func removeStandBonusView() {
             // Remove the XIB view from the parent container
             standBonusView?.removeFromSuperview()
-            
+
             // Optionally, set the reference to nil
             standBonusView = nil
             popUpContainer.isUserInteractionEnabled = false
         }
+    
+    func loadViewIntoContainer<T: DismissableView>(_ viewType: T.Type, xibName: String) {
+        // Load the XIB
+        let view = Bundle.main.loadNibNamed(xibName, owner: self, options: nil)?.first as! T
+        
+        // Define the closure for the dismiss action
+        view.onDismiss = {
+            self.removeViewFromContainer(view)
+        }
+        
+        // Add the view to the popUpContainer
+        popUpContainer.addSubview(view)
+        
+        // Disable autoresizing mask translation so we can use Auto Layout
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Set up Auto Layout constraints to center the view in the container
+        NSLayoutConstraint.activate([
+            view.centerXAnchor.constraint(equalTo: popUpContainer.centerXAnchor),
+            view.centerYAnchor.constraint(equalTo: popUpContainer.centerYAnchor),
+            
+            // Width and height proportional to the parent container
+            view.widthAnchor.constraint(equalTo: popUpContainer.widthAnchor, multiplier: 0.925),
+            view.heightAnchor.constraint(equalTo: popUpContainer.heightAnchor, multiplier: 1.0)
+        ])
+        
+        popUpContainer.isUserInteractionEnabled = true
+        
+    }
+
+    func removeViewFromContainer(_ view: UIView) {
+        // Remove the XIB view from the parent container
+        view.removeFromSuperview()
+        
+        popUpContainer.isUserInteractionEnabled = false
+    }
+    
+    func showStandBonusView() {
+        loadViewIntoContainer(StandBonusView.self, xibName: "StandBonusView")
+    }
+
+    func showDailyGoalAchievedView() {
+        loadViewIntoContainer(DailyGoalAchievedView.self, xibName: "DailyGoalAchievedView")
+    }
+
+    func showBuildUpPointsView() {
+        loadViewIntoContainer(BuildUpPointsView.self, xibName: "BuildUpPointsView")
+    }
+
+    func showAnswerBonusView() {
+        loadViewIntoContainer(AnswerBonusView.self, xibName: "AnswerBonusView")
+    }
+
+
 }
