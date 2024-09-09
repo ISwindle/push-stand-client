@@ -497,15 +497,26 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         performSegue(withIdentifier: Segues.account, sender: self)
     }
     
+//    @objc private func standStreakTapped() {
+//        updateStreakUI(
+//            selectedIcon: standStreakIcon,
+//            selectedIconImage: Constants.redStarImg,
+//            selectedTitle: standStreakTitle,
+//            selectedColor: .systemRed,
+//            selectedStreakValue: standStreak % Constants.standStreakMax
+//        )
+//    }
+    
     @objc private func standStreakTapped() {
-        updateStreakUI(
-            selectedIcon: standStreakIcon,
-            selectedIconImage: Constants.redStarImg,
-            selectedTitle: standStreakTitle,
-            selectedColor: .systemRed,
-            selectedStreakValue: standStreak % Constants.standStreakMax
-        )
-    }
+            updateStreakUI(
+                selectedIcon: standStreakIcon,
+                selectedIconImage: Constants.redStarImg,
+                selectedTitle: standStreakTitle,
+                selectedColor: .systemRed,
+                selectedStreakValue: standStreak % Constants.standStreakMax
+            )
+            showDailyGoalAchievedView()
+        }
     
     @objc private func questionStreakTapped() {
         updateStreakUI(
