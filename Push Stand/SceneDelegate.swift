@@ -101,13 +101,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func resetApp() {
         appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
-        // Reset the app by setting the root view controller as if the app just opened
+        
+        // Reset the app by recreating the tab bar with fresh instances of view controllers
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        guard let rootTabBarController = storyboard.instantiateViewController(identifier: ViewControllers.rootTabBarController) as? UITabBarController else {
+            return
+        }
         
-        window?.rootViewController = storyboard.instantiateViewController(identifier: ViewControllers.rootTabBarController)
+        // Create fresh instances of the view controllers for each tab
+        let indexZero = storyboard.instantiateViewController(identifier: "HomeStatsViewController")
+        let indexOne = storyboard.instantiateViewController(identifier: "DailyQuestionViewController")
         
+        // Assign them to the tab bar
+        rootTabBarController.viewControllers = [indexZero, indexOne]
         
+        // Set the root view controller and display the window
+        window?.rootViewController = rootTabBarController
         window?.makeKeyAndVisible()
         
         // Optionally, you can add a transition for smoother experience

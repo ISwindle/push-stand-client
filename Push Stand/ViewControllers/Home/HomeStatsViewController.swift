@@ -199,13 +199,16 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         // Initially set the label to "Push Stand"
         pushStandTimer.text = "PUSH STAND"
         
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         // Animate transition after 2 seconds with a fade effect
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.fadeOutLabel {
                 self.fadeInLabel()
             }
         }
-        
     }
     
     // Helper functions to handle fade in and fade out effects
@@ -338,20 +341,22 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     // MARK: - Specific Response Handlers
     
     private func handleDailyGoals(_ goals: [String: Any]) {
-        self.dailyGoalLoading.isHidden = true
-        self.globalStandingTodayLoading.isHidden = true
         
         if let goalValue = goals["Goal"] as? String, let goalInt = Int(goalValue) {
+            self.dailyGoalLoading.isHidden = true
             let formattedGoal = Formatter.formatLargeNumber(goalInt)
             let attributedString = NSMutableAttributedString(string: "\(goalInt)")
             dailyGoalCount.attributedText = attributedString
         } else {
+            self.dailyGoalLoading.isHidden = true
             dailyGoalCount.text = Defaults.zeroString
         }
         if let currentValue = goals["Current"] as? String {
+            self.globalStandingTodayLoading.isHidden = true
             globalStandCount.text = "\(currentValue)"
             SessionViewModel.shared.standModel.americansStandingToday = Int(currentValue)!
         } else {
+            self.globalStandingTodayLoading.isHidden = true
             globalStandCount.text = Defaults.zeroString
             SessionViewModel.shared.standModel.americansStandingToday = 0
         }
@@ -447,8 +452,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         standingTodayView.isHidden = true
         pushStandTitle.isHidden = false
         pushStandButton.isHidden = true
-        dailyGoalLoading.isHidden = true
-        globalStandingTodayLoading.isHidden = true
+        //dailyGoalLoading.isHidden = true
+        //globalStandingTodayLoading.isHidden = true
         landingViewWithPicture.isHidden = false
         accountButton.isHidden = true
         tabBarController?.tabBar.alpha = 0
@@ -497,16 +502,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         performSegue(withIdentifier: Segues.account, sender: self)
     }
     
-//    @objc private func standStreakTapped() {
-//        updateStreakUI(
-//            selectedIcon: standStreakIcon,
-//            selectedIconImage: Constants.redStarImg,
-//            selectedTitle: standStreakTitle,
-//            selectedColor: .systemRed,
-//            selectedStreakValue: standStreak % Constants.standStreakMax
-//        )
-//    }
-    
     @objc private func standStreakTapped() {
             updateStreakUI(
                 selectedIcon: standStreakIcon,
@@ -515,7 +510,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                 selectedColor: .systemRed,
                 selectedStreakValue: standStreak % Constants.standStreakMax
             )
-            showDailyGoalAchievedView()
         }
     
     @objc private func questionStreakTapped() {
@@ -618,7 +612,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         UIView.animate(withDuration: 1.0, animations: {
             if self.standStreak > 0 && self.standStreak % Constants.standStreakMax == Constants.streakBarMin {
                 self.standStreakLabel.text = Constants.fivePoints
-                self.loadStandBonusViewIntoContainer()
+                self.showStandBonusView()
             }
             self.standStreakLabel.alpha = 1.0
         }) { finished in
@@ -727,48 +721,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         controller.dismiss(animated: true, completion: nil)
     }
     
-    func loadStandBonusViewIntoContainer() {
-            // Load the XIB
-            let standBonusView = Bundle.main.loadNibNamed("StandBonusView", owner: self, options: nil)?.first as! StandBonusView
-            
-            // Set the frame or constraints
-            standBonusView.frame = popUpContainer.bounds
-            
-            // Define the closure for the dismiss action
-            standBonusView.onDismiss = {
-                self.removeStandBonusView()
-            }
-            
-            // Add the view to the parent container
-            popUpContainer.addSubview(standBonusView)
-        
-        // Disable autoresizing mask translation so we can use Auto Layout
-            standBonusView.translatesAutoresizingMaskIntoConstraints = false
-            
-            // Set up Auto Layout constraints to center the view in the container
-        NSLayoutConstraint.activate([
-            standBonusView.centerXAnchor.constraint(equalTo: popUpContainer.centerXAnchor),
-            standBonusView.centerYAnchor.constraint(equalTo: popUpContainer.centerYAnchor),
-            
-            // Width and height proportional to the parent container (e.g., 90% of popUpContainer's width and height)
-            standBonusView.widthAnchor.constraint(equalTo: popUpContainer.widthAnchor, multiplier: 0.925),
-            standBonusView.heightAnchor.constraint(equalTo: popUpContainer.heightAnchor, multiplier: 1.0)
-        ])
-        
-            popUpContainer.isUserInteractionEnabled = true
-            // Keep a reference to the loaded view for future removal
-            self.standBonusView = standBonusView
-        }
-
-        // Remove the loaded XIB from its parent container
-        func removeStandBonusView() {
-            // Remove the XIB view from the parent container
-            standBonusView?.removeFromSuperview()
-
-            // Optionally, set the reference to nil
-            standBonusView = nil
-            popUpContainer.isUserInteractionEnabled = false
-        }
     
     func loadViewIntoContainer<T: DismissableView>(_ viewType: T.Type, xibName: String) {
         // Load the XIB
