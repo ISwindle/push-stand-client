@@ -27,7 +27,7 @@ class SignUpPhoneViewController: UIViewController {
             nextButton.isEnabled = false
             return
         }
-        nextButton.isEnabled = Validator.isValidPhoneNumber(text)
+        nextButton.isEnabled = Validator().isValidPhoneNumber(text)
     }
     
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {

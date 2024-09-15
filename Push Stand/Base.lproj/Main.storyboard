@@ -3857,7 +3857,7 @@ Will you STAND with us?</string>
         <image name="group-request" width="50" height="50"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
-        <image name="line.3.horizontal.decrease.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="line.3.horizontal.decrease.circle.fill" catalog="system" width="128" height="123"/>
         <image name="nay-selected" width="570" height="396"/>
         <image name="nay-unselected" width="570" height="396"/>
         <image name="parachute-crate-2" width="2048" height="2048"/>
@@ -3865,8 +3865,8 @@ Will you STAND with us?</string>
         <image name="person.3" catalog="system" width="128" height="66"/>
         <image name="person.3.fill" catalog="system" width="128" height="66"/>
         <image name="question-loading" width="720" height="720"/>
-        <image name="questionmark.circle" catalog="system" width="32" height="32"/>
-        <image name="questionmark.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="questionmark.circle" catalog="system" width="128" height="123"/>
+        <image name="questionmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="search-icon" width="50" height="50"/>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <image name="stand-btn" width="170.5" height="170.5"/>

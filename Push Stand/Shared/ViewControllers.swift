@@ -14,5 +14,7 @@ class ViewControllers {
     static let rootTabBarController  = "RootTabBarController"
     static let initialViewController  = "InitialViewController"
     static let accountDeletionViewController = "AccountDeletionViewController"
+    static let homeStatsViewController = "HomeStatsViewController"
+    static let dailyQuestionViewController = "DailyQuestionViewController"
 }
 

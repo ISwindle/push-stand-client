@@ -27,6 +27,10 @@ class Constants {
     static let questionPoints = "2"
     static let questionStreakHitPoints = "10"
     static let questionUserDefaultsKey = "question-" + Time.getDateFormatted()
+    static let defaultTimezone = "America/Los_Angeles"
+    static let defaultDateFormat = "yyyy-MM-dd"
+    static let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    static let phoneNumberPattern = "^\\d{10,11}$"
     
     class UserDefaultsKeys {
         static let userSignedIn = "usersignedin"
@@ -44,4 +48,8 @@ class Constants {
         static let privacy = "https://pushstand.com/privacy.html"
         static let termsOfService = "https://pushstand.com/terms.html"
     }
+    
+
+       
+    
 }

@@ -9,36 +9,35 @@ import Foundation
 
 class Time {
     
-    private static let defaultDateFormat = "yyyy-MM-dd"
+    static let errorDateCalculationMessage = "Error calculating the date"
     
-    static func getDateFormatted(daysOffset: Int = 0, dateFormat: String = defaultDateFormat) -> String {
+    static func getDateFormatted(daysOffset: Int = 0, dateFormat: String = Constants.defaultDateFormat) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         if let date = Calendar.current.date(byAdding: .day, value: daysOffset, to: Date()) {
             return dateFormatter.string(from: date)
         } else {
-            // Handle the case where the date calculation fails
-            return "Error calculating the date"
+            return errorDateCalculationMessage
         }
     }
     
-    static func getPacificDateFormatted(daysOffset: Int = 0, dateFormat: String = defaultDateFormat) -> String {
+    static func getPacificDateFormatted(daysOffset: Int = 0, dateFormat: String = Constants.defaultDateFormat) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         
         // Set the time zone to Pacific Time (PST/PDT)
-        dateFormatter.timeZone = TimeZone(identifier: "America/Los_Angeles")
+        dateFormatter.timeZone = TimeZone(identifier: Constants.defaultTimezone)
         
         // Ensure the calendar is using Pacific Time as well
         var pacificCalendar = Calendar.current
-        pacificCalendar.timeZone = TimeZone(identifier: "America/Los_Angeles")!
+        pacificCalendar.timeZone = TimeZone(identifier: Constants.defaultTimezone)!
 
         // Calculate the date with the days offset
         if let date = pacificCalendar.date(byAdding: .day, value: daysOffset, to: Date()) {
             return dateFormatter.string(from: date)
         } else {
             // Handle the case where the date calculation fails
-            return "Error calculating the date"
+            return errorDateCalculationMessage
         }
     }
 

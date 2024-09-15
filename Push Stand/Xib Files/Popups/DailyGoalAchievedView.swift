@@ -6,20 +6,20 @@
 //
 
 import UIKit
+import MessageUI
 
-class DailyGoalAchievedView: UIView, DismissableView {
-
-
+class DailyGoalAchievedView: UIView, DismissableView, ShareableView {
+    
     // Add a closure that allows communication with the parent view controller
     var onDismiss: (() -> Void)?
-   
-    @IBAction func shareNow(_ sender: Any) {
-        
-    }
+    // Closure to handle the share action
+    var onShareNow: (() -> Void)?
     
+    @IBAction func shareNow(_ sender: Any) {
+        onShareNow?()
+    }
     
     @IBAction func skip(_ sender: Any) {
         onDismiss?()
     }
-    
 }

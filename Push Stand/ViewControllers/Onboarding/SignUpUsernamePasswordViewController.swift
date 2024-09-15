@@ -43,8 +43,8 @@ class SignUpUsernamePasswordViewController: UIViewController {
     }
     
     private func validateForm() {
-        guard let username = usernameTextField.text, Validator.isValidEmail(username),
-              let password = passwordTextField.text, Validator.isValidPassword(password) else {
+        guard let username = usernameTextField.text, Validator().isValidEmail(username),
+              let password = passwordTextField.text, Validator().isValidPassword(password) else {
             nextButton.isEnabled = false
             return
         }
@@ -52,7 +52,7 @@ class SignUpUsernamePasswordViewController: UIViewController {
     }
     
     @IBAction private func next(_ sender: Any) {
-        guard let email = usernameTextField.text, Validator.isValidEmail(email) else {
+        guard let email = usernameTextField.text, Validator().isValidEmail(email) else {
             presentAlertWithTitle(title: "Invalid Email", message: "Please enter a valid email address.")
             return
         }

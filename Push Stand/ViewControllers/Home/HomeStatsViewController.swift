@@ -85,7 +85,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         setupGestures()
         let dateString = Time.getDateFormatted()
         if !UserDefaults.standard.bool(forKey: dateString){
-            loadHome()            
+            loadHome()
         }
         
         presentLoadingIcons()
@@ -99,19 +99,19 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     
     @objc func updateTimerLabel() {
-            let remainingTime = CountdownTimerManager.shared.remainingTime
-            if remainingTime > 0 {
-                let hours = Int(remainingTime) / 3600
-                let minutes = Int(remainingTime) % 3600 / 60
-                let seconds = Int(remainingTime) % 60
-                
-                // Update the label
-                pushStandTimer.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-            } else {
-                pushStandTimer.text = "00:00:00"
-            }
+        let remainingTime = CountdownTimerManager.shared.remainingTime
+        if remainingTime > 0 {
+            let hours = Int(remainingTime) / 3600
+            let minutes = Int(remainingTime) % 3600 / 60
+            let seconds = Int(remainingTime) % 60
+            
+            // Update the label
+            pushStandTimer.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        } else {
+            pushStandTimer.text = "00:00:00"
+        }
     }
-
+    
     
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -126,7 +126,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         standProgressBar.isUserInteractionEnabled = false
         standProgressBar.animateQuickColorChange()
         should_not_rev = false
-        fetchDataAndUpdateUI()
+        fetchHomeStats()
         
         //Timed delay where user interaction is NOT enabled
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
@@ -212,19 +212,19 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     // Helper functions to handle fade in and fade out effects
-        func fadeOutLabel(completion: @escaping () -> Void) {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.pushStandTimer.alpha = 0.0
-            }) { _ in
-                completion()
-            }
+    func fadeOutLabel(completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.pushStandTimer.alpha = 0.0
+        }) { _ in
+            completion()
         }
-        
-        func fadeInLabel() {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.pushStandTimer.alpha = 1.0
-            })
-        }
+    }
+    
+    func fadeInLabel() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.pushStandTimer.alpha = 1.0
+        })
+    }
     
     private func fetchDailyQuestion() {
         let dailyQuestionsQueryParams = [Constants.UserDefaultsKeys.userId: CurrentUser.shared.uid!, "Date": Time.getDateFormatted()]
@@ -257,7 +257,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     func loadHome() {
         NetworkService.shared.request(endpoint: .stand, method: HTTPVerbs.get.rawValue, queryParams: ["user_id": CurrentUser.shared.uid!]) { (result: Result<[String: Any], Error>) in
             DispatchQueue.main.async {
-                self.fetchDataAndUpdateUI()
+                self.fetchHomeStats()
             }
         }
     }
@@ -278,10 +278,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     // MARK: - Data Fetching and UI Update
     
-    private func fetchDataAndUpdateUI() {
-        let dateString = Time.getCurrentDateFormatted()
-        let yesterdayString = Time.getPreviousDateFormatted()
-        
+    private func fetchHomeStats() {
         let queryParams = [
             "userId": CurrentUser.shared.uid!,
         ]
@@ -418,34 +415,57 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     // MARK: - Helper Methods
     
     private func checkStandToday() {
-        currentUser.uid = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.userId)
-        let queryParams = ["user_id": currentUser.uid!]
-        NetworkService.shared.request(endpoint: .stand, method: HTTPVerbs.get.rawValue, queryParams: queryParams) { result in
+        // Safely unwrap the user ID from UserDefaults
+        guard let userId = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.userId) else {
+            print("Error: User ID not found in UserDefaults")
+            return
+        }
+        
+        // Update the current user's UID
+        currentUser.uid = userId
+        
+        // Prepare query parameters
+        let queryParams = ["user_id": userId]
+        
+        // Make the network request
+        NetworkService.shared.request(endpoint: .stand, method: HTTPVerbs.get.rawValue, queryParams: queryParams) { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .success(let json):
-                if let hasTakenAction = json["has_taken_action"] as? Bool {
-                    if hasTakenAction {
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd"
-                        let dateString = dateFormatter.string(from: Date())
-                        UserDefaults.standard.set(true, forKey: dateString)
-                        self.userDefault.set(true, forKey: dateString)
-                        self.userDefault.synchronize()
-                        self.appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
+                // Safely extract 'has_taken_action' from the response
+                guard let hasTakenAction = json["has_taken_action"] as? Bool else {
+                    print("Invalid response format: 'has_taken_action' not found or not a Bool")
+                    return
+                }
+                
+                if hasTakenAction {
+                    // Get the current date formatted as a string
+                    let dateString = Time.getDateFormatted()
+                    
+                    // Save the action status to UserDefaults
+                    UserDefaults.standard.set(true, forKey: dateString)
+                    
+                    // Update the app badge count
+                    self.appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
+                    
+                    // Update the UI on the main thread
+                    DispatchQueue.main.async {
                         self.updateForStandStats()
-                    } else {
-                        self.updateUIForPushStandButton()
                     }
                 } else {
-                    print(result)
-                    print("Invalid response format")
+                    // Update the UI to show the push stand button on the main thread
+                    DispatchQueue.main.async {
+                        self.updateUIForPushStandButton()
+                    }
                 }
             case .failure(let error):
-                print("Error: \(error.localizedDescription)")
-                // Handle the error appropriately
+                print("Network error: \(error.localizedDescription)")
+                // Handle the error appropriately, e.g., show an alert to the user
             }
         }
     }
+    
     
     private func updateUIForLoad() {
         landingViewWithButton.isHidden = false
@@ -503,14 +523,15 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     @objc private func standStreakTapped() {
-            updateStreakUI(
-                selectedIcon: standStreakIcon,
-                selectedIconImage: Constants.redStarImg,
-                selectedTitle: standStreakTitle,
-                selectedColor: .systemRed,
-                selectedStreakValue: standStreak % Constants.standStreakMax
-            )
-        }
+        updateStreakUI(
+            selectedIcon: standStreakIcon,
+            selectedIconImage: Constants.redStarImg,
+            selectedTitle: standStreakTitle,
+            selectedColor: .systemRed,
+            selectedStreakValue: standStreak % Constants.standStreakMax
+        )
+        showDailyGoalAchievedView()
+    }
     
     @objc private func questionStreakTapped() {
         updateStreakUI(
@@ -710,7 +731,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @objc private func sendMessage() {
         if MFMessageComposeViewController.canSendText() {
             let messageVC = MFMessageComposeViewController()
-            messageVC.body = "Join me on the app that is uniting Americans one STAND at a time! \n\n Follow us! \n Insta: pushstand_now \n X: @pushstand_now \n\n https://pushstand.com/"
+            messageVC.body = "Join me on the app that is uniting Americans one STAND at a time! \n\n Follow us! \n Insta: pushstand_now \n X: @pushstand_now \n\n https://apps.apple.com/app/6469620853"
             messageVC.recipients = []
             messageVC.messageComposeDelegate = self
             present(messageVC, animated: true, completion: nil)
@@ -721,6 +742,20 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         controller.dismiss(animated: true, completion: nil)
     }
     
+    func onShareNow() {
+        if MFMessageComposeViewController.canSendText() {
+            let messageVC = MFMessageComposeViewController()
+            messageVC.body = "Join the \(Int(current)) Americans who stood today! \n\n Follow us! \n Insta: pushstand_now \n X: @pushstand_now \n\n https://apps.apple.com/app/6469620853"
+            messageVC.messageComposeDelegate = self
+            present(messageVC, animated: true, completion: nil)
+        } else {
+            // Handle the case where SMS is not available
+            let alert = UIAlertController(title: "Cannot Send Message", message: "Your device is not configured to send SMS.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
     
     func loadViewIntoContainer<T: DismissableView>(_ viewType: T.Type, xibName: String) {
         // Load the XIB
@@ -729,6 +764,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         // Define the closure for the dismiss action
         view.onDismiss = {
             self.removeViewFromContainer(view)
+        }
+        
+        // Assign the onShareNow closure if the view has it
+        if var shareableView = view as? ShareableView {
+            shareableView.onShareNow = onShareNow
         }
         
         // Add the view to the popUpContainer
@@ -750,7 +790,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         popUpContainer.isUserInteractionEnabled = true
         
     }
-
+    
     func removeViewFromContainer(_ view: UIView) {
         // Remove the XIB view from the parent container
         view.removeFromSuperview()
@@ -761,18 +801,18 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     func showStandBonusView() {
         loadViewIntoContainer(StandBonusView.self, xibName: "StandBonusView")
     }
-
+    
     func showDailyGoalAchievedView() {
         loadViewIntoContainer(DailyGoalAchievedView.self, xibName: "DailyGoalAchievedView")
     }
-
+    
     func showBuildUpPointsView() {
         loadViewIntoContainer(BuildUpPointsView.self, xibName: "BuildUpPointsView")
     }
-
+    
     func showAnswerBonusView() {
         loadViewIntoContainer(AnswerBonusView.self, xibName: "AnswerBonusView")
     }
-
-
+    
+    
 }

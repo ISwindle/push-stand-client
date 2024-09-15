@@ -17,7 +17,7 @@ class AccountPhoneNumberViewController: UIViewController {
     }
     
     @IBAction func changePhoneNumber(_ sender: Any) {
-        guard let phone = phoneText.text, Validator.isValidPhoneNumber(phone) else {
+        guard let phone = phoneText.text, Validator().isValidPhoneNumber(phone) else {
             print("Invalid phone number")
             self.showAlert(title: "Invalid Phone #", message: "The entered phone number is invalid. Please try again.")
             return
@@ -57,7 +57,7 @@ class AccountPhoneNumberViewController: UIViewController {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        if let text = textField.text, Validator.isValidPhoneNumber(text) {
+        if let text = textField.text, Validator().isValidPhoneNumber(text) {
             confirmationButton.isEnabled = true
         } else {
             confirmationButton.isEnabled = false

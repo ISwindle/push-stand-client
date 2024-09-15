@@ -41,10 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             appStateViewModel.setAppBadgeCount(to: badgeCount)
         }
         
-        
-        // Observe changes in badge count
-        //observeBadgeCount()
-        
         // Set UNUserNotificationCenter delegate
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.delegate = self
@@ -66,15 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         return currentUser.uid != nil
     }
     
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // No need to call scheduleMidnightReset() here since it's handled in AppStateViewModel
-    }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        
-    }
-    
-    
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
@@ -90,16 +77,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
     
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Handle discarded scene sessions if necessary
-    }
-    
     // Receive FCM token
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("Firebase registration token: \(String(describing: fcmToken))")
-        
         guard let fcmToken = fcmToken, !fcmToken.isEmpty else {
-            print("FCM token is null or empty.")
             return
         }
         
@@ -150,7 +130,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         
-       if let userId = userInfo["userId"] as? String, userId == CurrentUser.shared.uid {
+        if let userId = userInfo["userId"] as? String, userId == CurrentUser.shared.uid {
             //If the userId in the notification matches the current user, present the notification
             completionHandler([.alert, .badge, .sound])
         } else {
@@ -165,10 +145,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         if let userId = userInfo["userId"] as? String, let action = userInfo["action"] as? String {
             if userId == CurrentUser.shared.uid && action == "new_day" {
                 appStateViewModel.setAppBadgeCount(to: 2)
-                print("Received notification with userId: \(userId) and action: \(action)")
             }
             if userId == CurrentUser.shared.uid && action == "stand_reminder" {
-                print("Received notification with userId: \(userId) and action: \(action)")
             }
         } else {
             print("Invalid data payload")
