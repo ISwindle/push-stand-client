@@ -530,7 +530,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             selectedColor: .systemRed,
             selectedStreakValue: standStreak % Constants.standStreakMax
         )
-        showDailyGoalAchievedView()
     }
     
     @objc private func questionStreakTapped() {
