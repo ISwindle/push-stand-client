@@ -744,7 +744,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     func onShareNow() {
         if MFMessageComposeViewController.canSendText() {
             let messageVC = MFMessageComposeViewController()
-            messageVC.body = "Join the \(Int(current)) Americans who stood today! \n\n Follow us! \n Insta: pushstand_now \n X: @pushstand_now \n\n https://apps.apple.com/app/6469620853"
+            messageVC.body = "Join the \(Int(SessionViewModel.shared.standModel.yesterdaysStanding)) Americans that stood yesterday! \n\n Follow us! \n Insta: pushstand_now \n X: @pushstand_now \n\n https://apps.apple.com/app/6469620853"
             messageVC.messageComposeDelegate = self
             present(messageVC, animated: true, completion: nil)
         } else {
