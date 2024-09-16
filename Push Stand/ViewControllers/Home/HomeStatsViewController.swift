@@ -8,6 +8,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var sessionViewModel: SessionViewModel!
+    let defaultTitleLabel = "PUSH STAND"
     
     @IBOutlet weak var accountButton: UIImageView!
     @IBOutlet weak var pushStandButton: UIImageView!
@@ -111,7 +112,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         loadHome()
         fetchDailyQuestion()
         // Initially set the label to "Push Stand"
-        pushStandTimer.text = "PUSH STAND"
+        pushStandTimer.text = defaultTitleLabel
         
     }
     

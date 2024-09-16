@@ -399,7 +399,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
             Insta: pushstand_now
             X: @pushstand_now
             
-            https://pushstand.com/
+            https://apps.apple.com/app/6469620853
             """
             
             // Attach the screenshot to the message
