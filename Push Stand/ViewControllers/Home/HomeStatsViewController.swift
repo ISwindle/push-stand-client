@@ -410,7 +410,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         configureInteractableViews()
         configureYesterdayLabel()
     }
-
+    
     private func configureInteractableViews() {
         let interactableViews = [
             pushStandButton, accountButton, standStreakIcon, standStreakTitle,
@@ -418,7 +418,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         ]
         interactableViews.forEach { $0?.isUserInteractionEnabled = true }
     }
-
+    
     private func configureYesterdayLabel() {
         yesterdayLabel.layer.cornerRadius = 16
         yesterdayLabel.layer.masksToBounds = true
@@ -645,8 +645,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     private func animateStandStreakLabel() {
         UIView.animate(withDuration: 1.0, animations: {
             if self.standStreak > 0 && self.standStreak % Constants.standStreakMax == Constants.streakBarMin {
-                self.standStreakLabel.text = Constants.fivePoints
-                self.showStandBonusView()
+                // Dispatching to the main thread for UI updates
+                DispatchQueue.main.async {
+                    self.standStreakLabel.text = Constants.fivePoints
+                    self.showStandBonusView()
+                }
             }
             self.standStreakLabel.alpha = 1.0
         }) { finished in
@@ -657,6 +660,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             }
         }
     }
+    
     
     private func updateProgressBar() {
         let progressAmount = current / goal
