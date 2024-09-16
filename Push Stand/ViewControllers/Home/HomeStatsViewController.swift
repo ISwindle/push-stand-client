@@ -38,7 +38,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBOutlet weak var myCurrentStreakLabel: UILabel!
     @IBOutlet weak var myTotalStandsLabel: UILabel!
     @IBOutlet weak var usaTotalStandsLabel: UILabel!
-    @IBOutlet weak var streakFillView: UIView!
     @IBOutlet weak var streakFillButton: UIButton!
     @IBOutlet weak var dailyGoalLoading: UIActivityIndicatorView!
     @IBOutlet weak var myCurrentStreakLoading: UIActivityIndicatorView!
@@ -573,7 +572,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     @IBAction private func acknowledgeStreakFilled(_ sender: Any) {
-        streakFillView.isHidden = true
         segmentedStreakBar.value = Constants.streakBarMin
     }
     
@@ -733,7 +731,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     private func updateUIForNewStand() {
         if standStreak > Constants.standStreakMin && standStreak % Constants.standStreakMax == Constants.streakBarMin {
             segmentedStreakBar.value = Constants.standStreakMax
-            streakFillView.isHidden = false
             SessionViewModel.shared.standModel.myPoints += 10
         } else {
             segmentedStreakBar.value = standStreak % Constants.standStreakMax
