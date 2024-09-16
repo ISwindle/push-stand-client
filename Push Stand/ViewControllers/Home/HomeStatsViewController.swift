@@ -139,10 +139,31 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             let seconds = Int(remainingTime) % 60
             
             // Update the label
-            pushStandTimer.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+            if self.pushStandTimer.text == "" {
+                pushStandTimer.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+            }
         } else {
-            pushStandTimer.text = "00:00:00"
+            if self.pushStandTimer.text == "" {
+                pushStandTimer.text = "00:00:00"
+            }
         }
+    }
+    
+    // Helper functions to handle fade in and fade out effects
+    func fadeOutLabel(completion: @escaping () -> Void) {
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.pushStandTimer.text = ""
+            self.pushStandTimer.alpha = 0.0
+        }) { _ in
+            completion()
+        }
+    }
+    
+    func fadeInLabel() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.pushStandTimer.alpha = 1.0
+        })
     }
     
     
@@ -215,20 +236,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             .store(in: &cancellables)
     }
     
-    // Helper functions to handle fade in and fade out effects
-    func fadeOutLabel(completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.pushStandTimer.alpha = 0.0
-        }) { _ in
-            completion()
-        }
-    }
     
-    func fadeInLabel() {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.pushStandTimer.alpha = 1.0
-        })
-    }
     
     private func fetchDailyQuestion() {
         let dailyQuestionsQueryParams = [Constants.UserDefaultsKeys.userId: CurrentUser.shared.uid!, "Date": Time.getDateFormatted()]
