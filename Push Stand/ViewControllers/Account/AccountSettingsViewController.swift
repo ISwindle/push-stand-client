@@ -19,12 +19,25 @@ class AccountSettingsViewController: UIViewController {
     }
     
     private func logout() {
-        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        // Safely remove all data stored in UserDefaults for the app's bundle identifier
+        if let bundleID = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: bundleID)
+            UserDefaults.standard.synchronize()
+        }
         
+        // Dismiss any presented view controllers to ensure a clean state
+        self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
+        
+        // Instantiate the initial view controller (e.g., your login screen)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginNavController = storyboard.instantiateViewController(identifier: "InitialViewController")
         
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
+        // Change the root view controller to the login screen
+        DispatchQueue.main.async {
+            if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                sceneDelegate.changeRootViewController(loginNavController)
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -38,66 +51,66 @@ class AccountSettingsViewController: UIViewController {
         reminderTimePicker.addTarget(self, action: #selector(reminderTimeValueChanged(_:)), for: .valueChanged)
         
         let semaphore = DispatchSemaphore(value: 0)
-                if let userId = UserDefaults.standard.string(forKey: "userId") {
-                    let url = URL(string: "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users?userId=\(userId)")
-                    var request = URLRequest(url: url!)
-                    request.httpMethod = "GET"
-                    
-                    
-                    
-                    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                        defer { semaphore.signal() } // Signal to the semaphore upon task completion
-                        guard let data = data, error == nil else {
-                            print("Error during the network request: \(error?.localizedDescription ?? "Unknown error")")
-                            return
-                        }
-                        
-                        do {
-                            if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                                DispatchQueue.main.async {
-                                    if let dateString = jsonResponse["Birthdate"] as? String {
-                                        let dateFormatter = DateFormatter()
-                                        dateFormatter.dateFormat = "yyyy-MM-dd"
-                                        
-                                        if let date = dateFormatter.date(from: dateString) {
-                                            self.birthdatePicker.date = date
-                                        } else {
-                                            print("Error: The date string does not match the format expected.")
-                                        }
-                                    } else {
-                                        print("Error: Birthdate key is missing or is not a string.")
-                                    }
-                                    if let timeString = jsonResponse["ReminderTime"] as? String {
-                                        let dateFormatter = DateFormatter()
-                                        dateFormatter.dateFormat = "HH:mm:ssZ"  // Update format to include time zone
-                                        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")  // Specify UTC time zone
-                                        
-                                        if let utcDate = dateFormatter.date(from: timeString) {
-                                            // Convert the UTC date to local time zone
-                                            dateFormatter.timeZone = TimeZone.current
-                                            let localTimeString = dateFormatter.string(from: utcDate)
-                                            
-                                            // Parse the local time string to update the date picker
-                                            if let localTime = dateFormatter.date(from: localTimeString) {
-                                                self.reminderTimePicker.date = localTime
-                                            } else {
-                                                print("Error: The local time string does not match the format expected.")
-                                            }
-                                        } else {
-                                            print("Error: The time string does not match the format expected.")
-                                        }
-                                    } else {
-                                        print("Error: Time key is missing or is not a string.")
-                                    }                                }
-                            }
-                        } catch {
-                            print("Error parsing the JSON response: \(error.localizedDescription)")
-                        }
-                    }
-                    
-                    task.resume()
-                    semaphore.wait()
+        if let userId = UserDefaults.standard.string(forKey: "userId") {
+            let url = URL(string: "https://qik82nqrt0.execute-api.us-east-1.amazonaws.com/prod/users?userId=\(userId)")
+            var request = URLRequest(url: url!)
+            request.httpMethod = "GET"
+            
+            
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                defer { semaphore.signal() } // Signal to the semaphore upon task completion
+                guard let data = data, error == nil else {
+                    print("Error during the network request: \(error?.localizedDescription ?? "Unknown error")")
+                    return
                 }
+                
+                do {
+                    if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        DispatchQueue.main.async {
+                            if let dateString = jsonResponse["Birthdate"] as? String {
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "yyyy-MM-dd"
+                                
+                                if let date = dateFormatter.date(from: dateString) {
+                                    self.birthdatePicker.date = date
+                                } else {
+                                    print("Error: The date string does not match the format expected.")
+                                }
+                            } else {
+                                print("Error: Birthdate key is missing or is not a string.")
+                            }
+                            if let timeString = jsonResponse["ReminderTime"] as? String {
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "HH:mm:ssZ"  // Update format to include time zone
+                                dateFormatter.timeZone = TimeZone(abbreviation: "UTC")  // Specify UTC time zone
+                                
+                                if let utcDate = dateFormatter.date(from: timeString) {
+                                    // Convert the UTC date to local time zone
+                                    dateFormatter.timeZone = TimeZone.current
+                                    let localTimeString = dateFormatter.string(from: utcDate)
+                                    
+                                    // Parse the local time string to update the date picker
+                                    if let localTime = dateFormatter.date(from: localTimeString) {
+                                        self.reminderTimePicker.date = localTime
+                                    } else {
+                                        print("Error: The local time string does not match the format expected.")
+                                    }
+                                } else {
+                                    print("Error: The time string does not match the format expected.")
+                                }
+                            } else {
+                                print("Error: Time key is missing or is not a string.")
+                            }                                }
+                    }
+                } catch {
+                    print("Error parsing the JSON response: \(error.localizedDescription)")
+                }
+            }
+            
+            task.resume()
+            semaphore.wait()
+        }
     }
     
     @objc func birthdatePickerValueChanged(_ sender: UIDatePicker) {
@@ -127,11 +140,11 @@ class AccountSettingsViewController: UIViewController {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd" // Format for the birthdate
-
+        
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm:ss'Z'" // Format for the reminder time in UTC
         timeFormatter.timeZone = TimeZone(secondsFromGMT: 0) // Set formatter time zone to UTC
-
+        
         let payload: [String: Any] = [
             "UserId": UserDefaults.standard.string(forKey: "userId") ?? "",
             "Birthdate": formatter.string(from: birthdatePicker.date),
@@ -168,7 +181,7 @@ class AccountSettingsViewController: UIViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
-
+    
     private func showUpdateSuccessAlert() {
         let alert = UIAlertController(title: "Update!", message: "Profile Updated Successfully", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in

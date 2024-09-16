@@ -7,7 +7,7 @@ class SignUpReminderViewController: UIViewController {
     
     @IBOutlet weak var timePicker: UIDatePicker!
     
-    let usersEndpoint = "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users"
+    let usersEndpoint = "https://qik82nqrt0.execute-api.us-east-1.amazonaws.com/prod/users"
     var dataManager = OnboardingManager.shared
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     

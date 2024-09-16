@@ -2,16 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Environment</key>
-    <string>development</string> <!-- or "uat" or "production" -->
-    <key>BaseURLs</key>
-    <dict>
-        <key>development</key>
-        <string>https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop</string>
-        <key>uat</key>
-        <string>https://uat.example.com</string>
-        <key>production</key>
-        <string>https://prod.example.com</string>
-    </dict>
+	<key>Environment</key>
+	<string>development</string>
+	<key>BaseURLs</key>
+	<dict>
+		<key>development</key>
+		<string>https://qik82nqrt0.execute-api.us-east-1.amazonaws.com/prod</string>
+		<key>uat</key>
+		<string>https://uat.example.com</string>
+		<key>production</key>
+		<string>https://qik82nqrt0.execute-api.us-east-1.amazonaws.com/prod</string>
+	</dict>
 </dict>
 </plist>

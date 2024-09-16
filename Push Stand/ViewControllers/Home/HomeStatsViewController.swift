@@ -80,8 +80,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewComponents()
-        // Update the UI every second
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
+        setupDailyTimer()
         setupGestures()
         let dateString = Time.getDateFormatted()
         if !UserDefaults.standard.bool(forKey: dateString){
@@ -95,6 +94,41 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(standProgressBarTapped))
         standProgressBar.addGestureRecognizer(tapGesture)
         standProgressBar.isUserInteractionEnabled = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.alpha = 0
+        let dateString = Time.getDateFormatted()
+        if UserDefaults.standard.bool(forKey: dateString) {
+            updateForStandStats()
+            appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
+        } else {
+            appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
+            updateUIForLoad()
+            checkStandToday()
+        }
+        loadHome()
+        fetchDailyQuestion()
+        // Initially set the label to "Push Stand"
+        pushStandTimer.text = "PUSH STAND"
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Animate transition after 2 seconds with a fade effect
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.fadeOutLabel {
+                self.fadeInLabel()
+            }
+        }
+    }
+    
+    func setupDailyTimer() {
+        // Update the UI every second
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
     }
     
     
@@ -180,35 +214,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             .map { "\($0) Points" }
             .assign(to: \.text, on: myPointsLabel)
             .store(in: &cancellables)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.alpha = 0
-        let dateString = Time.getDateFormatted()
-        if UserDefaults.standard.bool(forKey: dateString) {
-            updateForStandStats()
-            appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
-        } else {
-            appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
-            updateUIForLoad()
-            checkStandToday()
-        }
-        loadHome()
-        fetchDailyQuestion()
-        // Initially set the label to "Push Stand"
-        pushStandTimer.text = "PUSH STAND"
-        
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // Animate transition after 2 seconds with a fade effect
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.fadeOutLabel {
-                self.fadeInLabel()
-            }
-        }
     }
     
     // Helper functions to handle fade in and fade out effects
@@ -325,6 +330,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             }
             if let userPoints = json["user_points"] as? Int {
                 self.handleUserPoints(userPoints)
+                print("Hi \(userPoints)")
             }
             if !should_not_rev {
                 updateProgressBar()
@@ -400,12 +406,19 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     // MARK: - View Configuration
     
     private func configureViewComponents() {
+        configureInteractableViews()
+        configureYesterdayLabel()
+    }
+
+    private func configureInteractableViews() {
         let interactableViews = [
             pushStandButton, accountButton, standStreakIcon, standStreakTitle,
             questionStreakIcon, questionStreakTitle, pointsIcon, pointsTitle, shareIcon
         ]
         interactableViews.forEach { $0?.isUserInteractionEnabled = true }
-        
+    }
+
+    private func configureYesterdayLabel() {
         yesterdayLabel.layer.cornerRadius = 16
         yesterdayLabel.layer.masksToBounds = true
         yesterdayLabel.layer.borderColor = UIColor.darkGray.cgColor
@@ -494,7 +507,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         standingTodayView.isHidden = false
         pushStandTitle.isHidden = false
         pushStandButton.isHidden = true
-        dailyGoalLoading.isHidden = true
+        //dailyGoalLoading.isHidden = true
         globalStandCount.alpha = 0
         globalStandingTodayLoading.isHidden = false
         landingViewWithPicture.isHidden = false

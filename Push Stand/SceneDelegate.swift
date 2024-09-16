@@ -105,7 +105,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Assign them to the tab bar
         rootTabBarController.viewControllers = [homeStatsVC, dailyQuestionVC]
-        
+        self.appDelegate!.appStateViewModel.setAppBadgeCount(to: 2)
         // Set the root view controller with a transition
         if let window = window {
             UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {

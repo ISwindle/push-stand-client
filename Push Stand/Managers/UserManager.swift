@@ -39,7 +39,7 @@ class UserManager {
                 self.currentUser.email = jsonResponse["Email"] as? String ?? ""
                 self.currentUser.firebaseAuthToken = jsonResponse["FirebaseAuthToken"] as? String ?? ""
 
-                let url = URL(string: "https://d516i8vkme.execute-api.us-east-1.amazonaws.com/develop/users")!
+                let url = URL(string: "https://qik82nqrt0.execute-api.us-east-1.amazonaws.com/prod/users")!
                 var request = URLRequest(url: url)
                 request.httpMethod = "PUT"
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
