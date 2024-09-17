@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1663,7 +1663,7 @@ Stands</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewm-hU-R96">
-                                <rect key="frame" x="0.0" y="56" width="414" height="220"/>
+                                <rect key="frame" x="0.0" y="96" width="414" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="iuT-mR-GDe"/>
                                 </constraints>
@@ -1672,11 +1672,42 @@ Stands</string>
                                 <color key="sectionIndexBackgroundColor" red="0.11119002529999999" green="0.11119002529999999" blue="0.11119002529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WiR-oL-pPB">
+                                <rect key="frame" x="0.0" y="56" width="414" height="40"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Xe-eT-Fkl">
+                                        <rect key="frame" x="99" y="8" width="216.5" height="24"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Are Stander " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abB-fL-dID">
+                                                <rect key="frame" x="0.0" y="0.0" width="144" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                                <color key="textColor" systemColor="lightTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#10,852" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4Q-pd-s3Z" userLabel="Stander # Label">
+                                                <rect key="frame" x="144" y="0.0" width="72.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="8Xe-eT-Fkl" firstAttribute="centerX" secondItem="WiR-oL-pPB" secondAttribute="centerX" id="GWO-K6-p4V"/>
+                                    <constraint firstAttribute="height" constant="40" id="nUF-n6-m2G"/>
+                                    <constraint firstItem="8Xe-eT-Fkl" firstAttribute="centerY" secondItem="WiR-oL-pPB" secondAttribute="centerY" id="oIJ-ZW-U10"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="h57-YN-GPa"/>
                         <color key="backgroundColor" red="0.083885732323232376" green="0.083885732323232376" blue="0.083885732323232376" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="ewm-hU-R96" firstAttribute="top" secondItem="h57-YN-GPa" secondAttribute="top" id="JMC-6Q-5sc"/>
+                            <constraint firstItem="ewm-hU-R96" firstAttribute="top" secondItem="WiR-oL-pPB" secondAttribute="bottom" id="MKa-QP-i5C"/>
+                            <constraint firstItem="WiR-oL-pPB" firstAttribute="leading" secondItem="h57-YN-GPa" secondAttribute="leading" id="Tcf-2b-ygp"/>
+                            <constraint firstItem="WiR-oL-pPB" firstAttribute="trailing" secondItem="h57-YN-GPa" secondAttribute="trailing" id="Z5U-ba-CyO"/>
+                            <constraint firstItem="WiR-oL-pPB" firstAttribute="top" secondItem="h57-YN-GPa" secondAttribute="top" id="eGU-ud-boe"/>
                             <constraint firstItem="ewm-hU-R96" firstAttribute="leading" secondItem="h57-YN-GPa" secondAttribute="leading" id="fBa-qr-Duf"/>
                             <constraint firstItem="ewm-hU-R96" firstAttribute="centerX" secondItem="4QZ-uV-ysb" secondAttribute="centerX" id="y9a-TG-n95"/>
                         </constraints>
@@ -1694,7 +1725,7 @@ Stands</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMP-xy-ocG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1249" y="2048"/>
+            <point key="canvasLocation" x="-1249.2753623188407" y="2047.7678571428571"/>
         </scene>
         <!--Password-->
         <scene sceneID="8RW-oz-kjK">
@@ -3279,7 +3310,7 @@ Stands</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zgq-4D-HsB">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" background="eye.slash.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zgq-4D-HsB">
                                 <rect key="frame" x="50" y="276" width="314" height="44"/>
                                 <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" systemColor="lightTextColor"/>
@@ -3855,6 +3886,7 @@ Will you STAND with us?</string>
         <image name="broken-button-error" width="720" height="720"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="eagle-pic-bg" width="588" height="720"/>
+        <image name="eye.slash.fill" catalog="system" width="128" height="96"/>
         <image name="group-request" width="50" height="50"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
