@@ -125,7 +125,7 @@ class AccountEmailViewController: UIViewController {
                             "FirebaseAuthToken": CurrentUser.shared.firebaseAuthToken ?? "",
                         ]
                         
-                        NetworkService.shared.request(endpoint: .updateUser, method: "PUT", data: payload) { (result: Result<[String: Any], Error>) in
+                        NetworkService.shared.request(endpoint: .users, method: "PUT", data: payload) { (result: Result<[String: Any], Error>) in
                             switch result {
                             case .success(let response):
                                 DispatchQueue.main.async {

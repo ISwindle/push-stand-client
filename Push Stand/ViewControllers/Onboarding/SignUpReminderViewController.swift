@@ -6,10 +6,19 @@ import FirebaseFirestore
 class SignUpReminderViewController: UIViewController {
     
     @IBOutlet weak var timePicker: UIDatePicker!
+    @IBOutlet weak var nextButton: UIButton!
     
     let usersEndpoint = "https://qik82nqrt0.execute-api.us-east-1.amazonaws.com/prod/users"
     var dataManager = OnboardingManager.shared
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    // Activity Indicator (Spinner)
+    let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.hidesWhenStopped = true
+        indicator.color = .white
+        return indicator
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +38,7 @@ class SignUpReminderViewController: UIViewController {
     @IBAction func next(_ sender: Any) {
         let utcTime = convertToUTCTime(date: timePicker.date)
         dataManager.onboardingData.reminderTime = utcTime
+        self.showLoading(on: self.nextButton ,isLoading: true, loader: self.activityIndicator)
         createUser()
     }
     
@@ -43,6 +53,7 @@ class SignUpReminderViewController: UIViewController {
         guard let email = dataManager.onboardingData.email,
               let password = dataManager.onboardingData.password else {
             print("Email or password not provided")
+            self.showLoading(on: self.nextButton ,isLoading: false, loader: self.activityIndicator)
             return
         }
         
@@ -51,6 +62,7 @@ class SignUpReminderViewController: UIViewController {
             
             if let error = error {
                 self.presentAlert(title: "Error", message: error.localizedDescription)
+                self.showLoading(on: self.nextButton ,isLoading: false, loader: self.activityIndicator)
                 return
             }
             
@@ -61,12 +73,11 @@ class SignUpReminderViewController: UIViewController {
     private func saveUserDataToFirestore() {
         guard let user = Auth.auth().currentUser else {
             print("Failed to get authenticated user")
+            self.showLoading(on: self.nextButton ,isLoading: false, loader: self.activityIndicator)
             return
         }
         
         let db = Firestore.firestore()
-        print("Firebase App: \(FirebaseApp.app()!)")
-        print("Firestore Instance: \(Firestore.firestore())")
         let userData: [String: Any] = [
             "UserId": user.uid,
             "Email": user.email ?? "",
@@ -76,24 +87,38 @@ class SignUpReminderViewController: UIViewController {
         ]
         
         
-        NetworkService.shared.request(endpoint: .updateUser, method: "POST", data: userData) { [self] result in
+        NetworkService.shared.request(endpoint: .users, method: "POST", data: userData) { [self] result in
             switch result {
             case .success(let json):
                 var currentUser = CurrentUser.shared
-                currentUser.uid = user.uid
-                currentUser.reminderTime = self.dataManager.onboardingData.reminderTime ?? ""
-                currentUser.birthdate = formattedDate(date: self.dataManager.onboardingData.birthday)
-                currentUser.phoneNumber = self.dataManager.onboardingData.phoneNumber ?? ""
-                currentUser.email = user.email
-                currentUser.firebaseAuthToken = ""
-                UserDefaults.standard.set(true, forKey: "usersignedin")
-                UserDefaults.standard.set(currentUser.uid, forKey: "userId")
-                UserDefaults.standard.set(currentUser.email, forKey: "userEmail")
-                UserDefaults.standard.synchronize()
-                appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
-                self.transitionToMainApp()
+                
+                // Assuming 'json' is a dictionary parsed from the Lambda response
+                if let userDetails = json as? [String: Any] {
+                    currentUser.uid = userDetails["UserId"] as? String ?? ""
+                    currentUser.email = userDetails["Email"] as? String ?? ""
+                    currentUser.reminderTime = userDetails["ReminderTime"] as? String ?? ""
+                    currentUser.birthdate = userDetails["Birthdate"] as? String ?? ""
+                    currentUser.phoneNumber = userDetails["PhoneNumber"] as? String ?? ""
+                    
+                    // Save the UserNumber as well
+                    if let userNumber = userDetails["UserNumber"] as? String {
+                        currentUser.userNumber = userNumber
+                    }
+
+                    // Store user details in UserDefaults
+                    UserDefaults.standard.set(true, forKey: "usersignedin")
+                    UserDefaults.standard.set(currentUser.uid, forKey: "userId")
+                    UserDefaults.standard.set(currentUser.email, forKey: "userEmail")
+                    UserDefaults.standard.set(currentUser.userNumber, forKey: "userNumber")
+                    UserDefaults.standard.synchronize()
+                    
+                    // Additional app logic
+                    appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
+                    self.transitionToMainApp()
+                }
             case .failure(let error):
                 self.presentAlert(title: "Error", message: error.localizedDescription)
+                self.showLoading(on: self.nextButton ,isLoading: false, loader: self.activityIndicator)
             }
         }
         

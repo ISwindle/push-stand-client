@@ -39,7 +39,8 @@ class SessionViewModel: ObservableObject {
                             firebaseAuthToken: "example_token",
                             phoneNumber: "123-456-7890",
                             lastStandDate: Date(),
-                            lastQuestionAnsweredDate: Date())
+                            lastQuestionAnsweredDate: Date(),
+                            userNumber: "0")
             self.userManager.loginUser(with: user)
 
             // Initialize or update StandModel data if needed

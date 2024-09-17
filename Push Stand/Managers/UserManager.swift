@@ -30,7 +30,7 @@ class UserManager {
         }
 
         let queryParams = ["userId": userId]
-        NetworkService.shared.request(endpoint: .updateUser, method: HTTPVerbs.get.rawValue, queryParams: queryParams) { result in
+        NetworkService.shared.request(endpoint: .users, method: HTTPVerbs.get.rawValue, queryParams: queryParams) { result in
             switch result {
             case .success(let jsonResponse):
                 self.currentUser.reminderTime = jsonResponse["ReminderTime"] as? String ?? ""

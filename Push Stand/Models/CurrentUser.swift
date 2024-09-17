@@ -10,6 +10,7 @@ class CurrentUser: ObservableObject {
     @Published var phoneNumber: String?
     @Published var lastStandDate: Date?
     @Published var lastQuestionAnsweredDate: Date?
+    @Published var userNumber: String?
 
     static let shared = CurrentUser()
 
@@ -24,6 +25,7 @@ class CurrentUser: ObservableObject {
         self.phoneNumber = user.phoneNumber
         self.lastStandDate = user.lastStandDate
         self.lastQuestionAnsweredDate = user.lastQuestionAnsweredDate
+        self.userNumber = user.userNumber
     }
 
     func clear() {
@@ -35,6 +37,7 @@ class CurrentUser: ObservableObject {
         self.phoneNumber = nil
         self.lastStandDate = nil
         self.lastQuestionAnsweredDate = nil
+        self.userNumber = nil
     }
 }
 
@@ -47,4 +50,5 @@ struct User {
     let phoneNumber: String?
     let lastStandDate: Date?
     let lastQuestionAnsweredDate: Date?
+    let userNumber: String?
 }

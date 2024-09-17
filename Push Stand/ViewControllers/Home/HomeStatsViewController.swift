@@ -139,35 +139,12 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             let seconds = Int(remainingTime) % 60
             
             // Update the label
-            if self.pushStandTimer.text == "" {
-                pushStandTimer.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-            }
+            pushStandTimer.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
         } else {
-            if self.pushStandTimer.text == "" {
-                pushStandTimer.text = "00:00:00"
-            }
+            pushStandTimer.text = "00:00:00"
         }
     }
-    
-    // Helper functions to handle fade in and fade out effects
-    func fadeOutLabel(completion: @escaping () -> Void) {
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.pushStandTimer.text = ""
-            self.pushStandTimer.alpha = 0.0
-        }) { _ in
-            completion()
-        }
-    }
-    
-    func fadeInLabel() {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.pushStandTimer.alpha = 1.0
-        })
-    }
-    
-    
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -236,7 +213,20 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             .store(in: &cancellables)
     }
     
+    // Helper functions to handle fade in and fade out effects
+    func fadeOutLabel(completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.pushStandTimer.alpha = 0.0
+        }) { _ in
+            completion()
+        }
+    }
     
+    func fadeInLabel() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.pushStandTimer.alpha = 1.0
+        })
+    }
     
     private func fetchDailyQuestion() {
         let dailyQuestionsQueryParams = [Constants.UserDefaultsKeys.userId: CurrentUser.shared.uid!, "Date": Time.getDateFormatted()]
@@ -733,6 +723,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             if let currentCount = Int(label?.text ?? Defaults.zeroString) {
                 label?.text = String(currentCount + 1)
             }
+        }
+        
+        if myTotalStandsLabel.text == "1" {
+            self.showBuildUpPointsView()
         }
     }
     

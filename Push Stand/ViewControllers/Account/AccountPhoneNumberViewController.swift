@@ -35,7 +35,7 @@ class AccountPhoneNumberViewController: UIViewController {
                 "FirebaseAuthToken": currentUser.firebaseAuthToken ?? ""
             ]
             
-            NetworkService.shared.request(endpoint: .updateUser, method: "PUT", data: payload) { result in
+            NetworkService.shared.request(endpoint: .users, method: "PUT", data: payload) { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success:

@@ -154,7 +154,7 @@ class AccountSettingsViewController: UIViewController {
             "FirebaseAuthToken": UserDefaults.standard.string(forKey: "userFirebaseAuthToken") ?? ""
         ]
         
-        NetworkService.shared.request(endpoint: .updateUser, method: "PUT", data: payload) { result in
+        NetworkService.shared.request(endpoint: .users, method: "PUT", data: payload) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
