@@ -8,6 +8,11 @@
 import UIKit
 
 class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+    
+    
+    @IBOutlet weak var standerNumber: UILabel!
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
@@ -71,10 +76,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             fatalError("Unexpected indexPath")
         }
         
-        
-        // Example of pushing a programmatically created view controller
-        // let viewController = YourViewController()
-        // navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBOutlet weak var settingsTableView: UITableView!
@@ -88,6 +89,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "terms")
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "privacy")
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "help")
+        standerNumber.text = " #\(UserDefaults.standard.integer(forKey: "userNumber"))" //TODO: Current User can be nil on background to foreground CurrentUser.shared.userNumber
     }
     
     // Action method for xMark button
