@@ -79,12 +79,12 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewComponents()
-        setupDailyTimer()
+        pushStandTimer.text = defaultTitleLabel
         setupGestures()
         let dateString = Time.getDateFormatted()
-        if !UserDefaults.standard.bool(forKey: dateString){
-            loadHome()
-        }
+        //        if !UserDefaults.standard.bool(forKey: dateString){
+        //            loadHome()
+        //        }
         
         presentLoadingIcons()
         bindUI()
@@ -93,25 +93,23 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(standProgressBarTapped))
         standProgressBar.addGestureRecognizer(tapGesture)
         standProgressBar.isUserInteractionEnabled = true
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.alpha = 0
         let dateString = Time.getDateFormatted()
+        updateUIForLoad()
         if UserDefaults.standard.bool(forKey: dateString) {
-            updateForStandStats()
-            appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
+           updateForStandStats()
+           appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
         } else {
-            appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
-            updateUIForLoad()
-            checkStandToday()
+           updateUIForPushStandButton()
+           appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
         }
         loadHome()
-        fetchDailyQuestion()
-        // Initially set the label to "Push Stand"
-        pushStandTimer.text = defaultTitleLabel
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -128,6 +126,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     func setupDailyTimer() {
         // Update the UI every second
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
+        
     }
     
     
@@ -151,6 +150,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         // Invalidate the timer if the view disappears
         countdownTimer?.invalidate()
         countdownTimer = nil
+        pushStandTimer.text = defaultTitleLabel
     }
     
     @objc func standProgressBarTapped() {
@@ -223,7 +223,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     func fadeInLabel() {
-        UIView.animate(withDuration: 0.5, animations: {
+        self.setupDailyTimer()
+        UIView.animate(withDuration: 3.5, animations: {
             self.pushStandTimer.alpha = 1.0
         })
     }
@@ -278,128 +279,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         gestureHandler.addTapGesture(to: shareIcon, target: self, action: #selector(sendMessage))
     }
     
-    // MARK: - Data Fetching and UI Update
-    
-    private func fetchHomeStats() {
-        let queryParams = [
-            "userId": CurrentUser.shared.uid!,
-        ]
-        
-        NetworkService.shared.request(endpoint: .home, method: HTTPVerbs.get.rawValue, queryParams: queryParams) { result in
-            DispatchQueue.main.async {
-                self.handleAPIResponse(result, handler: self.handleUnifiedResponse)
-            }
-        }
-    }
-    
-    // MARK: - API Response Handlers
-    
-    private func handleAPIResponse(_ result: Result<[String: Any], Error>, handler: @escaping (Result<[String: Any], Error>) -> Void) {
-        DispatchQueue.main.async {
-            handler(result)
-        }
-    }
-    
-    // MARK: - Unified API Response Handler
-    
-    private func handleUnifiedResponse(_ result: Result<[String: Any], Error>) {
-        switch result {
-        case .success(let json):
-            if let dailyGoals = json["daily_goals"] as? [String: Any],
-               let todayGoals = dailyGoals["today"] as? [String: Any] {
-                self.handleDailyGoals(todayGoals)
-            }
-            if let dailyGoals = json["daily_goals"] as? [String: Any],
-               let yesterdayGoals = dailyGoals["yesterday"] as? [String: Any] {
-                self.handleYesterdayGoals(yesterdayGoals)
-            }
-            if let dailyStandsCount = json["daily_stands_count"] as? Int {
-                self.handleDailyStandsCount(dailyStandsCount)
-            }
-            if let dailyStandsUserCount = json["daily_stands_user_count"] as? Int {
-                self.handleDailyStandsUserCount(dailyStandsUserCount)
-            }
-            if let standStreak = json["daily_stands_streak"] as? Int {
-                self.handleStandStreak(standStreak)
-            }
-            if let answerStreak = json["daily_question_answers_streak"] as? Int {
-                self.handleAnswerStreak(answerStreak)
-            }
-            if let userPoints = json["user_points"] as? Int {
-                self.handleUserPoints(userPoints)
-                print("Hi \(userPoints)")
-            }
-            if !should_not_rev {
-                updateProgressBar()
-            }
-        case .failure(let error):
-            print("Error: \(error.localizedDescription)")
-            // Handle the error appropriately
-        }
-    }
-    
-    // MARK: - Specific Response Handlers
-    
-    private func handleDailyGoals(_ goals: [String: Any]) {
-        
-        if let goalValue = goals["Goal"] as? String, let goalInt = Int(goalValue) {
-            self.dailyGoalLoading.isHidden = true
-            let formattedGoal = Formatter.formatLargeNumber(goalInt)
-            let attributedString = NSMutableAttributedString(string: "\(goalInt)")
-            dailyGoalCount.attributedText = attributedString
-        } else {
-            self.dailyGoalLoading.isHidden = true
-            dailyGoalCount.text = Defaults.zeroString
-        }
-        if let currentValue = goals["Current"] as? String {
-            self.globalStandingTodayLoading.isHidden = true
-            globalStandCount.text = "\(currentValue)"
-            SessionViewModel.shared.standModel.americansStandingToday = Int(currentValue)!
-        } else {
-            self.globalStandingTodayLoading.isHidden = true
-            globalStandCount.text = Defaults.zeroString
-            SessionViewModel.shared.standModel.americansStandingToday = 0
-        }
-        goal = Float(goals["Goal"] as? String ?? Defaults.zeroString)!
-        current = Float(goals["Current"] as? String ?? Defaults.zeroString)!
-    }
-    
-    private func handleYesterdayGoals(_ goals: [String: Any]) {
-        if let currentValue = goals["Current"] as? String {
-            SessionViewModel.shared.standModel.yesterdaysStanding = Int(currentValue)!
-        }
-    }
-    
-    private func handleDailyStandsCount(_ count: Int) {
-        self.usaTotalStandsLoading.isHidden = true
-        if !UserDefaults.standard.bool(forKey: Time.getDateFormatted()) {
-            self.pushStandButton.isHidden = false
-        }
-        self.globalStandCount.alpha = 1
-        SessionViewModel.shared.standModel.usaTotalStands = count
-    }
-    
-    private func handleDailyStandsUserCount(_ count: Int) {
-        self.myTotalStandsLoading.isHidden = true
-        SessionViewModel.shared.standModel.myTotalStands =  count
-    }
-    
-    private func handleStandStreak(_ streak: Int) {
-        self.myCurrentStreakLoading.isHidden = true
-        myCurrentStreakLabel.text = "\(streak)"
-        segmentedStreakBar.value = streak % Constants.streakBarMax
-        standStreak = streak
-    }
-    
-    private func handleAnswerStreak(_ streak: Int) {
-        questionAnswerStreak = streak
-    }
-    
-    private func handleUserPoints(_ points: Int) {
-        myPointsLabel.isHidden = false
-        SessionViewModel.shared.standModel.myPoints = points
-    }
-    
     // MARK: - View Configuration
     
     private func configureViewComponents() {
@@ -432,7 +311,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         }
         
         print("User ID: \(userId)")
-
+        
         // Update the current user's UID
         currentUser.uid = userId
         
@@ -449,22 +328,13 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             case .success(let json):
                 print("Network request succeeded: \(json)")
                 
-                // Parse the JSON string from the 'body' key
-                if let bodyString = json["body"] as? String,
-                   let bodyData = bodyString.data(using: .utf8),
-                   let parsedBody = try? JSONSerialization.jsonObject(with: bodyData, options: []) as? [String: Any] {
+                // Directly access the value in `json`
+                if let hasTakenAction = json["has_taken_action"] as? Int {
+                    let hasTakenActionBool = hasTakenAction == 1
                     
-                    print("Parsed body: \(parsedBody)")
+                    print("Has taken action: \(hasTakenActionBool)")
                     
-                    // Now safely extract 'has_taken_action' from the parsed JSON
-                    guard let hasTakenAction = parsedBody["has_taken_action"] as? Bool else {
-                        print("Invalid response format: 'has_taken_action' not found or not a Bool")
-                        return
-                    }
-                    
-                    print("Has taken action: \(hasTakenAction)")
-                    
-                    if hasTakenAction {
+                    if hasTakenActionBool {
                         // Get the current date formatted as a string
                         let dateString = Time.getDateFormatted()
                         print("Saving action status for date: \(dateString)")
@@ -487,24 +357,24 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                             self.updateUIForPushStandButton()
                         }
                     }
+                } else {
+                    print("Invalid response format: 'has_taken_action' not found or not an Int")
                 }
+                
             case .failure(let error):
                 print("Network error: \(error.localizedDescription)")
                 // Handle the error appropriately, e.g., show an alert to the user
             }
         }
     }
-
-    
-    
     
     private func updateUIForLoad() {
         landingViewWithButton.isHidden = false
         standingTodayView.isHidden = true
         pushStandTitle.isHidden = false
         pushStandButton.isHidden = true
-        //dailyGoalLoading.isHidden = true
-        //globalStandingTodayLoading.isHidden = true
+        dailyGoalLoading.isHidden = true
+        globalStandingTodayLoading.isHidden = true
         landingViewWithPicture.isHidden = false
         accountButton.isHidden = true
         tabBarController?.tabBar.alpha = 0
@@ -515,6 +385,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         pushStandTitle.isHidden = true
         standingTodayView.isHidden = false
         landingViewWithPicture.isHidden = true
+        //dailyGoalLoading.isHidden = false
+        //globalStandingTodayLoading.isHidden = false
         accountButton.isHidden = false
         tabBarController?.tabBar.alpha = 1
         
@@ -524,8 +396,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         landingViewWithButton.isHidden = false
         standingTodayView.isHidden = false
         pushStandTitle.isHidden = false
-        pushStandButton.isHidden = true
-        //dailyGoalLoading.isHidden = true
+        pushStandButton.isHidden = false
+        dailyGoalLoading.isHidden = true
         globalStandCount.alpha = 0
         globalStandingTodayLoading.isHidden = false
         landingViewWithPicture.isHidden = false
@@ -846,6 +718,127 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     func showAnswerBonusView() {
         loadViewIntoContainer(AnswerBonusView.self, xibName: "AnswerBonusView")
+    }
+    
+    // MARK: - Data Fetching and UI Update
+    
+    private func fetchHomeStats() {
+        let queryParams = [
+            "userId": CurrentUser.shared.uid!,
+        ]
+        
+        NetworkService.shared.request(endpoint: .home, method: HTTPVerbs.get.rawValue, queryParams: queryParams) { result in
+            DispatchQueue.main.async {
+                self.handleAPIResponse(result, handler: self.handleUnifiedResponse)
+            }
+        }
+    }
+    
+    // MARK: - API Response Handlers
+    
+    private func handleAPIResponse(_ result: Result<[String: Any], Error>, handler: @escaping (Result<[String: Any], Error>) -> Void) {
+        DispatchQueue.main.async {
+            handler(result)
+        }
+    }
+    
+    // MARK: - Unified API Response Handler
+    
+    private func handleUnifiedResponse(_ result: Result<[String: Any], Error>) {
+        switch result {
+        case .success(let json):
+            if let dailyGoals = json["daily_goals"] as? [String: Any],
+               let todayGoals = dailyGoals["today"] as? [String: Any] {
+                self.handleDailyGoals(todayGoals)
+            }
+            if let dailyGoals = json["daily_goals"] as? [String: Any],
+               let yesterdayGoals = dailyGoals["yesterday"] as? [String: Any] {
+                self.handleYesterdayGoals(yesterdayGoals)
+            }
+            if let dailyStandsCount = json["daily_stands_count"] as? Int {
+                self.handleDailyStandsCount(dailyStandsCount)
+            }
+            if let dailyStandsUserCount = json["daily_stands_user_count"] as? Int {
+                self.handleDailyStandsUserCount(dailyStandsUserCount)
+            }
+            if let standStreak = json["daily_stands_streak"] as? Int {
+                self.handleStandStreak(standStreak)
+            }
+            if let answerStreak = json["daily_question_answers_streak"] as? Int {
+                self.handleAnswerStreak(answerStreak)
+            }
+            if let userPoints = json["user_points"] as? Int {
+                self.handleUserPoints(userPoints)
+            }
+            if !should_not_rev {
+                updateProgressBar()
+            }
+        case .failure(let error):
+            print("Error: \(error.localizedDescription)")
+            // Handle the error appropriately
+        }
+    }
+    
+    // MARK: - Specific Response Handlers
+    
+    private func handleDailyGoals(_ goals: [String: Any]) {
+        
+        if let goalValue = goals["Goal"] as? String, let goalInt = Int(goalValue) {
+            self.dailyGoalLoading.isHidden = true
+            let formattedGoal = Formatter.formatLargeNumber(goalInt)
+            let attributedString = NSMutableAttributedString(string: "\(goalInt)")
+            dailyGoalCount.attributedText = attributedString
+        } else {
+            self.dailyGoalLoading.isHidden = true
+            dailyGoalCount.text = Defaults.zeroString
+        }
+        if let currentValue = goals["Current"] as? String {
+            self.globalStandingTodayLoading.isHidden = true
+            globalStandCount.text = "\(currentValue)"
+            SessionViewModel.shared.standModel.americansStandingToday = Int(currentValue)!
+        } else {
+            self.globalStandingTodayLoading.isHidden = true
+            globalStandCount.text = Defaults.zeroString
+            SessionViewModel.shared.standModel.americansStandingToday = 0
+        }
+        goal = Float(goals["Goal"] as? String ?? Defaults.zeroString)!
+        current = Float(goals["Current"] as? String ?? Defaults.zeroString)!
+    }
+    
+    private func handleYesterdayGoals(_ goals: [String: Any]) {
+        if let currentValue = goals["Current"] as? String {
+            SessionViewModel.shared.standModel.yesterdaysStanding = Int(currentValue)!
+        }
+    }
+    
+    private func handleDailyStandsCount(_ count: Int) {
+        self.usaTotalStandsLoading.isHidden = true
+        if !UserDefaults.standard.bool(forKey: Time.getDateFormatted()) {
+            self.pushStandButton.isHidden = false
+        }
+        self.globalStandCount.alpha = 1
+        SessionViewModel.shared.standModel.usaTotalStands = count
+    }
+    
+    private func handleDailyStandsUserCount(_ count: Int) {
+        self.myTotalStandsLoading.isHidden = true
+        SessionViewModel.shared.standModel.myTotalStands =  count
+    }
+    
+    private func handleStandStreak(_ streak: Int) {
+        self.myCurrentStreakLoading.isHidden = true
+        myCurrentStreakLabel.text = "\(streak)"
+        segmentedStreakBar.value = streak % Constants.streakBarMax
+        standStreak = streak
+    }
+    
+    private func handleAnswerStreak(_ streak: Int) {
+        questionAnswerStreak = streak
+    }
+    
+    private func handleUserPoints(_ points: Int) {
+        myPointsLabel.isHidden = false
+        SessionViewModel.shared.standModel.myPoints = points
     }
     
     

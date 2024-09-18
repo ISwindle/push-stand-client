@@ -84,46 +84,50 @@ class SignUpReminderViewController: UIViewController {
             "PhoneNumber": OnboardingData.shared.phoneNumber ?? ""
         ]
         
-        
-        NetworkService.shared.request(endpoint: .users, method: "POST", data: userData) { [self] result in
+        NetworkService.shared.request(endpoint: .users, method: "POST", data: userData) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let json):
+                guard let bodyString = json["body"] as? String,
+                      let bodyData = bodyString.data(using: .utf8),
+                      let userDetails = try? JSONSerialization.jsonObject(with: bodyData, options: []) as? [String: Any] else {
+                    print("Error parsing user details from the response")
+                    return
+                }
+                
                 let currentUser = CurrentUser.shared
                 
-                // Assuming 'json' is a dictionary parsed from the Lambda response
-                if let userDetails = json as? [String: Any] {
-                    currentUser.uid = userDetails["UserId"] as? String ?? ""
-                    currentUser.email = userDetails["Email"] as? String ?? ""
-                    currentUser.reminderTime = userDetails["ReminderTime"] as? String ?? ""
-                    currentUser.birthdate = userDetails["Birthdate"] as? String ?? ""
-                    currentUser.phoneNumber = userDetails["PhoneNumber"] as? String ?? ""
-                    
-                    // Save the UserNumber as well
-                    if let userNumber = userDetails["UserNumber"] as? String {
-                        currentUser.userNumber = userNumber
-                    }
-
-                    // Store user details in UserDefaults
-                    UserDefaults.standard.set(true, forKey: "usersignedin")
-                    UserDefaults.standard.set(currentUser.uid, forKey: "userId")
-                    UserDefaults.standard.set(currentUser.email, forKey: "userEmail")
-                    UserDefaults.standard.set(currentUser.userNumber, forKey: "userNumber")
-                    UserDefaults.standard.set(currentUser.reminderTime, forKey: "reminderTime")
-                    UserDefaults.standard.set(currentUser.birthdate, forKey: "birthDate")
-                    UserDefaults.standard.set(currentUser.phoneNumber, forKey: "phoneNumber")
-                    UserDefaults.standard.synchronize()
-                    
-                    // Additional app logic
-                    appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
-                    self.transitionToMainApp()
+                currentUser.uid = userDetails["UserId"] as? String ?? ""
+                currentUser.email = userDetails["Email"] as? String ?? ""
+                currentUser.reminderTime = userDetails["ReminderTime"] as? String ?? ""
+                currentUser.birthdate = userDetails["Birthdate"] as? String ?? ""
+                currentUser.phoneNumber = userDetails["PhoneNumber"] as? String ?? ""
+                
+                if let userNumber = userDetails["UserNumber"] as? Int {
+                    currentUser.userNumber = String(userNumber) // Ensure proper casting
                 }
+                
+                // Store user details in UserDefaults
+                UserDefaults.standard.set(true, forKey: "usersignedin")
+                UserDefaults.standard.set(currentUser.uid, forKey: "userId")
+                UserDefaults.standard.set(currentUser.email, forKey: "userEmail")
+                UserDefaults.standard.set(currentUser.userNumber, forKey: "userNumber")
+                UserDefaults.standard.set(currentUser.reminderTime, forKey: "reminderTime")
+                UserDefaults.standard.set(currentUser.birthdate, forKey: "birthDate")
+                UserDefaults.standard.set(currentUser.phoneNumber, forKey: "phoneNumber")
+                UserDefaults.standard.synchronize()
+                
+                // Additional app logic
+                self.appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
+                self.transitionToMainApp()
+                
             case .failure(let error):
                 self.presentAlert(title: "Error", message: error.localizedDescription)
                 self.showLoading(on: self.nextButton ,isLoading: false, loader: self.activityIndicator)
             }
         }
-        
     }
+    
     
     private func formattedDate(date: Date?) -> String {
         guard let date = date else { return "" }

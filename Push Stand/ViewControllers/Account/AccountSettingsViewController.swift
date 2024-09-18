@@ -2,6 +2,9 @@ import UIKit
 
 class AccountSettingsViewController: UIViewController {
     
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var birthdatePicker: UIDatePicker!
@@ -19,6 +22,7 @@ class AccountSettingsViewController: UIViewController {
     }
     
     private func logout() {
+        appDelegate.appStateViewModel.setAppBadgeCount(to: 0)
         // Safely remove all data stored in UserDefaults for the app's bundle identifier
         if let bundleID = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: bundleID)
