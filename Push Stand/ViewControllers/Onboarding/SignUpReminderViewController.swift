@@ -8,8 +8,6 @@ class SignUpReminderViewController: UIViewController {
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var nextButton: UIButton!
     
-    let usersEndpoint = "https://qik82nqrt0.execute-api.us-east-1.amazonaws.com/prod/users"
-    var dataManager = OnboardingManager.shared
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     // Activity Indicator (Spinner)
@@ -37,7 +35,7 @@ class SignUpReminderViewController: UIViewController {
     
     @IBAction func next(_ sender: Any) {
         let utcTime = convertToUTCTime(date: timePicker.date)
-        dataManager.onboardingData.reminderTime = utcTime
+        OnboardingData.shared.reminderTime = utcTime
         self.showLoading(on: self.nextButton ,isLoading: true, loader: self.activityIndicator)
         createUser()
     }
@@ -50,8 +48,8 @@ class SignUpReminderViewController: UIViewController {
     }
     
     func createUser() {
-        guard let email = dataManager.onboardingData.email,
-              let password = dataManager.onboardingData.password else {
+        guard let email = OnboardingData.shared.email,
+              let password = OnboardingData.shared.password else {
             print("Email or password not provided")
             self.showLoading(on: self.nextButton ,isLoading: false, loader: self.activityIndicator)
             return
@@ -81,16 +79,16 @@ class SignUpReminderViewController: UIViewController {
         let userData: [String: Any] = [
             "UserId": user.uid,
             "Email": user.email ?? "",
-            "ReminderTime": dataManager.onboardingData.reminderTime ?? "",
-            "Birthdate": formattedDate(date: dataManager.onboardingData.birthday),
-            "PhoneNumber": dataManager.onboardingData.phoneNumber ?? ""
+            "ReminderTime": OnboardingData.shared.reminderTime ?? "",
+            "Birthdate": formattedDate(date: OnboardingData.shared.birthday),
+            "PhoneNumber": OnboardingData.shared.phoneNumber ?? ""
         ]
         
         
         NetworkService.shared.request(endpoint: .users, method: "POST", data: userData) { [self] result in
             switch result {
             case .success(let json):
-                var currentUser = CurrentUser.shared
+                let currentUser = CurrentUser.shared
                 
                 // Assuming 'json' is a dictionary parsed from the Lambda response
                 if let userDetails = json as? [String: Any] {
@@ -110,6 +108,9 @@ class SignUpReminderViewController: UIViewController {
                     UserDefaults.standard.set(currentUser.uid, forKey: "userId")
                     UserDefaults.standard.set(currentUser.email, forKey: "userEmail")
                     UserDefaults.standard.set(currentUser.userNumber, forKey: "userNumber")
+                    UserDefaults.standard.set(currentUser.reminderTime, forKey: "reminderTime")
+                    UserDefaults.standard.set(currentUser.birthdate, forKey: "birthDate")
+                    UserDefaults.standard.set(currentUser.phoneNumber, forKey: "phoneNumber")
                     UserDefaults.standard.synchronize()
                     
                     // Additional app logic

@@ -53,7 +53,6 @@
 		2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */; };
 		2263D2162AF91D8400D2E136 /* SignUpBirthdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2152AF91D8400D2E136 /* SignUpBirthdateViewController.swift */; };
 		2263D2182AF91E6900D2E136 /* SignUpReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2172AF91E6900D2E136 /* SignUpReminderViewController.swift */; };
-		2263D21A2AF91FEB00D2E136 /* SignUpVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */; };
 		2263D21C2AF926CB00D2E136 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */; };
 		226D35162BE04F2C0092592B /* NetworkErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226D35152BE04F2C0092592B /* NetworkErrorViewController.swift */; };
 		227701EC2C8B85C600F256C6 /* CountdownTimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227701EB2C8B85C600F256C6 /* CountdownTimerManager.swift */; };
@@ -163,7 +162,6 @@
 		2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUsernamePasswordViewController.swift; sourceTree = "<group>"; };
 		2263D2152AF91D8400D2E136 /* SignUpBirthdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBirthdateViewController.swift; sourceTree = "<group>"; };
 		2263D2172AF91E6900D2E136 /* SignUpReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReminderViewController.swift; sourceTree = "<group>"; };
-		2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVerificationViewController.swift; sourceTree = "<group>"; };
 		2263D21B2AF926CB00D2E136 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		226D35152BE04F2C0092592B /* NetworkErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorViewController.swift; sourceTree = "<group>"; };
 		227701EB2C8B85C600F256C6 /* CountdownTimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimerManager.swift; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 				2263D2152AF91D8400D2E136 /* SignUpBirthdateViewController.swift */,
 				2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */,
 				2263D2172AF91E6900D2E136 /* SignUpReminderViewController.swift */,
-				2263D2192AF91FEB00D2E136 /* SignUpVerificationViewController.swift */,
 				223EA0892AEFF6D70055F94B /* SignUpInitialPhoneViewController.swift */,
 			);
 			path = Onboarding;
@@ -733,7 +730,6 @@
 				223443512C3B18EF00FAF9AB /* ViewControllers.swift in Sources */,
 				2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */,
 				22359DE32B6E9C8D003D3520 /* GroupRequestsViewController.swift in Sources */,
-				2263D21A2AF91FEB00D2E136 /* SignUpVerificationViewController.swift in Sources */,
 				8EAF89992C417337005DD926 /* SweepstakesUnlockViewController.swift in Sources */,
 				22359DDB2B6C9BE3003D3520 /* OnboardingManager.swift in Sources */,
 				223443322C39D1BF00FAF9AB /* DailyQuestionModel.swift in Sources */,

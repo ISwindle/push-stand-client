@@ -144,7 +144,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             pushStandTimer.text = "00:00:00"
         }
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -431,11 +431,15 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             return
         }
         
+        print("User ID: \(userId)")
+
         // Update the current user's UID
         currentUser.uid = userId
         
         // Prepare query parameters
         let queryParams = ["user_id": userId]
+        
+        print("Making network request with params: \(queryParams)")
         
         // Make the network request
         NetworkService.shared.request(endpoint: .stand, method: HTTPVerbs.get.rawValue, queryParams: queryParams) { [weak self] result in
@@ -443,30 +447,45 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             
             switch result {
             case .success(let json):
-                // Safely extract 'has_taken_action' from the response
-                guard let hasTakenAction = json["has_taken_action"] as? Bool else {
-                    print("Invalid response format: 'has_taken_action' not found or not a Bool")
-                    return
-                }
+                print("Network request succeeded: \(json)")
                 
-                if hasTakenAction {
-                    // Get the current date formatted as a string
-                    let dateString = Time.getDateFormatted()
+                // Parse the JSON string from the 'body' key
+                if let bodyString = json["body"] as? String,
+                   let bodyData = bodyString.data(using: .utf8),
+                   let parsedBody = try? JSONSerialization.jsonObject(with: bodyData, options: []) as? [String: Any] {
                     
-                    // Save the action status to UserDefaults
-                    UserDefaults.standard.set(true, forKey: dateString)
+                    print("Parsed body: \(parsedBody)")
                     
-                    // Update the app badge count
-                    self.appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
-                    
-                    // Update the UI on the main thread
-                    DispatchQueue.main.async {
-                        self.updateForStandStats()
+                    // Now safely extract 'has_taken_action' from the parsed JSON
+                    guard let hasTakenAction = parsedBody["has_taken_action"] as? Bool else {
+                        print("Invalid response format: 'has_taken_action' not found or not a Bool")
+                        return
                     }
-                } else {
-                    // Update the UI to show the push stand button on the main thread
-                    DispatchQueue.main.async {
-                        self.updateUIForPushStandButton()
+                    
+                    print("Has taken action: \(hasTakenAction)")
+                    
+                    if hasTakenAction {
+                        // Get the current date formatted as a string
+                        let dateString = Time.getDateFormatted()
+                        print("Saving action status for date: \(dateString)")
+                        
+                        // Save the action status to UserDefaults
+                        UserDefaults.standard.set(true, forKey: dateString)
+                        
+                        // Update the app badge count
+                        self.appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
+                        
+                        // Update the UI on the main thread
+                        DispatchQueue.main.async {
+                            print("Updating UI for stand stats")
+                            self.updateForStandStats()
+                        }
+                    } else {
+                        // Update the UI to show the push stand button on the main thread
+                        DispatchQueue.main.async {
+                            print("Updating UI for push stand button")
+                            self.updateUIForPushStandButton()
+                        }
                     }
                 }
             case .failure(let error):
@@ -475,6 +494,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             }
         }
     }
+
+    
     
     
     private func updateUIForLoad() {
