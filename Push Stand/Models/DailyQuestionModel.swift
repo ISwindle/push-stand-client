@@ -18,7 +18,7 @@ class DailyQuestionModel: ObservableObject {
     private init() {}
 
     func fetchDailyQuestion() {
-        let dailyQuestionsQueryParams = ["userId": CurrentUser.shared.uid!, "Date": Time.getDateFormatted()]
+        let dailyQuestionsQueryParams = ["userId": CurrentUser.shared.uid!, "Date": Time.getPacificDateFormatted()]
         NetworkService.shared.request(endpoint: .questions, method: "GET", queryParams: dailyQuestionsQueryParams) { [weak self] (result: Result<[String: Any], Error>) in
             DispatchQueue.main.async {
                 switch result {

@@ -81,7 +81,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         configureViewComponents()
         pushStandTimer.text = defaultTitleLabel
         setupGestures()
-        let dateString = Time.getDateFormatted()
+        //let dateString = Time.getDateFormatted()
         //        if !UserDefaults.standard.bool(forKey: dateString){
         //            loadHome()
         //        }
@@ -100,14 +100,14 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.alpha = 0
-        let dateString = Time.getDateFormatted()
+        let dateString = Time.getPacificDateFormatted()
         updateUIForLoad()
         if UserDefaults.standard.bool(forKey: dateString) {
-           updateForStandStats()
-           appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
+            updateForStandStats()
+            appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
         } else {
-           updateUIForPushStandButton()
-           appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
+            updateUIForPushStandButton()
+            appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
         }
         loadHome()
     }
@@ -229,39 +229,9 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         })
     }
     
-    private func fetchDailyQuestion() {
-        let dailyQuestionsQueryParams = [Constants.UserDefaultsKeys.userId: CurrentUser.shared.uid!, "Date": Time.getDateFormatted()]
-        NetworkService.shared.request(endpoint: .questions, method: HTTPVerbs.get.rawValue, queryParams: dailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let json):
-                    if let answer = json["UserAnswer"] as? String,
-                       let question = json["Question"] as? String {
-                        if !answer.isEmpty {
-                            self.appDelegate.appStateViewModel.setAppBadgeCount(to: 0)
-                            if let tabBarController = self.tabBarController as? RootTabBarController {
-                                tabBarController.updateQuestionBadge(addBadge: false)
-                            }
-                            return
-                        } else {
-                            if let tabBarController = self.tabBarController as? RootTabBarController {
-                                tabBarController.updateQuestionBadge(addBadge: true)
-                            }
-                        }
-                    }
-                case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
-        }
-    }
-    
-    
     func loadHome() {
-        NetworkService.shared.request(endpoint: .stand, method: HTTPVerbs.get.rawValue, queryParams: ["user_id": CurrentUser.shared.uid!]) { (result: Result<[String: Any], Error>) in
-            DispatchQueue.main.async {
-                self.fetchHomeStats()
-            }
+        DispatchQueue.main.async {
+            self.fetchHomeStats()
         }
     }
     
@@ -336,7 +306,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                     
                     if hasTakenActionBool {
                         // Get the current date formatted as a string
-                        let dateString = Time.getDateFormatted()
+                        let dateString = Time.getPacificDateFormatted()
                         print("Saving action status for date: \(dateString)")
                         
                         // Save the action status to UserDefaults
@@ -468,7 +438,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     @IBAction private func pushStand(_ sender: UILongPressGestureRecognizer?) {
         let uuidString = UUID().uuidString
-        let dateString = Time.getDateFormatted()
+        let dateString = Time.getPacificDateFormatted() // Because a Push Stand date crosses midnight for timezones east of Pacific
         tabBarController?.tabBar.isHidden = false
         Haptic.heavyTap()
         
@@ -813,7 +783,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     private func handleDailyStandsCount(_ count: Int) {
         self.usaTotalStandsLoading.isHidden = true
-        if !UserDefaults.standard.bool(forKey: Time.getDateFormatted()) {
+        if !UserDefaults.standard.bool(forKey: Time.getPacificDateFormatted()) {
             self.pushStandButton.isHidden = false
         }
         self.globalStandCount.alpha = 1

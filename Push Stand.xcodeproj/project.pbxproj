@@ -64,7 +64,6 @@
 		229C49FD2B14E11800C8E065 /* ExtUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C49FC2B14E11800C8E065 /* ExtUITabBarController.swift */; };
 		22AD2D2E2ADF583000B3B1A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D2D2ADF583000B3B1A8 /* AppDelegate.swift */; };
 		22AD2D302ADF583000B3B1A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D2F2ADF583000B3B1A8 /* SceneDelegate.swift */; };
-		22AD2D322ADF583000B3B1A8 /* PushStandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D312ADF583000B3B1A8 /* PushStandViewController.swift */; };
 		22AD2D352ADF583000B3B1A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AD2D332ADF583000B3B1A8 /* Main.storyboard */; };
 		22AD2D382ADF583000B3B1A8 /* Push_Stand.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22AD2D362ADF583000B3B1A8 /* Push_Stand.xcdatamodeld */; };
 		22AD2D3A2ADF583300B3B1A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22AD2D392ADF583300B3B1A8 /* Assets.xcassets */; };
@@ -174,7 +173,6 @@
 		22AD2D2A2ADF583000B3B1A8 /* Push Stand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Push Stand.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AD2D2D2ADF583000B3B1A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22AD2D2F2ADF583000B3B1A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		22AD2D312ADF583000B3B1A8 /* PushStandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushStandViewController.swift; sourceTree = "<group>"; };
 		22AD2D342ADF583000B3B1A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22AD2D372ADF583000B3B1A8 /* Push_Stand.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Push_Stand.xcdatamodel; sourceTree = "<group>"; };
 		22AD2D392ADF583300B3B1A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -311,7 +309,6 @@
 		223443412C3ADE7800FAF9AB /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				22AD2D312ADF583000B3B1A8 /* PushStandViewController.swift */,
 				229C49F92B14E0D100C8E065 /* HomeStatsViewController.swift */,
 			);
 			path = Home;
@@ -745,7 +742,6 @@
 				22C7F3D82BC58F3000F5BE9A /* AccountPasswordViewController.swift in Sources */,
 				8E6FF5A12C7BE2F300A95C3B /* StandBonusView.swift in Sources */,
 				223443382C3ACE9500FAF9AB /* Validator.swift in Sources */,
-				22AD2D322ADF583000B3B1A8 /* PushStandViewController.swift in Sources */,
 				22359DE92B6EA132003D3520 /* ContactsViewController.swift in Sources */,
 				22C7F3D62BC58F0500F5BE9A /* AccountEmailViewController.swift in Sources */,
 				8E6FF5A32C7BE31400A95C3B /* DailyGoalAchievedView.swift in Sources */,

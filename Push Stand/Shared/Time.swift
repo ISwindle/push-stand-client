@@ -57,6 +57,10 @@ class Time {
         return getDateFormatted(daysOffset: -1)
     }
     
+    static func getPacificPreviousDateFormatted() -> String {
+        return getPacificDateFormatted(daysOffset: -1)
+    }
+    
     
     static func isDatePriorToToday(_ date: Date?) -> Bool {
         // Unwrap the optional date

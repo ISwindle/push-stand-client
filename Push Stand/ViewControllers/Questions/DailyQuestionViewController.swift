@@ -139,7 +139,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
     }
     
     private func fetchDailyQuestion() {
-        let dailyQuestionsQueryParams = [Constants.UserDefaultsKeys.userId: CurrentUser.shared.uid!, "Date": Time.getDateFormatted()]
+        let dailyQuestionsQueryParams = [Constants.UserDefaultsKeys.userId: CurrentUser.shared.uid!, "Date": Time.getPacificDateFormatted()]
         NetworkService.shared.request(endpoint: .questions, method: HTTPVerbs.get.rawValue, queryParams: dailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
             DispatchQueue.main.async {
                 switch result {
@@ -148,7 +148,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
                        let question = json["Question"] as? String {
                         if !answer.isEmpty {
                             self.fetchYesterdaysQuestion()
-                            self.saveQuestionAnswerToUserDefaults(for: Time.getDateFormatted())
+                            self.saveQuestionAnswerToUserDefaults(for: Time.getPacificDateFormatted())
                             return
                         }
                         self.setupQuestionLabel(question: question)
@@ -164,7 +164,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
     }
     
     private func fetchYesterdaysQuestion() {
-        let previousDailyQuestionsQueryParams = ["Date": Time.getPreviousDateFormatted()]
+        let previousDailyQuestionsQueryParams = ["Date": Time.getPacificPreviousDateFormatted()]
         NetworkService.shared.request(endpoint: .questionsAnswers, method: HTTPVerbs.get.rawValue, queryParams: previousDailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
             DispatchQueue.main.async {
                 switch result {
@@ -310,7 +310,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
         self.submitButton.isHidden = true
         let queryParams = [
             "UserId": CurrentUser.shared.uid!,
-            "Date": Time.getDateFormatted(),
+            "Date": Time.getPacificDateFormatted(),
             "QuestionId": "DEFAULT",
             "Answer": activeAnswer ? "true" : "false"
         ]
@@ -345,7 +345,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
         
         // TODO: Add Bonus Answer View
         
-        self.saveQuestionAnswerToUserDefaults(for: Time.getDateFormatted())
+        self.saveQuestionAnswerToUserDefaults(for: Time.getPacificDateFormatted())
         UIApplication.shared.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber - 1
         fetchYesterdaysQuestion()
     }

@@ -113,8 +113,8 @@ class SignInViewController: UIViewController {
                                                let question = json["Question"] as? String {
                                                 appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
                                                 if !answer.isEmpty {
-                                                    UserDefaults.standard.set(true, forKey: "question-" + Time.getDateFormatted())
-                                                    self.appDelegate.userDefault.set(true, forKey: "question-" + Time.getDateFormatted())
+                                                    UserDefaults.standard.set(true, forKey: "question-" + Time.getPacificDateFormatted())
+                                                    self.appDelegate.userDefault.set(true, forKey: "question-" + Time.getPacificDateFormatted())
                                                     self.appDelegate.userDefault.synchronize()
                                                     // If you have answered the question, you have stood
                                                     appDelegate.appStateViewModel.setAppBadgeCount(to: 0)
@@ -168,7 +168,7 @@ class SignInViewController: UIViewController {
                     let hasTakenActionBool = hasTakenAction == 1
                     
                     if hasTakenActionBool {
-                        let dateString = Time.getDateFormatted()
+                        let dateString = Time.getPacificDateFormatted()
                         UserDefaults.standard.set(true, forKey: dateString)
                         self.appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
                     }

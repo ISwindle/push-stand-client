@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // Set badge if user is signed in
         if isUserSignedIn() {
             var badgeCount = 0
-            if !UserDefaults.standard.bool(forKey: Time.getDateFormatted()) {
+            if !UserDefaults.standard.bool(forKey: Time.getPacificDateFormatted()) {
                 badgeCount += 1
             }
             if !UserDefaults.standard.bool(forKey: Constants.questionUserDefaultsKey) {
