@@ -103,6 +103,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let dateString = Time.getPacificDateFormatted()
         updateUIForLoad()
         if UserDefaults.standard.bool(forKey: dateString) {
+            if SessionViewModel.shared.standModel.dailyGoal == 0 {
+                globalStandingTodayLoading.isHidden = false
+                dailyGoalLoading.isHidden = false
+            }
             updateForStandStats()
             appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
         } else {
