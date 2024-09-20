@@ -29,6 +29,9 @@ class AccountSettingsViewController: UIViewController {
             UserDefaults.standard.synchronize()
         }
         
+        SessionViewModel.shared.clearStandModel()
+        SessionViewModel.shared.clearDailyQuestionModel()
+        
         // Dismiss any presented view controllers to ensure a clean state
         self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
         

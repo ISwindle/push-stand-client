@@ -117,7 +117,7 @@ class SessionViewModel: ObservableObject {
         standModel.usaTotalStands = 100000
     }
 
-    private func clearStandModel() {
+    public func clearStandModel() {
         standModel.dailyGoal = 0
         standModel.americansStandingToday = 0
         standModel.yesterdaysStanding = 0
@@ -134,7 +134,7 @@ class SessionViewModel: ObservableObject {
         dailyQuestionModel.fetchQuestionStreak()
     }
 
-    private func clearDailyQuestionModel() {
+    public func clearDailyQuestionModel() {
         dailyQuestionModel.dailyQuestion = ""
         dailyQuestionModel.yesterdaysQuestion = ""
         dailyQuestionModel.truePercentage = 0

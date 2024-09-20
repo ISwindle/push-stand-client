@@ -103,7 +103,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let dateString = Time.getPacificDateFormatted()
         updateUIForLoad()
         if UserDefaults.standard.bool(forKey: dateString) {
-            if SessionViewModel.shared.standModel.dailyGoal == 0 {
+            if SessionViewModel.shared.standModel.americansStandingToday >= 1 {
+                globalStandingTodayLoading.isHidden = true
+                dailyGoalLoading.isHidden = true
+            } else {
                 globalStandingTodayLoading.isHidden = false
                 dailyGoalLoading.isHidden = false
             }
