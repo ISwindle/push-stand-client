@@ -7,6 +7,7 @@
 
 import UIKit
 import MessageUI
+import Combine
 
 class DailyQuestionViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     
@@ -42,8 +43,9 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
     @IBOutlet weak var streakFillButton: UIButton!
 
     
+    var cancellables: Set<AnyCancellable> = []
+    
     // MARK: - Properties
-    var answerStreak = Defaults.int
     var activeAnswer: Bool = false
     
     // MARK: - Structs
@@ -56,7 +58,10 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        streakSegmentedBar.selectedColor = .systemBlue
         setupGestureRecognizers()
+        bindViewModel()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +70,15 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
         selectQuestionView()
         fetchQuestionStreak()
     }
+    
+    private func bindViewModel() {
+            // Binding myAnswerStreak from standModel to streakSegmentedBar's value
+            SessionViewModel.shared.standModel.$myAnswerStreak
+                .sink { [weak self] streaks in
+                    self?.streakSegmentedBar.value = streaks % 10
+                }
+                .store(in: &cancellables)
+        }
     
     // MARK: - Setup Methods
     private func setupInitialView() {
@@ -79,10 +93,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
         
         let thumbsUpGesture = UITapGestureRecognizer(target: self, action: #selector(thumbsUpTapped))
         thumbsUpAnswer.addGestureRecognizer(thumbsUpGesture)
-        
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-//        questionBot.addGestureRecognizer(tapGesture)
-        
+
         let shareGesture = UITapGestureRecognizer(target: self, action: #selector(shareResultsTapped))
         shareResults.addGestureRecognizer(shareGesture)
         
@@ -129,8 +140,8 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
         case .success(let json):
             print(json)
             if let streaks = json["streak_count"] as? Int {
-                self.answerStreak = streaks
-                self.streakSegmentedBar.value = streaks % 10
+                SessionViewModel.shared.standModel.myAnswerStreak = streaks
+                //self.streakSegmentedBar.value = streaks % 10
             } else {
                 print("Error: Invalid response format")
             }
@@ -293,11 +304,11 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
             self.thumbsDownAnswer.image = UIImage(named: Constants.Images.naySelected)
             self.thumbsUpAnswer.image = UIImage(named: Constants.Images.yeaUnselected)
         }
-        self.answerStreak += 1
+        SessionViewModel.shared.standModel.myAnswerStreak += 1
         
         UIView.animate(withDuration: 1.0) {
-            self.streakSegmentedBar.value = self.answerStreak % Constants.questionStreakMax
-            if self.answerStreak > 0 && self.answerStreak % Constants.questionStreakMax == 0 {
+            //self.streakSegmentedBar.value = SessionViewModel.shared.standModel.myAnswerStreak % Constants.questionStreakMax
+            if SessionViewModel.shared.standModel.myAnswerStreak > 0 && SessionViewModel.shared.standModel.myAnswerStreak % Constants.questionStreakMax == 0 {
                 self.streakPointLabel.text = "10 Points"
                 self.bonusAnswerView.isHidden = false // Show the bonus answer view
             }
@@ -328,7 +339,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
             
         }
         let unixTimestamp = Date().timeIntervalSince1970
-        let pointsAwarded = (answerStreak % Constants.questionStreakMax == 0) ? Constants.questionStreakHitPoints : Constants.questionPoints
+        let pointsAwarded = (SessionViewModel.shared.standModel.myAnswerStreak % Constants.questionStreakMax == 0) ? Constants.questionStreakHitPoints : Constants.questionPoints
         let postPointQueryParams = ["UserId": UserDefaults.standard.string(forKey: "userId")!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
         NetworkService.shared.request(endpoint: .points, method: HTTPVerbs.post.rawValue, data: postPointQueryParams) { result in
             self.updateQuestionBadge()
@@ -354,7 +365,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
     
     @IBAction func acknowledgeStreakFill(_ sender: Any) {
         bonusAnswerView.isHidden = true
-        self.streakSegmentedBar.value = 0
+        //self.streakSegmentedBar.value = 0
     }
     
     private func saveQuestionAnswerToUserDefaults(for dateString: String) {

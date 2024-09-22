@@ -14,6 +14,7 @@ class StandModel: ObservableObject {
     
     // Aggregate stats
     @Published var myStandStreak: Int = 0
+    @Published var myAnswerStreak: Int = 0
     @Published var myTotalStands: Int = 0
     @Published var usaTotalStands: Int = 0
     

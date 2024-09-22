@@ -60,14 +60,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     private var goal: Float = Defaults.zeroFloat
     private var current: Float = Defaults.zeroFloat
-    private var questionAnswerStreak: Int = Defaults.int
-    private var standStreak = Defaults.int
     private var pointsCount = Defaults.int
     
     // MARK: - Dependencies
     let gestureHandler = GestureHandler() //
-    //private var userManager: UserManager
-    
+
     var currentUser = CurrentUser.shared
     let userDefault = UserDefaults.standard
     var should_not_rev = false
@@ -133,7 +130,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     func setupDailyTimer() {
         // Update the UI every second
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
-        
     }
     
     
@@ -409,7 +405,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             selectedIconImage: Constants.redStarImg,
             selectedTitle: standStreakTitle,
             selectedColor: .systemRed,
-            selectedStreakValue: standStreak % Constants.standStreakMax
+            selectedStreakValue: SessionViewModel.shared.standModel.myStandStreak % Constants.standStreakMax
         )
     }
     
@@ -419,7 +415,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             selectedIconImage: Constants.blueStarImg,
             selectedTitle: questionStreakTitle,
             selectedColor: .systemBlue,
-            selectedStreakValue: questionAnswerStreak % Constants.questionStreakMax
+            selectedStreakValue: SessionViewModel.shared.standModel.myAnswerStreak % Constants.questionStreakMax
         )
     }
     
@@ -450,11 +446,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         Haptic.heavyTap()
         
         current += 1
-        standStreak += 1
+        SessionViewModel.shared.standModel.myStandStreak += 1
         SessionViewModel.shared.standModel.americansStandingToday += 1
         let pushStandQueryParams = ["UserId": UserDefaults.standard.string(forKey: "userId")!, "Date": dateString]
         let unixTimestamp = Date().timeIntervalSince1970
-        let pointsAwarded = (standStreak % 10 == 0) ? Constants.standStreakHitPoints : Constants.standPoints
+        let pointsAwarded = (SessionViewModel.shared.standModel.myStandStreak % 10 == 0) ? Constants.standStreakHitPoints : Constants.standPoints
         let postPointQueryParams = ["UserId": UserDefaults.standard.string(forKey: "userId")!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
         
         postStand(queryParams: pushStandQueryParams) { result in
@@ -508,7 +504,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     private func animateStandStreakLabel() {
         UIView.animate(withDuration: 1.0, animations: {
-            if self.standStreak > 0 && self.standStreak % Constants.standStreakMax == Constants.streakBarMin {
+            if SessionViewModel.shared.standModel.myStandStreak > 0 && SessionViewModel.shared.standModel.myStandStreak % Constants.standStreakMax == Constants.streakBarMin {
                 // Dispatching to the main thread for UI updates
                 DispatchQueue.main.async {
                     self.standStreakLabel.text = Constants.fivePoints
@@ -601,11 +597,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     private func updateUIForNewStand() {
-        if standStreak > Constants.standStreakMin && standStreak % Constants.standStreakMax == Constants.streakBarMin {
+        if SessionViewModel.shared.standModel.myStandStreak > Constants.standStreakMin && SessionViewModel.shared.standModel.myStandStreak % Constants.standStreakMax == Constants.streakBarMin {
             segmentedStreakBar.value = Constants.standStreakMax
             SessionViewModel.shared.standModel.myPoints += 10
         } else {
-            segmentedStreakBar.value = standStreak % Constants.standStreakMax
+            segmentedStreakBar.value = SessionViewModel.shared.standModel.myStandStreak % Constants.standStreakMax
             SessionViewModel.shared.standModel.myPoints += 1
         }
         
@@ -806,11 +802,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         self.myCurrentStreakLoading.isHidden = true
         myCurrentStreakLabel.text = "\(streak)"
         segmentedStreakBar.value = streak % Constants.streakBarMax
-        standStreak = streak
+        SessionViewModel.shared.standModel.myStandStreak = streak
     }
     
     private func handleAnswerStreak(_ streak: Int) {
-        questionAnswerStreak = streak
+        SessionViewModel.shared.standModel.myAnswerStreak = streak
     }
     
     private func handleUserPoints(_ points: Int) {
