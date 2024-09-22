@@ -7,9 +7,11 @@ class UserDefaultsManager {
     
     func setQuestionAnswered(_ answered: Bool) {
         UserDefaults.standard.set(answered, forKey: questionAnsweredKey)
+        UserDefaults.standard.synchronize()
     }
     
     func isQuestionAnswered() -> Bool {
         return UserDefaults.standard.bool(forKey: questionAnsweredKey)
     }
+    
 }

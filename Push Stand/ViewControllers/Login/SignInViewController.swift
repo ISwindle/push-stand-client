@@ -104,7 +104,7 @@ class SignInViewController: UIViewController {
                             // Call checkStandToday after fetching user details
                             self.checkStandToday {
                                 // Fetch daily questions after retrieving user details and checking the stand today status
-                                let dailyQuestionsQueryParams = ["userId": CurrentUser.shared.uid!, "Date": Time.getDateFormatted()]
+                                let dailyQuestionsQueryParams = ["userId": UserDefaults.standard.string(forKey: "userId")!, "Date": Time.getDateFormatted()]
                                 NetworkService.shared.request(endpoint: .questions, method: "GET", queryParams: dailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
                                     DispatchQueue.main.async {
                                         switch result {

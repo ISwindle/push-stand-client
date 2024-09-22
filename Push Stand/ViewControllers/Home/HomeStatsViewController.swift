@@ -318,6 +318,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                         
                         // Save the action status to UserDefaults
                         UserDefaults.standard.set(true, forKey: dateString)
+                        UserDefaults.standard.synchronize()
                         
                         // Update the app badge count
                         self.appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
@@ -353,7 +354,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         dailyGoalLoading.isHidden = true
         globalStandingTodayLoading.isHidden = true
         landingViewWithPicture.isHidden = false
-        accountButton.isHidden = true
+        //accountButton.isHidden = true
         tabBarController?.tabBar.alpha = 0
     }
     
@@ -364,7 +365,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         landingViewWithPicture.isHidden = true
         //dailyGoalLoading.isHidden = false
         //globalStandingTodayLoading.isHidden = false
-        accountButton.isHidden = false
+        //accountButton.isHidden = false
         tabBarController?.tabBar.alpha = 1
         
     }
@@ -378,7 +379,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         globalStandCount.alpha = 0
         globalStandingTodayLoading.isHidden = false
         landingViewWithPicture.isHidden = false
-        accountButton.isHidden = true
+        //accountButton.isHidden = true
         tabBarController?.tabBar.alpha = 0
     }
     
@@ -444,7 +445,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     @IBAction private func pushStand(_ sender: UILongPressGestureRecognizer?) {
-        let uuidString = UUID().uuidString
         let dateString = Time.getPacificDateFormatted() // Because a Push Stand date crosses midnight for timezones east of Pacific
         tabBarController?.tabBar.isHidden = false
         Haptic.heavyTap()
@@ -452,10 +452,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         current += 1
         standStreak += 1
         SessionViewModel.shared.standModel.americansStandingToday += 1
-        let pushStandQueryParams = ["UserId": CurrentUser.shared.uid!, "Date": dateString]
+        let pushStandQueryParams = ["UserId": UserDefaults.standard.string(forKey: "userId")!, "Date": dateString]
         let unixTimestamp = Date().timeIntervalSince1970
         let pointsAwarded = (standStreak % 10 == 0) ? Constants.standStreakHitPoints : Constants.standPoints
-        let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
+        let postPointQueryParams = ["UserId": UserDefaults.standard.string(forKey: "userId")!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
         
         postStand(queryParams: pushStandQueryParams) { result in
             
@@ -701,7 +701,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     private func fetchHomeStats() {
         let queryParams = [
-            "userId": CurrentUser.shared.uid!,
+            "userId": UserDefaults.standard.string(forKey: "userId")!,
         ]
         
         NetworkService.shared.request(endpoint: .home, method: HTTPVerbs.get.rawValue, queryParams: queryParams) { result in

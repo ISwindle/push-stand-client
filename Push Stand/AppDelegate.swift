@@ -55,11 +55,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // Register for remote notifications
         application.registerForRemoteNotifications()
         
+        scheduleLocalNotification()
+        
         return true
     }
     
     func isUserSignedIn() -> Bool {
-        return currentUser.uid != nil
+        var userSignedIn = false
+        if let storedUserId = UserDefaults.standard.string(forKey: "userId") {
+            userSignedIn = true
+        }
+        return userSignedIn
     }
     
     
@@ -92,64 +98,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             }
         }
     }
-    
-    // MARK: - Core Data stack
-    
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Push_Stand")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-    
-    // MARK: - Core Data Saving support
-    
-    func saveContext() {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         handleNotification(userInfo: userInfo)
-        
         completionHandler(.newData)
     }
+
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         
-        if let userId = userInfo["userId"] as? String, userId == CurrentUser.shared.uid {
-            //If the userId in the notification matches the current user, present the notification
+        // Get the stored userId from UserDefaults
+        if let storedUserId = UserDefaults.standard.string(forKey: "userId"),
+           let userId = userInfo["userId"] as? String, userId == storedUserId {
+            // If the userId in the notification matches the one stored in UserDefaults, present the notification
             completionHandler([.alert, .badge, .sound])
         } else {
             // Otherwise, don't present the notification
             completionHandler([])
         }
     }
-    
-    
+
     // Custom function to handle and parse the notification payload
     private func handleNotification(userInfo: [AnyHashable: Any]) {
-        if let userId = userInfo["userId"] as? String, let action = userInfo["action"] as? String {
-            if userId == CurrentUser.shared.uid && action == "new_day" {
+        // Get the stored userId from UserDefaults
+        if let storedUserId = UserDefaults.standard.string(forKey: "userId"),
+           let userId = userInfo["userId"] as? String, let action = userInfo["action"] as? String {
+            
+            if userId == storedUserId && action == "new_day" {
+                // Set the badge count for the new day
                 appStateViewModel.setAppBadgeCount(to: 2)
             }
-            if userId == CurrentUser.shared.uid && action == "stand_reminder" {
+            
+            if userId == storedUserId && action == "stand_reminder" {
+                // Handle stand reminder
             }
+            
         } else {
             print("Invalid data payload")
         }
     }
+
 }

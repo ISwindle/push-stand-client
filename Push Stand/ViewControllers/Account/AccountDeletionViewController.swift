@@ -92,7 +92,7 @@ class AccountDeletionViewController: UIViewController {
     func getReauthenticationCredential() -> AuthCredential? {
         // You need to provide the appropriate credential for re-authentication
         // For example, if the user signed in with email and password:
-        let email = CurrentUser.shared.email!
+        let email = UserDefaults.standard.string(forKey: "userEmail")!
         let password = passwordTextField.text
         let credential = EmailAuthProvider.credential(withEmail: email, password: password!)
         return credential

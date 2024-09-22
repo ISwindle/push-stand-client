@@ -93,6 +93,7 @@ class SessionViewModel: ObservableObject {
     private func saveSession() {
         UserDefaults.standard.set(self.userName, forKey: "userName")
         UserDefaults.standard.set(self.sessionToken, forKey: "sessionToken")
+        UserDefaults.standard.synchronize()
 
         // Save current user information to persistent storage if needed
         // This part can be customized based on how you store user data

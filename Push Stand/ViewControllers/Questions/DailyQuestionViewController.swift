@@ -107,7 +107,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
     
     // MARK: - Fetch Methods
     private func fetchQuestionStreak() {
-        guard let userId = CurrentUser.shared.uid else {
+        guard let userId =  UserDefaults.standard.string(forKey: "userId") else {
             print("Error: User ID is nil")
             return
         }
@@ -139,7 +139,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
     }
     
     private func fetchDailyQuestion() {
-        let dailyQuestionsQueryParams = [Constants.UserDefaultsKeys.userId: CurrentUser.shared.uid!, "Date": Time.getPacificDateFormatted()]
+        let dailyQuestionsQueryParams = [Constants.UserDefaultsKeys.userId:  UserDefaults.standard.string(forKey: "userId")!, "Date": Time.getPacificDateFormatted()]
         NetworkService.shared.request(endpoint: .questions, method: HTTPVerbs.get.rawValue, queryParams: dailyQuestionsQueryParams) { (result: Result<[String: Any], Error>) in
             DispatchQueue.main.async {
                 switch result {
@@ -222,11 +222,12 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
     
     private func updateUIWithQuestion(_ question: DailyQuestion) {
         DispatchQueue.main.async {
-            self.yesterdaysResultsView.alpha = Constants.fullAlpha
+            
             self.yesterdayQuestionLabel.text = question.question
             self.downPercentage.text = "\(question.falsePercentage)%"
             self.upPercentage.text = "\(question.truePercentage)%"
-            UIView.animate(withDuration: 1.0) {
+            UIView.animate(withDuration: 2.0, delay: 0, options: [.curveEaseIn]) {
+                self.yesterdaysResultsView.alpha = Constants.fullAlpha
                 self.yesterdaysResultsTitle.alpha = Constants.fullAlpha
                 self.yesterdayQuestionLabel.alpha = Constants.fullAlpha
                 self.downPercentage.alpha = Constants.fullAlpha
@@ -309,7 +310,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
         self.submitButton.isUserInteractionEnabled = false
         self.submitButton.isHidden = true
         let queryParams = [
-            "UserId": CurrentUser.shared.uid!,
+            "UserId":  UserDefaults.standard.string(forKey: "userId")!,
             "Date": Time.getPacificDateFormatted(),
             "QuestionId": "DEFAULT",
             "Answer": activeAnswer ? "true" : "false"
@@ -323,11 +324,11 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
                 tabBarController.updateQuestionBadge(addBadge: false)
                 
             }
-            self.appDelegate.appStateViewModel.setAppBadgeCount(to: 0)
+            
         }
         let unixTimestamp = Date().timeIntervalSince1970
         let pointsAwarded = (answerStreak % Constants.questionStreakMax == 0) ? Constants.questionStreakHitPoints : Constants.questionPoints
-        let postPointQueryParams = ["UserId": CurrentUser.shared.uid!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
+        let postPointQueryParams = ["UserId": UserDefaults.standard.string(forKey: "userId")!, "Timestamp": String(unixTimestamp), "Points": pointsAwarded]
         NetworkService.shared.request(endpoint: .points, method: HTTPVerbs.post.rawValue, data: postPointQueryParams) { result in
             self.updateQuestionBadge()
         }
@@ -346,7 +347,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
         // TODO: Add Bonus Answer View
         
         self.saveQuestionAnswerToUserDefaults(for: Time.getPacificDateFormatted())
-        UIApplication.shared.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber - 1
+        self.appDelegate.appStateViewModel.setAppBadgeCount(to: 0)
         fetchYesterdaysQuestion()
     }
     

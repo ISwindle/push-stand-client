@@ -51,7 +51,7 @@ class AccountSettingsViewController: UIViewController {
         super.viewDidLoad()
         self.updateButton.isHidden = true
         self.resetTodayButton.isHidden = true
-        if CurrentUser.shared.uid == "4jEEDwZeNiU53fDdSjnFflnMKdq1" || CurrentUser.shared.uid == "q3Alfwryqjhqut5RC4AZM3Djfn02" || CurrentUser.shared.uid == "ZAHntT382tWDySLY5GuWernZxcD2" || CurrentUser.shared.uid == "aS7kx7c28zVNRoigFPZVZGeImd02" {
+        if UserDefaults.standard.string(forKey: "userId")! == "4jEEDwZeNiU53fDdSjnFflnMKdq1" || UserDefaults.standard.string(forKey: "userId")! == "q3Alfwryqjhqut5RC4AZM3Djfn02" || UserDefaults.standard.string(forKey: "userId")! == "ZAHntT382tWDySLY5GuWernZxcD2" || UserDefaults.standard.string(forKey: "userId")! == "aS7kx7c28zVNRoigFPZVZGeImd02" {
             self.resetTodayButton.isHidden = false
         }
         birthdatePicker.addTarget(self, action: #selector(birthdatePickerValueChanged(_:)), for: .valueChanged)

@@ -15,6 +15,7 @@
 		220976F52B2764450027E6C6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 220976F42B2764450027E6C6 /* FirebaseFirestore */; };
 		220976F72B2764450027E6C6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 220976F62B2764450027E6C6 /* FirebaseStorage */; };
 		220976F92B2764730027E6C6 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 220976F82B2764730027E6C6 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		2213A7282C9DCA3300EAD252 /* ExtAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2213A7272C9DCA3300EAD252 /* ExtAppDelegate.swift */; };
 		222C4C402B14E342006FC90B /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C4C3F2B14E342006FC90B /* GroupsViewController.swift */; };
 		222C4C422B14E391006FC90B /* DailyQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C4C412B14E391006FC90B /* DailyQuestionViewController.swift */; };
 		222C4C442B14E3B5006FC90B /* SweepstakesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C4C432B14E3B5006FC90B /* SweepstakesViewController.swift */; };
@@ -87,7 +88,7 @@
 		22E024F92C42F33A005D00C5 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E024F82C42F33A005D00C5 /* UserManager.swift */; };
 		22F1BD012B5C20DF00F1570F /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */; };
 		22FC2F782C446BD700A32B5D /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC2F772C446BD700A32B5D /* SessionViewModel.swift */; };
-		22FC2F7A2C44929600A32B5D /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC2F792C44929600A32B5D /* UIApplication.swift */; };
+		22FC2F7A2C44929600A32B5D /* ExtUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC2F792C44929600A32B5D /* ExtUIApplication.swift */; };
 		22FC2F7C2C44A66900A32B5D /* AppStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC2F7B2C44A66900A32B5D /* AppStateViewModel.swift */; };
 		8E5240802BD9631D00A9989A /* LearnMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E52407F2BD9631D00A9989A /* LearnMoreViewController.swift */; };
 		8E52D97D2B732DE100C84468 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E52D97B2B732DE100C84468 /* GroupsTableViewCell.swift */; };
@@ -122,6 +123,7 @@
 
 /* Begin PBXFileReference section */
 		220976E92B27630C0027E6C6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2213A7272C9DCA3300EAD252 /* ExtAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtAppDelegate.swift; sourceTree = "<group>"; };
 		222C4C3F2B14E342006FC90B /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		222C4C412B14E391006FC90B /* DailyQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuestionViewController.swift; sourceTree = "<group>"; };
 		222C4C432B14E3B5006FC90B /* SweepstakesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweepstakesViewController.swift; sourceTree = "<group>"; };
@@ -199,7 +201,7 @@
 		22E024F82C42F33A005D00C5 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
 		22FC2F772C446BD700A32B5D /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
-		22FC2F792C44929600A32B5D /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		22FC2F792C44929600A32B5D /* ExtUIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIApplication.swift; sourceTree = "<group>"; };
 		22FC2F7B2C44A66900A32B5D /* AppStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateViewModel.swift; sourceTree = "<group>"; };
 		8E52407F2BD9631D00A9989A /* LearnMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnMoreViewController.swift; sourceTree = "<group>"; };
 		8E52D97B2B732DE100C84468 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
@@ -423,8 +425,9 @@
 				229C49FC2B14E11800C8E065 /* ExtUITabBarController.swift */,
 				22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */,
 				224F24A42BF905690083FE09 /* ExtUITapGestureRecognizer.swift */,
-				22FC2F792C44929600A32B5D /* UIApplication.swift */,
+				22FC2F792C44929600A32B5D /* ExtUIApplication.swift */,
 				22828FDC2C990D72003819CC /* ExtViewController.swift */,
+				2213A7272C9DCA3300EAD252 /* ExtAppDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -453,7 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				22828FD92C9734AF003819CC /* Protocols */,
-				8EF6D12E2C7BB93600978F3D /* Xib Files */,
+				8EF6D12E2C7BB93600978F3D /* Xibs */,
 				223443342C39E44200FAF9AB /* Shared */,
 				229BB4972B84437900959B3F /* Services */,
 				22359DD92B6C9BD0003D3520 /* Managers */,
@@ -523,12 +526,12 @@
 			path = Handlers;
 			sourceTree = "<group>";
 		};
-		8EF6D12E2C7BB93600978F3D /* Xib Files */ = {
+		8EF6D12E2C7BB93600978F3D /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
 				8EF6D1372C7BC72000978F3D /* Popups */,
 			);
-			path = "Xib Files";
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 		8EF6D1372C7BC72000978F3D /* Popups */ = {
@@ -720,6 +723,7 @@
 				227D0F9F2B1E17890001E568 /* DailyQuestionContainerViewController.swift in Sources */,
 				22DB7CE72B93864A00581C10 /* HelpCenterViewController.swift in Sources */,
 				224F249A2BF3CF190083FE09 /* NetworkService.swift in Sources */,
+				2213A7282C9DCA3300EAD252 /* ExtAppDelegate.swift in Sources */,
 				8E52D97D2B732DE100C84468 /* GroupsTableViewCell.swift in Sources */,
 				222C4C402B14E342006FC90B /* GroupsViewController.swift in Sources */,
 				22FC2F782C446BD700A32B5D /* SessionViewModel.swift in Sources */,
@@ -738,7 +742,7 @@
 				22828FDB2C9734CC003819CC /* UIViewProtocols.swift in Sources */,
 				223443472C3AE64200FAF9AB /* Networking.swift in Sources */,
 				229C49FA2B14E0D100C8E065 /* HomeStatsViewController.swift in Sources */,
-				22FC2F7A2C44929600A32B5D /* UIApplication.swift in Sources */,
+				22FC2F7A2C44929600A32B5D /* ExtUIApplication.swift in Sources */,
 				22C7F3D82BC58F3000F5BE9A /* AccountPasswordViewController.swift in Sources */,
 				8E6FF5A12C7BE2F300A95C3B /* StandBonusView.swift in Sources */,
 				223443382C3ACE9500FAF9AB /* Validator.swift in Sources */,

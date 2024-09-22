@@ -103,53 +103,79 @@ class AccountEmailViewController: UIViewController {
     
     private func updateUserEmail(_ email: String) {
         
+        // Ensure current password and new email are provided
         guard let currentPassword = currentPasswordTextField.text, !currentPassword.isEmpty,
               let newEmail = emailText.text, !newEmail.isEmpty else {
             showAlert(title: "Error", message: "Please fill in all fields")
             return
         }
         
+        // Re-authenticate the user
         reauthenticateUser(currentPassword: currentPassword) { [weak self] success, error in
             guard let self = self else { return }
             
             if success {
+                // Update email in Firebase
                 self.updateEmail(newEmail: newEmail) { success, error in
                     if success {
+                        // Show success alert for email update
                         self.showAlert(title: "Success", message: "Email updated successfully")
+                        
+                        // Get user details from UserDefaults
+                        let userId = UserDefaults.standard.string(forKey: "userId") ?? ""
+                        let birthdate = UserDefaults.standard.string(forKey: "birthDate") ?? ""
+                        let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") ?? ""
+                        let reminderTime = UserDefaults.standard.string(forKey: "reminderTime") ?? ""
+                        let firebaseAuthToken = UserDefaults.standard.string(forKey: "firebaseAuthToken") ?? ""
+                        let userNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
+
+                        // Create payload with updated email and other user details from UserDefaults
                         let payload: [String: Any] = [
-                            "UserId": CurrentUser.shared.uid,
-                            "Birthdate": CurrentUser.shared.birthdate ?? "",
+                            "UserId": userId,
+                            "Birthdate": birthdate,
                             "Email": email,
-                            "PhoneNumber": CurrentUser.shared.phoneNumber ?? "",
-                            "ReminderTime": CurrentUser.shared.reminderTime ?? "",
-                            "FirebaseAuthToken": CurrentUser.shared.firebaseAuthToken ?? "",
+                            "PhoneNumber": phoneNumber,
+                            "ReminderTime": reminderTime,
+                            "FirebaseAuthToken": firebaseAuthToken,
+                            "UserNumber": userNumber
                         ]
                         
+                        // Send network request to update user details on the backend
                         NetworkService.shared.request(endpoint: .users, method: "PUT", data: payload) { (result: Result<[String: Any], Error>) in
                             switch result {
                             case .success(let response):
                                 DispatchQueue.main.async {
                                     if let success = response["success"] as? Bool, success {
+                                        // Show success alert if backend update succeeds
                                         self.showAlert(title: "Success", message: "Email updated successfully")
                                     } else {
+                                        // Handle invalid response format
                                         self.showAlert(title: "Error", message: "Failed to update email: Invalid response format")
                                     }
                                 }
                             case .failure(let error):
                                 DispatchQueue.main.async {
+                                    // Handle network request failure
                                     self.showAlert(title: "Error", message: "Failed to update email: \(error.localizedDescription)")
                                 }
                             }
                         }
+                        
+                        // Update the email in UserDefaults
+                        UserDefaults.standard.set(email, forKey: "userEmail")
+                        UserDefaults.standard.synchronize()
+                        
                     } else {
+                        // Handle email update failure
                         self.showAlert(title: "Error", message: "Failed to update email: \(error?.localizedDescription ?? "Unknown error")")
                     }
                 }
             } else {
-                self.showAlert(title: "Incorrect Password", message: "The password you entered is incorrect.  Please try again.")
+                // Handle incorrect password case
+                self.showAlert(title: "Incorrect Password", message: "The password you entered is incorrect. Please try again.")
             }
         }
-        
     }
+
     
 }

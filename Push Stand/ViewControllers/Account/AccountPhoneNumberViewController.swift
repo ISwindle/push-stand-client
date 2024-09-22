@@ -17,37 +17,55 @@ class AccountPhoneNumberViewController: UIViewController {
     }
     
     @IBAction func changePhoneNumber(_ sender: Any) {
+        // Validate the entered phone number
         guard let phone = phoneText.text, Validator().isValidPhoneNumber(phone) else {
             print("Invalid phone number")
             self.showAlert(title: "Invalid Phone #", message: "The entered phone number is invalid. Please try again.")
             return
         }
         
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            let currentUser = appDelegate.currentUser
-            
-            let payload: [String: Any] = [
-                "UserId": currentUser.uid,
-                "Birthdate": currentUser.birthdate ?? "",
-                "Email": currentUser.email ?? "",
-                "PhoneNumber": phone,
-                "ReminderTime": currentUser.reminderTime ?? "",
-                "FirebaseAuthToken": currentUser.firebaseAuthToken ?? ""
-            ]
-            
-            NetworkService.shared.request(endpoint: .users, method: "PUT", data: payload) { result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success:
-                        self.showAlert(title: "Update!", message: "Phone number updated successfully", dismissViewController: true)
-                    case .failure(let error):
-                        print("Error updating phone number: \(error)")
-                        self.showAlert(title: "Error", message: "Failed to update phone number. Please try again.")
-                    }
+        // Fetch user data from UserDefaults
+        guard let userId = UserDefaults.standard.string(forKey: "userId"),
+              let birthdate = UserDefaults.standard.string(forKey: "birthDate"),
+              let email = UserDefaults.standard.string(forKey: "userEmail"),
+              let reminderTime = UserDefaults.standard.string(forKey: "reminderTime"),
+              let firebaseAuthToken = UserDefaults.standard.string(forKey: "firebaseAuthToken"),
+              let userNumber = UserDefaults.standard.string(forKey: "userNumber") else {
+            print("User information is incomplete")
+            self.showAlert(title: "Error", message: "Unable to fetch user information. Please try again.")
+            return
+        }
+        
+        // Prepare payload with the updated phone number and other user details
+        let payload: [String: Any] = [
+            "UserId": userId,
+            "UserNumber": userNumber,
+            "Birthdate": birthdate,
+            "Email": email,
+            "PhoneNumber": phone,
+            "ReminderTime": reminderTime,
+            "FirebaseAuthToken": firebaseAuthToken
+        ]
+        
+        // Make a network request to update the phone number
+        NetworkService.shared.request(endpoint: .users, method: "PUT", data: payload) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    // Update phone number in UserDefaults after a successful response
+                    UserDefaults.standard.set(phone, forKey: "phoneNumber")
+                    UserDefaults.standard.synchronize()
+                    
+                    // Show success alert
+                    self.showAlert(title: "Update!", message: "Phone number updated successfully", dismissViewController: true)
+                case .failure(let error):
+                    print("Error updating phone number: \(error)")
+                    self.showAlert(title: "Error", message: "Failed to update phone number. Please try again.")
                 }
             }
         }
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

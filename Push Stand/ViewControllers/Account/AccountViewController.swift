@@ -89,7 +89,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "terms")
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "privacy")
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "help")
-        standerNumber.text = " #\(UserDefaults.standard.integer(forKey: "userNumber"))" //TODO: Current User can be nil on background to foreground CurrentUser.shared.userNumber
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print(UserDefaults.standard.integer(forKey: "userNumber"))
+        standerNumber.text = " # \(UserDefaults.standard.string(forKey: "userNumber")!)"
     }
     
     // Action method for xMark button

@@ -18,23 +18,35 @@ class DailyQuestionModel: ObservableObject {
     private init() {}
 
     func fetchDailyQuestion() {
-        let dailyQuestionsQueryParams = ["userId": CurrentUser.shared.uid!, "Date": Time.getPacificDateFormatted()]
+        // Retrieve the userId from UserDefaults
+        guard let userId = UserDefaults.standard.string(forKey: "userId") else {
+            print("Error: User ID not found in UserDefaults")
+            return
+        }
+
+        // Prepare query parameters
+        let dailyQuestionsQueryParams = ["userId": userId, "Date": Time.getPacificDateFormatted()]
+
+        // Make the network request
         NetworkService.shared.request(endpoint: .questions, method: "GET", queryParams: dailyQuestionsQueryParams) { [weak self] (result: Result<[String: Any], Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
+                    // Parse and assign the question from the response
                     if let question = json["Question"] as? String {
                         self?.dailyQuestion = question
                     } else {
                         self?.dailyQuestion = "New Question Coming Soon"
                     }
                 case .failure(let error):
+                    // Handle error and assign default message
                     self?.dailyQuestion = "New Question Coming Soon"
                     print("Error: \(error.localizedDescription)")
                 }
             }
         }
     }
+
 
     func fetchYesterdaysQuestion() {
         let previousDailyQuestionsQueryParams = ["Date": Time.getPreviousDateFormatted()]
@@ -60,18 +72,30 @@ class DailyQuestionModel: ObservableObject {
     }
 
     func fetchQuestionStreak() {
-        let answerStreakQueryParams = ["userId": CurrentUser.shared.uid!]
+        // Retrieve the userId from UserDefaults
+        guard let userId = UserDefaults.standard.string(forKey: "userId") else {
+            print("Error: User ID not found in UserDefaults")
+            return
+        }
+
+        // Prepare query parameters
+        let answerStreakQueryParams = ["userId": userId]
+
+        // Make the network request
         NetworkService.shared.request(endpoint: .streaksAnswers, method: "GET", queryParams: answerStreakQueryParams) { [weak self] (result: Result<[String: Any], Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let json):
+                    // Parse and assign the streak count from the response
                     if let streaks = json["streak_count"] as? Int {
                         self?.answerStreak = streaks
                     }
                 case .failure(let error):
+                    // Handle error
                     print("Error: \(error.localizedDescription)")
                 }
             }
         }
     }
+
 }
