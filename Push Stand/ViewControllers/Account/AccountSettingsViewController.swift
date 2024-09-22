@@ -155,10 +155,7 @@ class AccountSettingsViewController: UIViewController {
         let payload: [String: Any] = [
             "UserId": UserDefaults.standard.string(forKey: "userId") ?? "",
             "Birthdate": formatter.string(from: birthdatePicker.date),
-            "Email": UserDefaults.standard.string(forKey: "userEmail") ?? "",
-            "PhoneNumber": UserDefaults.standard.string(forKey: "userPhoneNumber") ?? "",
             "ReminderTime": convertToUTCTime(date: reminderTimePicker.date),
-            "FirebaseAuthToken": UserDefaults.standard.string(forKey: "userFirebaseAuthToken") ?? ""
         ]
         
         NetworkService.shared.request(endpoint: .users, method: "PUT", data: payload) { result in

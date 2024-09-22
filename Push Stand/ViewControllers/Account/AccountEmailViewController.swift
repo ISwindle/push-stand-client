@@ -123,21 +123,11 @@ class AccountEmailViewController: UIViewController {
                         
                         // Get user details from UserDefaults
                         let userId = UserDefaults.standard.string(forKey: "userId") ?? ""
-                        let birthdate = UserDefaults.standard.string(forKey: "birthDate") ?? ""
-                        let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") ?? ""
-                        let reminderTime = UserDefaults.standard.string(forKey: "reminderTime") ?? ""
-                        let firebaseAuthToken = UserDefaults.standard.string(forKey: "firebaseAuthToken") ?? ""
-                        let userNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
 
                         // Create payload with updated email and other user details from UserDefaults
                         let payload: [String: Any] = [
                             "UserId": userId,
-                            "Birthdate": birthdate,
-                            "Email": email,
-                            "PhoneNumber": phoneNumber,
-                            "ReminderTime": reminderTime,
-                            "FirebaseAuthToken": firebaseAuthToken,
-                            "UserNumber": userNumber
+                            "Email": email
                         ]
                         
                         // Send network request to update user details on the backend

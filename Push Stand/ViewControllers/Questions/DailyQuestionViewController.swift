@@ -127,6 +127,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
     private func handleFetchResult(_ result: Result<[String: Any], Error>) {
         switch result {
         case .success(let json):
+            print(json)
             if let streaks = json["streak_count"] as? Int {
                 self.answerStreak = streaks
                 self.streakSegmentedBar.value = streaks % 10

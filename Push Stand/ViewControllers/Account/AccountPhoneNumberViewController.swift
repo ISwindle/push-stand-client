@@ -8,7 +8,7 @@
 import UIKit
 
 class AccountPhoneNumberViewController: UIViewController {
-
+    
     @IBOutlet weak var phoneText: UITextField!
     @IBOutlet weak var confirmationButton: UIButton!
     
@@ -25,12 +25,8 @@ class AccountPhoneNumberViewController: UIViewController {
         }
         
         // Fetch user data from UserDefaults
-        guard let userId = UserDefaults.standard.string(forKey: "userId"),
-              let birthdate = UserDefaults.standard.string(forKey: "birthDate"),
-              let email = UserDefaults.standard.string(forKey: "userEmail"),
-              let reminderTime = UserDefaults.standard.string(forKey: "reminderTime"),
-              let firebaseAuthToken = UserDefaults.standard.string(forKey: "firebaseAuthToken"),
-              let userNumber = UserDefaults.standard.string(forKey: "userNumber") else {
+        guard let userId = UserDefaults.standard.string(forKey: "userId")
+        else {
             print("User information is incomplete")
             self.showAlert(title: "Error", message: "Unable to fetch user information. Please try again.")
             return
@@ -39,12 +35,7 @@ class AccountPhoneNumberViewController: UIViewController {
         // Prepare payload with the updated phone number and other user details
         let payload: [String: Any] = [
             "UserId": userId,
-            "UserNumber": userNumber,
-            "Birthdate": birthdate,
-            "Email": email,
             "PhoneNumber": phone,
-            "ReminderTime": reminderTime,
-            "FirebaseAuthToken": firebaseAuthToken
         ]
         
         // Make a network request to update the phone number
@@ -65,11 +56,11 @@ class AccountPhoneNumberViewController: UIViewController {
             }
         }
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         confirmationButton.isEnabled = false
         phoneText.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
