@@ -435,7 +435,7 @@
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKn-5I-JNK" userLabel="Bonus Answer View">
                                 <rect key="frame" x="0.0" y="156.5" width="414" height="656.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LN2-Xq-sHM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="657"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="656.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Bonus Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-ba-d5q">
@@ -3713,10 +3713,10 @@ Will you STAND with us?</string>
             </objects>
             <point key="canvasLocation" x="-5923" y="274"/>
         </scene>
-        <!--Network Connection View Controller-->
+        <!--Network Error View Controller-->
         <scene sceneID="wRe-j1-lBJ">
             <objects>
-                <viewController id="iaQ-Em-R43" customClass="NetworkConnectionViewController" sceneMemberID="viewController">
+                <viewController id="iaQ-Em-R43" customClass="NetworkErrorViewController" customModule="Push_Stand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZLJ-li-Rb3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3806,6 +3806,10 @@ Will you STAND with us?</string>
                             <constraint firstItem="Kb9-mM-9hf" firstAttribute="leading" secondItem="anq-eH-c6W" secondAttribute="leading" id="s8W-Er-GNb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buttionView" destination="Kb9-mM-9hf" id="oJc-Gb-Hgk"/>
+                        <outlet property="refreshView" destination="7gc-vY-qeS" id="F5c-tw-LZp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H8A-3B-cTs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

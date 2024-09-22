@@ -19,6 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     /// Called when the scene is being connected to a session.
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
+        _ = NetworkMonitor.shared
+        
         // Observe the CountdownReachedZero notification to handle app resets.
         notificationCenter.addObserver(self, selector: #selector(handleCountdownZero), name: .countdownReachedZero, object: nil)
         

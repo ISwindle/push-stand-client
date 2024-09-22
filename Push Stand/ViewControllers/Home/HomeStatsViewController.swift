@@ -108,7 +108,11 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                 dailyGoalLoading.isHidden = false
             }
             updateForStandStats()
-            appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
+            if UIApplication.shared.applicationIconBadgeNumber < 1 {
+                appDelegate.appStateViewModel.setAppBadgeCount(to: 0)
+            } else {
+                appDelegate.appStateViewModel.setAppBadgeCount(to: 1)
+            }
         } else {
             updateUIForPushStandButton()
             appDelegate.appStateViewModel.setAppBadgeCount(to: 2)

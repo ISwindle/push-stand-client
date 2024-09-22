@@ -8,10 +8,15 @@
 import UIKit
 
 class NetworkErrorViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var buttionView: UIView!
+    
+    @IBOutlet weak var refreshView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        refreshView.isHidden = true
         // Do any additional setup after loading the view.
     }
     
