@@ -108,10 +108,11 @@ class AccountSettingsViewController: UIViewController {
     }
     
     func updateSettings() {
-        
+        // Calculate the user's age based on the selected birthdate
         let age = Calendar.current.dateComponents([.year], from: birthdatePicker.date, to: Date()).year ?? 0
         let isAgeValid = age >= 18
         
+        // Ensure the user is at least 18 years old
         if !isAgeValid {
             showAlert(message: "You must be at least 18 years of age to enter")
             return
@@ -124,12 +125,17 @@ class AccountSettingsViewController: UIViewController {
         timeFormatter.dateFormat = "HH:mm:ss'Z'" // Format for the reminder time in UTC
         timeFormatter.timeZone = TimeZone(secondsFromGMT: 0) // Set formatter time zone to UTC
         
+        let birthdateString = formatter.string(from: birthdatePicker.date)
+        let reminderTimeString = convertToUTCTime(date: reminderTimePicker.date) // Function to convert the date to UTC time string
+        
+        // Prepare the payload for the network request
         let payload: [String: Any] = [
             "UserId": UserDefaults.standard.string(forKey: "userId") ?? "",
-            "Birthdate": formatter.string(from: birthdatePicker.date),
-            "ReminderTime": convertToUTCTime(date: reminderTimePicker.date),
+            "Birthdate": birthdateString,
+            "ReminderTime": reminderTimeString
         ]
         
+        // Make the network request to update the user's settings
         NetworkService.shared.request(endpoint: .users, method: "PUT", data: payload) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -137,13 +143,24 @@ class AccountSettingsViewController: UIViewController {
                     if let responseString = response["message"] as? String {
                         print("Response from the server: \(responseString)")
                     }
+                    
+                    // Show success alert
                     self.showUpdateSuccessAlert()
+                    
+                    // Update the UserDefaults with the new reminderTime and birthDate
+                    UserDefaults.standard.set(reminderTimeString, forKey: "reminderTime")
+                    UserDefaults.standard.set(birthdateString, forKey: "birthDate")
+                    UserDefaults.standard.synchronize() // Ensure the changes are saved
+                    
                 case .failure(let error):
-                    print("Error updating account settings: \(error)")
+                    // Handle the failure case
+                    print("Error updating account settings: \(error.localizedDescription)")
+                    self.showAlert(message: "Failed to update settings. Please try again.")
                 }
             }
         }
     }
+    
     
     @IBAction func resetToday(_ sender: Any) {
         
