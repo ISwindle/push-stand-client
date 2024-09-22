@@ -89,13 +89,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "terms")
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "privacy")
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "help")
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        print(UserDefaults.standard.integer(forKey: "userNumber"))
         standerNumber.text = " # \(UserDefaults.standard.string(forKey: "userNumber")!)"
     }
-    
+
     // Action method for xMark button
     @IBAction func xMarkTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)

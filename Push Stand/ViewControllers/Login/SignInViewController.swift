@@ -95,9 +95,9 @@ class SignInViewController: UIViewController {
                             UserDefaults.standard.set(true, forKey: "usersignedin")
                             UserDefaults.standard.set(currentUser.uid, forKey: "userId")
                             UserDefaults.standard.set(currentUser.email, forKey: "userEmail")
-                            UserDefaults.standard.set(currentUser.reminderTime, forKey: "userReminderTime")
-                            UserDefaults.standard.set(currentUser.birthdate, forKey: "userBirthdate")
-                            UserDefaults.standard.set(currentUser.phoneNumber, forKey: "userPhoneNumber")
+                            UserDefaults.standard.set(currentUser.reminderTime, forKey: "reminderTime")
+                            UserDefaults.standard.set(currentUser.birthdate, forKey: "birthDate")
+                            UserDefaults.standard.set(currentUser.phoneNumber, forKey: "phoneNumber")
                             UserDefaults.standard.set(currentUser.userNumber, forKey: "userNumber")
                             UserDefaults.standard.synchronize()
                             

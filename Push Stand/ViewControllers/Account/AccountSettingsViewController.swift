@@ -48,6 +48,7 @@ class AccountSettingsViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        print(UserDefaults.standard.dictionaryRepresentation())
         super.viewDidLoad()
         self.updateButton.isHidden = true
         self.resetTodayButton.isHidden = true
@@ -57,66 +58,37 @@ class AccountSettingsViewController: UIViewController {
         birthdatePicker.addTarget(self, action: #selector(birthdatePickerValueChanged(_:)), for: .valueChanged)
         reminderTimePicker.addTarget(self, action: #selector(reminderTimeValueChanged(_:)), for: .valueChanged)
         
-        let semaphore = DispatchSemaphore(value: 0)
-        if let userId = UserDefaults.standard.string(forKey: "userId") {
-            let url = URL(string: "https://qik82nqrt0.execute-api.us-east-1.amazonaws.com/prod/users?userId=\(userId)")
-            var request = URLRequest(url: url!)
-            request.httpMethod = "GET"
+        if let reminderTime = UserDefaults.standard.string(forKey: "reminderTime") {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ssZ"  // Update format to include time zone
+            dateFormatter.timeZone = TimeZone(abbreviation: "UTC")  // Specify UTC time zone
             
-            
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                defer { semaphore.signal() } // Signal to the semaphore upon task completion
-                guard let data = data, error == nil else {
-                    print("Error during the network request: \(error?.localizedDescription ?? "Unknown error")")
-                    return
-                }
+            if let utcDate = dateFormatter.date(from: reminderTime) {
+                // Convert the UTC date to local time zone
+                dateFormatter.timeZone = TimeZone.current
+                let localTimeString = dateFormatter.string(from: utcDate)
                 
-                do {
-                    if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        DispatchQueue.main.async {
-                            if let dateString = jsonResponse["Birthdate"] as? String {
-                                let dateFormatter = DateFormatter()
-                                dateFormatter.dateFormat = "yyyy-MM-dd"
-                                
-                                if let date = dateFormatter.date(from: dateString) {
-                                    self.birthdatePicker.date = date
-                                } else {
-                                    print("Error: The date string does not match the format expected.")
-                                }
-                            } else {
-                                print("Error: Birthdate key is missing or is not a string.")
-                            }
-                            if let timeString = jsonResponse["ReminderTime"] as? String {
-                                let dateFormatter = DateFormatter()
-                                dateFormatter.dateFormat = "HH:mm:ssZ"  // Update format to include time zone
-                                dateFormatter.timeZone = TimeZone(abbreviation: "UTC")  // Specify UTC time zone
-                                
-                                if let utcDate = dateFormatter.date(from: timeString) {
-                                    // Convert the UTC date to local time zone
-                                    dateFormatter.timeZone = TimeZone.current
-                                    let localTimeString = dateFormatter.string(from: utcDate)
-                                    
-                                    // Parse the local time string to update the date picker
-                                    if let localTime = dateFormatter.date(from: localTimeString) {
-                                        self.reminderTimePicker.date = localTime
-                                    } else {
-                                        print("Error: The local time string does not match the format expected.")
-                                    }
-                                } else {
-                                    print("Error: The time string does not match the format expected.")
-                                }
-                            } else {
-                                print("Error: Time key is missing or is not a string.")
-                            }                                }
-                    }
-                } catch {
-                    print("Error parsing the JSON response: \(error.localizedDescription)")
+                // Parse the local time string to update the date picker
+                if let localTime = dateFormatter.date(from: localTimeString) {
+                    self.reminderTimePicker.date = localTime
+                } else {
+                    print("Error: The local time string does not match the format expected.")
                 }
+            } else {
+                print("Error: The time string does not match the format expected.")
             }
             
-            task.resume()
-            semaphore.wait()
+        } else {
+            print("No reminder time found in UserDefaults")
+        }
+        
+        // Access birthdate from UserDefaults
+        if let birthdate = UserDefaults.standard.string(forKey: "birthDate") {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            birthdatePicker.date = dateFormatter.date(from: birthdate)!
+        } else {
+            print("No birthdate found in UserDefaults")
         }
     }
     
