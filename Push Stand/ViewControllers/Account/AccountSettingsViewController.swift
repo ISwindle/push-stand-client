@@ -48,7 +48,6 @@ class AccountSettingsViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        print(UserDefaults.standard.dictionaryRepresentation())
         super.viewDidLoad()
         self.updateButton.isHidden = true
         self.resetTodayButton.isHidden = true

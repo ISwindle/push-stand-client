@@ -18,7 +18,7 @@ class RootTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserDefaults.standard.bool(forKey: Constants.questionUserDefaultsKey) {
+        if UserDefaults.standard.bool(forKey: "question-" + Time.getPacificDateFormatted()) {
             updateQuestionBadge(addBadge: false)
         } else {
             updateQuestionBadge(addBadge: true)

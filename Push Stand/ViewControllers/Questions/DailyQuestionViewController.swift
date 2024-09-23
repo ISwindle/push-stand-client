@@ -276,7 +276,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
     }
     
     private func selectQuestionView() {
-        if UserDefaults.standard.bool(forKey: Constants.questionUserDefaultsKey) {
+        if UserDefaults.standard.bool(forKey: "question-" + Time.getPacificDateFormatted()) {
             showYesterdaysResults()
         } else {
             showDailyQuestion()

@@ -53,7 +53,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if !UserDefaults.standard.bool(forKey: Time.getPacificDateFormatted()) {
                 badgeCount += 1
             }
-            if !UserDefaults.standard.bool(forKey: Constants.questionUserDefaultsKey) {
+            if !UserDefaults.standard.bool(forKey: "question-" + Time.getPacificDateFormatted()) {
                 badgeCount += 1
             }
             appDelegate!.appStateViewModel.setAppBadgeCount(to: badgeCount)

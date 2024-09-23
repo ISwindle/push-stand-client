@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         if !userDefault.bool(forKey: Time.getPacificDateFormatted()) {
             badgeCount += 1
         }
-        if !userDefault.bool(forKey: Constants.questionUserDefaultsKey) {
+        if !userDefault.bool(forKey: "question-" + Time.getPacificDateFormatted()) {
             badgeCount += 1
         }
         appStateViewModel.setAppBadgeCount(to: badgeCount)
