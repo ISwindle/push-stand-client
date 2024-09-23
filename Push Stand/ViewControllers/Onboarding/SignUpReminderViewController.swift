@@ -103,7 +103,7 @@ class SignUpReminderViewController: UIViewController {
                 currentUser.birthdate = userDetails["Birthdate"] as? String ?? ""
                 currentUser.phoneNumber = userDetails["PhoneNumber"] as? String ?? ""
                 
-                if let userNumber = userDetails["UserNumber"] as? Int {
+                if let userNumber = userDetails["UserNumber"] as? String {
                     currentUser.userNumber = String(userNumber) // Ensure proper casting
                 }
                 
