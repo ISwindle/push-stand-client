@@ -452,6 +452,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         current += 1
         SessionViewModel.shared.standModel.myStandStreak += 1
         SessionViewModel.shared.standModel.americansStandingToday += 1
+        SessionViewModel.shared.standModel.myTotalStands += 1
+        SessionViewModel.shared.standModel.usaTotalStands += 1
         let pushStandQueryParams = ["UserId": UserDefaults.standard.string(forKey: "userId")!, "Date": dateString]
         let unixTimestamp = Date().timeIntervalSince1970
         let pointsAwarded = (SessionViewModel.shared.standModel.myStandStreak % 10 == 0) ? Constants.standStreakHitPoints : Constants.standPoints
@@ -580,27 +582,32 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         // Call the request method of NetworkService
         NetworkService.shared.request(endpoint: .stand, method: HTTPVerbs.post.rawValue, data: queryParams) {result in
             
-            self.updateStandCounts()
+            //self.updateStandCounts()
             self.updateUIForNewStand()
         }
         
     }
     
-    private func updateStandCounts() {
-        let labels = [myCurrentStreakLabel, myTotalStandsLabel, usaTotalStandsLabel]
-        
-        labels.forEach { label in
-            if let currentCount = Int(label?.text ?? Defaults.zeroString) {
-                label?.text = String(currentCount + 1)
-            }
-        }
-        
-        if myTotalStandsLabel.text == "1" {
-            self.showBuildUpPointsView()
-        }
-    }
+//    private func updateStandCounts() {
+//        let labels = [myCurrentStreakLabel, myTotalStandsLabel, usaTotalStandsLabel]
+//        
+//        labels.forEach { label in
+//            if let currentCount = Int(label?.text ?? Defaults.zeroString) {
+//                label?.text = String(currentCount + 1)
+//            }
+//        }
+//        
+//        if myTotalStandsLabel.text == "1" {
+//            self.showBuildUpPointsView()
+//        }
+//    }
     
     private func updateUIForNewStand() {
+        
+        if SessionViewModel.shared.standModel.myTotalStands == 1 {
+            self.showBuildUpPointsView()
+        }
+        
         if SessionViewModel.shared.standModel.myStandStreak > Constants.standStreakMin && SessionViewModel.shared.standModel.myStandStreak % Constants.standStreakMax == Constants.streakBarMin {
             segmentedStreakBar.value = Constants.standStreakMax
             SessionViewModel.shared.standModel.myPoints += 10
