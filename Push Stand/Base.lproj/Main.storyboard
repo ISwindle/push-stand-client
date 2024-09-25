@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R9c-5l-Qql">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1507,7 +1507,7 @@ Stands</string>
                                 </connections>
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JtV-VT-AgP" userLabel="Popup Container">
-                                <rect key="frame" x="0.0" y="221" width="414" height="675"/>
+                                <rect key="frame" x="0.0" y="221" width="414" height="592"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -1534,6 +1534,7 @@ Stands</string>
                             </constraint>
                             <constraint firstItem="FPa-gG-5KV" firstAttribute="trailing" secondItem="KpS-l5-xEw" secondAttribute="trailing" id="CKJ-hZ-Dhd"/>
                             <constraint firstItem="fv2-MC-Zfc" firstAttribute="height" secondItem="WKY-V7-7fx" secondAttribute="height" id="Dw4-wl-Ja5"/>
+                            <constraint firstItem="JtV-VT-AgP" firstAttribute="bottom" secondItem="FPa-gG-5KV" secondAttribute="bottom" id="EkS-ZW-Gub"/>
                             <constraint firstItem="YvP-FP-E9c" firstAttribute="top" secondItem="3bp-ZZ-nZs" secondAttribute="bottom" constant="21" id="EzT-ws-gEw">
                                 <variation key="heightClass=regular-widthClass=regular" constant="42"/>
                             </constraint>
@@ -1569,7 +1570,6 @@ Stands</string>
                             </constraint>
                             <constraint firstItem="JtV-VT-AgP" firstAttribute="top" secondItem="YvP-FP-E9c" secondAttribute="bottom" id="WkK-ph-tSS"/>
                             <constraint firstItem="WKY-V7-7fx" firstAttribute="top" secondItem="Wlz-PA-Rkk" secondAttribute="bottom" id="Yz1-7x-tV9"/>
-                            <constraint firstAttribute="bottom" secondItem="JtV-VT-AgP" secondAttribute="bottom" id="Z4E-iT-7zZ"/>
                             <constraint firstItem="N5a-E1-3cg" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="bWZ-7h-xuX"/>
                             <constraint firstItem="NqF-dE-EOi" firstAttribute="height" secondItem="BmD-Tr-TJg" secondAttribute="height" id="cL6-qv-PPM"/>
                             <constraint firstItem="2z3-0T-A7t" firstAttribute="centerX" secondItem="PCU-AQ-k3b" secondAttribute="centerX" id="ccK-DC-PaA"/>
