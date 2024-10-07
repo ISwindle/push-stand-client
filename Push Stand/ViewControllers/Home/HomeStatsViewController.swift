@@ -68,6 +68,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     var currentUser = CurrentUser.shared
     let userDefault = UserDefaults.standard
     var should_not_rev = false
+    var dailyGoalMet = false
     
     var cancellables: Set<AnyCancellable> = []
     
@@ -82,7 +83,22 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         //        if !UserDefaults.standard.bool(forKey: dateString){
         //            loadHome()
         //        }
-        
+//        checkDailyStand { metGoal in
+//            if let metGoal = metGoal {
+//                // Use the 'metGoal' value
+//                print("Did meet goal: \(metGoal)")
+//                // Perform actions based on the result
+//                // Perform actions based on the result
+//                if metGoal {
+//                    self.showDailyGoalAchievedView()
+//                } else {
+//                    // Goal was not met
+//                }
+//            } else {
+//                // Handle error
+//                print("Failed to retrieve goal status.")
+//            }
+//        }
         presentLoadingIcons()
         bindUI()
         
@@ -476,6 +492,56 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         appDelegate.userDefault.synchronize()
     }
     
+    private func checkDailyStand(completion: @escaping (Bool?) -> Void) {
+        NetworkService.shared.request(endpoint: .dailyGoalsCheck, method: HTTPVerbs.get.rawValue, data: [:]) { result in
+            switch result {
+            case .success(let json):
+                if let statusCode = json["statusCode"] as? Int,
+                   let bodyString = json["body"] as? String {
+                    // Process the bodyString, which is a JSON string
+                    if let bodyData = bodyString.data(using: .utf8) {
+                        do {
+                            if let bodyJson = try JSONSerialization.jsonObject(with: bodyData, options: []) as? [String: Any] {
+                                // Access fields in bodyJson
+                                if let date = bodyJson["Date"] as? String,
+                                   let currentString = bodyJson["Current"] as? String,
+                                   let goalString = bodyJson["Goal"] as? String,
+                                   let metGoal = bodyJson["MetGoal"] as? Bool,
+                                   let current = Int(currentString),
+                                   let goal = Int(goalString) {
+
+                                    // Return the 'metGoal' value via the completion handler
+                                    completion(metGoal)
+                                    print("Met Goal: \(metGoal)")
+
+                                } else {
+                                    print("Error: Invalid data in body JSON")
+                                    completion(nil)
+                                }
+                            } else {
+                                print("Error: Unable to parse body JSON")
+                                completion(nil)
+                            }
+                        } catch {
+                            print("Error parsing body JSON: \(error.localizedDescription)")
+                            completion(nil)
+                        }
+                    } else {
+                        print("Error: Unable to convert body string to Data")
+                        completion(nil)
+                    }
+                } else {
+                    print("Error: Invalid response format")
+                    completion(nil)
+                }
+            case .failure(let error):
+                print("Error fetching data: \(error.localizedDescription)")
+                completion(nil)
+            }
+        }
+    }
+
+    
     private func animatePushStandButtonFadeOut() {
         UIView.animate(withDuration: 0.0, delay: 0.2, animations: {
             self.pushStandButton.alpha = Constants.zeroAlpha
@@ -587,20 +653,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         }
         
     }
-    
-//    private func updateStandCounts() {
-//        let labels = [myCurrentStreakLabel, myTotalStandsLabel, usaTotalStandsLabel]
-//        
-//        labels.forEach { label in
-//            if let currentCount = Int(label?.text ?? Defaults.zeroString) {
-//                label?.text = String(currentCount + 1)
-//            }
-//        }
-//        
-//        if myTotalStandsLabel.text == "1" {
-//            self.showBuildUpPointsView()
-//        }
-//    }
     
     private func updateUIForNewStand() {
         

@@ -9,6 +9,7 @@ class NetworkService {
     enum Endpoint: String {
         case home = "/home"
         case dailyGoals = "/dailygoals"
+        case dailyGoalsCheck = "/dailygoals/check"
         case streaks = "/streaks"
         case streaksAnswers = "/streaks/answers"
         case userStands = "/stands/user"

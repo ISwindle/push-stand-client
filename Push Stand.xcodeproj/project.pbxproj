@@ -49,6 +49,7 @@
 		224F24A52BF905690083FE09 /* ExtUITapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F24A42BF905690083FE09 /* ExtUITapGestureRecognizer.swift */; };
 		224F24A72BF9099D0083FE09 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 224F24A62BF9099D0083FE09 /* Configuration.plist */; };
 		224F24A92BF909D60083FE09 /* ConfigurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F24A82BF909D60083FE09 /* ConfigurationService.swift */; };
+		2254DD982CAF9499006D9246 /* FirebaseTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254DD972CAF9499006D9246 /* FirebaseTokenManager.swift */; };
 		2263D2102AF8A11200D2E136 /* LandingRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */; };
 		2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */; };
 		2263D2142AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */; };
@@ -158,6 +159,7 @@
 		224F24A42BF905690083FE09 /* ExtUITapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUITapGestureRecognizer.swift; sourceTree = "<group>"; };
 		224F24A62BF9099D0083FE09 /* Configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		224F24A82BF909D60083FE09 /* ConfigurationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConfigurationService.swift; path = "Push Stand/ConfigurationService.swift"; sourceTree = SOURCE_ROOT; };
+		2254DD972CAF9499006D9246 /* FirebaseTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTokenManager.swift; sourceTree = "<group>"; };
 		2263D20F2AF8A11200D2E136 /* LandingRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingRootViewController.swift; sourceTree = "<group>"; };
 		2263D2112AF91BD100D2E136 /* SignUpPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPhoneViewController.swift; sourceTree = "<group>"; };
 		2263D2132AF91C5500D2E136 /* SignUpUsernamePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUsernamePasswordViewController.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				224D9C952C022AE900655C67 /* UserDefaultsManager.swift */,
 				22E024F82C42F33A005D00C5 /* UserManager.swift */,
 				227701EB2C8B85C600F256C6 /* CountdownTimerManager.swift */,
+				2254DD972CAF9499006D9246 /* FirebaseTokenManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				22C7F3D62BC58F0500F5BE9A /* AccountEmailViewController.swift in Sources */,
 				8E6FF5A32C7BE31400A95C3B /* DailyGoalAchievedView.swift in Sources */,
 				22C7F3DA2BC58F5000F5BE9A /* AccountPhoneNumberViewController.swift in Sources */,
+				2254DD982CAF9499006D9246 /* FirebaseTokenManager.swift in Sources */,
 				2263D2162AF91D8400D2E136 /* SignUpBirthdateViewController.swift in Sources */,
 				229BB4962B8177FF00959B3F /* SubmitQuestionViewController.swift in Sources */,
 				224F24A92BF909D60083FE09 /* ConfigurationService.swift in Sources */,

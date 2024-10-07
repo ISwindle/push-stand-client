@@ -98,25 +98,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         print("Failed to register for remote notifications: \(error.localizedDescription)")
     }
     
-    // MARK: - Firebase Messaging
-    
-    /// Called when a new Firebase Cloud Messaging token is received.
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        guard let fcmToken = fcmToken, !fcmToken.isEmpty else {
-            return
-        }
-        
-        // Update Firebase token in the server
-        SessionViewModel.shared.userManager.updateFirebaseToken(fcmToken: fcmToken) { result in
-            switch result {
-            case .success:
-                print("Firebase token updated successfully.")
-            case .failure(let error):
-                print("Failed to update Firebase token: \(error.localizedDescription)")
-            }
-        }
-    }
-    
     // MARK: - UISceneSession Lifecycle
     
     /// Creates a new scene configuration for connecting a scene session.

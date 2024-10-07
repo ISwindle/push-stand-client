@@ -83,14 +83,24 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()  // Call super
+
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "settings")
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "terms")
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "privacy")
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "help")
-        standerNumber.text = " # \(UserDefaults.standard.string(forKey: "userNumber")!)"
+
+        // Safely unwrap userNumber
+        if let userNumber = UserDefaults.standard.string(forKey: "userNumber") {
+            standerNumber.text = " # \(userNumber)"
+            standerNumber.isHidden = false
+        } else {
+            standerNumber.isHidden = true
+        }
     }
+
 
     // Action method for xMark button
     @IBAction func xMarkTapped(_ sender: UIBarButtonItem) {

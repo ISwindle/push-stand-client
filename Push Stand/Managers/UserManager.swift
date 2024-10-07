@@ -23,8 +23,8 @@ class UserManager {
         // Fetch and update user details from server
     }
     
-    func updateFirebaseToken(fcmToken: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        guard let userId = UserDefaults.standard.string(forKey: "userId"), !userId.isEmpty else {
+    func updateFirebaseToken(userId: String, fcmToken: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard !userId.isEmpty else {
             completion(.failure(NSError(domain: "UserManager", code: -1, userInfo: [NSLocalizedDescriptionKey: "User ID is not available."])))
             return
         }

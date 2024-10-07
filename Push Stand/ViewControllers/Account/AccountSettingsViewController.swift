@@ -1,4 +1,6 @@
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class AccountSettingsViewController: UIViewController {
     
@@ -27,6 +29,20 @@ class AccountSettingsViewController: UIViewController {
         if let bundleID = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: bundleID)
             UserDefaults.standard.synchronize()
+        }
+        
+        do {
+                try Auth.auth().signOut()
+                print("User signed out")
+
+                // Optionally, inform the backend that the user has signed out
+                // This might involve deleting the token associated with the user
+                // FirebaseTokenManager.shared.invalidateTokenOnBackend()
+
+                // Clear the local FCM token if necessary
+                FirebaseTokenManager.shared.clearToken()
+        } catch let signOutError as NSError {
+                print("Error signing out: \(signOutError.localizedDescription)")
         }
         
         SessionViewModel.shared.clearStandModel()

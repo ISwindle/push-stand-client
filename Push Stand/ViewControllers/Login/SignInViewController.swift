@@ -40,7 +40,7 @@ class SignInViewController: UIViewController {
             } else {
                 // Successfully sent password reset email
                 print("Password reset email sent successfully")
-                self.showAlert(title: "Password Reset", message: "If your login exists, we will send a password reset email to \(self.userNameTextField!)")
+                self.showAlert(title: "Password Reset", message: "If your login exists, we will send a password reset email to \(email)")
             }
         }
         
@@ -73,6 +73,8 @@ class SignInViewController: UIViewController {
                 let userId = currentUser.uid
                 let userDetailsQueryParams = ["userId": userId]
                 
+                FirebaseTokenManager.shared.retrieveToken()
+                
                 NetworkService.shared.request(endpoint: .users, method: "GET", queryParams: userDetailsQueryParams) { (result: Result<[String: Any], Error>) in
                     DispatchQueue.main.async {
                         switch result {
@@ -99,6 +101,7 @@ class SignInViewController: UIViewController {
                             UserDefaults.standard.set(currentUser.birthdate, forKey: "birthDate")
                             UserDefaults.standard.set(currentUser.phoneNumber, forKey: "phoneNumber")
                             UserDefaults.standard.set(currentUser.userNumber, forKey: "userNumber")
+                            UserDefaults.standard.set(currentUser.firebaseAuthToken, forKey: "firebaseAuthToken")
                             UserDefaults.standard.synchronize()
                             
                             // Call checkStandToday after fetching user details

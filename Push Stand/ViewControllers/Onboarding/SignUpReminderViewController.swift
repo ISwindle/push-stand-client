@@ -117,6 +117,8 @@ class SignUpReminderViewController: UIViewController {
                 UserDefaults.standard.set(currentUser.phoneNumber, forKey: "phoneNumber")
                 UserDefaults.standard.synchronize()
                 
+                FirebaseTokenManager.shared.retrieveToken()
+                
                 // Additional app logic
                 self.appDelegate.appStateViewModel.setAppBadgeCount(to: 2)
                 self.transitionToMainApp()

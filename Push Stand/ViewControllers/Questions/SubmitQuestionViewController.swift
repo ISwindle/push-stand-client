@@ -60,12 +60,13 @@ class SubmitQuestionViewController: UIViewController, UITextViewDelegate {
             "timestamp": dateString,
             "questionText": questionText
         ]
-        
+        print(payload)
         // Send the suggestion to the server
         NetworkService.shared.request(endpoint: .questionsSuggestions, method: "POST", data: payload) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
+                    print(response)
                     // Handle success, if there's a response message
                     if let responseString = response["message"] as? String {
                         print("Response from the server: \(responseString)")
