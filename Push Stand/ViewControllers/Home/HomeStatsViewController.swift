@@ -299,11 +299,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     private func checkStandToday() {
         // Safely unwrap the user ID from UserDefaults
         guard let userId = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.userId) else {
-            print("Error: User ID not found in UserDefaults")
             return
         }
-        
-        print("User ID: \(userId)")
         
         // Update the current user's UID
         currentUser.uid = userId
@@ -311,26 +308,20 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         // Prepare query parameters
         let queryParams = ["user_id": userId]
         
-        print("Making network request with params: \(queryParams)")
-        
         // Make the network request
         NetworkService.shared.request(endpoint: .stand, method: HTTPVerbs.get.rawValue, queryParams: queryParams) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let json):
-                print("Network request succeeded: \(json)")
-                
+
                 // Directly access the value in `json`
                 if let hasTakenAction = json["has_taken_action"] as? Int {
                     let hasTakenActionBool = hasTakenAction == 1
                     
-                    print("Has taken action: \(hasTakenActionBool)")
-                    
                     if hasTakenActionBool {
                         // Get the current date formatted as a string
                         let dateString = Time.getPacificDateFormatted()
-                        print("Saving action status for date: \(dateString)")
                         
                         // Save the action status to UserDefaults
                         UserDefaults.standard.set(true, forKey: dateString)
@@ -341,22 +332,20 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                         
                         // Update the UI on the main thread
                         DispatchQueue.main.async {
-                            print("Updating UI for stand stats")
                             self.updateForStandStats()
                         }
                     } else {
                         // Update the UI to show the push stand button on the main thread
                         DispatchQueue.main.async {
-                            print("Updating UI for push stand button")
                             self.updateUIForPushStandButton()
                         }
                     }
                 } else {
-                    print("Invalid response format: 'has_taken_action' not found or not an Int")
+                    _ = ""
                 }
                 
             case .failure(let error):
-                print("Network error: \(error.localizedDescription)")
+                _ = "Network error: \(error.localizedDescription)"
                 // Handle the error appropriately, e.g., show an alert to the user
             }
         }
@@ -390,7 +379,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         landingViewWithButton.isHidden = false
         standingTodayView.isHidden = false
         pushStandTitle.isHidden = false
-        pushStandButton.isHidden = false
+        pushStandButton.isHidden = true
         dailyGoalLoading.isHidden = true
         globalStandCount.alpha = 0
         globalStandingTodayLoading.isHidden = false
@@ -512,30 +501,23 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
 
                                     // Return the 'metGoal' value via the completion handler
                                     completion(metGoal)
-                                    print("Met Goal: \(metGoal)")
 
                                 } else {
-                                    print("Error: Invalid data in body JSON")
                                     completion(nil)
                                 }
                             } else {
-                                print("Error: Unable to parse body JSON")
                                 completion(nil)
                             }
                         } catch {
-                            print("Error parsing body JSON: \(error.localizedDescription)")
                             completion(nil)
                         }
                     } else {
-                        print("Error: Unable to convert body string to Data")
                         completion(nil)
                     }
                 } else {
-                    print("Error: Invalid response format")
                     completion(nil)
                 }
             case .failure(let error):
-                print("Error fetching data: \(error.localizedDescription)")
                 completion(nil)
             }
         }
@@ -810,7 +792,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                 updateProgressBar()
             }
         case .failure(let error):
-            print("Error: \(error.localizedDescription)")
+            _ = "Error: \(error.localizedDescription)"
             // Handle the error appropriately
         }
     }

@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     var sessionViewModel: SessionViewModel!
     var appStateViewModel: AppStateViewModel!
     var window: UIWindow?
+    private let notificationsDeniedKey = "notificationsDenied"
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Application Lifecycle
@@ -71,19 +72,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     /// Sets up the notification handling and Firebase Messaging.
     /// - Parameter application: The singleton app object.
     private func setupNotifications(_ application: UIApplication) {
-        // Set UNUserNotificationCenter delegate
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.delegate = self
         
-        // Request authorization for notifications
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        notificationCenter.requestAuthorization(options: authOptions) { _, _ in }
+        // Check if the user has already been asked and denied twice
+        let hasDeniedBefore = UserDefaults.standard.bool(forKey: notificationsDeniedKey)
         
-        // Register for remote notifications
-        application.registerForRemoteNotifications()
+        if !hasDeniedBefore {
+            // Request authorization for notifications
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            notificationCenter.requestAuthorization(options: authOptions) { granted, error in
+                DispatchQueue.main.async {
+                    if granted {
+                        // User granted notifications
+                        application.registerForRemoteNotifications()
+                    } else {
+                        // User denied notifications
+                        self.handleNotificationDenied()
+                    }
+                }
+            }
+            
+            // Register for remote notifications
+            application.registerForRemoteNotifications()
+            
+            // Set up Firebase Messaging delegate
+            Messaging.messaging().delegate = self
+        } else {
+            print("User denied notifications twice, won't ask again.")
+        }
+    }
+    
+    private func handleNotificationDenied() {
+        // Check if it's the second time denial happens
+        let hasDeniedBefore = UserDefaults.standard.bool(forKey: notificationsDeniedKey)
         
-        // Set up Firebase Messaging delegate
-        Messaging.messaging().delegate = self
+        if hasDeniedBefore {
+            // User has denied twice, so don't show alert again
+            return
+        } else {
+            // First denial, show alert and set flag to true
+            Alerts.showNotificationsDeniedAlert()
+            UserDefaults.standard.set(true, forKey: notificationsDeniedKey)
+        }
     }
     
     // MARK: - Remote Notifications
@@ -150,4 +181,5 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             print("Invalid data payload")
         }
     }
+
 }

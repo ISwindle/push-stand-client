@@ -21,6 +21,7 @@ class NetworkService {
         case questionsAnswers = "/questions/answers"
         case questionsSuggestions = "/questions/suggestions"
         case users = "/users"
+        case usersEnvironment = "/users/environment"
     }
     
     /// Generic function to make HTTP requests

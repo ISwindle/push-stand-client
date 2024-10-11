@@ -26,7 +26,6 @@ class Constants {
     static let standStreakHitPoints = "5"
     static let questionPoints = "2"
     static let questionStreakHitPoints = "10"
-    static let questionUserDefaultsKey = "question-" + Time.getPacificDateFormatted()
     static let defaultTimezone = "America/Los_Angeles"
     static let defaultDateFormat = "yyyy-MM-dd"
     static let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"

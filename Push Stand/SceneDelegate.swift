@@ -1,4 +1,5 @@
 import UIKit
+import CoreTelephony
 
 /// Handles the app's scene lifecycle events and manages app-wide behavior such as root view controller transitions and notifications.
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -45,6 +46,42 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     /// Called when the scene is about to enter the foreground (become active).
     func sceneWillEnterForeground(_ scene: UIScene) {
+        
+        // Step 1: Retrieve userId from UserDefaults
+        let userId = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.userId) ?? "newUser"
+        
+        if userId != "newUser" {
+            
+            let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+            let systemVersion = UIDevice.current.systemVersion
+            let deviceModel = UIDevice.current.model
+            let deviceName = UIDevice.current.name
+            let screenSize = UIScreen.main.bounds
+            let screenResolution = "\(Int(screenSize.width))x\(Int(screenSize.height))"
+            let locale = Locale.current.identifier
+            let timeZone = TimeZone.current.identifier
+            let networkInfo = CTTelephonyNetworkInfo()
+            let carrierName = networkInfo.serviceSubscriberCellularProviders?.first?.value.carrierName ?? "Unknown"
+            
+            // Step 10: Construct the request body
+            let deviceInfo: [String: Any] = [
+                "userId": userId,
+                "appVersion": appVersion,
+                "systemVersion": systemVersion,
+                "deviceModel": deviceModel,
+                "deviceName": deviceName,
+                "screenResolution": screenResolution,
+                "locale": locale,
+                "timeZone": timeZone,
+                "carrierName": carrierName
+            ]
+            
+            NetworkService.shared.request(endpoint: .usersEnvironment, method: HTTPVerbs.post.rawValue, data: deviceInfo) {result in
+                
+                
+            }
+        }
+        
         // Restart the countdown timer whenever the app returns to the foreground
         CountdownTimerManager.shared.startCountdown()
         

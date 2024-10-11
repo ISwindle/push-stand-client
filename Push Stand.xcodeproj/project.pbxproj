@@ -88,6 +88,7 @@
 		22E024F72C42ECDF005D00C5 /* GestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E024F62C42ECDF005D00C5 /* GestureHandler.swift */; };
 		22E024F92C42F33A005D00C5 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E024F82C42F33A005D00C5 /* UserManager.swift */; };
 		22F1BD012B5C20DF00F1570F /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */; };
+		22F4CA792CB963C100C1E9C0 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F4CA782CB963C100C1E9C0 /* Alerts.swift */; };
 		22FC2F782C446BD700A32B5D /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC2F772C446BD700A32B5D /* SessionViewModel.swift */; };
 		22FC2F7A2C44929600A32B5D /* ExtUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC2F792C44929600A32B5D /* ExtUIApplication.swift */; };
 		22FC2F7C2C44A66900A32B5D /* AppStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC2F7B2C44A66900A32B5D /* AppStateViewModel.swift */; };
@@ -202,6 +203,7 @@
 		22E024F62C42ECDF005D00C5 /* GestureHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureHandler.swift; sourceTree = "<group>"; };
 		22E024F82C42F33A005D00C5 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		22F1BD002B5C20DF00F1570F /* ExtUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
+		22F4CA782CB963C100C1E9C0 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		22FC2F772C446BD700A32B5D /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
 		22FC2F792C44929600A32B5D /* ExtUIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIApplication.swift; sourceTree = "<group>"; };
 		22FC2F7B2C44A66900A32B5D /* AppStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateViewModel.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				2234434C2C3AF1FF00FAF9AB /* Defaults.swift */,
 				2234434E2C3B15FC00FAF9AB /* Segues.swift */,
 				223443502C3B18EF00FAF9AB /* ViewControllers.swift */,
+				22F4CA782CB963C100C1E9C0 /* Alerts.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -774,6 +777,7 @@
 				2263D2122AF91BD100D2E136 /* SignUpPhoneViewController.swift in Sources */,
 				22AD2D302ADF583000B3B1A8 /* SceneDelegate.swift in Sources */,
 				222C4C462B14E41F006FC90B /* ShopViewController.swift in Sources */,
+				22F4CA792CB963C100C1E9C0 /* Alerts.swift in Sources */,
 				227701EC2C8B85C600F256C6 /* CountdownTimerManager.swift in Sources */,
 				22D12AA62B3C93D2004880B6 /* SignInViewController.swift in Sources */,
 				226D35162BE04F2C0092592B /* NetworkErrorViewController.swift in Sources */,
