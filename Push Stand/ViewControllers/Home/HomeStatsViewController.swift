@@ -64,7 +64,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     // MARK: - Dependencies
     let gestureHandler = GestureHandler() //
-
+    
     var currentUser = CurrentUser.shared
     let userDefault = UserDefaults.standard
     var should_not_rev = false
@@ -83,22 +83,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         //        if !UserDefaults.standard.bool(forKey: dateString){
         //            loadHome()
         //        }
-//        checkDailyStand { metGoal in
-//            if let metGoal = metGoal {
-//                // Use the 'metGoal' value
-//                print("Did meet goal: \(metGoal)")
-//                // Perform actions based on the result
-//                // Perform actions based on the result
-//                if metGoal {
-//                    self.showDailyGoalAchievedView()
-//                } else {
-//                    // Goal was not met
-//                }
-//            } else {
-//                // Handle error
-//                print("Failed to retrieve goal status.")
-//            }
-//        }
+        
         presentLoadingIcons()
         bindUI()
         
@@ -314,7 +299,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             
             switch result {
             case .success(let json):
-
+                
                 // Directly access the value in `json`
                 if let hasTakenAction = json["has_taken_action"] as? Int {
                     let hasTakenActionBool = hasTakenAction == 1
@@ -498,10 +483,10 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                                    let metGoal = bodyJson["MetGoal"] as? Bool,
                                    let current = Int(currentString),
                                    let goal = Int(goalString) {
-
+                                    
                                     // Return the 'metGoal' value via the completion handler
                                     completion(metGoal)
-
+                                    
                                 } else {
                                     completion(nil)
                                 }
@@ -522,7 +507,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             }
         }
     }
-
+    
     
     private func animatePushStandButtonFadeOut() {
         UIView.animate(withDuration: 0.0, delay: 0.2, animations: {
@@ -562,7 +547,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
                 // Dispatching to the main thread for UI updates
                 DispatchQueue.main.async {
                     self.standStreakLabel.text = Constants.fivePoints
-                    self.showStandBonusView()
                 }
             }
             self.standStreakLabel.alpha = 1.0
@@ -574,7 +558,6 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             }
         }
     }
-    
     
     private func updateProgressBar() {
         let progressAmount = current / goal
@@ -638,9 +621,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     private func updateUIForNewStand() {
         
-        if SessionViewModel.shared.standModel.myTotalStands == 1 {
-            self.showBuildUpPointsView()
-        }
+        showSpecialPopup()
         
         if SessionViewModel.shared.standModel.myStandStreak > Constants.standStreakMin && SessionViewModel.shared.standModel.myStandStreak % Constants.standStreakMax == Constants.streakBarMin {
             segmentedStreakBar.value = Constants.standStreakMax
@@ -651,6 +632,56 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         }
         
     }
+    
+    private func showSpecialPopup() {
+        let today = Time.getPacificCurrentDateFormatted()
+        
+        // Check if the "Build Up Points" pop-up should be shown
+        if SessionViewModel.shared.standModel.myTotalStands == 1,
+           shouldShowPopup(key: "buildUpPointsShown", for: today) {
+            self.showBuildUpPointsView()
+            return
+        }
+        
+        // Check if the daily stand goal is met
+        checkDailyStand { metGoal in
+            if let metGoal = metGoal {
+                if metGoal, self.shouldShowPopup(key: "goalAchievedShown", for: today) {
+                    self.showDailyGoalAchievedView()
+                    return
+                }
+            } else {
+                print("Failed to retrieve goal status.")
+            }
+        }
+        
+        // Check if the "Stand Bonus" pop-up should be shown
+        if SessionViewModel.shared.standModel.myStandStreak > 0,
+           SessionViewModel.shared.standModel.myStandStreak % Constants.standStreakMax == Constants.streakBarMin,
+           shouldShowPopup(key: "standBonusShown", for: today) {
+            self.showStandBonusView()
+            return
+        }
+    }
+
+    // Helper to check if the pop-up should be shown
+    private func shouldShowPopup(key: String, for date: String) -> Bool {
+        let lastShownDate = UserDefaults.standard.string(forKey: key)
+        return lastShownDate != date // Show if the pop-up wasn't shown today
+    }
+
+    // Helper to mark the pop-up as shown
+    private func markPopupAsShown(key: String, for date: String) {
+        UserDefaults.standard.set(date, forKey: key)
+    }
+
+    // Helper to get the current date as a string (YYYY-MM-DD)
+    private func getCurrentDateString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: Date())
+    }
+
     
     @objc private func sendMessage() {
         if MFMessageComposeViewController.canSendText() {
@@ -681,39 +712,36 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     
-    func loadViewIntoContainer<T: DismissableView>(_ viewType: T.Type, xibName: String) {
-        // Load the XIB
+    func loadViewIntoContainer<T: DismissableView>(_ viewType: T.Type, xibName: String, popupKey: String) {
         let view = Bundle.main.loadNibNamed(xibName, owner: self, options: nil)?.first as! T
-        
-        // Define the closure for the dismiss action
+
+        // Mark the pop-up as shown for today
+        let today = getCurrentDateString()
+        markPopupAsShown(key: popupKey, for: today)
+
         view.onDismiss = {
             self.removeViewFromContainer(view)
+            self.showSpecialPopup()
         }
-        
-        // Assign the onShareNow closure if the view has it
+
         if var shareableView = view as? ShareableView {
             shareableView.onShareNow = onShareNow
         }
-        
-        // Add the view to the popUpContainer
+
         popUpContainer.addSubview(view)
-        
-        // Disable autoresizing mask translation so we can use Auto Layout
+
         view.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Set up Auto Layout constraints to center the view in the container
+
         NSLayoutConstraint.activate([
             view.centerXAnchor.constraint(equalTo: popUpContainer.centerXAnchor),
             view.centerYAnchor.constraint(equalTo: popUpContainer.centerYAnchor),
-            
-            // Width and height proportional to the parent container
             view.widthAnchor.constraint(equalTo: popUpContainer.widthAnchor, multiplier: 0.925),
             view.heightAnchor.constraint(equalTo: popUpContainer.heightAnchor, multiplier: 1.0)
         ])
-        
+
         popUpContainer.isUserInteractionEnabled = true
-        
     }
+
     
     func removeViewFromContainer(_ view: UIView) {
         // Remove the XIB view from the parent container
@@ -723,19 +751,15 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     func showStandBonusView() {
-        loadViewIntoContainer(StandBonusView.self, xibName: "StandBonusView")
+        self.loadViewIntoContainer(StandBonusView.self, xibName: "StandBonusView", popupKey: "standBonusShown")
     }
     
     func showDailyGoalAchievedView() {
-        loadViewIntoContainer(DailyGoalAchievedView.self, xibName: "DailyGoalAchievedView")
+        self.loadViewIntoContainer(DailyGoalAchievedView.self, xibName: "DailyGoalAchievedView", popupKey: "goalAchievedShown")
     }
     
     func showBuildUpPointsView() {
-        loadViewIntoContainer(BuildUpPointsView.self, xibName: "BuildUpPointsView")
-    }
-    
-    func showAnswerBonusView() {
-        loadViewIntoContainer(AnswerBonusView.self, xibName: "AnswerBonusView")
+        self.loadViewIntoContainer(BuildUpPointsView.self, xibName: "BuildUpPointsView", popupKey: "buildUpPointsShown")
     }
     
     // MARK: - Data Fetching and UI Update
