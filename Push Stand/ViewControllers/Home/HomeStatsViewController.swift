@@ -716,7 +716,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         let view = Bundle.main.loadNibNamed(xibName, owner: self, options: nil)?.first as! T
 
         // Mark the pop-up as shown for today
-        let today = getCurrentDateString()
+        let today = Time.getPacificCurrentDateFormatted()
         markPopupAsShown(key: popupKey, for: today)
 
         view.onDismiss = {
