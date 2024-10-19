@@ -549,8 +549,8 @@ let's see if you can do it again!</string>
                                             </constraint>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="America's Voice... Amplified" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZV-bS-VjI">
-                                        <rect key="frame" x="88" y="316.5" width="238.5" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading... America's Voice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZV-bS-VjI">
+                                        <rect key="frame" x="94" y="316.5" width="226.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1017,7 +1017,7 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="253"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Sweepstakes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-ut-2Pg">
-                                        <rect key="frame" x="119" y="109.5" width="176" height="34"/>
+                                        <rect key="frame" x="119.50000000000001" y="109.5" width="175" height="34"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1370,6 +1370,9 @@ Stands</string>
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="tap-refresh-2" translatesAutoresizingMaskIntoConstraints="NO" id="8ln-GN-Tkz">
+                                                <rect key="frame" x="42.5" y="42.5" width="159" height="159"/>
+                                            </imageView>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="tId-zi-OB9">
                                                 <rect key="frame" x="42.5" y="97" width="159" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1383,10 +1386,14 @@ Stands</string>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ov3-1B-ftm" secondAttribute="height" multiplier="1:1" id="0BC-TR-E6c"/>
+                                            <constraint firstItem="8ln-GN-Tkz" firstAttribute="centerX" secondItem="ov3-1B-ftm" secondAttribute="centerX" id="AXy-5W-qZ4"/>
                                             <constraint firstItem="tId-zi-OB9" firstAttribute="width" secondItem="FRt-ke-DPV" secondAttribute="width" id="GiR-Uc-lpw"/>
+                                            <constraint firstItem="8ln-GN-Tkz" firstAttribute="centerY" secondItem="ov3-1B-ftm" secondAttribute="centerY" id="Rgg-dQ-6dm"/>
                                             <constraint firstItem="eQv-5a-w5h" firstAttribute="width" secondItem="ov3-1B-ftm" secondAttribute="width" multiplier="0.65" id="VE3-UK-QKJ"/>
                                             <constraint firstItem="eQv-5a-w5h" firstAttribute="centerX" secondItem="ov3-1B-ftm" secondAttribute="centerX" id="WrV-Sz-s8U"/>
                                             <constraint firstItem="tId-zi-OB9" firstAttribute="centerX" secondItem="ov3-1B-ftm" secondAttribute="centerX" id="ciZ-Y9-kpX"/>
+                                            <constraint firstItem="8ln-GN-Tkz" firstAttribute="height" secondItem="ov3-1B-ftm" secondAttribute="height" multiplier="0.65" id="gKO-vd-m9t"/>
+                                            <constraint firstItem="8ln-GN-Tkz" firstAttribute="width" secondItem="ov3-1B-ftm" secondAttribute="width" multiplier="0.65" id="m3u-6h-de5"/>
                                             <constraint firstItem="eQv-5a-w5h" firstAttribute="centerY" secondItem="ov3-1B-ftm" secondAttribute="centerY" id="vnI-8O-pSn"/>
                                             <constraint firstItem="cLf-Z0-Q1m" firstAttribute="top" secondItem="tId-zi-OB9" secondAttribute="bottom" id="zy1-yq-3hD"/>
                                         </constraints>
@@ -2669,7 +2676,7 @@ Stands</string>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Join Now"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Join Now" cornerStyle="dynamic">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" systemColor="tableCellBlueTextColor"/>
                                 </buttonConfiguration>
@@ -2701,7 +2708,7 @@ Stands</string>
                                 <rect key="frame" x="50" y="797" width="314" height="40"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Learn More">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -2713,7 +2720,7 @@ Stands</string>
                                 <color key="tintColor" systemColor="tableCellBlueTextColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log In">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.48606632266604155" green="0.49134010658286448" blue="0.50716145833333326" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
@@ -2787,7 +2794,7 @@ Stands</string>
                                 <color key="tintColor" red="0.25190125373181854" green="0.76942896842956543" blue="0.55306429305408356" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign in with phone #">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.35294118520000001" green="0.76862752440000004" blue="0.55294120309999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
@@ -2977,7 +2984,7 @@ Stands</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEP 2 of 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="6GF-aZ-4ur">
-                                <rect key="frame" x="126" y="108" width="162" height="35"/>
+                                <rect key="frame" x="125.5" y="108" width="163" height="35"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -3092,7 +3099,7 @@ Stands</string>
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am at least 18 years of age." textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2r-lT-RVa">
-                                <rect key="frame" x="50" y="418.5" width="314" height="20"/>
+                                <rect key="frame" x="50" y="418.5" width="314" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -3110,10 +3117,10 @@ Stands</string>
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryU-Jf-v3D">
-                                <rect key="frame" x="0.0" y="489.5" width="414" height="406.5"/>
+                                <rect key="frame" x="0.0" y="490" width="414" height="406"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qH0-CE-lt9">
-                                        <rect key="frame" x="164.5" y="178.5" width="85" height="50"/>
+                                        <rect key="frame" x="164.5" y="178" width="85" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="ych-v9-wME"/>
                                         </constraints>
@@ -3136,7 +3143,7 @@ Stands</string>
                                 </constraints>
                             </view>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dsO-Kk-mba">
-                                <rect key="frame" x="182.5" y="458.5" width="51" height="31"/>
+                                <rect key="frame" x="182.5" y="459" width="51" height="31"/>
                                 <color key="onTintColor" systemColor="systemGreenColor"/>
                             </switch>
                         </subviews>
@@ -3290,7 +3297,7 @@ Stands</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEP 2 of 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="bgs-1h-Nvj">
-                                <rect key="frame" x="126" y="117" width="162" height="35"/>
+                                <rect key="frame" x="125.5" y="117" width="163" height="35"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -3386,7 +3393,7 @@ Stands</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="c1F-Ai-BbO">
-                                <rect key="frame" x="134" y="117" width="146" height="35"/>
+                                <rect key="frame" x="134.5" y="117" width="145" height="35"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -3425,7 +3432,7 @@ Stands</string>
                                 <color key="tintColor" systemColor="tintColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" systemColor="tintColor"/>
                                 </buttonConfiguration>
@@ -3508,9 +3515,9 @@ Stands</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNH-uw-ZyJ" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="959.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="959"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uniting Americans one" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXs-Dn-oW8">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uniting Americans one" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXs-Dn-oW8">
                                                 <rect key="frame" x="96.5" y="50" width="221" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3519,8 +3526,8 @@ Stands</string>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="26"/>
                                                 </variation>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STAND at a time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbe-dj-eGC">
-                                                <rect key="frame" x="129" y="76" width="156" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STAND at a time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbe-dj-eGC">
+                                                <rect key="frame" x="129" y="76" width="156.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -3538,7 +3545,7 @@ Stands</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push Stand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTH-wa-IjM">
-                                                <rect key="frame" x="40" y="362.5" width="96" height="22"/>
+                                                <rect key="frame" x="40" y="362.5" width="96" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <color key="textColor" systemColor="tintColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3547,7 +3554,7 @@ Stands</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8f-nn-cPo">
-                                                <rect key="frame" x="40" y="679" width="128" height="21.5"/>
+                                                <rect key="frame" x="40" y="678.5" width="128" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <color key="textColor" systemColor="tintColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3570,7 +3577,7 @@ Our hope, with this visibility, is to ignite a spark to an unstoppable movement.
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our app is designed to be used by you, not the other way around." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBn-In-trI">
-                                                <rect key="frame" x="40" y="394.5" width="334" height="38.5"/>
+                                                <rect key="frame" x="40" y="394" width="334" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -3579,7 +3586,7 @@ Our hope, with this visibility, is to ignite a spark to an unstoppable movement.
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q28-lQ-twk">
-                                                <rect key="frame" x="60" y="448" width="294" height="95.5"/>
+                                                <rect key="frame" x="60" y="447.5" width="294" height="95.5"/>
                                                 <string key="text">No endless scrolling
 
 No clickbaits 
@@ -3593,7 +3600,7 @@ No maximizing user retention</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dC-3M-i4n">
-                                                <rect key="frame" x="40" y="710.5" width="334" height="95.5"/>
+                                                <rect key="frame" x="40" y="710" width="334" height="95.5"/>
                                                 <string key="text">Your trust matters.  At Push Stand, we prioritize your privacy and are committed to earning and keeping your trust every single day.  With this being said, here is a very clear promise from us to you.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3603,7 +3610,7 @@ No maximizing user retention</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuV-lf-xx5">
-                                                <rect key="frame" x="40" y="558.5" width="334" height="95.5"/>
+                                                <rect key="frame" x="40" y="558" width="334" height="95.5"/>
                                                 <string key="text">Standing for your country on Push Stand takes less time than reciting the Pledge of Allegiance.
 
 Will you STAND with us?</string>
@@ -3615,7 +3622,7 @@ Will you STAND with us?</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We will NEVER sell/share your contact information." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJP-uV-SOf">
-                                                <rect key="frame" x="60" y="821" width="294" height="38.5"/>
+                                                <rect key="frame" x="60" y="820.5" width="294" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -3624,7 +3631,7 @@ Will you STAND with us?</string>
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We understand that contact information is very lucrative to sell.  But it goes against everything we believe in." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtI-UQ-LGJ">
-                                                <rect key="frame" x="40" y="869.5" width="334" height="60"/>
+                                                <rect key="frame" x="40" y="869" width="334" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -3779,7 +3786,7 @@ Will you STAND with us?</string>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Refresh">
-                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
@@ -3909,6 +3916,7 @@ Will you STAND with us?</string>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <image name="stand-btn" width="170.5" height="170.5"/>
         <image name="sweep-1" width="2048" height="2048"/>
+        <image name="tap-refresh-2" width="1080" height="1080"/>
         <image name="ticket" catalog="system" width="128" height="86"/>
         <image name="ticket.fill" catalog="system" width="128" height="86"/>
         <image name="xmark" catalog="system" width="128" height="113"/>

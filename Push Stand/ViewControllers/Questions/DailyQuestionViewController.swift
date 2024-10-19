@@ -409,8 +409,8 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
             Join me on the app that is amplifying the voices of Standing Americans!
             
             Follow us!
-            Insta: pushstand_now
-            X: @pushstand_now
+            Insta: pushstand_app
+            X: @pushstand_app
             
             https://apps.apple.com/app/6469620853
             """

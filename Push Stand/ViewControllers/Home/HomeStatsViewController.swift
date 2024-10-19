@@ -686,7 +686,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @objc private func sendMessage() {
         if MFMessageComposeViewController.canSendText() {
             let messageVC = MFMessageComposeViewController()
-            messageVC.body = "Join me on the app that is uniting Americans one STAND at a time! \n\n Follow us! \n Insta: pushstand_now \n X: @pushstand_now \n\n https://apps.apple.com/app/6469620853"
+            messageVC.body = "Join me on the app that is uniting Americans one STAND at a time! \n\n Follow us! \n Insta: pushstand_app \n X: @pushstand_app \n\n https://apps.apple.com/app/6469620853"
             messageVC.recipients = []
             messageVC.messageComposeDelegate = self
             present(messageVC, animated: true, completion: nil)
@@ -700,7 +700,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     func onShareNow() {
         if MFMessageComposeViewController.canSendText() {
             let messageVC = MFMessageComposeViewController()
-            messageVC.body = "Join the \(Int(SessionViewModel.shared.standModel.yesterdaysStanding)) Americans that stood yesterday! \n\n Follow us! \n Insta: pushstand_now \n X: @pushstand_now \n\n https://apps.apple.com/app/6469620853"
+            messageVC.body = "Join the \(Int(SessionViewModel.shared.standModel.yesterdaysStanding)) Americans that stood yesterday! \n\n Follow us! \n Insta: pushstand_app \n X: @pushstand_app \n\n https://apps.apple.com/app/6469620853"
             messageVC.messageComposeDelegate = self
             present(messageVC, animated: true, completion: nil)
         } else {

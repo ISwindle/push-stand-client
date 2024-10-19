@@ -69,7 +69,7 @@ let's see if you can do it again!</string>
                                 <rect key="frame" x="0.0" y="298.5" width="393" height="398.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zf1-Oo-h18">
-                                        <rect key="frame" x="109" y="179.5" width="175" height="40"/>
+                                        <rect key="frame" x="109" y="179" width="175" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="FNb-ai-eZa"/>
                                             <constraint firstAttribute="height" constant="40" id="ulW-PH-sgS"/>
@@ -129,7 +129,7 @@ let's see if you can do it again!</string>
     <resources>
         <image name="Red-Star" width="512" height="469"/>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
