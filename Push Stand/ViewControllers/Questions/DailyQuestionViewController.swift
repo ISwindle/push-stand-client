@@ -193,7 +193,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
                         self.yesterdayQuestionLabel.text = "No Question Available"
                     }
                 case .failure(let error):
-                    self.yesterdayQuestionLabel.text = "No Question Results Available"
+                    self.yesterdayQuestionLabel.text = "Loading... Yesterday's Results"
                     print("Error: \(error.localizedDescription)")
                 }
             }

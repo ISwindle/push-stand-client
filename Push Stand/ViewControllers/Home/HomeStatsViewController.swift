@@ -240,7 +240,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             .store(in: &cancellables)
         
         SessionViewModel.shared.standModel.$myPoints
-            .map { "\($0) Points" }
+            .map { "\($0) Stripes" }
             .assign(to: \.text, on: myPointsLabel)
             .store(in: &cancellables)
     }
@@ -299,8 +299,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     private func configureYesterdayLabel() {
         yesterdayLabel.layer.cornerRadius = 16
         yesterdayLabel.layer.masksToBounds = true
-        yesterdayLabel.layer.borderColor = UIColor.darkGray.cgColor
-        yesterdayLabel.layer.borderWidth = 1.0
+        yesterdayLabel.layer.borderColor = UIColor.white.cgColor
+        yesterdayLabel.layer.borderWidth = 0.5
     }
     
     // MARK: - Helper Methods
