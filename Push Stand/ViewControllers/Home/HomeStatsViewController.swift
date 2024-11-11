@@ -52,6 +52,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     @IBOutlet weak var popUpContainer: UIView!
     
     @IBOutlet weak var pushStandTimer: UILabel!
+    @IBOutlet weak var tapRefreshImage: UIImageView!
     var standBonusView: StandBonusView? // Reference to the loaded XIB view
     var dailyGoalAchievedView: DailyGoalAchievedView?
     var buildsUpPointView: BuildUpPointsView?
@@ -79,6 +80,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         configureViewComponents()
         pushStandTimer.text = defaultTitleLabel
         setupGestures()
+        tapRefreshImage.alpha = 0.0
         //let dateString = Time.getDateFormatted()
         //        if !UserDefaults.standard.bool(forKey: dateString){
         //            loadHome()
@@ -123,7 +125,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        standStreakLabel.alpha = 0.0
         // Animate transition after 2 seconds with a fade effect
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.fadeOutLabel {
@@ -131,6 +133,25 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
             }
         }
     }
+    
+    func showTapRefreshImageOnce() {
+            let hasShownImage = UserDefaults.standard.bool(forKey: "hasShownTapRefreshImage")
+            if !hasShownImage {
+                // Delay execution by 2 seconds
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    self.fadeInTapRefreshImage()
+                }
+            }
+        }
+    
+    func fadeInTapRefreshImage() {
+            UIView.animate(withDuration: 1.0, animations: {
+                self.tapRefreshImage.alpha = 1.0
+            }) { _ in
+                // Add tap gesture recognizer after fade-in completes
+
+            }
+        }
     
     func setupDailyTimer() {
         // Update the UI every second
@@ -159,6 +180,7 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         countdownTimer?.invalidate()
         countdownTimer = nil
         pushStandTimer.text = defaultTitleLabel
+        showTapRefreshImageOnce()
     }
     
     @objc func standProgressBarTapped() {
@@ -166,6 +188,8 @@ class HomeStatsViewController: UIViewController, MFMessageComposeViewControllerD
         standProgressBar.animateQuickColorChange()
         should_not_rev = false
         fetchHomeStats()
+        UserDefaults.standard.set(true, forKey: "hasShownTapRefreshImage")
+        self.tapRefreshImage.alpha = 0.0
         
         //Timed delay where user interaction is NOT enabled
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {

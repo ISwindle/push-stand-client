@@ -8,6 +8,8 @@ class SignUpReminderViewController: UIViewController {
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var nextButton: UIButton!
     
+    private let notificationsDeniedKey = "notificationsDenied"
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     // Activity Indicator (Spinner)
@@ -21,6 +23,8 @@ class SignUpReminderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        // Set up notification handling and Firebase Messaging
+        setupNotifications()
     }
     
     private func configureUI() {
@@ -154,5 +158,48 @@ class SignUpReminderViewController: UIViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
         present(alertController, animated: true)
+    }
+    
+    private func setupNotifications() {
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        // Check if the user has already been asked and denied twice
+        let hasDeniedBefore = UserDefaults.standard.bool(forKey: notificationsDeniedKey)
+        
+        if !hasDeniedBefore {
+            // Request authorization for notifications
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            notificationCenter.requestAuthorization(options: authOptions) { granted, error in
+                DispatchQueue.main.async {
+                    if granted {
+                        // User granted notifications
+                        UIApplication.shared.registerForRemoteNotifications()
+                    } else {
+                        // User denied notifications
+                        self.handleNotificationDenied()
+                    }
+                }
+            }
+            
+            // Register for remote notifications
+            UIApplication.shared.registerForRemoteNotifications()
+        } else {
+            print("User denied notifications twice, won't ask again.")
+        }
+    }
+    
+    private func handleNotificationDenied() {
+        // Check if it's the second time denial happens
+        let hasDeniedBefore = UserDefaults.standard.bool(forKey: notificationsDeniedKey)
+        
+        if hasDeniedBefore {
+            // User has denied twice, so don't show alert again
+            return
+        } else {
+            // First denial, show alert and set flag to true
+            Alerts.showNotificationsDeniedAlert()
+            UserDefaults.standard.set(true, forKey: notificationsDeniedKey)
+        }
     }
 }
