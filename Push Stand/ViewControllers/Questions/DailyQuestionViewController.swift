@@ -406,7 +406,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
             // Create the message compose view controller
             let messageVC = MFMessageComposeViewController()
             messageVC.body = """
-            Join me on the app that is amplifying the voices of Standing Americans!
+            How would you have voted yesterday? Download now on the app store.
             
             Follow us!
             Insta: pushstand_app
