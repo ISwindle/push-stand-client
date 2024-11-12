@@ -18,7 +18,7 @@ class Constants {
     static let whiteStarImg = "White-Star"
     static let blueStarImg = "Blue-Star"
     static let redStarImg = "Red-Star"
-    static let fivePoints = "5 Points"
+    static let fivePoints = "+5 Stripes"
     static let zeroAlpha = CGFloat(0)
     static let fullAlpha = CGFloat(1)
     static let mainStoryboard = "Main"

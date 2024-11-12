@@ -193,7 +193,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
                         self.yesterdayQuestionLabel.text = "No Question Available"
                     }
                 case .failure(let error):
-                    self.yesterdayQuestionLabel.text = "Loading... Yesterday's Results"
+                    self.yesterdayQuestionLabel.text = "No Question Results Available"
                     print("Error: \(error.localizedDescription)")
                 }
             }
@@ -309,7 +309,7 @@ class DailyQuestionViewController: UIViewController, MFMessageComposeViewControl
         UIView.animate(withDuration: 1.0) {
             //self.streakSegmentedBar.value = SessionViewModel.shared.standModel.myAnswerStreak % Constants.questionStreakMax
             if SessionViewModel.shared.standModel.myAnswerStreak > 0 && SessionViewModel.shared.standModel.myAnswerStreak % Constants.questionStreakMax == 0 {
-                self.streakPointLabel.text = "10 Points"
+                self.streakPointLabel.text = "+10 Stripes"
                 self.bonusAnswerView.isHidden = false // Show the bonus answer view
             }
             self.streakPointLabel.alpha = 1.0
