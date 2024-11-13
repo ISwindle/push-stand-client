@@ -154,24 +154,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7JX-Mg-abi" userLabel="2 Points Popup Transition">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+2 Stripes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ws-7v-mrs">
-                                        <rect key="frame" x="164" y="5" width="86.5" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                        </variation>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="6Ws-7v-mrs" firstAttribute="centerX" secondItem="7JX-Mg-abi" secondAttribute="centerX" id="c6A-fv-6fp"/>
-                                </constraints>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+2 Stripes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ws-7v-mrs">
+                                <rect key="frame" x="164" y="95" width="86" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                                </variation>
+                            </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xP8-dz-DLW" userLabel="Submit After Selection">
                                 <rect key="frame" x="0.0" y="688" width="414" height="125"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -592,29 +583,26 @@ let's see if you can do it again!</string>
                             <constraint firstItem="xP8-dz-DLW" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="4y4-cI-6Hk"/>
                             <constraint firstItem="ged-Bd-nPf" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="AKv-cG-5Ub"/>
                             <constraint firstItem="GUd-Wy-Mru" firstAttribute="top" secondItem="5ua-2j-fAs" secondAttribute="bottom" constant="30" id="GLQ-Is-tu8"/>
-                            <constraint firstItem="7JX-Mg-abi" firstAttribute="top" secondItem="ged-Bd-nPf" secondAttribute="bottom" id="GSq-DO-aVw"/>
                             <constraint firstItem="nca-s3-GmW" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="HVZ-pK-fuq"/>
                             <constraint firstItem="5ua-2j-fAs" firstAttribute="centerX" secondItem="PIY-nt-eya" secondAttribute="centerX" id="Mzg-Ft-65d"/>
                             <constraint firstItem="ged-Bd-nPf" firstAttribute="centerX" secondItem="PIY-nt-eya" secondAttribute="centerX" id="NDW-kJ-iNz"/>
                             <constraint firstItem="BwL-86-JUO" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="O3m-ov-WCk"/>
+                            <constraint firstItem="GUd-Wy-Mru" firstAttribute="top" secondItem="6Ws-7v-mrs" secondAttribute="bottom" constant="3.5" id="Qsx-cX-d8s"/>
                             <constraint firstItem="Oop-dg-hza" firstAttribute="top" secondItem="wX5-cT-NA4" secondAttribute="bottom" id="R8Y-hc-tEr"/>
-                            <constraint firstItem="GUd-Wy-Mru" firstAttribute="top" secondItem="6Ws-7v-mrs" secondAttribute="bottom" constant="3.5" id="RFF-TB-wYg"/>
                             <constraint firstItem="GUd-Wy-Mru" firstAttribute="top" secondItem="ged-Bd-nPf" secondAttribute="bottom" constant="30" id="RNK-bp-4fK">
                                 <variation key="heightClass=regular-widthClass=regular" constant="60"/>
                             </constraint>
-                            <constraint firstItem="7JX-Mg-abi" firstAttribute="bottom" secondItem="Sy1-da-Psm" secondAttribute="bottom" id="SZ0-S5-8Fc"/>
                             <constraint firstItem="wX5-cT-NA4" firstAttribute="centerY" secondItem="GUd-Wy-Mru" secondAttribute="centerY" constant="-2" id="UG4-5i-0e5"/>
                             <constraint firstItem="Oop-dg-hza" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="VAz-mx-QWQ"/>
                             <constraint firstItem="ged-Bd-nPf" firstAttribute="top" secondItem="Sy1-da-Psm" secondAttribute="top" constant="10" id="X2W-iO-OzX">
                                 <variation key="heightClass=regular-widthClass=regular" constant="25"/>
                             </constraint>
                             <constraint firstItem="GUd-Wy-Mru" firstAttribute="centerX" secondItem="PIY-nt-eya" secondAttribute="centerX" id="X8r-gd-OhT"/>
+                            <constraint firstItem="6Ws-7v-mrs" firstAttribute="centerX" secondItem="PIY-nt-eya" secondAttribute="centerX" id="ZDe-Bg-xjk"/>
                             <constraint firstItem="Sy1-da-Psm" firstAttribute="bottom" secondItem="BwL-86-JUO" secondAttribute="bottom" id="ZI0-Oe-AzO"/>
                             <constraint firstItem="5ua-2j-fAs" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="Zeb-vO-jhc"/>
                             <constraint firstItem="Sy1-da-Psm" firstAttribute="bottom" secondItem="wKn-5I-JNK" secondAttribute="bottom" id="agW-A6-ypo"/>
-                            <constraint firstItem="7JX-Mg-abi" firstAttribute="trailing" secondItem="Sy1-da-Psm" secondAttribute="trailing" id="fv0-nx-yzj"/>
                             <constraint firstItem="xP8-dz-DLW" firstAttribute="trailing" secondItem="Sy1-da-Psm" secondAttribute="trailing" id="fvU-HA-ahm"/>
-                            <constraint firstItem="7JX-Mg-abi" firstAttribute="leading" secondItem="Sy1-da-Psm" secondAttribute="leading" id="hKK-Nq-DAG"/>
                             <constraint firstItem="wKn-5I-JNK" firstAttribute="top" secondItem="GUd-Wy-Mru" secondAttribute="bottom" constant="20" id="iBD-rm-rTv"/>
                             <constraint firstItem="Sy1-da-Psm" firstAttribute="trailing" secondItem="nca-s3-GmW" secondAttribute="trailing" id="l8w-HA-wNy"/>
                             <constraint firstItem="Sy1-da-Psm" firstAttribute="trailing" secondItem="wKn-5I-JNK" secondAttribute="trailing" id="mLu-Qr-AYl"/>
@@ -1345,12 +1333,12 @@ Stands</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1 Stripe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwt-gq-ghg">
-                                <rect key="frame" x="169.5" y="174" width="75" height="21.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <rect key="frame" x="170" y="176" width="74.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wlz-PA-Rkk" userLabel="Circular View">
